@@ -1,0 +1,23 @@
+@import "open-props/normalize.min.css";
+
+body {
+  padding-block-start: var(--size-fluid-2);
+  overflow-x: hidden;
+  display: grid;
+  justify-items: flex-start;
+}
+
+.hero {
+  display: grid;
+  gap: var(--size-5);
+  padding: var(--size-10);
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+
+  & h1 {
+    background: var(--gradient-1) 200%;
+    background-size: 24ch 4ch;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
