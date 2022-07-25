@@ -1,23 +1,28 @@
+@import "open-props";
 @import "open-props/normalize.min.css";
+
+:root {
+  --brand-color-light: #d7f1f8;
+  --brand-color-medium: #b8e6f3;
+  --brand-color-dark: #1eccea;
+  --brand-color-border: #2c4455;
+  --brand-color-border-2: #385470;
+  --brand-gradient: linear-gradient(to bottom right, var(--brand-color-dark), var(--brand-color-border-2));
+}
+
+@media (--OSdark) {
+  :root {
+    --brand-gradient: linear-gradient(to bottom right, var(--brand-color-light), var(--brand-color-medium), var(--brand-color-dark));
+  }
+}
+
+:where(h2, h3, h4, h5, h6) {
+  font-weight: var(--font-weight-5);
+}
 
 body {
   padding-block-start: var(--size-fluid-2);
   overflow-x: hidden;
   display: grid;
-  justify-items: flex-start;
 }
 
-.hero {
-  display: grid;
-  gap: var(--size-5);
-  padding: var(--size-10);
-  grid-template-columns: 1fr 1fr;
-  width: 100%;
-
-  & h1 {
-    background: var(--gradient-1) 200%;
-    background-size: 24ch 4ch;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-}

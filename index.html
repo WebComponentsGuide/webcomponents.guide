@@ -6,8 +6,41 @@
     <link rel="stylesheet" href="/index.css">
   </head>
   <body>
-    <header class="hero">
-        <h1>Web Components</h1>
-    </header>
+    <hero-header>
+      <template shadowroot="open">
+        <style>
+          :host {
+            padding: var(--size-6);
+            width: 100%;
+            display: grid;
+            place-content: start center;
+            text-align: center;
+          }
+          ::slotted([slot=title]) {
+            background: var(--brand-gradient) 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+          }
+          ::slotted([slot=subtitle]) {
+            font-weight: var(--font-weight-4);
+          }
+        </style>
+        <slot name="title"></slot>
+        <slot name="subtitle"></slot>
+      </template>
+      <h1 slot="title">Web Components</h1>
+      <h2 slot="subtitle">The native way to build powerful user interfaces</h2>
+    </hero-header>
+    <script>
+      (function attachShadowRoots(root) {
+        root.querySelectorAll("template[shadowroot]").forEach(template => {
+          const mode = template.getAttribute("shadowroot");
+          const shadowRoot = template.parentNode.attachShadow({ mode });
+          shadowRoot.appendChild(template.content);
+          template.remove();
+          attachShadowRoots(shadowRoot);
+        });
+      })(document);
+    </script>
   </body>
 </html>
