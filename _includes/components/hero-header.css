@@ -1,0 +1,15 @@
+:host {
+  padding: var(--size-6);
+  width: 100%;
+  display: grid;
+  place-content: start center;
+  text-align: center;
+}
+::slotted([slot=title]) {
+  background: var(--brand-gradient) 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+::slotted([slot=subtitle]) {
+  font-weight: var(--font-weight-4);
+}
