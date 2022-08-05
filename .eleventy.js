@@ -9,7 +9,6 @@ cssCompile.loaded = false
 module.exports = eleventyConfig => {
   eleventyConfig.addPlugin(css)
 
-
   const shadows = new Map()
   const styles = new Map()
   eleventyConfig.addExtension("html", {
