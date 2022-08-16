@@ -5,6 +5,8 @@
   grid-row-gap: var(--size-3);
   place-content: start center;
   text-align: center;
+  background: linear-gradient(to bottom right, transparent, var(--surface-1)), url("./images/bkg.svg") repeat;
+  padding-block-end: var(--size-11);
 }
 :host::part(cta-buttons) {
   display: grid;
@@ -16,10 +18,13 @@
   -webkit-text-fill-color: transparent;
 }
 ::slotted([slot=subtitle]) {
+  color: white;
   font-weight: var(--font-weight-4);
 }
 ::slotted(a[slot=cta]) {
   background: var(--brand-gradient) 200%;
   color: white;
   grid-row-start: 3;
+  border-radius: var(--radius-2);
+  padding-block: var(--size-3);
 }

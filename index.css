@@ -15,11 +15,12 @@
 }
 
 body {
-  padding-block-start: var(--size-fluid-2);
   overflow-x: hidden;
   display: grid;
 }
 
 /** TODO Hacks **/
-hero-header [slot=cta] { color: var(--gray-9); }
+hero-header { background: linear-gradient(to bottom, transparent 75%, var(--surface-1)), url("./images/bkg.svg") repeat }
+hero-header [slot=subtitle] { color: var(--gray-0) }
+hero-header [slot=cta] { color: var(--gray-9) }
 
