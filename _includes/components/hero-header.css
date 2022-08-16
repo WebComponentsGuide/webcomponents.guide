@@ -16,6 +16,11 @@
   display: grid;
   justify-content: center;
 }
+::slotted([slot=logo]) {
+  background: var(--brand-color-border);
+  border-radius: 100%;
+  padding: 20px;
+}
 ::slotted([slot=title]) {
   background: var(--brand-gradient) 200%;
   -webkit-background-clip: text;
