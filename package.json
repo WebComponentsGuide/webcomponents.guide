@@ -5,7 +5,7 @@
     "build": "eleventy"
   },
   "devDependencies": {
-    "@11ty/eleventy": "1.0.1",
+    "@11ty/eleventy": "1.0.2",
     "autoprefixer": "10.4.8",
     "cheerio": "1.0.0-rc.12",
     "cssnano": "5.1.13",
