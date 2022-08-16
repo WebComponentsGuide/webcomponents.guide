@@ -4,4 +4,6 @@ module.exports = eleventyConfig => {
   eleventyConfig.addPlugin(css)
   eleventyConfig.addPlugin(hydrateShadowDOM)
   eleventyConfig.addPassthroughCopy('images')
+  eleventyConfig.addPassthroughCopy('browserconfig.xml')
+  eleventyConfig.addPassthroughCopy('site.webmanifest')
 }
