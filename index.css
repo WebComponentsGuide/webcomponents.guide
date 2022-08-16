@@ -26,3 +26,6 @@ body {
   display: grid;
 }
 
+/** TODO Hacks **/
+hero-header [slot=cta] { color: var(--gray-9); }
+
