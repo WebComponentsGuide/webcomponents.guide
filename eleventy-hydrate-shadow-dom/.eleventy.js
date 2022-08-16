@@ -44,8 +44,6 @@ module.exports = eleventyConfig => {
         $(el).prepend(`<template shadowroot="open"><style>${style}</style>${shadow}</template>`)
       }
     }
-    shadows.clear()
-    styles.clear()
     return $.root().html()
   })
 }
