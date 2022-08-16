@@ -10,7 +10,7 @@
     "cheerio": "1.0.0-rc.12",
     "cssnano": "5.1.13",
     "eleventy-postcss-extension": "1.0.0",
-    "open-props": "1.4.12",
+    "open-props": "1.4.13",
     "postcss": "8.4.16",
     "postcss-combine-duplicated-selectors": "10.0.3",
     "postcss-import": "14.1.0",
