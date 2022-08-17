@@ -1,5 +1,5 @@
 :host {
-  padding: var(--size-6);
+  padding: var(--size-6) var(--size-2);
   width: 100%;
   display: grid;
   grid-row-gap: var(--size-3);
@@ -20,15 +20,19 @@
   background: var(--brand-color-border);
   border-radius: 100%;
   padding: 20px;
+  width: var(--size-fluid-7);
+  height: var(--size-fluid-7);
 }
 ::slotted([slot=title]) {
   background: var(--brand-gradient) 200%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  font-size: var(--font-size-fluid-3) !important;
 }
 ::slotted([slot=subtitle]) {
   color: white;
   font-weight: var(--font-weight-4);
+  font-size: var(--font-size-fluid-2) !important;
 }
 ::slotted([slot=cta]) {
   background: var(--brand-gradient) 200%;
