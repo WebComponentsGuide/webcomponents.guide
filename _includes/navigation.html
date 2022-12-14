@@ -1,0 +1,26 @@
+<nav class="sidebar-nav">
+  <div slot="global-nav">
+    {% include 'global-navigation.html' %}
+    {% include 'global-search.html' %}
+  </div>
+  <nav>
+  {%- for group in groups %}
+    <details open>
+      <summary>
+        <svg class="icon marker"><use xlink:href="/images/icons.svg#arrow-down-right"></use></svg>
+        {{group}}
+      </summary>
+        <ol>
+      {%- for page in collections[group] %}
+        {%- unless page.data.draft %}
+          <li>
+            <a href="{{ page.url }}">{{ page.data.title }}</a>
+          </li>
+        {%- endunless %}
+      {%- else %}
+        Collection empty
+      {%- endfor %}
+        </ol>
+    </details>
+  {%- endfor %}
+</nav>

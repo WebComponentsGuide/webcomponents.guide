@@ -1,0 +1,53 @@
+<style webc:scoped>
+:host {
+  padding: var(--size-6);
+  width: 100%;
+  display: grid;
+  grid-row-gap: var(--size-3);
+  place-content: start center;
+  text-align: center;
+  justify-content: center;
+  padding-block-end: var(--size-11);
+  background: linear-gradient(to bottom, transparent 75%, var(--surface-1)), url("./images/bkg.svg") repeat;
+  background-size: 90px
+}
+:host [part="cta-buttons"] {
+  display: grid;
+  grid-column-gap: var(--size-6);
+  margin-top: var(--size-4);
+}
+:host [part="logo"] {
+  display: grid;
+  justify-content: center;
+}
+::slotted([slot=logo]) {
+  background: var(--brand-color-border);
+  border-radius: 100%;
+  padding: 20px;
+}
+::slotted([slot=title]) {
+  background: var(--brand-gradient) 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+::slotted([slot=subtitle]) {
+  color: white;
+  font-weight: var(--font-weight-4);
+}
+::slotted([slot=cta]) {
+  background: var(--brand-gradient) 200%;
+  grid-row-start: 3;
+  border-radius: var(--radius-2);
+  padding-block: var(--size-3);
+}
+hero-header [slot=subtitle] { color: var(--gray-0) }
+hero-header [slot=cta] { color: var(--gray-9) }
+</style>
+<div part="logo">
+  <slot name="logo"></slot>
+</div>
+<slot webc:keep name="title"></slot>
+<slot name="subtitle"></slot>
+<div part="cta-buttons">
+  <slot name="cta"></slot>
+</div>

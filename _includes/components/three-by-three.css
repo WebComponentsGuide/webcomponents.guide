@@ -1,0 +1,6 @@
+:host {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 300px);
+  grid-column-gap: var(--size-3);
+  justify-content: center;
+}
