@@ -1,0 +1,40 @@
+---
+layout: main.html
+css: [learn.css]
+---
+
+<ol class="breadcrumbs">
+  <li>
+    <a href="../">{{ group }}</a>
+    <svg width="24" height="24" class="icon"><use xlink:href="{{ site.baseurl }}/images/icons.svg#arrow-right"></use></svg>
+  </li>
+  <li>
+    <a href="{{ page.url }}">{{ title }}</a>
+  </li>
+</ol>
+
+<h1>{{ title }}</h1>
+
+<section class="content">{{ content }}</section>
+
+<hr/>
+{% if collections[group] %}
+<nav class="pagination" aria-label="Pagination">
+{% assign previousPost = collections[group] | getPreviousCollectionItem: page %}
+{% assign nextPost = collections[group] | getNextCollectionItem: page %}
+{% if previousPost %}
+  <a slot="prev" href="{{ previousPost.url }}">
+    <span>Previous</span>
+    <svg width="24" height="24" class="icon"><use xlink:href="{{ site.baseurl }}/images/icons.svg#arrow-left-circle"></use></svg>
+    {{ previousPost.data.title }}
+  </a>
+{% endif %}
+{% if nextPost %}
+  <a slot="next" href="{{ nextPost.url }}">
+    <span>Next</span>
+    {{ nextPost.data.title }}
+    <svg width="24" height="24" class="icon"><use xlink:href="{{ site.baseurl }}/images/icons.svg#arrow-right-circle"></use></svg>
+  </a>
+{% endif %}
+</nav>
+{% endif %}

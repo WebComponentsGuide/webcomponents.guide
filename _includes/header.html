@@ -1,0 +1,10 @@
+<header class="page-head" aria-label="Header">
+  <a slot="logo" href="{{ site.baseurl }}/">
+    <img alt="Web Components Guide" width="24" height="24" src="/images/logo.svg" />
+  </a>
+  {% include 'global-search.html' %}
+  <button slot="opener" popovertoggletarget="sidebar-nav">
+    <svg width="24" height="24" class="icon"><use xlink:href="/images/icons.svg#menu"></use></svg>
+  </button>
+  {% include 'global-navigation.html' %}
+</header>

@@ -26,13 +26,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16.x
-          cache: 'npm'
+          cache: "npm"
       - run: npm ci
       - run: npm run build --if-present
       - name: Upload artifact
         uses: paper-spa/upload-pages-artifact@v0
         with:
-          path: '_site/'
+          path: "_site/"
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@main

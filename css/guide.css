@@ -1,0 +1,32 @@
+block-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  flex-basis: var(--size-content-2);
+  gap: var(--size-5) var(--size-8);
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+feature-callouts {
+  --grid-placement: auto-fit;
+  --grid-min-item-size: clamp(16rem, 33%, 20rem);
+  --gutter: var(--space-l-xl);
+  --flow-space: var(--space-s);
+  text-align: center;
+}
+
+grid-section {
+  display: grid;
+  gap: var(--gutter, var(--space-s-l));
+  grid-template-columns: repeat(var(--grid-placement, auto-fill), minmax(var(--grid-min-item-size, 16rem), 1fr));
+}
+
+grid-section [data-rows="masonry"] {
+  align-items: start;
+  grid-template-rows: masonry;
+}
+
+grid-section [data-layout="50-50"] {
+  --grid-placement: auto-fit;
+  --grid-min-item-size: clamp(16rem, 50vw, 26rem);
+}
