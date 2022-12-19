@@ -1,0 +1,55 @@
+---
+layout: main.html
+css: [learn.css]
+---
+
+<ol class="breadcrumbs">
+  <li>
+    <a href="../">{{ group }}</a>
+    {% icon "arrow-right" %}
+  </li>
+  <li>
+    <a href="{{ page.url }}">{{ title }}</a>
+  </li>
+</ol>
+
+<h1>{{ title }}</h1>
+
+<section class="content">{{ content }}</section>
+
+<hr/>
+
+{% if collections[group] %}
+<nav class="pagination" aria-label="Pagination">
+{% assign previousPost = collections[group] | getPreviousCollectionItem: page %}
+{% assign nextPost = collections[group] | getNextCollectionItem: page %}
+{% if previousPost %}
+  <a slot="prev" href="{{ previousPost.url }}">
+    <span>Previous</span>
+    {% icon "arrow-left-circle" %}
+    {{ previousPost.data.title }}
+  </a>
+{% elsif prevGroup %}
+  {% assign previousPost = collections[prevGroup] | first %}
+  <a slot="prev" href="{{ previousPost.url }}">
+    <span>Previous Section</span>
+    {% icon "arrow-left-circle" %}
+    {{ prevGroup }}
+  </a>
+{% endif %}
+{% if nextPost %}
+  <a slot="next" href="{{ nextPost.url }}">
+    <span>Next</span>
+    {{ nextPost.data.title }}
+    {% icon "arrow-right-circle" %}
+  </a>
+{% elsif nextGroup %}
+  {% assign nextPost = collections[nextGroup] | first %}
+  <a slot="next" href="{{ nextPost.url }}">
+    <span>Next Section</span>
+    {{ nextGroup }}
+    {% icon "arrow-right-circle" %}
+  </a>
+{% endif %}
+</nav>
+{% endif %}
