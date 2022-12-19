@@ -33,7 +33,7 @@
     "@11ty/eleventy": "1.0.2",
     "@11ty/eleventy-plugin-syntaxhighlight": "^4.2.0",
     "@jamshop/eleventy-plugin-esbuild": "^1.0.2",
-    "@oddbird/popover-polyfill": "^0.0.3",
+    "@oddbird/popover-polyfill": "^0.0.4",
     "autoprefixer": "10.4.13",
     "cheerio": "1.0.0-rc.12",
     "cssnano": "5.1.14",
