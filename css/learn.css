@@ -133,11 +133,11 @@ main > h1 {
 
 @media (--OSdark) {
   .content th {
-    background: var(--gray-9);
+    background: var(--gray-8);
   }
   
   .content tr:nth-child(even) td {
-    background: var(--gray-8);
+    background: var(--gray-9);
   }
 }
 
