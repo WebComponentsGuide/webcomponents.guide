@@ -40,7 +40,7 @@
     "eleventy-postcss-extension": "1.0.0",
     "glob": "^8.0.3",
     "markdownlint-cli": "^0.32.2",
-    "open-props": "1.5.1",
+    "open-props": "1.5.3",
     "postcss": "^8.4.20",
     "postcss-combine-duplicated-selectors": "10.0.3",
     "postcss-import": "15.1.0",
