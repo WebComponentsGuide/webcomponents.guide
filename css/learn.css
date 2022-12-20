@@ -131,7 +131,7 @@ main > h1 {
   border-bottom-right-radius: var(--radius-2);
 }
 
-@media (--OSDark) {
+@media (--OSdark) {
   .content th {
     background: var(--gray-9);
   }
