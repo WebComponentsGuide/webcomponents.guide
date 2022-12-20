@@ -7,14 +7,14 @@ title: Setting Up Your Environment
 ## Web Browser
 
 Web Components are a web native platform technology, and so the most important part of your toolbelt will be your web
-browser. Pick a browser you're comfortable using but it's a good idea to ensure it has a robust set of developer tools
-integrated right in. A lot of developers use [Google's Chrome browser][chrome], which has incredibly powerful built in
+browser. Pick a browser you're comfortable using, but it's a good idea to make sure you pick one with a good set of
+developer tools built in. A lot of developers use [Google's Chrome browser][chrome], which has incredibly powerful built in
 developer tools that will make it easy for you to debug your applications. [Mozilla Firefox][firefox] is another great
 option with an equally good set of developer tools and great support for Web Components. Mozilla also provide [Firefox
-Developer edition][firefox-dev] which has additional features, such as an Integraded Development Environment. [Microsoft
+Developer edition][firefox-dev] which has additional features, such as an Integrated Development Environment. [Microsoft
 Edge][edge] is another great browser which is built on the same technologies as Google Chrome. If you're on
 [MacOS][macos] then [Safari][safari] can be a good choice, but it's not quite as capable as the other browsers when it
-comes to developer tools, and it doesn't support quite as many web platform features as the other browsers.
+comes to developer tools and doesn't support quite as many web platform features as the other browsers.
 
 It's a great idea to keep your browsers up to date as often as possible. The latest stable version of each browser is a
 great choice, but if you can't easily access that, keeping it up to date with their extended support releases (for
@@ -43,7 +43,7 @@ great resources out there to learn how to make the most of them.
 
 If you're using Google Chrome, check out the [Chrome Developers documentation on the Chrome Devtools][chrome-devtools].
 It's a great resource for learning exactly how the developer tools inside Google Chrome work. Mozilla has a similar
-[guide on the Firefox Developer Tools][firefox-devtools]. Microsoft have a smaller but still useful [guide on the Edge
+[guide on Firefox Developer Tools][firefox-devtools]. Microsoft have a smaller but still useful [guide on the Edge
 developer tools][edge-devtools], and Safari has a useful [five minute walkthrough of their Web
 Inspector][safari-devtools].
 
@@ -66,10 +66,10 @@ Here's a handy guide on how to quickly access the developer tools, depending on 
 
 ## Development Environment
 
-To get starting writing web components you'll need a development environment. One of the most popular today is [VS
+To get starting writing web components you'll need a development environment. While you can use any text editor to develop, using an Integrated Development Environment (IDE) will give you lots of features that can make for a much better developer experience. One of the most popular IDEs today is [VS
 Code][vscode], and with good reason! It comes with exelent support for writing HTML, JavaScript and CSS out of the box
-as well as some great plugins that you can install. This makes it ideal for writing Web Components and websites that use
-them.
+as well as some great plugins that you can install. It can hook directly into web browsers like Chrome or Firefox using the  allowing you to debug your applications without leaving your editor. All of these features makes it ideal for writing Web Components and websites that use
+them. 
 
 [vscode]: https://code.visualstudio.com/.
 
