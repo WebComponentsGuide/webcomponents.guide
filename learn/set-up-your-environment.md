@@ -56,13 +56,13 @@ Here's a handy guide on how to quickly access the developer tools, depending on 
 
 | OS            | Browser         | Keyboard shortcut                                 | Menu                                                 |
 | :------------ | :-------------- | :------------------------------------------------ | :--------------------------------------------------- |
-| Windows/Linux | Google Chrome   | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd> | {% icon "more" %} {% icon “chevron-right” %} More Tools {% icon “chevron-right” %} Developer Tools     |
-| MacOS         | Google Chrome   | <kbd>{% icon “command” %}</kbd> + <kbd>Option</kbd> + <kbd>I</kbd> | {% icon "more" %} {% icon “chevron-right” %} More Tools {% icon “chevron-right” %} Developer Tools     |
-| Windows/Linux | Microsoft Edge  | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd> | {% icon "more-v" %} {% icon “chevron-right” %} More Tools {% icon “chevron-right” %} Developer Tools   |
-| MacOS         | Microsoft Edge  | <kbd>{% icon “command” %}</kbd> + <kbd>Option</kbd> + <kbd>I</kbd> | {% icon "more-v" %} {% icon “chevron-right” %} More Tools {% icon “chevron-right” %} Developer Tools   |
-| Windows/Linux | Mozilla Firefox | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd> | {% icon "menu" %} {% icon “chevron-right” %} More Tools {% icon “chevron-right” %} Web Developer Tools |
-| MacOS         | Mozilla Firefox | <kbd>{% icon “command” %}</kbd> + <kbd>Option</kbd> + <kbd>I</kbd> | {% icon "menu" %} {% icon “chevron-right” %} More Tools {% icon “chevron-right” %} Web Developer Tools |
-| MacOS         | Apple Safari    | <kbd>{% icon “command” %}</kbd> + <kbd>Option</kbd> + <kbd>I</kbd> | <strong>Develop</strong> {% icon “chevron-right” %} Show Web Inspector        |
+| Windows/Linux | Google Chrome   | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd> | {% icon "more" %} {% icon "chevron-right" %} More Tools {% icon "chevron-right" %} Developer Tools     |
+| MacOS         | Google Chrome   | <kbd>{% icon "command" %}</kbd> + <kbd>Option</kbd> + <kbd>I</kbd> | {% icon "more" %} {% icon "chevron-right" %} More Tools {% icon "chevron-right" %} Developer Tools     |
+| Windows/Linux | Microsoft Edge  | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd> | {% icon "more-v" %} {% icon "chevron-right" %} More Tools {% icon "chevron-right" %} Developer Tools   |
+| MacOS         | Microsoft Edge  | <kbd>{% icon "command" %}</kbd> + <kbd>Option</kbd> + <kbd>I</kbd> | {% icon "more-v" %} {% icon "chevron-right" %} More Tools {% icon "chevron-right" %} Developer Tools   |
+| Windows/Linux | Mozilla Firefox | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd> | {% icon "menu" %} {% icon "chevron-right" %} More Tools {% icon "chevron-right" %} Web Developer Tools |
+| MacOS         | Mozilla Firefox | <kbd>{% icon "command" %}</kbd> + <kbd>Option</kbd> + <kbd>I</kbd> | {% icon "menu" %} {% icon "chevron-right" %} More Tools {% icon "chevron-right" %} Web Developer Tools |
+| MacOS         | Apple Safari    | <kbd>{% icon "command" %}</kbd> + <kbd>Option</kbd> + <kbd>I</kbd> | <strong>Develop</strong> {% icon "chevron-right" %} Show Web Inspector        |
 
 ## Development Environment
 
