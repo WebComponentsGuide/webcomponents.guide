@@ -131,6 +131,16 @@ main > h1 {
   border-bottom-right-radius: var(--radius-2);
 }
 
+@media (--OSDark) {
+  .content th {
+    background: var(--gray-9);
+  }
+  
+  .content tr:nth-child(even) td {
+    background: var(--gray-8);
+  }
+}
+
 .content kbd {
   background: var(--surface-1);
   box-shadow: var(--shadow-1);
