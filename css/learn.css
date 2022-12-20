@@ -137,7 +137,7 @@ main > h1 {
   }
   
   .content tr:nth-child(even) td {
-    background: var(--gray-9);
+    background: var(--gray-12);
   }
 }
 
