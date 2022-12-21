@@ -10,8 +10,10 @@ you'll want to add JavaScript to provide logic. To do this you'll need to create
 Without the "Custom Element Registry" the browser won't know what JavaScript to associate to what elements. By default,
 whenever the browser encounters a tag it does not know it will use the `HTMLUnknownElement` class to give it a default
 behaviour. You can tell the browser to use a different class by _defining_ the tag name in the Custom Element Registry.
-With your own class defined, any time the browser sees the defined tag, it will set it up using the associated class. To
-define a Custom Element, you can use the global `customElements` API. There are two types of elements you can define:
+With your own class defined, any time the browser sees the defined tag, it will set it up using the associated class.
+
+To define a Custom Element, you can use the global `customElements` API. You won't need to include any JavaScript libraries
+to use `customElements` it's a global that exists like `console`. There are two types of elements you can define:
 
 ## Autonomous Custom Elements
 
