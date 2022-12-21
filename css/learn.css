@@ -9,7 +9,7 @@ main > h1 {
   padding-block-end: var(--size-2);
   margin-block-end: var(--size-8);
   display: block;
-  max-width: 100%;
+  max-inline-size: 100%;
 }
 
 .breadcrumbs {
@@ -32,7 +32,7 @@ main > h1 {
 
 .breadcrumbs .icon {
   color: var(--brand-color);
-  width: 18px;
+  inline-size: 18px;
 }
 
 .pagination {
@@ -60,7 +60,7 @@ main > h1 {
 }
 
 .content {
-  max-width: 80ch;
+  max-inline-size: 80ch;
   font-size: var(--font-size-2);
 }
 
@@ -95,7 +95,7 @@ main > h1 {
 
 .content table {
   border-spacing: 0;
-  width: 100%;
+  inline-size: 100%;
   margin-block-end: var(--size-5);
 }
 
@@ -147,6 +147,12 @@ main > h1 {
   border: var(--border-size-2) outset var(--surface-4);
 }
 
+.content :where(kbd svg) {
+  transform: scale(0.6);
+  width: 22px;
+  margin-block-start: -3px;
+}
+
 .callout {
   display: flex;
   justify-content: space-between;
@@ -156,7 +162,7 @@ main > h1 {
 }
 
 .callout p {
-  max-width: 90%;
+  max-inline-size: 90%;
 }
 
 .callout.info {
