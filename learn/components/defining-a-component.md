@@ -1,20 +1,11 @@
 ---
-title: Custom Elements
+title: Defining a Component
 order: 1
 ---
 
-You might have heard Web Components being called a "suite of technologies". This is because building a Web Component
-uses different platform APIs that don't necessarily all have to be used together. For example a Web Component doesn't
-need to use the [ShadowDOM][shadowdom], or have its own CSS. Alternatively it's possible to use Web Component APIs like
-ShadowDOM regular `<div>` tag.
+Most components you write will need some kind of JavaScript. While it's not _stricly_ necessary, more often than not you'll want to add JavaScript to provide logic, or to make it more convenient to use your component. To do this you'll need to create a JavaScript `class`, and use the "Custom Elements Registry" to attach your class to the browser.
 
-[shadowdom]: /learn/components/shadowdom
-
-A big part of Web Components is "Custom Elements". This refers to making customised HTML elements, which have their own
-JavaScript behaviour backing them. You'll need JavaScript to tell the browser that you want an element to use a specific
-class, from then on, that class will be called whenever an Element is created or used.
-
-To define a Custom Element, you can use the global `customElements` API. There are two types of elements you can define:
+Without the "Custom Element Registry" the browser won't know what JavaScript to associate to what elements. By default, whenever the browser encounters a tag it does not know it will use the `HTMLUnknownElement` class to give it a default behaviour. You can tell the browser to use a different class by _defining_ the tag name in the Custom Element Registry. With your own class defined, any time the browser sees the defined tag, it will set it up using the associated class. To define a Custom Element, you can use the global `customElements` API. There are two types of elements you can define:
 
 ## Autonomous Custom Elements
 
@@ -81,3 +72,33 @@ If you don't extend from the right `HTML*Element` class, when your tag is create
 `TypeError: Illegal constructor: localName does not match the HTML element interface`.
 
 {% endtip %}
+
+## Some advanced tricks for defining elements
+
+Depending on how your code is loaded, you might find it runs multiple times. Calling `customElements.define` on an already existing component will cause an error in the browser:
+
+```js
+DOMException: NotSupportedError
+```
+
+If you wanted to guard against re-defining an element you could wrap the call to `customElements.define` by first checking if it's already been defined with `customElements.get`:
+
+```js
+if (!customElements.get('my-element')) {
+  customElements.define('my-element', class extends HTMLElement {})
+}
+```
+
+Another thing you could do is move the definition into a static method on the class, like so:
+
+```js
+class MyElement extends HTMLElement {
+
+  static define() {
+    customElements.define('my-element, MyElement)
+  }
+
+}
+```
+
+This way users of your component can call `MyElement.define()` in a place in their code where all components get registered.
