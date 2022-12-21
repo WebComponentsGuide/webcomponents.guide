@@ -27,6 +27,10 @@
   outline-width: var(--border-1);
 }
 
+:where(:not(pre) > code) {
+  color: var(--text-2);
+}
+
 html:focus-within {
   scroll-behavior: smooth;
 }
