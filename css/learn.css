@@ -147,6 +147,12 @@ main > h1 {
   border: var(--border-size-2) outset var(--surface-4);
 }
 
+.content :where(kbd svg) {
+  transform: scale(0.6);
+  width: 22px;
+  margin-block-start: -3px;
+}
+
 .callout {
   display: flex;
   justify-content: space-between;

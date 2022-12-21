@@ -27,10 +27,29 @@ module.exports = (eleventyConfig) => {
     })
   }
 
-  const icon = icon => `<svg width="24" height="24" class="icon"><use xlink:href="/images/icons.svg#${icon}"></use></svg>`
+  const icon = (icon) =>
+    `<svg width="24" height="24" class="icon"><use xlink:href="/images/icons.svg#${icon}"></use></svg>`
   const callout = (content, style = "info") => `<div class="callout ${style}">${content}${icon(style)}</div>`
+  const keymap = {
+    Cmd: icon("command"),
+    Opt: icon("option"),
+    Shift: icon("shift"),
+  }
+  const shortcut = (str) =>
+    str
+      .split(/ /g)
+      .map((key) => `<kbd>${keymap[key] || key}</kbd>`)
+      .join("+")
+  const menumap = {
+    more: icon("more"),
+    "more-v": icon("more-v"),
+    menu: icon("menu"),
+  }
+  const menu = (first, ...rest) => [menumap[first] || `<strong>${first}</strong>`, ...rest].join(icon("chevron-right"))
 
   eleventyConfig.addShortcode("icon", icon)
+  eleventyConfig.addShortcode("shortcut", shortcut)
+  eleventyConfig.addShortcode("menu", menu)
   eleventyConfig.addShortcode("stub", function () {
     return callout(
       `

@@ -8,11 +8,11 @@ title: Setting Up Your Environment
 
 Web Components are a web native platform technology, and so the most important part of your toolbelt will be your web
 browser. Pick a browser you're comfortable using, but it's a good idea to make sure you pick one with a good set of
-developer tools built in. A lot of developers use [Google's Chrome browser][chrome], which has incredibly powerful built in
-developer tools that will make it easy for you to debug your applications. [Mozilla Firefox][firefox] is another great
-option with an equally good set of developer tools and great support for Web Components. Mozilla also provide [Firefox
-Developer edition][firefox-dev] which has additional features, such as an Integrated Development Environment. [Microsoft
-Edge][edge] is another great browser which is built on the same technologies as Google Chrome. If you're on
+developer tools built in. A lot of developers use [Google's Chrome browser][chrome], which has incredibly powerful built
+in developer tools that will make it easy for you to debug your applications. [Mozilla Firefox][firefox] is another
+great option with an equally good set of developer tools and great support for Web Components. Mozilla also provide
+[Firefox Developer edition][firefox-dev] which has additional features, such as an Integrated Development Environment.
+[Microsoft Edge][edge] is another great browser which is built on the same technologies as Google Chrome. If you're on
 [MacOS][macos] then [Safari][safari] can be a good choice, but it's not quite as capable as the other browsers when it
 comes to developer tools and doesn't support quite as many web platform features as the other browsers.
 
@@ -54,22 +54,24 @@ Here's a handy guide on how to quickly access the developer tools, depending on 
 [edge-devtools]: https://learn.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/overview
 [safari-devtools]: https://developer.apple.com/videos/play/tech-talks/401/
 
-| OS            | Browser         | Keyboard shortcut                                 | Menu                                                 |
-| :------------ | :-------------- | :------------------------------------------------ | :--------------------------------------------------- |
-| Windows/Linux | Google Chrome   | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd> | {% icon "more" %} {% icon "chevron-right" %} More Tools {% icon "chevron-right" %} Developer Tools     |
-| MacOS         | Google Chrome   | <kbd>{% icon "command" %}</kbd> + <kbd>Option</kbd> + <kbd>I</kbd> | {% icon "more" %} {% icon "chevron-right" %} More Tools {% icon "chevron-right" %} Developer Tools     |
-| Windows/Linux | Microsoft Edge  | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd> | {% icon "more-v" %} {% icon "chevron-right" %} More Tools {% icon "chevron-right" %} Developer Tools   |
-| MacOS         | Microsoft Edge  | <kbd>{% icon "command" %}</kbd> + <kbd>Option</kbd> + <kbd>I</kbd> | {% icon "more-v" %} {% icon "chevron-right" %} More Tools {% icon "chevron-right" %} Developer Tools   |
-| Windows/Linux | Mozilla Firefox | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd> | {% icon "menu" %} {% icon "chevron-right" %} More Tools {% icon "chevron-right" %} Web Developer Tools |
-| MacOS         | Mozilla Firefox | <kbd>{% icon "command" %}</kbd> + <kbd>Option</kbd> + <kbd>I</kbd> | {% icon "menu" %} {% icon "chevron-right" %} More Tools {% icon "chevron-right" %} Web Developer Tools |
-| MacOS         | Apple Safari    | <kbd>{% icon "command" %}</kbd> + <kbd>Option</kbd> + <kbd>I</kbd> | <strong>Develop</strong> {% icon "chevron-right" %} Show Web Inspector        |
+| OS            | Browser         | Keyboard shortcut             | Menu                                                 |
+| :------------ | :-------------- | :---------------------------- | :--------------------------------------------------- |
+| Windows/Linux | Google Chrome   | {% shortcut "Ctrl Shift I" %} | {% menu "more" "More Tools" "Developer Tools" %}     |
+| MacOS         | Google Chrome   | {% shortcut "Cmd Opt I" %}    | {% menu "more" "More Tools" "Developer Tools" %}     |
+| Windows/Linux | Microsoft Edge  | {% shortcut "Ctrl Shift I" %} | {% menu "more-v" "More Tools" "Developer Tools" %}   |
+| MacOS         | Microsoft Edge  | {% shortcut "Cmd Opt I" %}    | {% menu "more-v" "More Tools" "Developer Tools" %}   |
+| Windows/Linux | Mozilla Firefox | {% shortcut "Ctrl Shift I" %} | {% menu "menu" "More Tools" "Web Developer Tools" %} |
+| MacOS         | Mozilla Firefox | {% shortcut "Cmd Shift I" %}  | {% menu "menu" "More Tools" "Web Developer Tools" %} |
+| MacOS         | Apple Safari    | {% shortcut "Cmd Shift I" %}  | {% menu "Develop" "Show Web Inspector" %}            |
 
 ## Development Environment
 
-To get starting writing web components you'll need a development environment. While you can use any text editor to develop, using an Integrated Development Environment (IDE) will give you lots of features that can make for a much better developer experience. One of the most popular IDEs today is [VS
-Code][vscode], and with good reason! It comes with exelent support for writing HTML, JavaScript and CSS out of the box
-as well as some great plugins that you can install. It can hook directly into web browsers like Chrome or Firefox using the  allowing you to debug your applications without leaving your editor. All of these features makes it ideal for writing Web Components and websites that use
-them. 
+To get starting writing web components you'll need a development environment. While you can use any text editor to
+develop, using an Integrated Development Environment (IDE) will give you lots of features that can make for a much
+better developer experience. One of the most popular IDEs today is [VS Code][vscode], and with good reason! It comes
+with exelent support for writing HTML, JavaScript and CSS out of the box as well as some great plugins that you can
+install. It can hook directly into web browsers like Chrome or Firefox using the allowing you to debug your applications
+without leaving your editor. All of these features makes it ideal for writing Web Components and websites that use them.
 
 [vscode]: https://code.visualstudio.com/.
 
