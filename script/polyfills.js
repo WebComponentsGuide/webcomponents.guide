@@ -1,5 +1,6 @@
 import "container-query-polyfill"
 import "@oddbird/popover-polyfill"
+import "construct-style-sheets-polyfill"
 
 /* Declarative ShadowDOM polyfill */
 function attachShadowRoots(root) {
