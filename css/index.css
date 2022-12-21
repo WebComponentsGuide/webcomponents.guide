@@ -6,7 +6,7 @@ body {
     / auto;
 }
 
-sidebar-nav {
+.sidebar-nav {
   display: none;
 }
 
@@ -51,8 +51,8 @@ hero-header > [slot="logo"] {
   background: var(--brand-color-border);
   border-radius: var(--radius-round);
   padding: var(--size-3);
-  width: var(--size-fluid-7);
-  height: var(--size-fluid-7);
+  inline-size: var(--size-fluid-7);
+  aspect-ratio: 1;
 }
 
 hero-header > [slot="title"] {
@@ -86,6 +86,7 @@ hero-header > [slot="cta"] {
 hero-header > [slot="cta"]:nth-of-type(1) {
   grid-column: 2/-3;
 }
+
 hero-header > [slot="cta"]:nth-of-type(2) {
   grid-column: 3/-3;
 }
