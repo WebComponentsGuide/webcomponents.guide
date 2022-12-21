@@ -164,25 +164,30 @@ page-search input {
 page-search svg {
   position: relative;
   z-index: 2;
-  width: var(--size-4);
+  inline-size: var(--size-4);
 
   /* XXX: alignment tweak */
   margin-top: -2px;
 }
 
 .sidebar-nav {
-  grid-area: sidebar;
+  position: fixed;
   border: 0;
-  right: 0;
-  top: var(--size-8);
-  bottom: 0;
-  height: auto;
-  margin: 0 auto;
   left: unset;
+  top: unset;
+  inset-block: var(--size-8) 0;
+  inset-inline-end: 0;
+  block-size: auto;
+  margin: 0 auto;
   background: var(--surface-1);
   box-shadow: var(--shadow-4);
-  padding-block-start: var(--size-3);
-  min-width: var(--size-14);
+  min-inline-size: var(--size-14);
+  padding: 1rem;
+  color: inherit;
+}
+
+.sidebar-nav > nav {
+  position: fixed;
 }
 
 .sidebar-nav [slot="global-nav"] {
@@ -274,15 +279,6 @@ main {
 
   .page-head [slot="nav"] {
     display: none;
-  }
-
-  .sidebar-nav {
-    right: 0;
-    top: var(--size-8);
-    bottom: 0;
-    height: auto;
-    margin: auto;
-    left: unset;
   }
 
   .sidebar-nav > [slot="global-nav"] {
