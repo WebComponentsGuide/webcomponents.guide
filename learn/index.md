@@ -31,7 +31,7 @@ callbacks][lifecycle] to know when to start counting. These are all built in web
 
 [private-state]: /learn/components/private-state
 
-[lifecycle]: /learn/components/lifecycle
+[lifecycle]: /learn/components/lifecycle-reference
 
 {% demo %}
 

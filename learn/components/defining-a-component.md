@@ -43,7 +43,7 @@ If you don't extend from `HTMLElement`, when your tag is created you might see a
 
 {% endtip %}
 
-[lifecycle]: /learn/components/lifecycle
+[lifecycle]: /learn/components/lifecycle-reference
 
 ## Customized Built-in Elements
 
