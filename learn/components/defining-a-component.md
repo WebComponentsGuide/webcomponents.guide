@@ -20,8 +20,8 @@ types of elements you can define:
 
 "Autonomous Custom Elements" is a fancy way of saying that you're extending from the _base element_. The base element,
 `HTMLElement`, doesn't have a tag - so you need to make one up. It also doesn't have any built in semantics,
-accessibility, or styling. In that way it's kind of like a `<span>` element. How it behaves beyond that is totally up to
-you.
+accessibility, or styling. In that way it's kind of like a `<div>` or `<span>` element. How it behaves beyond that is
+totally up to you.
 
 To define an "Autonomous Custom Element", you can call `customElements.define` giving it a tag name and a class to use.
 The class has to extend from `HTMLElement`. Here's an example:
@@ -45,7 +45,7 @@ If you don't extend from `HTMLElement`, when your tag is created you might see a
 
 [lifecycle]: /learn/components/lifecycle
 
-## Customized Built-in Custom Elements
+## Customized Built-in Elements
 
 "Customized Built-in" elements are extensions to the browsers existing built-in elements. For example if you wanted to
 make a button extends the normal behaviours, you can customise it with a customized built-in. Instead of making up your
@@ -158,6 +158,56 @@ If you don't extend from the right `HTML*Element` class, when your tag is create
 | Video        | `<video>`      | [HTMLVideoElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLVideoElement)               |
 
 </details>
+
+## When to use Autonomous Custom Elements vs Customized Built-ins
+
+The most popular way to make elements is with "Autonomous Custom Elements", by making up your own tag and extending
+`HTMLElement`.
+
+Each style comes with different trade-offs. Autonomous Custom Elements give you a blank canvas to work with. They have
+no default CSS so you might want to add some (even if it's just `display: block`). Built-ins are going to have some
+user-agent CSS supplied already, for example `<button>` already has a certain look and feel. If you create a
+`<fancy-button>` you'll need to replicate that look and feel. `<button is="fancy-button">` will _extend_ the `<button>`
+and so gets all the styles applied from `<button>`. If you want to Customize a built-in by applying new styles and not
+adding any new logic, it might be best to use a CSS class instead.
+
+Many built-in elements will only allow certain tags to nest inside ([you can read more about _Content Categories_ on
+MDN][content-categories]). Autonomous Custom Elements allow any nested tag. So while `<button is="fancy-button">` will
+only allow nested _[phrasing content][phrasing-content]_ tags, an element like `<fancy-button>` could include any _[flow
+content][flow-content]_ tags. It might be weird to see a `<fancy-button>` with an `<iframe>` nested inside!
+
+[content-categories]: https://developer.mozilla.org/en-US/docs/Web/HTML/Content_categories
+[phrasing-content]: https://developer.mozilla.org/en-US/docs/Web/HTML/Content_categories#phrasing_content
+[flow-content]: https://developer.mozilla.org/en-US/docs/Web/HTML/Content_categories#flow_content
+
+Autonomous Custom Elements can make use of the [ShadowDOM][shadowdom]. Only a limited set of built-ins can use the
+ShadowDOM. If you want to alter any nested elements, it's a great idea to use ShadowDOM, and so you probably won't want
+to customise a built-in. Here's a list of built-ins that you can customise with ShadowDOM:
+
+- `<article>`
+- `<aside>`
+- `<blockquote>`
+- `<body>`
+- `<div>`
+- The `<header>` and `<footer>` elements
+- Heading elements `<h1>`,`<h2>`,`<h3>`,`<h4>`,`<h5>`, and`<h6>`
+- `<main>`
+- `<nav>`
+- `<p>`
+- `<section>`
+- `<span>`
+
+[shadowdom]: /learn/components/shadowdom
+
+Autonomous Custom Elements must extend from `HTMLElement`. They'll get all the methods and properties inherited
+from that, for example `.querySelector()`, `.addEventListener()`, `.hidden`, `.focus()`. They will also trigger the
+regular events that all elements do, for example `click`, `mousemove`, `animationend`. Customized built-ins will have
+even more on top. For example `HTMLButtonElement` has a `.type` property, and `HTMLVideoElement` has a `.play()`
+function. You can override properties or methods on both types but remember that other code might already expect those
+functions to behave a certain way, so you'll need to be careful.
+
+You can think of Customized Built-ins as "mixins" or "extensions" to an existing element. All of the existing features
+of the built-in will continue to exist on your customised version, but you can add extra logic or features.
 
 ## Tips on naming elements
 
