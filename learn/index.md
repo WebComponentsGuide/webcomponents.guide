@@ -16,8 +16,8 @@ definitions, allowing advanced behaviours and interactions.
 
 {% tip %}
 
-Custom Element tag names are required to include a dash (`-`) in their name. Having a dash makes them easier to tell apart
-from native elements. New native elements will never have a dash, and so won't conflict.
+Custom Element tag names are required to include a dash (`-`) in their name. Having a dash makes them easier to tell
+apart from native elements. New native elements will never have a dash, and so won't conflict.
 
 {% endtip %}
 
@@ -26,11 +26,8 @@ Here's an example of a web component that renders a timer. It defines its own [s
 callbacks][lifecycle] to know when to start counting. These are all built in web platform features!
 
 [styles]: /learn/components/styling
-
 [shadowroot]: /learn/components/shadowdom
-
 [private-state]: /learn/components/private-state
-
 [lifecycle]: /learn/components/lifecycle-reference
 
 {% demo %}
@@ -53,6 +50,7 @@ customElements.define(
     #start = 0
 
     connectedCallback() {
+      // Add the shared styles
       this.attachShadow({ mode: "open" }).adoptedStyleSheets = [styles]
 
       this.#start = Date.now()
@@ -76,7 +74,7 @@ customElements.define(
 ```
 
 ```html
-<stop-watch></stop-watch>
+<stop-watch role="timer"></stop-watch>
 ```
 
 {% enddemo %}
