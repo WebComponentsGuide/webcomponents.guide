@@ -1,9 +1,5 @@
-body {
-  grid-template:
-    "nav" auto
-    "main" 1fr
-    "foot" auto
-    / auto;
+main {
+  padding-inline-end: 0;
 }
 
 .sidebar-nav {
