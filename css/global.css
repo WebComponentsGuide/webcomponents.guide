@@ -42,7 +42,7 @@ body {
 }
 
 main {
-  padding-inline-end: var(--size-14);
+  max-inline-size: calc(100vw - var(--size-14));
 }
 
 blockquote:not([class]),

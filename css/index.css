@@ -1,5 +1,5 @@
 main {
-  padding-inline-end: 0;
+  max-inline-size: 100vw
 }
 
 .sidebar-nav {
