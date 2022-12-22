@@ -1,6 +1,6 @@
 ---
-title: Lifecycle
-order: 2
+title: Lifecycle Reference
+order: 10
 ---
 
 Custom Elements have several "well known" method names which are called periodically through the life cycle of the
@@ -77,7 +77,8 @@ The `connectedCallback` is called _as soon as_ the element is attached to a `doc
 This _may_ occur _before_ an element has any children appended to it, so you should be careful not expect an element to
 have children during a `connectedCallback` call. This means you might want to avoid using APIs like `querySelector`.
 
-Instead use this function to initialize itself, render any [ShadowDOM][shadowdom] and add [global event listeners][events].
+Instead use this function to initialize itself, render any [ShadowDOM][shadowdom] and add [global event
+listeners][events].
 
 [shadowdom]: /learn/components/shadowdom
 [events]: /learn/components/events
@@ -88,30 +89,62 @@ track when your elements children change.
 
 ## `disconnectedCallback()`
 
-The [`disconnectedCallback()` is part of Custom Elements][ce-callbacks], and gets called as soon as your element is
-_removed_ from the DOM. Event listeners will automatically be cleaned up, and memory will be freed automatically from
-JavaScript, so you're unlikely to need this callback for much.
+Just like `connectedCallback()`, `disconnectedCallback()` is a "well known" method. It doesn't exist as part of native
+JavaScript classes, instead it's something that the browser knows about just within the context of custom Elements.
+
+### What is `disconnectedCallback` good for?
+
+`disconnectedCallback()` is sort of like the opposite of `connectedCallback()`. Anything that you do in
+`connectedCallback()` should be undone in `disconnectedCallback()`. This means if you have called `addEventListener` in
+your `connectedCallback()` you'll need call `removeEventListener` in the `disconnectedCallback()`.
 
 ## `attributeChangedCallback()`
 
-The [`attributeChangedCallback()` is part of Custom Elements][ce-callbacks], and gets called when _observed attributes_
-are added, changed, or removed from your element. It required you set a `static observedAttributes` array on your class,
-the values of which will be any attributes that will be observed for mutations. This is given a set of arguments, the
-signature of your function should be:
+The `connectedCallback()` is a "well known" method. It doesn't exist as part of native JavaScript classes, instead it's
+something that the browser knows about just within the context of custom Elements.
 
-```typescript
-attributeChangedCallback(name: string, oldValue: string|null, newValue: string|null): void {}
+### What is `attributeChangedCallback` good for?
+
+On its own, `attributeChangedCallback()` won't do anything. It gets called whenever an _observed attribute_ changes
+value. _Observed attributes_ are attributes a class declares that it would like to observe, through the
+`static observedAttributes` property:
+
+```js
+class MyElement extends HTMLElement {
+  static observedAttributes = ["my-attribute", "other-attribute"]
+  // ^ declare you'd like to observe "my-attribute" and "other-attribute"
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    if (name === "my-attribute") {
+      console.log("my-attribute changed!")
+    } else if (name === "other-attribute") {
+      console.log("other-attribute changed!")
+    }
+  }
+}
 ```
 
-### Things to remember
+When a document is parsed all of the attributes which are observed will result in a call to
+`attributeChangedCallback()`. This can happen _before_ the element is connected and `connectedCallback` has been called,
+so avoid relying on the element being connected during this time!
 
-The `attributeChangedCallback` will fire whenever `setAttribute` is called with an observed attribute, even if the _new_
-value is the same as the _old_ value. In other words, it is possible for `attributeChangedCallback` to be called when
-`oldValue === newValue`. In most cases this really won't matter much, and in some cases this is very helpful; but
-sometimes this can bite, especially if you have
+The `attributeChangedCallback()` will fire whenever `setAttribute`, `removeAttribute`, `toggleAttribute` are called if
+they are changing an observed attribute.
+
+Attributes are also nodes that can be constructed with [`document.createAttribute()`][createattribute], which returns an
+`Attr` object. This `Attr` object can then be applied to the element via `.setAttributeNode()`. This will also result in
+the `attributeChangedCallback()` being called if it's an observed attribute. An `Attr` object also has a `.value`
+property; changing that will _also_ call `attributeChangedCallback()`.
+
+It's worth noting that even if the _new_ value is the same as the _old_ value, calling `setAttribute` or changing the
+`.value` on an `Attr` will result in the `attributeChangedCallback()` being called. In other words, it is possible for
+`attributeChangedCallback` to be called when `oldValue === newValue`. In most cases this really won't matter much, and
+in some cases this is very helpful; but sometimes this can bite, especially if you have
 [non-idempotent](https://en.wikipedia.org/wiki/Idempotence#Computer_science_examples) code inside your
 `attributeChangedCallback`. Try to make sure operations inside `attributeChangedCallback` are idempotent, or perhaps
 consider adding a check to ensure `oldValue !== newValue` before performing operations which may be sensitive to this.
+
+[createattribute]: https://developer.mozilla.org/en-US/docs/Web/API/Document/createAttribute
 
 ## `adoptedCallback()`
 
@@ -120,3 +153,43 @@ The [`adoptedCallback()` is part of Custom Elements][ce-callbacks], and gets cal
 
 [ce-callbacks]:
   https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements#Using_the_lifecycle_callbacks
+
+## Summary
+
+Here's a quick summary showing how each of the lifecycle elements get called during some typical code:
+
+```js
+customElements.define(
+  "my-element",
+  class extends HTMLElement {
+    static observedAttributes = ["some-attr"]
+  }
+)
+
+const el = document.createElement("my-element")
+// browser calls `el.constructor()`
+
+el.setAttribute("some-attr", "some-value")
+// browser calls `el.attributeChangedCallback('some-attr', null, 'some-value')`
+
+el.setAttribute("other-attr", "some-value")
+// (nothing called)
+
+document.body.appendChild(el)
+// browser calls `el.connectedCallback()`
+
+el.remove()
+// browser calls `disconnectedCallback()`
+
+document.querySelector("#my-app").append(el)
+// browser calls `connectedCallback()`
+
+document.body.append(el)
+// browser calls `disconnectedCallback()`
+// browser calls `connectedCallback()`
+
+document.body.querySelector("iframe").contentWindow.document.body.append(el)
+// browser calls `disconnectedCallback()`
+// browser calls `adoptedCallback()`
+// browser calls `connectedCallback()`
+```

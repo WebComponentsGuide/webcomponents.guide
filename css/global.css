@@ -93,6 +93,7 @@ nav > details > :where(ol, ul) > li {
 .page-head {
   position: sticky;
   inset-block-start: 0;
+  min-block-size: var(--size-8);
   inline-size: 100vw;
   padding-inline: var(--size-2);
   background: var(--surface-1);
@@ -169,7 +170,6 @@ page-search svg {
 }
 
 .sidebar-nav {
-  position: fixed;
   border: 0;
   left: unset;
   top: unset;
@@ -182,10 +182,6 @@ page-search svg {
   min-inline-size: var(--size-14);
   padding: 1rem;
   color: inherit;
-}
-
-.sidebar-nav > nav {
-  position: fixed;
 }
 
 .sidebar-nav [slot="global-nav"] {
@@ -294,6 +290,7 @@ main {
   .sidebar-nav {
     display: block;
     inset-block-start: 0;
+    padding-block: var(--size-9) 1rem;
   }
 }
 

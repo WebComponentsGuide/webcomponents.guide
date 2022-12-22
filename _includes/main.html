@@ -25,18 +25,7 @@
 
     <main>{% block content %} {{ content }} {% endblock %}</main>
 
-    <script>
-      ;(function attachShadowRoots(root) {
-        root.querySelectorAll("template[shadowroot]").forEach((template) => {
-          const mode = template.getAttribute("shadowroot")
-          const shadowRoot = template.parentNode.attachShadow({ mode })
-          shadowRoot.appendChild(template.content)
-          template.remove()
-          attachShadowRoots(shadowRoot)
-        })
-      })(document)
-    </script>
-    <script type="module" src="/script/global.js"></script>
+    <script type="module" src="/script/polyfills.js"></script>
     {% for file in script %}
     <link rel="stylesheet" href="/script/{{file}}" />
     {% endfor %}
