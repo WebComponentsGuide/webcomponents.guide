@@ -203,25 +203,25 @@ main > h1 {
 @media (--OSdark) {
   .callout.info {
     border: var(--border-size-2) solid var(--blue-12);
-    background: var(--blue-8);
+    background: var(--blue-10);
     color: var(--blue-1);
   }
 
   .callout.warn {
     border: var(--border-size-2) solid var(--orange-12);
-    background: var(--orange-8);
+    background: var(--orange-10);
     color: var(--orange-1);
   }
 
   .callout.danger {
     border: var(--border-size-2) solid var(--red-12);
-    background: var(--red-8);
+    background: var(--red-10);
     color: var(--red-1);
   }
 
   .callout.github {
     border: var(--border-size-2) solid var(--jungle-12);
-    background: var(--jungle-8);
+    background: var(--jungle-10);
     color: var(--jungle-1);
   }
 
