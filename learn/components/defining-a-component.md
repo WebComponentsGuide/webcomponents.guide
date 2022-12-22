@@ -38,8 +38,9 @@ anything on its own but you can add methods or use the [lifecycle callbacks][lif
 
 {% tip "danger" %}
 
-If you don't extend from `HTMLElement`, when your tag is created you might see an error like
-`TypeError: Illegal constructor: autonomous custom elements must extend HTMLElement`.
+If you don't extend from `HTMLElement`, when your tag is created then the browser
+will throw a `TypeError` with a message like
+`autonomous custom elements must extend HTMLElement`.
 
 {% endtip %}
 
@@ -76,8 +77,9 @@ document.createElement("button", { is: "fancy-button" })
 
 {% tip "danger" %}
 
-If you don't extend from the right `HTML*Element` class, when your tag is created you might see an error like
-`TypeError: Illegal constructor: localName does not match the HTML element interface`.
+If you don't extend from the right `HTML*Element` class, when your tag is created
+the browser will throw a `TypeError` with a message like
+`localName does not match the HTML element interface`.
 
 {% endtip %}
 
