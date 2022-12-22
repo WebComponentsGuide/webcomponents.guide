@@ -37,14 +37,12 @@ html:focus-within {
 
 body {
   overflow-x: hidden;
-  display: grid;
-  grid-template:
-    "nav nav" auto
-    "main sidebar" 1fr
-    "foot sidebar" auto
-    / auto var(--size-14);
   text-rendering: optimizespeed;
   min-block-size: 100vh;
+}
+
+main {
+  padding-inline-end: var(--size-14);
 }
 
 blockquote:not([class]),
