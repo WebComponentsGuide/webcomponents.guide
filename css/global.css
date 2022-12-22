@@ -43,7 +43,7 @@ body {
 }
 
 main {
-  max-inline-size: calc(100vw - var(--size-14));
+  max-inline-size: 100vw;
   margin: 0;
 }
 
@@ -275,9 +275,6 @@ page-search svg {
   .sidebar-nav {
     min-inline-size: 100%;
   }
-  main {
-    max-inline-size: 100vw;
-  }
 }
 
 @media (--lg-n-above) {
@@ -285,6 +282,10 @@ page-search svg {
     display: block;
     inset-block-start: 0;
     padding-block: var(--size-9) 1rem;
+  }
+  
+  main {
+    max-inline-size: calc(100vw - var(--size-14))
   }
 }
 
