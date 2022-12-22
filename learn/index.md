@@ -53,7 +53,7 @@ customElements.define(
     #start = 0
 
     connectedCallback() {
-      this.attachShadow({ mode: "open" }).adoptedStyleSheets.push(styles)
+      this.attachShadow({ mode: "open" }).adoptedStyleSheets = [styles]
 
       this.#start = Date.now()
       this.#tick()
