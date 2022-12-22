@@ -87,7 +87,7 @@ module.exports = (eleventyConfig) => {
     }
     return `
 ${content}
-<script type="module" defer>${js.join("\n")}</script>
+<script type="module" defer>document.addEventListener('readystatechange', () => {${js.join("\n")}})</script>
 <h6>Result</h6>
 <div class="surface">
 ${html}
