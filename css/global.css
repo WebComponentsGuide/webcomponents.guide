@@ -43,6 +43,7 @@ body {
 
 main {
   max-inline-size: calc(100vw - var(--size-14));
+  margin: 0;
 }
 
 blockquote:not([class]),
