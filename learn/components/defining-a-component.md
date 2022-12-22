@@ -261,6 +261,16 @@ So for example, an element that lists users might be a `<user-list>`. For an ele
 
 While figuring out the action you might come up with a verb like `<file-drop>`, `<number-guess>`, or `<currency-convert>`, it can be clearer to use two nouns instead. It helps reinforce that the component is declarative. Many verbs can be converted to nouns, for example `<file-dropper>`, `<number-guesser>`, or `<currency-conversion>`. 
 
+### Class Names should match, but maybe use a suffix or prefix
+
+If you are defining the class with a name so you can use it in code, it's a good idea to match the element name to the class. JavaScript's convention is to use [camel case][camelcase] for variable names, with class names additionally capitalising the first letter (sometimes called "Pascal Case"). Taking your element name and converting it to this casing is a good way to name the class, so `<text-format>` would be `class TextFormat`.
+
+It's also a good idea to add a suffix or prefix to your element class name. One reason for this is it helps to figure out what the class does within the greater context of your JavaScript code. Adding `-element` to a tag name is redundant because all tags are elements, but adding `Element` to a class is not because not all classes are elements. Another reason for this is that it avoids conflicts with other class constructors, for example if you had a `<number-format>` element, `class NumberFormat` would be very similar to the already existing `Intl.NumberFormat` class. Instead naming your element class `class NumberFormatElement` avoids the conflict. 
+
+All of the built-ins use `HTML` as a prefix and `Element` as a suffix. For example `<span>`'s class is `HTMLSpanElement`. Adding a prefix or suffix means you're in good company! If you have a design system where you're prefixing your element tag names, using the prefix in the class name is a good idea, so if you had a "Fancy" design system with `<fcy-button>` and `<fcy-accordion>` then naming classes like `FancyButtonElement` and `FancyAccordionElement` is a good pattern.
+
+[camelcase]: https://en.wikipedia.org/wiki/Camel_case
+
 ## Some advanced tricks for defining elements
 
 Depending on how your code is loaded, you might find it runs multiple times. Calling `customElements.define` on an
