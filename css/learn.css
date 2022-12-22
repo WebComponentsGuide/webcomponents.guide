@@ -1,6 +1,5 @@
 main {
   padding: var(--size-8);
-  margin-inline: auto;
 }
 
 main > h1 {
