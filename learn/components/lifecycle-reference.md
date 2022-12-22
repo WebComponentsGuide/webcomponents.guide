@@ -100,8 +100,8 @@ your `connectedCallback()` you'll need call `removeEventListener` in the `discon
 
 ## `attributeChangedCallback()`
 
-The `connectedCallback()` is a "well known" method. It doesn't exist as part of native JavaScript classes, instead it's
-something that the browser knows about just within the context of custom Elements.
+The `attributeChangedCallback()` is a "well known" method. It doesn't exist as part of native JavaScript classes,
+instead it's something that the browser knows about just within the context of custom Elements.
 
 ### What is `attributeChangedCallback` good for?
 
@@ -148,11 +148,10 @@ consider adding a check to ensure `oldValue !== newValue` before performing oper
 
 ## `adoptedCallback()`
 
-The [`adoptedCallback()` is part of Custom Elements][ce-callbacks], and gets called when your element moves from one
-`document` to another (such as an iframe). It's very unlikely to occur, you'll almost never need this.
-
-[ce-callbacks]:
-  https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements#Using_the_lifecycle_callbacks
+The `adoptedCallback()` is another well known method gets called when your element moves from one `document` to
+another (such as an iframe). It's rare that this happens, andd so for the most part you can skip implementing this, but
+it can be useful especially if you have event listeners on the `document` or `window`, which will change when the
+`adoptedCallback()` is called.
 
 ## Summary
 
