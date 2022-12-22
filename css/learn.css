@@ -199,3 +199,41 @@ main > h1 {
 .callout.danger svg {
   color: var(--red-6);
 }
+
+@media (--OSdark) {
+  .callout.info {
+    border: var(--border-size-2) solid var(--blue-12);
+    background: var(--blue-8);
+    color: var(--blue-1);
+  }
+
+  .callout.warn {
+    border: var(--border-size-2) solid var(--orange-12);
+    background: var(--orange-8);
+    color: var(--orange-1);
+  }
+
+  .callout.danger {
+    border: var(--border-size-2) solid var(--red-12);
+    background: var(--red-8);
+    color: var(--red-1);
+  }
+
+  .callout.github {
+    border: var(--border-size-2) solid var(--jungle-12);
+    background: var(--jungle-8);
+    color: var(--jungle-1);
+  }
+
+  .callout.info svg {
+    color: var(--blue-3);
+  }
+
+  .callout.warn svg {
+    color: var(--orange-3);
+  }
+
+  .callout.danger svg {
+    color: var(--red-3);
+  }
+}
