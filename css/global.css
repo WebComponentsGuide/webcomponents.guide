@@ -243,18 +243,7 @@ page-search svg {
   display: none;
 }
 
-main {
-  grid-area: main;
-}
-
 @media (--lg-n-below) {
-  body {
-    grid-template:
-      "nav" auto
-      "main" 1fr
-      "foot" 1fr;
-  }
-
   :where(h1) {
     font-size: var(--font-size-5);
   }
