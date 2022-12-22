@@ -91,7 +91,7 @@ nav > details > :where(ol, ul) > li {
 }
 
 .page-head {
-  position: sticky;
+  position: fixed;
   inset-block-start: 0;
   min-block-size: var(--size-8);
   inline-size: 100vw;
