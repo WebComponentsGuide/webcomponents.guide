@@ -274,6 +274,9 @@ page-search svg {
   .sidebar-nav {
     min-inline-size: 100%;
   }
+  main {
+    max-inline-size: 100vw;
+  }
 }
 
 @media (--lg-n-above) {
