@@ -39,6 +39,7 @@ body {
   overflow-x: hidden;
   text-rendering: optimizespeed;
   min-block-size: 100vh;
+  padding-block-start: var(--size-8);
 }
 
 main {
