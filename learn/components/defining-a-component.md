@@ -13,7 +13,7 @@ behaviour. You can tell the browser to use a different class by _defining_ the t
 With your own class defined, any time the browser sees the defined tag, it will set it up using the associated class.
 
 To define a Custom Element, you can use the global `customElements` API. You won't need to include any JavaScript
-libraries to use `customElements` it's a global that already exists, like `console` or `localStorage`. There are two
+libraries to use `customElements`, it's a global that already exists, like `console` or `localStorage`. There are two
 types of elements you can define:
 
 ## Autonomous Custom Elements
