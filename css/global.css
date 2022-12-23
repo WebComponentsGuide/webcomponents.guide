@@ -12,6 +12,8 @@
   --brand-color-border: #2c4455;
   --brand-color-border-2: #385470;
   --brand-gradient: linear-gradient(to bottom right, var(--brand-color-medium), var(--brand-color-dark));
+  --header-block-size: var(--size-8);
+  --footer-block-size: var(--size-11);
 }
 
 :where(html, body, main) {
@@ -44,6 +46,7 @@ body {
 
 main {
   max-inline-size: 100vw;
+  min-block-size: calc(100vh - var(--header-block-size) - var(--footer-block-size));
   margin: 0;
 }
 
@@ -92,10 +95,41 @@ nav > details > :where(ol, ul) > li {
   padding-block: var(--size-2);
 }
 
+page-search {
+  --icon-offset: var(--size-7);
+
+  display: block;
+  place-self: center start;
+  margin-inline: var(--size-2);
+  padding-block: var(--size-2);
+  padding-inline-start: calc(var(--icon-offset) + var(--size-2));
+}
+
+page-search form,
+page-search input {
+  margin-inline-start: calc(var(--icon-offset) * -1);
+}
+
+page-search input {
+  inline-size: var(--size-13);
+  outline-offset: 0;
+  position: relative;
+  padding-inline-start: var(--icon-offset);
+}
+
+page-search svg {
+  position: relative;
+  z-index: 2;
+  inline-size: var(--size-4);
+
+  /* XXX: alignment tweak */
+  margin-top: -2px;
+}
+
 .page-head {
   position: fixed;
   inset-block-start: 0;
-  min-block-size: var(--size-8);
+  block-size: var(--header-block-size);
   inline-size: 100vw;
   padding-inline: var(--size-2);
   background: var(--surface-1);
@@ -132,7 +166,8 @@ nav > details > :where(ol, ul) > li {
 .page-head a {
   color: var(--text-1);
 }
-.page-head a:hover {
+
+.page-head a:where(:hover, :focus-visible) {
   color: var(--brand-color);
 }
 
@@ -140,35 +175,25 @@ nav > details > :where(ol, ul) > li {
   display: none;
 }
 
-page-search {
-  --icon-offset: var(--size-7);
-
-  display: block;
-  place-self: center start;
-  margin-inline: var(--size-2);
-  padding-block: var(--size-2);
-  padding-inline-start: calc(var(--icon-offset) + var(--size-2));
+.page-foot {
+  padding-inline: var(--size-8);
+  block-size: var(--footer-block-size);
+  background: var(--surface-2);
+  display: flex;
+  place-content: space-between;
+  place-items: center;
 }
 
-page-search form,
-page-search input {
-  margin-inline-start: calc(var(--icon-offset) * -1);
+.page-foot p {
+  flex: 1;
 }
 
-page-search input {
-  inline-size: var(--size-13);
-  outline-offset: 0;
-  position: relative;
-  padding-inline-start: var(--icon-offset);
+.page-foot a:where(:visited) {
+  color: currentcolor;
 }
 
-page-search svg {
-  position: relative;
-  z-index: 2;
-  inline-size: var(--size-4);
-
-  /* XXX: alignment tweak */
-  margin-top: -2px;
+.page-foot a:where(:hover, :focus-visible) {
+  color: var(--brand-color);
 }
 
 .sidebar-nav {
@@ -224,11 +249,11 @@ page-search svg {
   display: none;
 }
 
-.sidebar-nav a:visited {
-  color: var(--text-1);
+.sidebar-nav a:where(:visited) {
+  color: currentcolor;
 }
 
-.sidebar-nav a:hover {
+.sidebar-nav a:where(:hover, :focus-visible) {
   text-decoration: underline;
 }
 
@@ -283,9 +308,10 @@ page-search svg {
     inset-block-start: 0;
     padding-block: var(--size-9) 1rem;
   }
-  
-  main {
-    max-inline-size: calc(100vw - var(--size-14))
+
+  main,
+  body > footer {
+    max-inline-size: calc(100vw - var(--size-14));
   }
 }
 

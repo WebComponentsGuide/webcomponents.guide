@@ -25,6 +25,27 @@
 
     <main>{% block content %} {{ content }} {% endblock %}</main>
 
+    <footer class="page-foot">
+
+      <p>
+      All content licensed as <a href="https://spdx.org/licenses/CC-BY-SA-4.0">CC-BY-SA-4.0</a>
+      </p>
+      <nav aria-label="Social Links">
+        <ol>
+          <li class="nav-item">
+            <a
+              href="https://github.com/WebComponentsGuide/webcomponents.guide/"
+              target="_blank"
+              rel="noopener"
+              title="GitHub"
+              aria-label="GitHub"
+              ><svg width="24" height="24" class="icon"><use xlink:href="/images/icons.svg#github"></use></svg
+            ></a>
+          </li>
+        </ol>
+      </nav>
+    </footer>
+
     <script type="module" src="/script/polyfills.js"></script>
     {% for file in script %}
     <link rel="stylesheet" href="/script/{{file}}" />
