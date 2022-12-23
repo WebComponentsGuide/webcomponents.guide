@@ -39,14 +39,14 @@ main > h1 {
   gap: var(--size-10);
 }
 
-.pagination :where([slot="next"],[slot="prev"]) {
+.pagination :where([slot="next"], [slot="prev"]) {
   flex: 1;
   display: block;
   border-bottom: var(--border-size-2) solid var(--brand);
   padding: var(--size-3);
 }
 
-.pagination :where([slot="next"],[slot="prev"]) span {
+.pagination :where([slot="next"], [slot="prev"]) span {
   color: var(--text-2);
   display: block;
   font-size: var(--font-size-0);
@@ -103,39 +103,39 @@ main > h1 {
   background: var(--gray-2);
 }
 
-.content th:first-child {
-  border-top-left-radius: var(--radius-2);
+.content tr:first-child th:first-child {
+  border-start-start-radius: var(--radius-2);
 }
 
-.content th:last-child {
-  border-top-right-radius: var(--radius-2);
+.content tr:first-child th:last-child {
+  border-start-end-radius: var(--radius-2);
 }
 
-.content tr:nth-child(even) td {
+.content tr:where(:nth-child(even)) td {
   background: var(--gray-1);
 }
 
 .content :where(td, th):last-child {
-  border-right-width: var(--border-size-1);
+  border-inline-end-width: var(--border-size-1);
 }
 
-.content tr:last-child td {
-  border-bottom-width: var(--border-size-1);
+.content tbody tr:last-child :where(td, th) {
+  border-block-end-width: var(--border-size-1);
 }
 
-.content tr:last-child td:first-child {
-  border-bottom-left-radius: var(--radius-2);
+.content tbody tr:last-child :where(td, th):first-child {
+  border-end-start-radius: var(--radius-2);
 }
 
 .content tr:last-child td:last-child {
-  border-bottom-right-radius: var(--radius-2);
+  border-end-end-radius: var(--radius-2);
 }
 
 @media (--OSdark) {
   .content th {
     background: var(--gray-8);
   }
-  
+
   .content tr:nth-child(even) td {
     background: var(--gray-12);
   }
