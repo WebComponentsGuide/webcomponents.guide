@@ -61,6 +61,7 @@ main > h1 {
 .content {
   max-inline-size: 80ch;
   font-size: var(--font-size-2);
+  margin-block-end: var(--size-8);
 }
 
 .content > :where(p, h2, h3, h4, h5) {

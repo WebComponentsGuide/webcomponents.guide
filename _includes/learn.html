@@ -17,8 +17,6 @@ css: [learn.css]
 
 <section class="content">{{ content }}</section>
 
-<hr/>
-
 {% if collections[group] %}
 <nav class="pagination" aria-label="Pagination">
 {% assign previousPost = collections[group] | getPreviousCollectionItem: page %}
