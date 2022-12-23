@@ -16,7 +16,7 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addPassthroughCopy("browserconfig.xml")
   eleventyConfig.addPassthroughCopy("site.webmanifest")
 
-  eleventyConfig.addGlobalData("repository", "https://github.com/WebComponentsGuide/web-components-guide")
+  eleventyConfig.addGlobalData("repository", "https://github.com/WebComponentsGuide/webcomponents.guide")
 
   for (const group of require("./_data/groups.json")) {
     eleventyConfig.addCollection(group, (api) => {
