@@ -57,6 +57,7 @@ hero-header > [slot="title"] {
   place-self: center;
   background: var(--brand-gradient) 200%;
   background-clip: text;
+  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: var(--font-size-fluid-3) !important;
 }
