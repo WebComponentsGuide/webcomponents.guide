@@ -78,3 +78,5 @@ customElements.define(
 ```
 
 {% enddemo %}
+
+Let's find out more about how to build this component...
