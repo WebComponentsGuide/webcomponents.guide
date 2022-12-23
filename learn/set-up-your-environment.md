@@ -62,15 +62,15 @@ Here's a handy guide on how to quickly access the developer tools, depending on 
 [edge-devtools]: https://learn.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/overview
 [safari-devtools]: https://developer.apple.com/videos/play/tech-talks/401/
 
-| OS            | Browser         | Keyboard shortcut             | Menu                                                 |
-| :------------ | :-------------- | :---------------------------- | :--------------------------------------------------- |
-| Windows/Linux | Google Chrome   | {% shortcut "Ctrl Shift I" %} | {% menu "more" "More Tools" "Developer Tools" %}     |
-| MacOS         | Google Chrome   | {% shortcut "Cmd Opt I" %}    | {% menu "more" "More Tools" "Developer Tools" %}     |
-| Windows/Linux | Microsoft Edge  | {% shortcut "Ctrl Shift I" %} | {% menu "more-v" "More Tools" "Developer Tools" %}   |
-| MacOS         | Microsoft Edge  | {% shortcut "Cmd Opt I" %}    | {% menu "more-v" "More Tools" "Developer Tools" %}   |
-| Windows/Linux | Mozilla Firefox | {% shortcut "Ctrl Shift I" %} | {% menu "menu" "More Tools" "Web Developer Tools" %} |
-| MacOS         | Mozilla Firefox | {% shortcut "Cmd Shift I" %}  | {% menu "menu" "More Tools" "Web Developer Tools" %} |
-| MacOS         | Apple Safari    | {% shortcut "Cmd Shift I" %}  | {% menu "Develop" "Show Web Inspector" %}            |
+| OS            | Browser                      | Keyboard shortcut             | Menu                                                 |
+| :------------ | :--------------------------- | :---------------------------- | :--------------------------------------------------- |
+| Windows/Linux | {% icon "chrome" %} Chrome   | {% shortcut "Ctrl Shift I" %} | {% menu "more" "More Tools" "Developer Tools" %}     |
+| macOS         | {% icon "chrome" %} Chrome   | {% shortcut "Cmd Opt I" %}    | {% menu "more" "More Tools" "Developer Tools" %}     |
+| Windows/Linux | {% icon "edge" %} Edge       | {% shortcut "Ctrl Shift I" %} | {% menu "more-v" "More Tools" "Developer Tools" %}   |
+| macOS         | {% icon "edge" %} Edge       | {% shortcut "Cmd Opt I" %}    | {% menu "more-v" "More Tools" "Developer Tools" %}   |
+| Windows/Linux | {% icon "firefox" %} Firefox | {% shortcut "Ctrl Shift I" %} | {% menu "menu" "More Tools" "Web Developer Tools" %} |
+| macOS         | {% icon "firefox" %} Firefox | {% shortcut "Cmd Shift I" %}  | {% menu "menu" "More Tools" "Web Developer Tools" %} |
+| macOS         | {% icon "safari" %} Safari   | {% shortcut "Cmd Shift I" %}  | {% menu "Develop" "Show Web Inspector" %}            |
 
 ## Development Environment
 
