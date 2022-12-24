@@ -1,6 +1,6 @@
 ---
 title: ShadowDOM
-order: 3
+order: 4
 ---
 
 {% stub %}
