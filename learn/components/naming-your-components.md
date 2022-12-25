@@ -23,9 +23,18 @@ Try typing a tag name below to see if it's a valid custom element tag:
 <label class="interactive-input">
   Tag Name:
   <input type="text" is="tag-name-input" placeholder="fancy-button">
-  <br>
-  {% icon "false" %}{% icon "true" %}
-  <span class="error"></span>
+  <p class="valid">
+    {% icon "true" %}
+    <span>Valid custom element name!</span>
+  </p>
+  <p class="error">
+    {% icon "false" %}
+    <span></span>
+  </p>
+  <p class="hint">
+    {% icon "info" %}
+    <span></span>
+  </p>
 </label>
 
 ### Some tag names are reserved

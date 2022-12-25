@@ -74,18 +74,23 @@ main > h1 {
   border: var(--border-size-2) solid var(--gray-3);
 }
 
-.interactive-input input ~ .icon {
+.interactive-input input ~ :where(.valid, .error, .hint) {
   display: none;
 }
 
-.interactive-input input:invalid ~ :where(.error, .icon-false) {
+.interactive-input input:invalid ~ .error {
   color: var(--red-5);
-  display: inline-block;
+  display: block;
 }
 
-.interactive-input input:not(:placeholder-shown):valid ~ :where(.error, .icon-true) {
+.interactive-input input:not(:placeholder-shown):valid ~ .valid {
   color: var(--green-5);
-  display: inline-block;
+  display: block;
+}
+
+.interactive-input input ~ .hint:has(span:not(:empty)) {
+  color: var(--blue-5);
+  display: block;
 }
 
 .content {

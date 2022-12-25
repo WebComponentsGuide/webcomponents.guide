@@ -1,4 +1,4 @@
-import {validTagName, reservedTags, PCENChar } from 'eslint-plugin-custom-elements/lib/tag-names.js' 
+import { validTagName, reservedTags, PCENChar, builtInTagMap } from 'eslint-plugin-custom-elements/lib/tag-names.js' 
 
 const validChar = new RegExp(`^${PCENChar}$`)
 
@@ -12,6 +12,7 @@ customElements.define('tag-name-input', class extends HTMLInputElement {
   handleEvent() {
     const {value} = this
     this.setCustomValidity('')
+    let hint = ''
     if (value) {
       if (/[A-Z]/.test(value)) {
         this.setCustomValidity(`${value} is not valid, it cannot contain capital letters`)
@@ -28,12 +29,22 @@ customElements.define('tag-name-input', class extends HTMLInputElement {
         for (const char of value) {
           if (!(validChar.test(char))) chars.add(char)
         }
-        this.setCustomValidity(`${value} is not a valid tag name, cannot contain ${[...chars].join(', ')}!`)
+        this.setCustomValidity(`${value} is not a valid tag name, cannot contain ${[...chars].join(', ')}`)
       }
+      
+      const parts = value.split(/-/g)
+      for (const part in parts) {
+        if (part in builtInTagMap) {
+          hint = `${value} is similar to the built-in ${builtInTagMap[part]}`
+        }
+      }
+
     }
     this.reportValidity()
-    const errorEl = this.parentElement.querySelector('.error')
-    errorEl.textContent = this.validationMessage || (value ? 'Valid custom element name!' : '')
+    const errorEl = this.parentElement.querySelector('.error span')
+    errorEl.textContent = this.validationMessage
+    const hintEl = this.parentElement.querySelector('.hint span')
+    hintEl.textContent = hint
   }
 
 }, { extends: 'input' })
