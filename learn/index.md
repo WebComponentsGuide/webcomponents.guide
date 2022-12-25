@@ -12,7 +12,7 @@ you've got a server that can render HTML, then you can render Web Components!
 
 Web Components allow you to extend the vocabulary of your HTML. You can define new behaviors that go beyond the built in
 tags. New features such as `<slide-out-menu>` or `<stop-watch>` are at your finger tips. JavaScript can drive these
-definitions, allowing advanced behaviours and interactions.
+definitions, allowing advanced behaviors and interactions.
 
 {% tip %}
 
@@ -22,7 +22,7 @@ apart from native elements. New native elements will never have a dash, and so w
 {% endtip %}
 
 Here's an example of a web component that renders a timer. It defines its own [styles][styles], it renders into a
-[shadowroot][shadowroot], and has its own [private state][private-state]. It makes use of the [lifecycle
+[shadow root][shadowroot], and has its own [private state][private-state]. It makes use of the [lifecycle
 callbacks][lifecycle] to know when to start counting. These are all built in web platform features!
 
 [styles]: /learn/components/styling

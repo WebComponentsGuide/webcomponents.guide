@@ -12,7 +12,7 @@ set of devtools makes it much easier to debug your application. A lot of develop
 browser][chrome], which has powerful built in devtools. [Mozilla Firefox][firefox] is another great option with equally
 good devtools. There's also Mozilla [Firefox Developer edition][firefox-dev] which has extra features, like an
 Integrated Development Environment. [Microsoft Edge][edge] is another great browser, built on the same technologies as
-Google Chrome. If you're on [MacOS][macos] then [Safari][safari] can be a good choice, but it's not quite as capable as
+Google Chrome. If you're on [macOS][macos] then [Safari][safari] can be a good choice, but it's not quite as capable as
 the other browsers. Safari's devtools aren't quite as capable as the others, and it lacks support for some Web Component
 features.
 
@@ -52,7 +52,7 @@ make the most of them.
 If you're using Google Chrome, check out the [Chrome Developers documentation on the Chrome Devtools][chrome-devtools].
 It's a great resource for learning exactly how the developer tools inside Google Chrome work. Mozilla has a similar
 [guide on Firefox Developer Tools][firefox-devtools]. Microsoft have a smaller but still useful [guide on the Edge
-developer tools][edge-devtools]. Apple's Safari has a useful [five minute walkthrough of their Web
+developer tools][edge-devtools]. Apple's Safari has a useful [five minute walk through of their Web
 Inspector][safari-devtools].
 
 Here's a handy guide on how to quickly access the developer tools, depending on your browser and OS:
@@ -77,7 +77,7 @@ Here's a handy guide on how to quickly access the developer tools, depending on 
 To get starting writing web components you'll need a development environment. While you can use any text editor to
 develop, using an Integrated Development Environment (IDE) will give you lots of features that can make for a much
 better developer experience. One of the most popular IDEs today is [VS Code][vscode], and with good reason! It comes
-with exelent support for writing HTML, JavaScript and CSS out of the box as well as some great plugins that you can
+with excellent support for writing HTML, JavaScript and CSS out of the box as well as some great plugins that you can
 install. It can hook directly into web browsers like Chrome or Firefox using the allowing you to debug your applications
 without leaving your editor. All of these features makes it ideal for writing Web Components and websites that use them.
 
