@@ -1,4 +1,6 @@
 const css = require("eleventy-postcss-extension")
+const markdown = require("markdown-it")
+const headers = require("markdown-it-github-headings")
 const js = require("@jamshop/eleventy-plugin-esbuild")
 const glob = require("glob")
 const path = require("node:path")
@@ -11,6 +13,12 @@ module.exports = (eleventyConfig) => {
     output: "_site/script",
   })
   eleventyConfig.addPlugin(highlight)
+
+  eleventyConfig.setLibrary("md", markdown({
+    html: true,
+    breaks: true,
+    linkify: true
+  }).use(headers))
 
   eleventyConfig.addPassthroughCopy("images")
   eleventyConfig.addPassthroughCopy("browserconfig.xml")

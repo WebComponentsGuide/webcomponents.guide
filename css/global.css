@@ -24,6 +24,20 @@
   font-weight: var(--font-weight-5);
 }
 
+:where(h1, h2, h3, h4, h5, h6) .anchor {
+  padding: var(--size-2);
+  aspect-ratio: 1;
+  inset: 24px;
+  margin-inline-start: calc((24px + var(--size-2)) * -1);
+  display: inline-block;
+  visibility: hidden;
+  scroll-margin: var(--size-9);
+}
+
+:where(h1, h2, h3, h4, h5, h6):where(:hover, :focus-within) .anchor {
+  visibility: visible;
+}
+
 :where(:focus-visible) {
   outline-style: solid;
   outline-width: var(--border-1);
