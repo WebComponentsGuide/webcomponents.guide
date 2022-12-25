@@ -14,11 +14,15 @@ module.exports = (eleventyConfig) => {
   })
   eleventyConfig.addPlugin(highlight)
 
-  eleventyConfig.setLibrary("md", markdown({
-    html: true,
-    breaks: true,
-    linkify: true
-  }).use(headers))
+  eleventyConfig.setLibrary(
+    "md",
+    markdown({
+      html: true,
+      breaks: true,
+      linkify: true,
+    })
+      .use(headers, { prefixHeadingIds: false })
+  )
 
   eleventyConfig.addPassthroughCopy("images")
   eleventyConfig.addPassthroughCopy("browserconfig.xml")
