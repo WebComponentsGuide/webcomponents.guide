@@ -22,7 +22,7 @@ Try typing a tag name below to see if it's a valid custom element tag:
 
 <label class="interactive-input">
   Tag Name:
-  <input type="text" is="tag-name-input" placeholder="fancy-button">
+  <input type="text" is="tag-name-input" placeholder="fancy-button" autocomplete="off" autocapitalize="off">
   <p class="valid">
     {% icon "true" %}
     <span>Valid custom element name!</span>
