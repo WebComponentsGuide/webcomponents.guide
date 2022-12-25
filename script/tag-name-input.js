@@ -32,7 +32,8 @@ customElements.define('tag-name-input', class extends HTMLInputElement {
       }
     }
     this.reportValidity()
-    this.parentElement.querySelector('.error').textContent = this.validationMessage || value ? 'Valid custom element name!' : ''
+    const errorEl = this.parentElement.querySelector('.error')
+    errorEl.textContent = this.validationMessage || (value ? 'Valid custom element name!' : '')
   }
 
 }, { extends: 'input' })
