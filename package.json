@@ -34,6 +34,7 @@
     "@11ty/eleventy-plugin-syntaxhighlight": "^4.2.0",
     "@jamshop/eleventy-plugin-esbuild": "^1.0.2",
     "@oddbird/popover-polyfill": "^0.0.4",
+    "@ungap/custom-elements": "^1.1.1",
     "autoprefixer": "10.4.13",
     "cheerio": "1.0.0-rc.12",
     "construct-style-sheets-polyfill": "^3.1.0",
