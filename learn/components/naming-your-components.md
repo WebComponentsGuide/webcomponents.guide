@@ -16,7 +16,7 @@ There are some specific rules that you must adhere to to make a valid tag name:
 - It _can_ contain underscores, and numbers.
 - It _can_ contain characters from different alphabets, such as `é`, `ð`, `ö`, `爱`.
 
-An invalid name will cause a `DOMException` to be thrown when you set up your custom element. 
+An invalid name will cause a `DOMException` to be thrown when you set up your custom element.
 
 Try typing a tag name below to see if it's a valid custom element tag:
 
@@ -59,8 +59,7 @@ DOMException: CustomElementRegistry.define: 'annotation-xml' is not a valid cust
 
 ## Tips on naming element
 
-While none of the following is prescriptive, here are some tips and tricks on how to pick a good name for your
-elements:
+While none of the following is prescriptive, here are some tips and tricks on how to pick a good name for your elements:
 
 ### Avoid splitting compound words
 
