@@ -14,14 +14,16 @@ customElements.define('tag-name-input', class extends HTMLInputElement {
     this.setCustomValidity('')
     if (!value) {
       return
+    } else if (!(/[A-Z]/.test(value))) {
+      this.setCustomValidity(`${value} is not valid, it cannot contain capital letters`)
     } else if (reservedTags.has(value)) {
       this.setCustomValidity(`${value} is not valid, it's a reserved tag`)
     } if (!(value.includes('-'))) {
-      this.setCustomValidity(`${value} is not valid, must include a dash (-)`)
+      this.setCustomValidity(`${value} is not valid, it must include a dash (-)`)
     } else if (value.startsWith('-')) {
-      this.setCustomValidity(`${value} is not valid, must not start with a (-)`)
+      this.setCustomValidity(`${value} is not valid, it must not start with a dash (-)`)
     } else if (!(/^[a-z]/.test(value))) {
-      this.setCustomValidity(`${value} is not valid, must start with a letter (a-z)`)
+      this.setCustomValidity(`${value} is not valid, it must start with a letter (a-z)`)
     } else if (!validTagName(value)) {
       const chars = []
       for (const char of value) {

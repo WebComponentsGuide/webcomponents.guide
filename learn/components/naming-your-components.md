@@ -5,21 +5,25 @@ script: ["tag-name-input.js"]
 ---
 
 Custom Element tag names must have at least one dash (`-`) in them, and so you probably want to name your element with
-two distinct words like `theme-picker`.
+two distinct words like `theme-picker`. You can use as many dashes as you want, you're not limited to one.
 
 There are some specific rules that you must adhere to to make a valid tag name:
 
 - It _must start_ with a lowercase character of the alphabet (a-z).
+- It _must contain_ at least one dash (`-`).
 - It _must not_ be a previously reserved tag name (see below).
 - It _must not_ contain special characters, like `=`, `@`, `$`.
-- It _can_ contain underscores, dashes, and numbers.
+- It _can_ contain underscores, and numbers.
 - It _can_ contain characters from different alphabets, such as `é`, `ð`, `ö`, `爱`.
+
+An invalid name will cause a `DOMException` to be thrown when you set up your custom element. 
 
 Try typing a tag name below to see if it's a valid custom element tag:
 
 <label class="interactive-input">
   Tag Name:
   <input type="text" is="tag-name-input" placeholder="fancy-button">
+  <br>
   {% icon "false" %}{% icon "true" %}
   <span class="error"></span>
 </label>
@@ -46,7 +50,8 @@ DOMException: CustomElementRegistry.define: 'annotation-xml' is not a valid cust
 
 ## Tips on naming element
 
-The following is not prescriptive, but offers some guidelines on how best to name your elements:
+While none of the following is prescriptive, here are some tips and tricks on how to pick a good name for your
+elements:
 
 ### Avoid splitting compound words
 
