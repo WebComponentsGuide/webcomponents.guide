@@ -5,6 +5,7 @@ const js = require("@jamshop/eleventy-plugin-esbuild")
 const glob = require("glob")
 const path = require("node:path")
 const highlight = require("@11ty/eleventy-plugin-syntaxhighlight")
+const dedent = require("dedent")
 
 module.exports = (eleventyConfig) => {
   eleventyConfig.addPlugin(css)
@@ -41,8 +42,12 @@ module.exports = (eleventyConfig) => {
   }
 
   const icon = (icon) =>
-    `<svg width="24" height="24" class="icon"><use xlink:href="/images/icons.svg#${icon}"></use></svg>`
-  const callout = (content, style = "info") => `<div class="callout ${style}">${content}${icon(style)}</div>`
+    `<svg width="24" height="24" class="icon icon-${icon}"><use xlink:href="/images/icons.svg#${icon}"></use></svg>`
+  const callout = (content, style = "info") => dedent`
+    <div class="callout ${style}">
+    ${content}
+    ${icon(style)}
+    </div>`
   const keymap = {
     Cmd: icon("command"),
     Opt: icon("option"),
@@ -65,18 +70,19 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addShortcode("menu", menu)
   eleventyConfig.addShortcode("stub", function () {
     return callout(
-      `
-      <p>
-      This section is incomplete!
-      You can help out by
-      <a href="https://github.com/WebComponentsGuide/webcomponents.guide/blob/main/${this.page.inputPath}">
-      contributing documentation here
-      </a>!</p>`,
+      dedent`
+        <p>
+        This section is incomplete!
+        You can help out by
+        <a href="https://github.com/WebComponentsGuide/webcomponents.guide/blob/main/${this.page.inputPath}">
+        contributing documentation here
+        </a>!</p>
+      `,
       "github"
     )
   })
-  eleventyConfig.addPairedShortcode("tip", callout)
 
+  eleventyConfig.addPairedShortcode("tip", callout)
   eleventyConfig.addPairedShortcode("demo", (content) => {
     let js = []
     let html = []
@@ -98,13 +104,18 @@ module.exports = (eleventyConfig) => {
         html.push(line)
       }
     }
-    return `
-${content}
-<script type="module" defer>document.addEventListener('readystatechange', () => {${js.join("\n")}})</script>
-<h6>Result</h6>
-<div class="surface">
-${html}
-</div>
+    return dedent`
+    ${content}
+
+    <script type="module" defer>
+      document.addEventListener('readystatechange', () => {
+        ${js.join("\n")}
+      })
+    </script>
+    <h6>Result</h6>
+    <div class="surface">
+    ${html}
+    </div>
     `
   })
 }
