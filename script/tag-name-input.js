@@ -24,11 +24,11 @@ customElements.define('tag-name-input', class extends HTMLInputElement {
       } else if (!(/^[a-z]/.test(value))) {
         this.setCustomValidity(`${value} is not valid, it must start with a letter (a-z)`)
       } else if (!validTagName(value)) {
-        const chars = []
+        const chars = new Set()
         for (const char of value) {
-          if (!(validChar.test(char))) chars.push(char)
+          if (!(validChar.test(char))) chars.add(char)
         }
-        this.setCustomValidity(`${value} is not a valid tag name, cannot contain ${chars.join(', ')}!`)
+        this.setCustomValidity(`${value} is not a valid tag name, cannot contain ${[...chars].join(', ')}!`)
       }
     }
     this.reportValidity()
