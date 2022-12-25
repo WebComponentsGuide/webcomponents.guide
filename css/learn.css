@@ -77,12 +77,20 @@ main > h1 {
   text-decoration: underline;
 }
 
-.content :where(h2, h3) {
+.content h2 {
   font-size: var(--font-size-5);
 }
 
-.content :where(h4, h5) {
+.content h3 {
   font-size: var(--font-size-4);
+}
+
+.content h4 {
+  font-size: var(--font-size-3);
+}
+
+.content h5 {
+  font-size: var(--font-size-2);
 }
 
 .content :where(th, td) {
