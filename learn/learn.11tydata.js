@@ -9,6 +9,6 @@ module.exports = {
     prevGroup(data) {
       const i = data.groups.indexOf(data.group)
       return i >= 0 ? data.groups[i - 1] : null
-    }
-  }
+    },
+  },
 }

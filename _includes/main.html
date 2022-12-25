@@ -20,25 +20,16 @@
     <link href="/blog/atom.xml" rel="alternate" type="application/atom+xml" title="Web Components Guide Blog" />
   </head>
   <body>
-    {% include 'header.html' %}
-    {% include 'navigation.html' %}
+    {% include 'header.html' %} {% include 'navigation.html' %}
 
     <main>{% block content %} {{ content }} {% endblock %}</main>
 
     <footer class="page-foot">
-
-      <p>
-      All content licensed as <a href="https://spdx.org/licenses/CC-BY-SA-4.0">CC-BY-SA-4.0</a>
-      </p>
+      <p>All content licensed as <a href="https://spdx.org/licenses/CC-BY-SA-4.0">CC-BY-SA-4.0</a></p>
       <nav aria-label="Social Links">
         <ol>
           <li class="nav-item">
-            <a
-              href="{{ repository }}"
-              target="_blank"
-              rel="noopener"
-              title="GitHub"
-              aria-label="GitHub"
+            <a href="{{ repository }}" target="_blank" rel="noopener" title="GitHub" aria-label="GitHub"
               ><svg width="24" height="24" class="icon"><use xlink:href="/images/icons.svg#github"></use></svg
             ></a>
           </li>

@@ -154,10 +154,7 @@ class Point {
   }
 
   equals(otherPoint) {
-    return (
-      this.x === otherPoint.x &&
-      this.y === otherPoint.y
-    )
+    return this.x === otherPoint.x && this.y === otherPoint.y
   }
 }
 
@@ -168,10 +165,7 @@ class Point3D extends Point {
   }
 
   equals(otherPoint) {
-    return (
-      super.equals(otherPoint) &&
-      this.z === otherPoint.z
-    )
+    return super.equals(otherPoint) && this.z === otherPoint.z
   }
 }
 ```

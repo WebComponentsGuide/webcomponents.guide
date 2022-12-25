@@ -148,9 +148,9 @@ consider adding a check to ensure `oldValue !== newValue` before performing oper
 
 ## `adoptedCallback()`
 
-The `adoptedCallback()` is another well known method gets called when your element moves from one `document` to
-another (such as an iframe). It's rare that this happens, andd so for the most part you can skip implementing this, but
-it can be useful especially if you have event listeners on the `document` or `window`, which will change when the
+The `adoptedCallback()` is another well known method gets called when your element moves from one `document` to another
+(such as an iframe). It's rare that this happens, andd so for the most part you can skip implementing this, but it can
+be useful especially if you have event listeners on the `document` or `window`, which will change when the
 `adoptedCallback()` is called.
 
 ## Summary

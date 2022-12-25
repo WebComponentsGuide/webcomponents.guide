@@ -3,9 +3,9 @@ title: Events
 order: 3
 ---
 
-Web browsers (and server side engines like [NodeJS][node] and [Deno][deno]) include
-an Event API which has become a foundational concept in JavaScript, and is particularly important when we talk about Web
-Components. The two classes that drive all of these events are the `Event` class, and the `EventTarget` class.
+Web browsers (and server side engines like [NodeJS][node] and [Deno][deno]) include an Event API which has become a
+foundational concept in JavaScript, and is particularly important when we talk about Web Components. The two classes
+that drive all of these events are the `Event` class, and the `EventTarget` class.
 
 [node]: https://nodejs.org/en/
 [deno]: https://deno.land/
