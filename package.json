@@ -18,7 +18,7 @@
     "start": "eleventy --serve",
     "check": "prettier --check . && npm run spell",
     "spell": "mdspell --en-us --report **/*.md *.md",
-    "format": "prettier --fix ."
+    "format": "prettier --write ."
   },
   "stylelint": {
     "extends": "stylelint-config-standard"
