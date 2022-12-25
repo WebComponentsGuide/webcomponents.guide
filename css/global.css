@@ -206,7 +206,7 @@ page-search svg {
   margin: 0 auto;
   background: var(--surface-1);
   box-shadow: var(--shadow-4);
-  min-inline-size: var(--size-14);
+  inline-size: var(--size-14);
   padding: 1rem;
   color: inherit;
 }
