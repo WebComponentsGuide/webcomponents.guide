@@ -60,6 +60,7 @@ main > h1 {
 
 .interactive-input input {
   margin-inline: var(--size-2);
+  margin-block-end: var(--size-2);
 }
 
 .interactive-input input:invalid {
