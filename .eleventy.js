@@ -19,7 +19,6 @@ module.exports = (eleventyConfig) => {
     "md",
     markdown({
       html: true,
-      breaks: true,
       linkify: true,
     })
       .use(headers, { prefixHeadingIds: false })
