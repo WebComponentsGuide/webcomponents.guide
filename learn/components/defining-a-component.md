@@ -18,6 +18,8 @@ types of elements you can define:
 
 ## Autonomous Custom Elements
 
+{% include "support-table.html" title: "Custom Elements", feature: compat.api.CustomElementRegistry %}
+
 "Autonomous Custom Elements" is a fancy way of saying that you're extending from the _base element_. The base element -
 `HTMLElement` - doesn't have a tag, so you need to make one up. It also doesn't have any built in semantics,
 accessibility, or styling. In that way it's kind of like a `<div>` or `<span>` element. How it behaves beyond that is
@@ -46,6 +48,8 @@ message like `autonomous custom elements must extend HTMLElement`.
 [lifecycle]: /learn/components/lifecycle-reference
 
 ## Customized Built-in Elements
+
+{% include "support-table.html" title: "Custom Elements", feature: compat.api.CustomElementRegistry.builtin_element_support %}
 
 "Customized Built-in" elements are extensions to the browsers existing built-in elements. For example if you wanted to
 make a button extends the normal behaviours, you can customise it with a customized built-in. Instead of making up your

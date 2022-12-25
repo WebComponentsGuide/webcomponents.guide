@@ -31,6 +31,9 @@
   margin-inline-start: calc((24px + var(--size-2)) * -1);
   display: inline-block;
   visibility: hidden;
+}
+
+a[id] {
   scroll-margin: var(--size-9);
 }
 

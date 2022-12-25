@@ -6,6 +6,22 @@ const glob = require("glob")
 const path = require("node:path")
 const highlight = require("@11ty/eleventy-plugin-syntaxhighlight")
 const dedent = require("dedent")
+const compatData = require("@mdn/browser-compat-data")
+const semver = require("semver")
+const semverSort = require("semver/functions/sort")
+const browserslist = require("browserslist")
+const browsers = ["chrome", "edge", "firefox", "safari"]
+const browserVersions = (() => {
+  const all = browserslist(["defaults"]).map((x) => x.split(" "))
+  const returnData = {}
+  for (const vendor of browsers) {
+    const versions = semverSort(all.filter(([v]) => vendor === v).map(([_, v]) => semver.coerce(v)))
+    const latest = versions[0]
+    const oldest = versions.at(-1)
+    returnData[vendor] = { latest, oldest }
+  }
+  return returnData
+})()
 
 module.exports = (eleventyConfig) => {
   eleventyConfig.addPlugin(css)
@@ -31,6 +47,11 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addPassthroughCopy("site.webmanifest")
 
   eleventyConfig.addGlobalData("repository", "https://github.com/WebComponentsGuide/webcomponents.guide")
+  eleventyConfig.addGlobalData("browsers", browsers)
+  eleventyConfig.addGlobalData("browserVersions", browserVersions)
+  eleventyConfig.addGlobalData("compat", compatData)
+
+  eleventyConfig.addFilter("semverGt", (a, b) => semver.gt(semver.coerce(a), semver.coerce(b)))
 
   for (const group of require("./_data/groups.json")) {
     eleventyConfig.addCollection(group, (api) => {

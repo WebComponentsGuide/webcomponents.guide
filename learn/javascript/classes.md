@@ -13,6 +13,8 @@ Here's a quick tour of how classes work, but you can [read much more about class
 
 ### Defining a class
 
+{% include "support-table.html" title: "Classes", feature: compat.javascript.classes.__compat %}
+
 Classes can be defined using the `class` keyword and providing a name. You can also define a class using a class
 _expression_, as long as it's passed to a function or assigned to a variable.
 
@@ -35,6 +37,8 @@ console.assert(mypoint instanceof Point)
 ```
 
 ### Defining a public API
+
+{% include "support-table.html" title: "Class Public Fields", feature: compat.javascript.classes.public_class_fields %}
 
 Classes can be given public properties, and methods to give them features which other code can use. They can also have
 special well known methods that get automatically called during certain events:
@@ -109,6 +113,9 @@ mypoint.isEmpty = false
 
 ### Defining a private API
 
+{% include "support-table.html" title: "Class Private Fields", feature: compat.javascript.classes.private_class_fields %}
+{% include "support-table.html" title: "Class Private Methods", feature: compat.javascript.classes.private_class_methods %}
+
 Classes can also have "Private" state and private methods, which cannot be called outside of the class.
 
 ```js
@@ -139,6 +146,8 @@ myupper.#uppercase()
 ```
 
 ### Extending a class
+
+{% include "support-table.html" title: "Extending Classes", feature: compat.javascript.classes.extends %}
 
 Classes can extend from other classes. The extended class will receive all of the parent classes methods and properties,
 and it can define new methods and properties. The extended class cannot access private state or private methods from the

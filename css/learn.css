@@ -161,7 +161,7 @@ main > h1 {
   border-radius: var(--radius-2);
 }
 
-.callout p {
+.callout :where(p, table) {
   max-inline-size: 90%;
 }
 
@@ -183,22 +183,73 @@ main > h1 {
   color: var(--red-12);
 }
 
+.callout.supports {
+  border: var(--border-size-2) solid var(--jungle-3);
+  background: var(--jungle-1);
+  color: var(--jungle-12);
+}
+
 .callout.github {
   border: var(--border-size-2) solid var(--jungle-3);
   background: var(--jungle-1);
   color: var(--jungle-12);
 }
 
-.callout.info svg {
+.callout.info > svg {
   color: var(--blue-6);
 }
 
-.callout.warn svg {
+.callout.warn > svg {
   color: var(--orange-6);
 }
 
-.callout.danger svg {
+.callout.danger > svg {
   color: var(--red-6);
+}
+
+.callout.supports > svg {
+  color: var(--jungle-6);
+}
+
+.callout.github > svg {
+  color: var(--jungle-6);
+}
+
+.callout.supports table {
+  margin-block-end: 0;
+}
+
+.callout.supports table .icon {
+  display: block;
+  margin: auto;
+}
+
+.callout.supports table .icon-true {
+  color: var(--green-9);
+}
+
+.callout.supports table .icon-false {
+  color: var(--red-9);
+}
+
+.callout.supports :is(th, td) {
+  background: none;
+  border-color: var(--jungle-3);
+  font-weight: normal;
+  inline-size: 20%;
+}
+
+.callout.supports :where(th):first-child {
+  text-align: right;
+}
+
+.callout.supports :where(tbody td) {
+  text-align: center;
+}
+
+.callout.supports :where(tfoot td),
+.callout.supports :where(thead th):first-child {
+  border: 0;
 }
 
 @media (--OSdark) {
@@ -220,21 +271,35 @@ main > h1 {
     color: var(--red-1);
   }
 
+  .callout.supports {
+    border: var(--border-size-2) solid var(--jungle-12);
+    background: var(--jungle-10);
+    color: var(--jungle-1);
+  }
+
   .callout.github {
     border: var(--border-size-2) solid var(--jungle-12);
     background: var(--jungle-10);
     color: var(--jungle-1);
   }
 
-  .callout.info svg {
+  .callout.info > svg {
     color: var(--blue-3);
   }
 
-  .callout.warn svg {
+  .callout.warn > svg {
     color: var(--orange-3);
   }
 
-  .callout.danger svg {
+  .callout.danger > svg {
     color: var(--red-3);
+  }
+
+  .callout.supports > svg {
+    color: var(--jungle-3);
+  }
+
+  .callout.github > svg {
+    color: var(--jungle-3);
   }
 }
