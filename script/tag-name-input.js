@@ -13,7 +13,7 @@ customElements.define('tag-name-input', class extends HTMLInputElement {
     const {value} = this
     this.setCustomValidity('')
     if (value) {
-      if (!(/[A-Z]/.test(value))) {
+      if (/[A-Z]/.test(value)) {
         this.setCustomValidity(`${value} is not valid, it cannot contain capital letters`)
       } else if (reservedTags.has(value)) {
         this.setCustomValidity(`${value} is not valid, it's a reserved tag`)
