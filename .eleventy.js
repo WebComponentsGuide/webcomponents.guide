@@ -22,6 +22,7 @@ module.exports = (eleventyConfig) => {
       linkify: true,
     })
       .use(headers, { prefixHeadingIds: false })
+      .disable("code")
   )
 
   eleventyConfig.addPassthroughCopy("images")
