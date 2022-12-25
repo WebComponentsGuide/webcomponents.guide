@@ -41,6 +41,7 @@
     "cssnano": "5.1.14",
     "dedent": "^0.7.0",
     "eleventy-postcss-extension": "1.0.0",
+    "eslint-plugin-custom-elements": "^0.0.6",
     "glob": "^8.0.3",
     "markdown-it": "^13.0.1",
     "markdown-it-github-headings": "^2.0.1",

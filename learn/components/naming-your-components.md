@@ -1,12 +1,52 @@
 ---
 title: Naming your components
 order: 3
+script: ["tag-name-input.js"]
 ---
-
-## Tips on naming elements
 
 Custom Element tag names must have at least one dash (`-`) in them, and so you probably want to name your element with
 two distinct words like `theme-picker`.
+
+There are some specific rules that you must adhere to to make a valid tag name:
+
+- It _must start_ with a lowercase character of the alphabet (a-z).
+- It _must not_ be a previously reserved tag name (see below).
+- It _must not_ contain special characters, like `=`, `@`, `$`.
+- It _can_ contain underscores, dashes, and numbers.
+- It _can_ contain characters from different alphabets, such as `é`, `ð`, `ö`, `爱`.
+
+Try typing a tag name below to see if it's a valid custom element tag:
+
+<label class="interactive-input">
+  Tag Name:
+  <input type="text" is="tag-name-input" placeholder="fancy-button">
+  {% icon "false" %}{% icon "true" %}
+  <span class="error"></span>
+</label>
+
+### Some tag names are reserved
+
+There are also some names which are _disallowed_ because they have existed in the HTML spec prior to the creation of
+custom elements. These are:
+
+- `annotation-xml`
+- `color-profile`
+- `font-face`
+- `font-face-src`
+- `font-face-uri`
+- `font-face-format`
+- `font-face-name`
+- `missing-glyph`
+
+Trying to create an element with one of these names will result in an error like:
+
+```js
+DOMException: CustomElementRegistry.define: 'annotation-xml' is not a valid custom element name
+```
+
+## Tips on naming element
+
+The following is not prescriptive, but offers some guidelines on how best to name your elements:
 
 ### Avoid splitting compound words
 
@@ -45,26 +85,6 @@ every component name longer.
 
 [spectrum]: https://opensource.adobe.com/spectrum-web-components/
 [shoelace]: https://shoelace.style/
-
-### Some tag names are reserved
-
-There are also some names which are _disallowed_ because they have existed in the HTML spec prior to the creation of
-custom elements. These are:
-
-- `annotation-xml`
-- `color-profile`
-- `font-face`
-- `font-face-src`
-- `font-face-uri`
-- `font-face-format`
-- `font-face-name`
-- `missing-glyph`
-
-Trying to create an element with one of these names will result in an error like:
-
-```js
-DOMException: CustomElementRegistry.define: 'annotation-xml' is not a valid custom element name
-```
 
 ### If in doubt, use the `noun-noun` pattern
 

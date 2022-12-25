@@ -39,7 +39,7 @@
 
     <script type="module" src="/script/polyfills.js"></script>
     {% for file in script %}
-    <link rel="stylesheet" href="/script/{{file}}" />
+    <script type="module" src="/script/{{ file }}"></script>
     {% endfor %}
   </body>
 </html>

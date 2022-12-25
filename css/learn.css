@@ -58,6 +58,36 @@ main > h1 {
   text-align: right;
 }
 
+.interactive-input input {
+  margin-inline: var(--size-2);
+}
+
+.interactive-input input:invalid {
+  border: var(--border-size-2) solid var(--red-3);
+}
+
+.interactive-input input:valid {
+  border: var(--border-size-2) solid var(--green-3);
+}
+
+.interactive-input input:placeholder-shown {
+  border: var(--border-size-2) solid var(--gray-3);
+}
+
+.interactive-input input ~ .icon {
+  display: none;
+}
+
+.interactive-input input:invalid ~ :where(.error, .icon-false) {
+  color: var(--red-5);
+  display: inline-block;
+}
+
+.interactive-input input:not(:placeholder-shown):valid ~ :where(.error, .icon-true) {
+  color: var(--green-5);
+  display: inline-block;
+}
+
 .content {
   max-inline-size: 80ch;
   font-size: var(--font-size-2);
