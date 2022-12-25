@@ -27,7 +27,7 @@ customElements.define('tag-name-input', class extends HTMLInputElement {
       } else if (!validTagName(value)) {
         const chars = new Set()
         for (const char of value) {
-          if (!(validChar.test(char))) chars.add(char)
+          if (!(validChar.test(char))) chars.add(`'${char}'`)
         }
         this.setCustomValidity(`${value} is not a valid tag name, cannot contain ${[...chars].join(', ')}`)
       }
