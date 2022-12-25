@@ -15,7 +15,10 @@
   "main": ".eleventy.js",
   "scripts": {
     "build": "eleventy",
-    "start": "eleventy --serve"
+    "start": "eleventy --serve",
+    "check": "prettier --check . && npm run spell",
+    "spell": "mdspell --en-us --report **/*.md *.md",
+    "format": "prettier --fix ."
   },
   "stylelint": {
     "extends": "stylelint-config-standard"
@@ -45,6 +48,7 @@
     "glob": "^8.0.3",
     "markdown-it": "^13.0.1",
     "markdown-it-github-headings": "^2.0.1",
+    "markdown-spellcheck": "^1.3.1",
     "markdownlint-cli": "^0.32.2",
     "open-props": "1.5.3",
     "postcss": "^8.4.20",
