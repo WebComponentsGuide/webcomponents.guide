@@ -4,8 +4,8 @@ order: 3
 script: ["tag-name-input.js"]
 ---
 
-Custom Element tag names must have at least one dash (`-`) in them, and so you probably want to name your element with
-two distinct words like `theme-picker`. You can use as many dashes as you want, you're not limited to one.
+Custom Element _tag names_ must have at least one dash (`-`) in them. As such you probably want to name your element
+with two distinct words like `theme-picker`. You can use as many dashes as you want, you're not limited to one.
 
 There are some specific rules that you must adhere to to make a valid tag name:
 
@@ -16,7 +16,7 @@ There are some specific rules that you must adhere to to make a valid tag name:
 - It _can_ contain underscores, and numbers.
 - It _can_ contain characters from different alphabets, such as `é`, `ð`, `ö`, `爱`.
 
-An invalid name will cause a `DOMException` to be thrown when you set up your custom element.
+An invalid name will result in a `DOMException` when you set up your custom element.
 
 Try typing a tag name below to see if it's a valid custom element tag:
 
@@ -37,10 +37,9 @@ Try typing a tag name below to see if it's a valid custom element tag:
   </p>
 </label>
 
-### Some tag names are reserved
+### Reserved tag names
 
-There are also some names which are _disallowed_ because they have existed in the HTML spec prior to the creation of
-custom elements. These are:
+Some names are _disallowed_ because they have existed in the HTML spec before custom elements were added. These are:
 
 - `annotation-xml`
 - `color-profile`
@@ -63,13 +62,18 @@ While none of the following is prescriptive, here are some tips and tricks on ho
 
 ### Avoid splitting compound words
 
-It can be tricky to think of two words for every element, so it might be tempting to add a dash inside a compound word,
-for example `tool-tip` or `over-lay`. Adding dashes to compound words like this can look a little confusing so it might
-be beneficial to spend the effort and think of another word to add to these, for example `tooltip-popover` or
-`overlay-dialog`.
+It can be tricky to think of two words for every element, so it might be tempting to add a dash inside a compound word. 
+For example splitting "tooltip" into `tool-tip` or "overlay" into `over-lay`. Adding dashes to compound words like this
+can look a little confusing so it might be beneficial to spend the effort and think of another word to add to these,
+for example `tooltip-popover` or `overlay-dialog`.
 
-If your Autonomous Custom Element borrows concepts from other built-ins then you could make up a name that uses the
-built-in, for example `fancy-button`, `color-input`, `radial-meter`.
+### Using names from existing elements
+
+If your _Autonomous Custom Element_ borrows concepts from other built-ins then you could make up a similar name. For
+example `fancy-button` for an element like `<button>`, `color-input` for an element like `<input>`, or  `radial-meter`
+for an element like `<meter>`. You might want to avoid doing this for all except _Customised Built-ins_. If your element
+doesn't share anything in common with an existing built-in, then it's best to avoid having a similar name, as it might
+cause confusion.
 
 ### Make the name concise, but clear
 
@@ -79,12 +83,12 @@ unclear what they do until you familiarise yourself with them. Good components h
 clear!
 
 Conversely using difficult to spell words can cause errors and typos more often. It's best to avoid difficult to spell
-element names like `<abbreviated-text>` or `<widget-accessory>`. Some general rules that make words difficult to spell:
-words longer than 10 characters, words with double letters (abbreviated, occasion, accommodate), words using different
-letters with the same sound (necessary, accessory), words with "silent" constanants (knack, assign, doubt). In these
-cases it might be better to replace a hard to spell word with a simpler word, e.g. `<abbreviated-text>` could be come
-`<short-text>`, `<approximate-date>` could be `<rounded-date>`. Alternatively you could replace one hard to spell word
-with two easier to spell words that mean the same thing, for example `<establish-account>` could be `<set-up-account>`.
+element names like `<abbreviated-text>` or `<widget-accessory>`. Words longer than 10 characters tend to be difficult
+to spell, so try to avoid those. Words with double letters (abbreviated, occasion, accommodate) can be tricky too. Words
+using different letters with the same sound (necessary, accessory) often get misspelled. Words with "silent" consanants
+(knack, assign, doubt) are difficult, especially people whom English is not their first language. In these cases it might
+be better to replace a hard to spell word with a simpler word, e.g. `<abbreviated-text>` could be come `<short-text>`, `<approximate-date>` could be `<rounded-date>`. Alternatively you could replace one hard to spell word with two easier to
+spell words that mean the same thing, for example `<establish-account>` could be `<set-up-account>`.
 
 Tag names don't have to use a single dash! Names like `<auto-complete-input>` or `<ajax-form-provider>` are valid, and
 can sometimes be clearer! However just like long methods or class names they can be overly verbose which makes them
