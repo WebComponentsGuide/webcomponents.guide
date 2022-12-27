@@ -7,7 +7,7 @@ Modern JavaScript includes classes which allow you to concisely define a templat
 their own API. Classes are really useful as they can maintain their own private state, have their own private
 subroutines, and also expose public state and subroutines for other code to call.
 
-Classes are important for Web Components, because most of the time you'll want to use a class to
+Classes are important for _Web Components_, because most of the time you'll want to use a class to define their logic.
 
 Here's a quick tour of how classes work, but you can [read much more about classes and how they work on MDN][classes].
 
