@@ -183,7 +183,7 @@ Another thing you could do is move the definition into a static method on the cl
 class MyElement extends HTMLElement {
 
   static define() {
-    customElements.define('my-element, MyElement)
+    customElements.define("my-element", MyElement)
   }
 
 }
