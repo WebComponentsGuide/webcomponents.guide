@@ -3,7 +3,7 @@ title: Defining a Component
 order: 1
 ---
 
-Most components you write will need some kind of JavaScript. While it's not _stricly_ necessary, more often than not
+Most components you write will need some kind of JavaScript. While it's not _strictly_ necessary, more often than not
 you'll want to add JavaScript to provide logic. To do this you'll need to create a JavaScript `class`, and use the
 "Custom Elements Registry" to attach your class so the browser knows to use it.
 
@@ -183,7 +183,7 @@ Another thing you could do is move the definition into a static method on the cl
 class MyElement extends HTMLElement {
 
   static define() {
-    customElements.define('my-element, MyElement)
+    customElements.define("my-element", MyElement)
   }
 
 }
