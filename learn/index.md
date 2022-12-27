@@ -10,8 +10,8 @@ _Web Components_ are a native way for web developers to build user interfaces. T
 you don't have to download any framework to get started! _Web Components_ fit right into your existing HTML today. If
 you've got a server that can render HTML, then you can render Web Components!
 
-_Web Components_ allow you to extend the vocabulary of your HTML. You can define new behaviors that go beyond the built in
-tags. New features such as `<slide-out-menu>` or `<stop-watch>` are at your finger tips. JavaScript can drive these
+_Web Components_ allow you to extend the vocabulary of your HTML. You can define new behaviors that go beyond the built
+in tags. New features such as `<slide-out-menu>` or `<stop-watch>` are at your finger tips. JavaScript can drive these
 definitions, allowing advanced behaviors and interactions.
 
 {% tip %}

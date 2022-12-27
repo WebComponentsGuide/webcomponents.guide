@@ -9,8 +9,9 @@ _Custom Elements Registry_ to attach your class so the browser knows to use it.
 
 Without the _Custom Element Registry_ the browser won't know what JavaScript to associate to what elements. By default,
 whenever the browser encounters a tag it does not know, it will use the `HTMLUnknownElement` class to give it a default
-behaviour. You can tell the browser to use a different class by _defining_ the tag name in the _Custom Element Registry_.
-With your own class _defined_, any time the browser sees the defined tag, it will set it up using the _associated class_.
+behaviour. You can tell the browser to use a different class by _defining_ the tag name in the _Custom Element
+Registry_. With your own class _defined_, any time the browser sees the defined tag, it will set it up using the
+_associated class_.
 
 To define a _Custom Element_, you can use the global `customElements` API. You won't need to include any JavaScript
 libraries to use `customElements`, it's a global that already exists, like `console` or `localStorage`. There are two
@@ -48,10 +49,11 @@ message like `autonomous custom elements must extend HTMLElement`.
 ## Customized Built-in Elements
 
 _Customized Built-in_ elements are extensions to the browsers existing _built-in_ elements. For example if you wanted to
-make a button extends the normal behaviours, you can customise it with a _Customized Built-in_. Instead of making up your
-own tag name, you'll use the same tag as the _built-in_ you're targeting. Your class will also have to extend from the
-existing _built-in's_ class. For example extending the `<button>` element means your class will need to `extends HTMLButtonElement`. When
-you call `customElements.define` you will need to tell it that you're extending a _built-in_ tag:
+make a button extends the normal behaviours, you can customise it with a _Customized Built-in_. Instead of making up
+your own tag name, you'll use the same tag as the _built-in_ you're targeting. Your class will also have to extend from
+the existing _built-in's_ class. For example extending the `<button>` element means your class will need to
+`extends HTMLButtonElement`. When you call `customElements.define` you will need to tell it that you're extending a
+_built-in_ tag:
 
 ```js
 customElements.define(
@@ -181,11 +183,9 @@ Another thing you could do is move the definition into a static method on the cl
 
 ```js
 class MyElement extends HTMLElement {
-
   static define() {
     customElements.define("my-element", MyElement)
   }
-
 }
 ```
 

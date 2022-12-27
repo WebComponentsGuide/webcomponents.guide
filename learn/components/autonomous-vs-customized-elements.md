@@ -10,21 +10,21 @@ tag and extending `HTMLElement`. However, each style comes with different trade-
 [defining-a-component]: /learn/components/defining-a-component
 
 Choosing a type of component to build will depend on a lot of factors. _Autonomous Custom Elements_ give you a blank
-canvas to work with. _Customized Built-ins_ **extend** the element you're customizing. Here are some considerations to think
-about:
+canvas to work with. _Customized Built-ins_ **extend** the element you're customizing. Here are some considerations to
+think about:
 
 ### Tag Name
 
-Perhaps the most obvious difference between the two is that _Autonomous Custom Elements_ get to create an entirely new tag
-name, and this means if you're querying for the element in the DOM, you'll need to reference that tag name, e.g.
+Perhaps the most obvious difference between the two is that _Autonomous Custom Elements_ get to create an entirely new
+tag name, and this means if you're querying for the element in the DOM, you'll need to reference that tag name, e.g.
 `.querySelector('fancy-button')` will return the first `<fancy-button>`.
 
-With _Customized Built-in_ elements, the tag name must match the element you're customising. For example if you wanted to
-customise a `<button>` element then your HTML will take the shape of `<button is="fancy-button>`. In order to query this
-element you'd need to use an _attribute selector_, for example `.querySelector('button[is="fancy-button"]')`. This also
-means existing code that queries for `button` elements will also find your _Customized Built-ins_. Calling
-`.querySelectorAll('button')` will find all button elements, including ones which are _Customized Built-in elements_. The
-way to find _non-Customized Built-ins_ is to use a selector like: `.querySelectorAll('button:not([is])')`.
+With _Customized Built-in_ elements, the tag name must match the element you're customising. For example if you wanted
+to customise a `<button>` element then your HTML will take the shape of `<button is="fancy-button>`. In order to query
+this element you'd need to use an _attribute selector_, for example `.querySelector('button[is="fancy-button"]')`. This
+also means existing code that queries for `button` elements will also find your _Customized Built-ins_. Calling
+`.querySelectorAll('button')` will find all button elements, including ones which are _Customized Built-in elements_.
+The way to find _non-Customized Built-ins_ is to use a selector like: `.querySelectorAll('button:not([is])')`.
 
 This difference in tag name also effects how you'll select for these elements in CSS. There are additional CSS
 considerations...
@@ -34,16 +34,16 @@ considerations...
 Given _Autonomous Custom Elements_ have their own tag, they are unlikely to conflict with existing CSS. They can have
 _classes_ added to them, and so can be styled by existing CSS but it is opt-in.
 
-As _Customised Built-ins_ keep their tags (e.g. `<button is="fancy-button">`) any CSS that has rules like `button {}` will
-apply. This means if you have some existing CSS that applies to _built-ins_, it'll also apply to the _Customized built-ins_.
-This also includes the default _user agent CSS_.
+As _Customised Built-ins_ keep their tags (e.g. `<button is="fancy-button">`) any CSS that has rules like `button {}`
+will apply. This means if you have some existing CSS that applies to _built-ins_, it'll also apply to the _Customized
+built-ins_. This also includes the default _user agent CSS_.
 
-All _built-ins_ have some _user-agent CSS_ supplied already, for example `div` elements have `display: block;`, `<button>`
-elements are styled to look like your operating systems buttons. _Customised Built-ins_ will also get these styles, so
-`<button is="fancy-button">` will look the same as `<button>` until you customise it further.
+All _built-ins_ have some _user-agent CSS_ supplied already, for example `div` elements have `display: block;`,
+`<button>` elements are styled to look like your operating systems buttons. _Customised Built-ins_ will also get these
+styles, so `<button is="fancy-button">` will look the same as `<button>` until you customise it further.
 
-If you want to customize a _built-in_ by applying only new styles and not adding any new logic, it might be best to use a
-CSS class instead. The main benefit of _Customized Built-ins_ is to extend or add new logic.
+If you want to customize a _built-in_ by applying only new styles and not adding any new logic, it might be best to use
+a CSS class instead. The main benefit of _Customized Built-ins_ is to extend or add new logic.
 
 If you create an _Autonomous Custom Element_ (e.g. `<fancy-button>`) you'll need to style it from scratch as _Autonomous
 Custom Elements_ have no default CSS. You will probably want to add some CSS to these elements - even if it's just
@@ -54,8 +54,8 @@ One other thing to think about with regard to styling is _encapsulated styles_ w
 ### ShadowDOM
 
 _Autonomous Custom Elements_ can make use of the [_ShadowDOM_][shadowdom]. Only a limited set of _built-ins_ can use the
-_ShadowDOM_. If you want to alter any nested elements, it's a great idea to use _ShadowDOM_, and so you probably won't want
-to customise a _built-in_. Here's a list of _built-ins_ that you can customise with _ShadowDOM_:
+_ShadowDOM_. If you want to alter any nested elements, it's a great idea to use _ShadowDOM_, and so you probably won't
+want to customise a _built-in_. Here's a list of _built-ins_ that you can customise with _ShadowDOM_:
 
 - `<article>`
 - `<aside>`
@@ -70,13 +70,13 @@ to customise a _built-in_. Here's a list of _built-ins_ that you can customise w
 - `<section>`
 - `<span>`
 
-_ShadowDOM_ can be really useful for providing encapsulated markup and styles. Styles within _ShadowDOM_ don't
-effect the rest of the page, and so it can be a really useful place to add styles to your elements. If this is a high
-priority, you might find using an _Autonomous Custom Element_ to be a better choice than the limited set of built-ins
-which can use _ShadowDOM_.
+_ShadowDOM_ can be really useful for providing encapsulated markup and styles. Styles within _ShadowDOM_ don't effect
+the rest of the page, and so it can be a really useful place to add styles to your elements. If this is a high priority,
+you might find using an _Autonomous Custom Element_ to be a better choice than the limited set of built-ins which can
+use _ShadowDOM_.
 
-_ShadowDOM_ also provides elements with the ability to chose how nested elements render. An ability that many _built-ins_
-already have...
+_ShadowDOM_ also provides elements with the ability to chose how nested elements render. An ability that many
+_built-ins_ already have...
 
 [shadowdom]: /learn/components/shadowdom
 
@@ -85,11 +85,11 @@ already have...
 Many _built-in_ elements will only allow certain tags to nest inside ([you can read more about _Content Categories_ on
 MDN][content-categories]). For example a `<button>` tag only allows _[phrasing content]_ tags like `<b>`, `<strong>`,
 `<span>` and so on. Some elements, for example the `<details>` element will have specific associations with other
-elements. A `<summary>` tag can only exist as the _first child_ to a `<details>` element, and if it doesn't exist, it will
-be created by the `<details>` tag.
+elements. A `<summary>` tag can only exist as the _first child_ to a `<details>` element, and if it doesn't exist, it
+will be created by the `<details>` tag.
 
-_Customized Built-ins_ match the semantics of the _built-in_ they're customising, and that cannot be changed. So for example
-a `<button is="fancy-button">` will only allow nested _[phrasing content][phrasing-content]_ tags just like a
+_Customized Built-ins_ match the semantics of the _built-in_ they're customising, and that cannot be changed. So for
+example a `<button is="fancy-button">` will only allow nested _[phrasing content][phrasing-content]_ tags just like a
 `<button>`.
 
 _Autonomous Custom Elements_ allow any nested tag by default. This can be customised with _ShadowDOM_, but the default
@@ -121,15 +121,15 @@ into issues with code that isn't expecting to see the newly added logic.
 
 ### Accessibility
 
-_Customised Built-ins_ have very good accessibility information built right into them. Most have an _implicit role_ which
-means that assistive technologies know how to interpret them. For example using a _screen reader_, it is possible to
-navigate through all of the headings in a webpage, and the purpose of form controls is explained as each one is focused
-(e.g. buttons are read out not only by their label but also referred to as "buttons").
+_Customised Built-ins_ have very good accessibility information built right into them. Most have an _implicit role_
+which means that assistive technologies know how to interpret them. For example using a _screen reader_, it is possible
+to navigate through all of the headings in a webpage, and the purpose of form controls is explained as each one is
+focused (e.g. buttons are read out not only by their label but also referred to as "buttons").
 
 _Autonomous Custom Elements_, on the other hand, do not have any accessibility information built into them. Assistive
-technologies such as _screen readers_ will read the contents of the element as if it were plain text; treating it the same
-as a `<div>` or `<span>`. It's possible to customise how assistive technology like _screen readers_ handle your element by
-using the [Accessible Internet Rich Applications (or ARIA)][aria] APIs, such as the `role=` attribute.
+technologies such as _screen readers_ will read the contents of the element as if it were plain text; treating it the
+same as a `<div>` or `<span>`. It's possible to customise how assistive technology like _screen readers_ handle your
+element by using the [Accessible Internet Rich Applications (or ARIA)][aria] APIs, such as the `role=` attribute.
 
 Accessibility can be hard to get right. Many assistive tools behave differently, and much like browsers, support is not
 universal and consistent. It's always worth getting comfortable with these tools, and testing your web applications

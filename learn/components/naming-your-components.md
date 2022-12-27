@@ -39,7 +39,8 @@ Try typing a tag name below to see if it's a valid custom element tag:
 
 ### Reserved tag names
 
-Some names are **disallowed** because they have existed in the _HTML spec_ before _custom elements_ were added. These are:
+Some names are **disallowed** because they have existed in the _HTML spec_ before _custom elements_ were added. These
+are:
 
 - `annotation-xml`
 - `color-profile`
@@ -58,19 +59,20 @@ DOMException: CustomElementRegistry.define: 'annotation-xml' is not a valid cust
 
 ## Tips on naming element
 
-While none of the following is prescriptive, here are some tips and tricks on how to pick a good name for your _custom elements_:
+While none of the following is prescriptive, here are some tips and tricks on how to pick a good name for your _custom
+elements_:
 
 ### Avoid splitting compound words
 
-It can be tricky to think of two words for every element, so it might be tempting to add a dash inside a compound word. 
+It can be tricky to think of two words for every element, so it might be tempting to add a dash inside a compound word.
 For example splitting "tooltip" into `tool-tip` or "overlay" into `over-lay`. Adding dashes to compound words like this
-can look a little confusing so it might be beneficial to spend the effort and think of another word to add to these,
-for example `tooltip-popover` or `overlay-dialog`.
+can look a little confusing so it might be beneficial to spend the effort and think of another word to add to these, for
+example `tooltip-popover` or `overlay-dialog`.
 
 ### Using names from existing elements
 
 If your _Autonomous Custom Element_ borrows concepts from other _built-ins_ then you could make up a similar name. For
-example `fancy-button` for an element like `<button>`, `color-input` for an element like `<input>`, or  `radial-meter`
+example `fancy-button` for an element like `<button>`, `color-input` for an element like `<input>`, or `radial-meter`
 for an element like `<meter>`. You might want to avoid doing this for all except _Customised Built-ins_. If your element
 doesn't share anything in common with an existing _built-in_, then it's best to avoid having a similar name, as it might
 cause confusion.
@@ -83,12 +85,13 @@ unclear what they do until you familiarise yourself with them. Good components h
 clear!
 
 Conversely using difficult to spell words can cause errors and typos more often. It's best to avoid difficult to spell
-element names like `<abbreviated-text>` or `<widget-accessory>`. Words longer than 10 characters tend to be difficult
-to spell, so try to avoid those. Words with double letters (abbreviated, occasion, accommodate) can be tricky too. Words
+element names like `<abbreviated-text>` or `<widget-accessory>`. Words longer than 10 characters tend to be difficult to
+spell, so try to avoid those. Words with double letters (abbreviated, occasion, accommodate) can be tricky too. Words
 using different letters with the same sound (necessary, accessory) often get misspelled. Words with "silent" consanants
-(knack, assign, doubt) are difficult, especially people whom English is not their first language. In these cases it might
-be better to replace a hard to spell word with a simpler word, e.g. `<abbreviated-text>` could be come `<short-text>`, `<approximate-date>` could be `<rounded-date>`. Alternatively you could replace one hard to spell word with two easier to
-spell words that mean the same thing, for example `<establish-account>` could be `<set-up-account>`.
+(knack, assign, doubt) are difficult, especially people whom English is not their first language. In these cases it
+might be better to replace a hard to spell word with a simpler word, e.g. `<abbreviated-text>` could be come
+`<short-text>`, `<approximate-date>` could be `<rounded-date>`. Alternatively you could replace one hard to spell word
+with two easier to spell words that mean the same thing, for example `<establish-account>` could be `<set-up-account>`.
 
 Tag names don't have to use a single dash! Names like `<auto-complete-input>` or `<ajax-form-provider>` are valid, and
 can sometimes be clearer! However just like long methods or class names they can be overly verbose which makes them
@@ -96,9 +99,9 @@ tiresome to read and type. It's good to avoid generic "filler" words that don't 
 `provider`, `effect`, or `element`.
 
 Some design systems will prefix their _Web Components_ with a branding. For example all of [Adobe Spectrum's][spectrum]
-_Web Components_ are prefixed `<sp-`, [Shoelace Components][shoelace] are prefixed `<sl-`. This can be useful, as you can
-easily tell apart a component from a design system to a generic off-the-shelf component. On the other hand, this makes
-every component name longer.
+_Web Components_ are prefixed `<sp-`, [Shoelace Components][shoelace] are prefixed `<sl-`. This can be useful, as you
+can easily tell apart a component from a design system to a generic off-the-shelf component. On the other hand, this
+makes every component name longer.
 
 [spectrum]: https://opensource.adobe.com/spectrum-web-components/
 [shoelace]: https://shoelace.style/

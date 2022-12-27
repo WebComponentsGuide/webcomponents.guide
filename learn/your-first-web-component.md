@@ -11,8 +11,8 @@ you've written JavaScript for the web before, you might already be familiar with
 APIs.
 
 _Web Components_ go further to add a powerful set of additional APIs. One of those is [_Custom
-Elements_][defining-a-component] which allows you to define your own HTML Elements. _Web Components_ can also make use of
-[_ShadowDOM_][shadowdom] which is a powerful API that allows you to manage how an element is rendered.
+Elements_][defining-a-component] which allows you to define your own HTML Elements. _Web Components_ can also make use
+of [_ShadowDOM_][shadowdom] which is a powerful API that allows you to manage how an element is rendered.
 
 [classes]: /learn/javascript/classes
 [events]: /learn/javascript/events
