@@ -3,27 +3,27 @@ title: Defining a Component
 order: 1
 ---
 
-Most components you write will need some kind of JavaScript. While it's not _strictly_ necessary, more often than not
+Most components you write will need some kind of JavaScript. While it's not **strictly** necessary, more often than not
 you'll want to add JavaScript to provide logic. To do this you'll need to create a JavaScript `class`, and use the
-"Custom Elements Registry" to attach your class so the browser knows to use it.
+_Custom Elements Registry_ to attach your class so the browser knows to use it.
 
-Without the "Custom Element Registry" the browser won't know what JavaScript to associate to what elements. By default,
+Without the _Custom Element Registry_ the browser won't know what JavaScript to associate to what elements. By default,
 whenever the browser encounters a tag it does not know, it will use the `HTMLUnknownElement` class to give it a default
-behaviour. You can tell the browser to use a different class by _defining_ the tag name in the Custom Element Registry.
-With your own class defined, any time the browser sees the defined tag, it will set it up using the associated class.
+behaviour. You can tell the browser to use a different class by _defining_ the tag name in the _Custom Element Registry_.
+With your own class _defined_, any time the browser sees the defined tag, it will set it up using the _associated class_.
 
-To define a Custom Element, you can use the global `customElements` API. You won't need to include any JavaScript
+To define a _Custom Element_, you can use the global `customElements` API. You won't need to include any JavaScript
 libraries to use `customElements`, it's a global that already exists, like `console` or `localStorage`. There are two
 types of elements you can define:
 
 ## Autonomous Custom Elements
 
-"Autonomous Custom Elements" is a fancy way of saying that you're extending from the _base element_. The base element -
+_Autonomous Custom Elements_ is a fancy way of saying that you're extending from the _base element_. The base element -
 `HTMLElement` - doesn't have a tag, so you need to make one up. It also doesn't have any built in semantics,
 accessibility, or styling. In that way it's kind of like a `<div>` or `<span>` element. How it behaves beyond that is
 totally up to you.
 
-To define an "Autonomous Custom Element", you can call `customElements.define` giving it a tag name and a class to use.
+To define an _Autonomous Custom Element_, you can call `customElements.define` giving it a tag name and a class to use.
 The class has to extend from `HTMLElement`. Here's an example:
 
 ```js
@@ -34,7 +34,7 @@ customElements.define(
 ```
 
 Now, whenever `<my-element>` appears in HTML, the browser will use that class for the element. The class doesn't do
-anything on its own but you can add methods or use the [lifecycle callbacks][lifecycle] to make it do fun things!
+anything on its own but you can add methods or use the [_lifecycle callbacks_][lifecycle] to make it do fun things!
 
 {% tip "danger" %}
 
@@ -47,11 +47,11 @@ message like `autonomous custom elements must extend HTMLElement`.
 
 ## Customized Built-in Elements
 
-"Customized Built-in" elements are extensions to the browsers existing built-in elements. For example if you wanted to
-make a button extends the normal behaviours, you can customise it with a customized built-in. Instead of making up your
-own tag name, you'll use the same tag as the built-in you're targeting. Your class will also have to extend from the
-existing built-in's class. To extend the `<button>` element, your class will need to `extends HTMLButtonElement`. When
-you call `customElements.define` you will need to tell it that you're extending a built in tag:
+_Customized Built-in_ elements are extensions to the browsers existing _built-in_ elements. For example if you wanted to
+make a button extends the normal behaviours, you can customise it with a _Customized Built-in_. Instead of making up your
+own tag name, you'll use the same tag as the _built-in_ you're targeting. Your class will also have to extend from the
+existing _built-in's_ class. For example extending the `<button>` element means your class will need to `extends HTMLButtonElement`. When
+you call `customElements.define` you will need to tell it that you're extending a _built-in_ tag:
 
 ```js
 customElements.define(
@@ -83,7 +83,7 @@ with a message like `localName does not match the HTML element interface`.
 
 <details>
   <summary>
-    For a full list of the browsers built in elements and the classes you have to extend from, see here:
+    For a full list of the browsers _built-in_ elements and the classes you have to extend from, see here:
   </summary>
 
 | Element      | Tag Name       | Class to extend from                                                                                |
@@ -162,7 +162,7 @@ with a message like `localName does not match the HTML element interface`.
 ## Some advanced tricks for defining elements
 
 Depending on how your code is loaded, you might find it runs multiple times. Calling `customElements.define` on an
-already existing component will cause an error in the browser:
+already defined component will cause an error in the browser:
 
 ```js
 DOMException: NotSupportedError
