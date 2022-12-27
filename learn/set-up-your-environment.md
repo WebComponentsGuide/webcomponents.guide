@@ -6,7 +6,7 @@ title: Setting Up Your Environment
 
 ## Web Browser
 
-Web Components are a native web technology, so the most important tool will be your web browser. Pick a browser you're
+_Web Components_ are a native web technology, so the most important tool will be your web browser. Pick a browser you're
 comfortable using, but it's a good idea to make sure you pick one with a good set of developer tools built in. A good
 set of devtools makes it much easier to debug your application. A lot of developers use [Google's Chrome
 browser][chrome], which has powerful built in devtools. [Mozilla Firefox][firefox] is another great option with equally
