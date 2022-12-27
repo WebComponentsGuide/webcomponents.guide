@@ -18,7 +18,8 @@
     "start": "eleventy --serve",
     "check": "prettier --check . && npm run spell",
     "spell": "mdspell --en-us --report **/*.md *.md",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "test": "web-test-runner"
   },
   "stylelint": {
     "extends": "stylelint-config-standard"
@@ -37,7 +38,10 @@
     "@11ty/eleventy-plugin-syntaxhighlight": "^4.2.0",
     "@jamshop/eleventy-plugin-esbuild": "^1.0.2",
     "@oddbird/popover-polyfill": "^0.0.4",
+    "@open-wc/testing": "^3.1.7",
     "@ungap/custom-elements": "^1.1.1",
+    "@web/dev-server-esbuild": "^0.3.3",
+    "@web/test-runner": "^0.15.0",
     "autoprefixer": "10.4.13",
     "cheerio": "1.0.0-rc.12",
     "construct-style-sheets-polyfill": "^3.1.0",
