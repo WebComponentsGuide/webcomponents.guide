@@ -1,1 +1,4 @@
-["Getting Started", "JavaScript", "Components"]
+{
+  "learn": ["Getting Started", "JavaScript", "Components"],
+  "toot-embed-tutorial": ["Toot Embed Tutorial", "Getting Started"]
+}

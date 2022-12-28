@@ -17,29 +17,12 @@ css: [learn.css]
 
 <section class="content">{{ content }}</section>
 
-{% if collections[group] %}
+
+{% if next %}
 <nav class="pagination" aria-label="Pagination">
-  {% assign previousPost = collections[group] | getPreviousCollectionItem: page %} {% assign nextPost =
-  collections[group] | getNextCollectionItem: page %} {% if previousPost %}
-  <a slot="prev" href="{{ previousPost.url }}">
-    <span>Previous</span>
-    {% icon "arrow-left-circle" %} {{ previousPost.data.title }}
-  </a>
-  {% elsif prevGroup %} {% assign previousPost = collections[prevGroup] | first %}
-  <a slot="prev" href="{{ previousPost.url }}">
-    <span>Previous Section</span>
-    {% icon "arrow-left-circle" %} {{ prevGroup }}
-  </a>
-  {% endif %} {% if nextPost %}
-  <a slot="next" href="{{ nextPost.url }}">
+  <a slot="next" href="{{ next }}">
     <span>Next</span>
-    {{ nextPost.data.title }} {% icon "arrow-right-circle" %}
+    {{ nextTitle }} {% icon "arrow-right-circle" %}
   </a>
-  {% elsif nextGroup %} {% assign nextPost = collections[nextGroup] | first %}
-  <a slot="next" href="{{ nextPost.url }}">
-    <span>Next Section</span>
-    {{ nextGroup }} {% icon "arrow-right-circle" %}
-  </a>
-  {% endif %}
 </nav>
 {% endif %}
