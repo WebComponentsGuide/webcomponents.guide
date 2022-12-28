@@ -1,7 +1,7 @@
 ---
 order: 1
-group: Getting Started
-title: Introduction
+group: getting started
+title: introduction
 ---
 
 ## What are Web Components?

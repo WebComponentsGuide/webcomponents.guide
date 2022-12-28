@@ -1,17 +1,29 @@
 <nav class="sidebar-nav" popover id="sidebar-nav">
   <div slot="global-nav">{% include 'global-navigation.html' %} {% include 'global-search.html' %}</div>
   <nav>
-    {%- for group in groups %}
-    <details open>
-      <summary>{% icon "arrow-down-right" %} {{group}}</summary>
-      <ol>
-        {%- for page in collections[group] %} {%- unless page.data.draft %}
+    <h1>foo</h1>
+    {%- if page.url == '/tutorials/' %}
+      Tutorials!
+      {%- json collections %}
+      {%- for section in collections.tutorial %}
+        {%- json section %}
         <li>
-          <a href="{{ page.url }}">{{ page.data.title }}</a>
+          <a href="{{ section.url }}">{{ section.data.title }}</a>
         </li>
-        {%- endunless %} {%- else %} Collection empty {%- endfor %}
-      </ol>
-    </details>
-    {%- endfor %}
+      {%- endfor %}
+    {%- else %}
+      {%- for group in groups %}
+      <details open>
+        <summary>{% icon "arrow-down-right" %} {{group}}</summary>
+        <ol>
+          {%- for page in collections[group] %} {%- unless page.data.draft %}
+          <li>
+            <a href="{{ page.url }}">{{ page.data.title }}</a>
+          </li>
+          {%- endunless %} {%- else %} Collection empty {%- endfor %}
+        </ol>
+      </details>
+      {%- endfor %}
+    {%- endif %}
   </nav>
 </nav>

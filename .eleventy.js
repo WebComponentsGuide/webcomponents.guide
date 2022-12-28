@@ -6,6 +6,7 @@ const glob = require("glob")
 const path = require("node:path")
 const highlight = require("@11ty/eleventy-plugin-syntaxhighlight")
 const dedent = require("dedent")
+const util = require('node:util')
 
 module.exports = (eleventyConfig) => {
   eleventyConfig.addPlugin(css)
@@ -39,6 +40,15 @@ module.exports = (eleventyConfig) => {
         .sort((a, b) => a.data.order - b.data.order)
     })
   }
+    
+  eleventyConfig.addCollection("tutorial", (api) => {
+    const items = api
+      .getFilteredByGlob("tutorial/**/*.md")
+      .filter((item) => item.data.group === "Tutorial")
+      .sort((a, b) => a.data.order - b.data.order)
+    console.log(items)
+    return items;
+  })
 
   const icon = (icon) =>
     `<svg width="24" height="24" class="icon icon-${icon}"><use xlink:href="/images/icons.svg#${icon}"></use></svg>`
@@ -64,6 +74,7 @@ module.exports = (eleventyConfig) => {
   }
   const menu = (first, ...rest) => [menumap[first] || `<strong>${first}</strong>`, ...rest].join(icon("chevron-right"))
 
+  eleventyConfig.addShortcode("json", util.inspect)
   eleventyConfig.addShortcode("icon", icon)
   eleventyConfig.addShortcode("shortcut", shortcut)
   eleventyConfig.addShortcode("menu", menu)
