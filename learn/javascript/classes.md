@@ -3,7 +3,7 @@ title: Classes
 order: 2
 ---
 
-Modern JavaScript includes classes which allow you to concisely define a template for creating objects that include
+Modern JavaScript includes classes which allow you to concisely define a blueprint for creating objects that include
 their own API. Classes are really useful as they can maintain their own private state, have their own private
 subroutines, and also expose public state and subroutines for other code to call.
 
