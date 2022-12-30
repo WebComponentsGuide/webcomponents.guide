@@ -7,6 +7,15 @@ Web browsers (and server side engines like [NodeJS][node] and [Deno][deno]) incl
 foundational concept in JavaScript, and is particularly important when we talk about Web Components. The two classes
 that drive all of these events are the `Event` class, and the `EventTarget` class.
 
+This section will go over the concepts of Events, the basics of the `EventTarget` and `Event` classes, and touch on
+some more advanced topics but - as always - if you're interested in learning more there are many great pages on MDN
+that cover Events:
+
+ - [Introduction to Events](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events)
+ - [The EventTarget API](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget)
+ - [The Event API](https://developer.mozilla.org/en-US/docs/Web/API/Event)
+ - [Web Browser Event Reference](https://developer.mozilla.org/en-US/docs/Web/Events)
+
 [node]: https://nodejs.org/en/
 [deno]: https://deno.land/
 
@@ -410,6 +419,77 @@ mytimer.addEventListener('alarm', (event) => {
 
 })
 ```
+
+### Advanced: Event Listener Objects
+
+So far we've covered how to add event listener functions, but it is also possible to pass an _object_ to
+`addEventListener`. The passed _object_ should have a `handleEvent()` function, and whenever `dispatchEvent()`
+is called the object's `handleEvent()` function will be called instead.
+
+This might not sound super useful, but one big benefit of doing this is that it keeps the `this` _context_,
+which might otherwise get lost. Consider the following code:
+
+```js
+class Logger {
+
+  log(message) {
+    this.stream.write(message)
+  }
+
+}
+
+const logger = new Logger()
+
+const target = new EventTarget()
+
+target.addEventListener('start', logger.log)
+
+target.dispatchEvent(new Event('start'))
+
+// Oh no! An Error!
+```
+
+The above code causes an error because `logger.log` is passed by _value_ and consequently it loses its `this`
+_context_. This is an unfortunate caveat with functions in JavaScript. Before JavaScript got _arrow functions_,
+a lot of code used to call `.bind` to get around this. Newer code might use an arrow function instead. Both of
+these patterns have their own problems though, mostly to do with losing the _function reference_, which makes
+them harder to clean up (see above about removing event listeners):
+
+```js
+target.addEventListener('start', logger.log.bind(logger))
+target.addEventListener('start', (event) => logger.log(event))
+```
+
+Another way around this is to pass the entire `logger` object into `addEventListener`. This would only work if
+`logger` had a `handleEvent` function. Here's an example of what that might look like:
+
+```js
+class Logger {
+
+  handleEvent(event) {
+    this.log(event)
+  }
+
+  log(message) {
+    this.stream.write(message)
+  }
+
+}
+
+const logger = new Logger()
+
+const target = new EventTarget()
+
+// Pass in the entire object!
+target.addEventListener('start', logger)
+
+target.dispatchEvent(new Event('start'))
+```
+
+This code avoids the issues of using _arrow functions_ or _copied functions_ like that of `.bind()`, but it does
+incur the cost of having to implement `handleEvent`, and so it's not always straightforward to implement. It
+might be preferable to use `AbortController` instead, which works around the issues of _arrow functions_ and
+_copied functions_.
 
 ### Advanced: Capturing events
 
