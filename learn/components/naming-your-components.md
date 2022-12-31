@@ -57,7 +57,7 @@ Trying to create an element with one of these names will result in an error like
 DOMException: CustomElementRegistry.define: 'annotation-xml' is not a valid custom element name
 ```
 
-## Tips on naming element
+## Tips on naming elements
 
 While none of the following is prescriptive, here are some tips and tricks on how to pick a good name for your _custom
 elements_:
