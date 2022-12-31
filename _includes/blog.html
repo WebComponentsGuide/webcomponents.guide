@@ -1,8 +1,31 @@
 ---
 layout: main.html
-css: [learn.css]
+css: [blog.css]
+script: [relative-time.js]
 ---
 
 <h1>{{ title }}</h1>
+
+<aside class="excerpt">{{ excerpt }}</aside>
+
+{% unless title == "Blog" %}
+<div class="author-block">
+  {%- for author in authors %}
+  <a href="/blog/by-author/{{ author | slugify }}" class="avatar">
+    <img
+      src="/images/{{ author | slugify }}-avatar.jpg"
+      alt="{{ author }} Avatar"
+      loading="lazy"
+      decoding="async"
+      width="50"
+      height="50"
+    />
+  </a>
+  {%- endfor %} {%- for author in authors %}
+  <a href="/blog/by-author/{{ author | slugify }}"> {{ author }}{% unless forloop.last %}, {% endunless %} </a>
+  {%- endfor %}<br />
+  <relative-time format="datetime" datetime="{{ page.date | iso8601 }}"> {{ page.date | iso8601 }} </relative-time>
+</div>
+{% endunless %}
 
 <section class="content">{{ content }}</section>

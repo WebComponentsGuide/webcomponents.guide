@@ -5,15 +5,21 @@ const js = require("@jamshop/eleventy-plugin-esbuild")
 const glob = require("glob")
 const path = require("node:path")
 const highlight = require("@11ty/eleventy-plugin-syntaxhighlight")
+const rss = require("@11ty/eleventy-plugin-rss")
 const dedent = require("dedent")
 
 module.exports = (eleventyConfig) => {
+  eleventyConfig.addPlugin(rss)
   eleventyConfig.addPlugin(css)
   eleventyConfig.addPlugin(js, {
     entryPoints: Object.fromEntries(glob.sync("script/*.[tj]s").map((e) => [path.basename(e, path.extname(e)), e])),
     output: "_site/script",
   })
   eleventyConfig.addPlugin(highlight)
+
+  eleventyConfig.addFilter("iso8601", rss.dateToRfc3339)
+  eleventyConfig.addFilter("date_to_rfc3339", rss.dateToRfc3339)
+  eleventyConfig.addFilter("date_to_rfc822", rss.dateToRfc822)
 
   eleventyConfig.setLibrary(
     "md",

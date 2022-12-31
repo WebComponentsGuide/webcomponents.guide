@@ -1,0 +1,56 @@
+main {
+  padding: var(--size-8);
+}
+
+main > h1 {
+  font-weight: normal;
+  font-size: var(--font-size-7);
+  border-bottom: var(--border-size-2) solid var(--brand-color-dark);
+  padding-block-end: var(--size-2);
+  display: block;
+  max-inline-size: 100%;
+}
+
+.excerpt {
+  margin-block: var(--size-4);
+  color: var(--text-4);
+}
+
+.blog-roll {
+  list-style: none;
+  padding: 0;
+}
+
+.blog-roll li {
+  display: block;
+  margin-block-end: var(--size-8);
+}
+
+.blog-roll .excerpt {
+  margin-block: var(--size-2) var(--size-4);
+}
+
+.author-block {
+  clear: both;
+  margin-block-end: var(--size-8);
+}
+
+.author-block .avatar {
+  float: left;
+  margin-inline-end: var(--size-3);
+}
+
+.author-block .avatar + .avatar {
+  margin-inline-start: calc(var(--size-7) * -1);
+}
+
+.author-block .avatar img {
+  border-radius: var(--radius-round);
+  border: var(--border-size-1) solid var(--surface-2);
+  background: var(--surface-1);
+  box-shadow: var(--shadow-3);
+}
+
+.author-block relative-time {
+  font-size: var(--font-size-0);
+}
