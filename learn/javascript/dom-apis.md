@@ -1,6 +1,6 @@
 ---
 title: DOM APIs
-order: 4
+order: 6
 ---
 
 {% stub %}

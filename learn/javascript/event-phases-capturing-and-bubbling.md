@@ -1,5 +1,5 @@
 ---
-title: Event Phases: Capturing & Bubbling
+title: "Event Phases: Capturing & Bubbling"
 order: 5
 ---
 
