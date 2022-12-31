@@ -5,7 +5,7 @@ title: Blog
 ---
 
 <ol class="blog-roll">
-{% for post in collections.blog %}{%- unless post.data.draft %}
+{% for post in collections.blog | reverse %}{%- unless post.data.draft %}
     <li>
         <h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
         <p class="excerpt">{{ post.data.excerpt }}</p>
