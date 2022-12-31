@@ -1,11 +1,11 @@
 <nav class="sidebar-nav" popover id="sidebar-nav">
   <div slot="global-nav">{% include 'global-navigation.html' %} {% include 'global-search.html' %}</div>
   <nav>
-    {%- for group in groups %}
-    <details {% if page.data.group == group %}open{% endif %}>
-      <summary>{% icon "arrow-down-right" %} {{group}}</summary>
+    {%- for g in groups %}
+    <details {% if group == g %}open{% endif %}>
+      <summary>{% icon "arrow-down-right" %} {{g}}</summary>
       <ol>
-        {%- for page in collections[group] %} {%- unless page.data.draft %}
+        {%- for page in collections[g] %} {%- unless page.data.draft %}
         <li>
           <a href="{{ page.url }}">{{ page.data.title }}</a>
         </li>
