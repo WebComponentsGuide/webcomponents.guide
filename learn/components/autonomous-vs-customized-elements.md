@@ -129,7 +129,7 @@ focused (e.g. buttons are read out not only by their label but also referred to 
 _Autonomous Custom Elements_, on the other hand, do not have any accessibility information built into them. Assistive
 technologies such as _screen readers_ will read the contents of the element as if it were plain text; treating it the
 same as a `<div>` or `<span>`. It's possible to customise how assistive technology like _screen readers_ handle your
-element by using the [Accessible Internet Rich Applications (or ARIA)][aria] APIs, such as the `role=` attribute.
+element by using the [Accessible Rich Internet Applications (or ARIA)][aria] APIs, such as the `role=` attribute.
 
 Accessibility can be hard to get right. Many assistive tools behave differently, and much like browsers, support is not
 universal and consistent. It's always worth getting comfortable with these tools, and testing your web applications
