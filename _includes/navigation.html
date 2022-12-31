@@ -2,7 +2,7 @@
   <div slot="global-nav">{% include 'global-navigation.html' %} {% include 'global-search.html' %}</div>
   <nav>
     {%- for group in groups %}
-    <details open>
+    <details {% if page.data.group == group %}open{% endif %}>
       <summary>{% icon "arrow-down-right" %} {{group}}</summary>
       <ol>
         {%- for page in collections[group] %} {%- unless page.data.draft %}
