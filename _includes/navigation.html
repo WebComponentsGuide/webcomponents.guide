@@ -5,11 +5,13 @@
     <details {% if group == g %}open{% endif %}>
       <summary>{% icon "arrow-down-right" %} {{g}}</summary>
       <ol>
-        {%- for page in collections[g] %} {%- unless page.data.draft %}
+        {%- for page in collections[g] %}{%- unless page.data.draft %}
         <li>
           <a href="{{ page.url }}">{{ page.data.title }}</a>
         </li>
-        {%- endunless %} {%- else %} Collection empty {%- endfor %}
+        {%- endunless %}{%- else %}
+        Collection empty
+        {%- endfor %}
       </ol>
     </details>
     {%- endfor %}
