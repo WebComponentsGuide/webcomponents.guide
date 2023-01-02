@@ -1,6 +1,7 @@
 ---
 order: 1
 title: Introduction
+excerpt: Build out an embeddable Mastodon post using just the url
 ---
 
 {% stub %}
