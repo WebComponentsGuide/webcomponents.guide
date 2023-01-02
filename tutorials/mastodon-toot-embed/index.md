@@ -6,13 +6,12 @@ excerpt: Build out an embeddable Mastodon post using just the url
 
 {% stub %}
 
-Welcome to this tutorial on building a Mastodon toot embed element using Web Components! In this tutorial, we will walk
-through the process of creating a custom element that can be used to easily display Mastodon toots on any website or
-application.
+In this tutorial, we will walk through the process of creating a custom element that can be used to easily display
+Mastodon posts on any website or application.
 
-Our Mastodon toot embed element will allow users to share and display toots from the Mastodon social network, and will
-include features such as the ability to show or hide the user handle and avatar image, as well as the option to
-customize the appearance of the toot.
+Our aim will be to create a `<mastodon-toot-embed>` element will allow users to share and display posts (sometimes
+called "toots") from the Mastodon social network, and will include features such as the ability to show or hide the user
+handle and avatar image, as well as the option to customize the appearance of the toot.
 
 Here's a example of a Mastodon toot embed. We'll be making something similar.
 
