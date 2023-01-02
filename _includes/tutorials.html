@@ -1,12 +1,12 @@
 ---
 layout: main.html
-css: [learn.css, tutorials.css]
+css: [content.css, tutorials.css]
 ---
 
-{% include 'breadcrumbs.html' %}
-
+{% include 'breadcrumbs.html' %} {% if group %}
+<h5>{{ group }} - Part {{ order }}</h5>
+{% endif %}
 <h1>{{ title }}</h1>
-{% if group %}<h2>{{ group }} - Part {{ order }}</h2>{% endif %}
 
 <section class="content">{{ content }}</section>
 

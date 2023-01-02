@@ -109,6 +109,21 @@ nav > details > :where(ol, ul) > li {
   padding-block: var(--size-2);
 }
 
+.early-badge {
+  flex: 1;
+  display: flex;
+  place-self: center start;
+  margin-inline: var(--size-2);
+  color: var(--red-4);
+}
+
+.early-badge div {
+  display: block;
+  border: var(--border-size-1) solid currentcolor;
+  border-radius: var(--radius-3);
+  padding-inline: var(--size-2);
+}
+
 page-search {
   --icon-offset: var(--size-7);
 

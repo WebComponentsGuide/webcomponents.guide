@@ -1,6 +1,6 @@
 ---
 layout: main.html
-css: [blog.css]
+css: [content.css, blog.css]
 script: [relative-time.js]
 ---
 
@@ -26,6 +26,7 @@ script: [relative-time.js]
   {%- endfor %}<br />
   <relative-time format="datetime" datetime="{{ page.date | iso8601 }}"> {{ page.date | iso8601 }} </relative-time>
 </div>
+<hr />
 {% endunless %}
 
 <section class="content">{{ content }}</section>

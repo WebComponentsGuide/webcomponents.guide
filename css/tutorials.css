@@ -1,3 +1,19 @@
+@import url("./breadcrumbs.css");
+@import url("./pagination.css");
+
+main {
+  padding: var(--size-8);
+}
+
+main > h1 {
+  font-weight: normal;
+  border-bottom: var(--border-size-2) solid var(--brand-color-dark);
+  padding-block-end: var(--size-2);
+  margin-block-end: var(--size-8);
+  display: block;
+  max-inline-size: 100%;
+}
+
 .tutorials-listing {
   list-style: none;
   margin: 0;

@@ -11,6 +11,10 @@ main > h1 {
   max-inline-size: 100%;
 }
 
+hr {
+  margin-block: var(--size-2);
+}
+
 .excerpt {
   margin-block: var(--size-4);
   color: var(--text-4);

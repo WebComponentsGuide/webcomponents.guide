@@ -1,0 +1,22 @@
+.breadcrumbs {
+  list-style: none;
+  padding-inline: 0;
+  margin-block: var(--size-3);
+  display: flex;
+}
+
+.breadcrumbs li {
+  display: inline-block;
+  padding-inline: 0;
+  margin-inline-end: var(--size-2);
+}
+
+.breadcrumbs a {
+  color: var(--brand-color);
+  margin-inline: 0;
+}
+
+.breadcrumbs .icon {
+  color: var(--brand-color);
+  inline-size: 18px;
+}

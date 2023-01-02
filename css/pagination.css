@@ -1,0 +1,23 @@
+.pagination {
+  display: flex;
+  gap: var(--size-10);
+}
+
+.pagination :where([slot="next"], [slot="prev"]) {
+  flex: 1;
+  display: block;
+  border-bottom: var(--border-size-2) solid var(--brand);
+  padding: var(--size-3);
+}
+
+.pagination :where([slot="next"], [slot="prev"]) span {
+  color: var(--text-2);
+  display: block;
+  font-size: var(--font-size-0);
+  padding-block-end: var(--size-3);
+  text-transform: uppercase;
+}
+
+.pagination [slot="next"] {
+  text-align: right;
+}
