@@ -41,13 +41,11 @@ module.exports = (eleventyConfig) => {
         .sort((a, b) => a.data.order - b.data.order)
     })
   }
-    
+
   eleventyConfig.addCollection("tutorials", (api) => {
-    return api
-      .getFilteredByGlob("tutorials/*-tutorial/index.md")
-      .sort((a, b) => a.data.order - b.data.order)
+    return api.getFilteredByGlob("tutorials/*-tutorial/index.md").sort((a, b) => a.data.order - b.data.order)
   })
-    
+
   const icon = (icon) =>
     `<svg width="24" height="24" class="icon icon-${icon}"><use xlink:href="/images/icons.svg#${icon}"></use></svg>`
   const callout = (content, style = "info") => dedent`
