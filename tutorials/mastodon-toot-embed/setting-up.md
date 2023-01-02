@@ -41,8 +41,8 @@ Let's start out our `toot-embed-element.js` file by setting up the Custom Elemen
 
 ```js
 class TootEmbedElement extends HTMLElement {
-  static define() {
-    customElements.define("toot-embed", TootEmbedElement)
+  static define(tagName = "toot-embed") {
+    customElements.define(tagName, this)
   }
 }
 

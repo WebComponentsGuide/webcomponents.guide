@@ -184,10 +184,20 @@ Another thing you could do is move the definition into a static method on the cl
 ```js
 class MyElement extends HTMLElement {
   static define() {
-    customElements.define("my-element", MyElement)
+    customElements.define("my-element", this)
   }
 }
 ```
 
 This way users of your component can call `MyElement.define()` in a place in their code where all components get
-registered.
+registered. To make your component even more flexible, you can make the tag name customizable:
+
+```js
+class MyElement extends HTMLElement {
+  // call MyElement.define() for default tag name
+  // or MyElement.define('custom-tag') to define with a custom tag.
+  static define(tagName = "my-element") {
+    customElements.define(tagName, this)
+  }
+}
+```
