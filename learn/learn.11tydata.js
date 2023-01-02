@@ -3,12 +3,12 @@ module.exports = {
   tags: ["learn"],
   eleventyComputed: {
     nextGroup(data) {
-      const i = data.groups.indexOf(data.group)
-      return i >= 0 ? data.groups[i + 1] : null
+      const i = data.groups.learn.indexOf(data.group)
+      return i >= 0 ? data.groups.learn[i + 1] : null
     },
     prevGroup(data) {
-      const i = data.groups.indexOf(data.group)
-      return i >= 0 ? data.groups[i - 1] : null
+      const i = data.groups.learn.indexOf(data.group)
+      return i >= 0 ? data.groups.learn[i - 1] : null
     },
   },
 }

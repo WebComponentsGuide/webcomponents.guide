@@ -1,7 +1,7 @@
 <nav class="sidebar-nav" popover id="sidebar-nav">
   <div slot="global-nav">{% include 'global-navigation.html' %} {% include 'global-search.html' %}</div>
   <nav>
-    {%- for g in groups %}
+    {%- for g in groups.learn %}
     <details {% if group == g %}open{% endif %}>
       <summary>{% icon "arrow-down-right" %} {{g}}</summary>
       <ol>
