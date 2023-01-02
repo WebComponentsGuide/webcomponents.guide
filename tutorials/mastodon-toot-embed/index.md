@@ -1,6 +1,6 @@
 ---
 order: 1
-title: A Mastodon Toot embed Component.
+title: Introduction
 ---
 
 {% stub %}
