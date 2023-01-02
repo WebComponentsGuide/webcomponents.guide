@@ -1,5 +1,6 @@
 module.exports = {
   layout: "learn.html",
+  section: "learn",
   tags: ["learn"],
   eleventyComputed: {
     nextGroup(data) {

@@ -1,4 +1,5 @@
 {
-  "layout": "learn.html",
+  "layout": "tutorials.html",
+  "section": "tutorials",
   "tags": ["tutorials"]
 }

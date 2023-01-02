@@ -1,4 +1,4 @@
 {
   "learn": ["Getting Started", "JavaScript", "Components"],
-  "toot-embed-tutorial": ["Toot Embed Tutorial", "Getting Started"]
+  "tutorials": ["Mastodon Toot Embed"]
 }

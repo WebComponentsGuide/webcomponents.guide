@@ -1,8 +1,6 @@
 ---
 order: 1
-group: Toot Embed Tutorial
 title: A Mastodon Toot embed Component.
-next: setting-up
 ---
 
 {% stub %}

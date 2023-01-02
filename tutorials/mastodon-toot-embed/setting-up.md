@@ -1,6 +1,5 @@
 ---
 order: 2
-group: Toot Embed Tutorial
 title: Setting Up Your Environment
 ---
 

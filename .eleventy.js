@@ -33,13 +33,16 @@ module.exports = (eleventyConfig) => {
 
   const customGroups = require("./_data/groups.json")
 
-  for (const group of customGroups.learn) {
-    eleventyConfig.addCollection(group, (api) => {
-      return api
-        .getFilteredByGlob("learn/**/*.md")
-        .filter((item) => item.data.group === group)
-        .sort((a, b) => a.data.order - b.data.order)
-    })
+  for (const [type, groups] of Object.entries(customGroups)) {
+    for (const group of groups) {
+      console.log(`adding ${type} ${group}`)
+      eleventyConfig.addCollection(group, (api) => {
+        return api
+          .getFilteredByGlob(`${type}/**/*.md`)
+          .filter((item) => item.data.group === group)
+          .sort((a, b) => a.data.order - b.data.order)
+      })
+    }
   }
 
   eleventyConfig.addCollection("tutorials", (api) => {

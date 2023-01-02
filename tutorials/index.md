@@ -1,7 +1,6 @@
 ---
 order: 1
-group: Getting Started
-title: Introduction
+title: Tutorials
 ---
 
 Welcome to the tutorial section on Web Components! In this section, you will find a range of tutorials that will teach

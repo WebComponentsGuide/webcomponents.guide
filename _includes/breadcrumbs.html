@@ -1,0 +1,11 @@
+{% if group %}
+<ol class="breadcrumbs">
+  <li>
+    <a href="{{ collections[group].first.url }}">{{ group }}</a>
+    {% icon "arrow-right" %}
+  </li>
+  <li>
+    <a href="{{ page.url }}">{{ title }}</a>
+  </li>
+</ol>
+{% endif %}
