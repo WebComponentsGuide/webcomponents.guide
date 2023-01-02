@@ -1,5 +1,6 @@
 main {
   max-inline-size: 100vw;
+  max-inline-size: 100lvi;
 }
 
 .sidebar-nav {

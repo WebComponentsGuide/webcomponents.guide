@@ -11,7 +11,8 @@ main > h1 {
   padding-block-end: var(--size-2);
   margin-block-end: var(--size-8);
   display: block;
-  max-inline-size: 100%;
+  max-inline-size: 100vw;
+  max-inline-size: 100lvw;
 }
 
 .interactive-input input {
