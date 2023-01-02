@@ -1,5 +1,5 @@
 module.exports = {
-  layout: "learn.html",
+  layout: "tutorials.html",
   tags: ["tutorial"],
   eleventyComputed: {
     nextTitle(data) {
