@@ -6,7 +6,6 @@ const glob = require("glob")
 const path = require("node:path")
 const highlight = require("@11ty/eleventy-plugin-syntaxhighlight")
 const dedent = require("dedent")
-const util = require('node:util')
 
 module.exports = (eleventyConfig) => {
   eleventyConfig.addPlugin(css)
@@ -73,7 +72,6 @@ module.exports = (eleventyConfig) => {
   }
   const menu = (first, ...rest) => [menumap[first] || `<strong>${first}</strong>`, ...rest].join(icon("chevron-right"))
 
-  eleventyConfig.addShortcode("json", util.inspect)
   eleventyConfig.addShortcode("icon", icon)
   eleventyConfig.addShortcode("shortcut", shortcut)
   eleventyConfig.addShortcode("menu", menu)
