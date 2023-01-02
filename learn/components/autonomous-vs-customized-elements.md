@@ -7,7 +7,7 @@ In the [previous section][defining-a-component] we learned about _Autonomous Cus
 Elements_. The most popular way to make elements is to use the _Autonomous Custom Element_ style, by making up your own
 tag and extending `HTMLElement`. However, each style comes with different trade-offs.
 
-[defining-a-component]: /learn/components/defining-a-component
+[defining-a-component]: /learn/components/
 
 Choosing a type of component to build will depend on a lot of factors. _Autonomous Custom Elements_ give you a blank
 canvas to work with. _Customized Built-ins_ **extend** the element you're customizing. Here are some considerations to

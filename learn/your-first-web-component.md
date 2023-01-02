@@ -17,7 +17,7 @@ of [_ShadowDOM_][shadowdom] which is a powerful API that allows you to manage ho
 [classes]: /learn/javascript/classes
 [events]: /learn/javascript/events
 [dom-apis]: /learn/javascript/dom-apis
-[defining-a-component]: /learn/components/defining-a-component
+[defining-a-component]: /learn/components/
 [shadowdom]: /learn/components/shadowdom
 
 {% stub %}
