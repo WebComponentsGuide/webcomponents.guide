@@ -18,7 +18,7 @@ css: [index.css]
   </p>
 </advantage-item>
 <advantage-item>
-  <h2>{% icon "layout-dashboard" %}Interoperable</h2>
+  <h2>{% icon "layout-dashboard" %}Practical</h2>
   <p>
     Web Components are standard JavaScript, and so <strong>work anywhere that HTML does</strong>. If you're already using a framework,
     then Web Components will fit right in!

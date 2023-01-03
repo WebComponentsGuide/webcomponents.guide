@@ -154,14 +154,25 @@ section {
   display: grid;
   grid-column-gap: var(--size-3);
   grid-template:
-    "code title" 2em
-    "code result" 1fr
-    / 1fr 0.4fr;
+    "code" auto
+    "title" 2em
+    "result" auto
+    / 1fr;
+}
+
+@media (--lg-n-above) {
+  section {
+    grid-template:
+      "code title" 2em
+      "code result" 1fr
+      / 1fr 0.4fr;
+  }
 }
 
 section .language-js {
   grid-area: code;
   margin: var(--size-4);
+  max-inline-size: 100%;
 }
 
 section .language-html {
