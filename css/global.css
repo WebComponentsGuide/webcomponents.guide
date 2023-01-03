@@ -228,6 +228,10 @@ page-search svg {
   color: var(--brand-color);
 }
 
+.page-foot :where(nav ol) {
+  display: flex;
+}
+
 .sidebar-nav {
   border: 0;
   left: unset;

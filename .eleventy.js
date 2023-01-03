@@ -35,6 +35,7 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addPassthroughCopy("browserconfig.xml")
   eleventyConfig.addPassthroughCopy("site.webmanifest")
 
+  eleventyConfig.addGlobalData("discord", "https://discord.gg/9BmuCcK6")
   eleventyConfig.addGlobalData("repository", "https://github.com/WebComponentsGuide/webcomponents.guide")
 
   const customGroups = require("./_data/groups.json")
