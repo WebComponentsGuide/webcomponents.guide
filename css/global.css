@@ -17,8 +17,8 @@
 }
 
 :where(html, body, main) {
-  max-inline-size: 100vw;
-  max-inline-size: 100lvi;
+  inline-size: 100vw;
+  inline-size: 100lvi;
 }
 
 :where(h2, h3, h4, h5, h6) {
@@ -61,10 +61,8 @@ body {
 }
 
 main {
-  min-inline-size: 100vw;
-  min-inline-size: 100lvi;
-  max-inline-size: 100vw;
-  max-inline-size: 100lvi;
+  inline-size: 100vw;
+  inline-size: 100lvi;
   min-block-size: calc(100vh - var(--header-block-size) - var(--footer-block-size));
   margin: 0;
 }
@@ -332,7 +330,7 @@ page-search svg {
 
 @media (--md-n-below) {
   .sidebar-nav {
-    min-inline-size: 100%;
+    inline-size: 100%;
   }
 }
 
@@ -345,8 +343,8 @@ page-search svg {
 
   main,
   body > footer {
-    max-inline-size: calc(100vw - var(--size-14));
-    max-inline-size: calc(100lvi - var(--size-14));
+    inline-size: calc(100vw - var(--size-14));
+    inline-size: calc(100lvi - var(--size-14));
   }
 }
 
