@@ -94,7 +94,7 @@ listener:
 const mytimer = new Timer()
 
 // This will call `console.log` whenever the
-/ `start` event type is dispatched
+// `start` event type is dispatched
 mytimer.addEventListener('start', (event) => {
 
   console.log('something started!')
