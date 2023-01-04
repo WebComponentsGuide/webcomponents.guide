@@ -46,35 +46,37 @@ styles.replaceSync(`
   }
 `)
 
-// Define the `<stop-watch>` element
-customElements.define(
-  "stop-watch",
-  class extends HTMLElement {
-    // Private state
-    #start = 0
+// Define the StopWatch element Class
+class StopWatchElement extends HTMLElement {
+  // Private state
+  #start = Date.now()
 
-    connectedCallback() {
-      // Add the shared styles
-      this.attachShadow({ mode: "open" }).adoptedStyleSheets = [styles]
-
-      this.#start = Date.now()
-      this.#tick()
-    }
-
-    #tick() {
-      this.update()
-      requestAnimationFrame(() => this.#tick())
-    }
-
-    update() {
-      const milliseconds = Date.now() - this.#start
-      const minutes = String(Math.floor(milliseconds / (1000 * 60))).padStart(2, "0")
-      const seconds = String(Math.floor((milliseconds / 1000) % 60)).padStart(2, "0")
-      const hundredths = String(Math.floor((milliseconds % 1000) / 10)).padStart(2, "0")
-      this.shadowRoot.innerHTML = `${minutes}:${seconds}:${hundredths}`
-    }
+  connectedCallback() {
+    // Add the shared styles
+    this.attachShadow({ mode: "open" }).adoptedStyleSheets = [styles]
+    
+    // Start the timer
+    this.#tick()
   }
-)
+
+  #tick() {
+    const milliseconds = Date.now() - this.#start
+    const minutes = String(Math.floor(milliseconds / (1000 * 60))).padStart(2, "0")
+    const seconds = String(Math.floor((milliseconds / 1000) % 60)).padStart(2, "0")
+    const hundredths = String(Math.floor((milliseconds % 1000) / 10)).padStart(2, "0")
+    this.shadowRoot.innerHTML = `${minutes}:${seconds}:${hundredths}`
+    
+    // Schedule next update
+    requestAnimationFrame(() => this.#tick())
+  }
+
+  static define(tag = "stop-watch") {
+    customElements.define(tag, this)
+  }
+}
+
+// Register the element with the Custom Element Registry
+StopWatchElement.define()
 ```
 
 ```html
