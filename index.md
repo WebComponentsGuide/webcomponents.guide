@@ -37,7 +37,6 @@ css: [index.css]
 {% demo %}
 
 ```js
-
 // Create a new stylesheet that can be shared by all `stop-watch` elements
 const styles = new CSSStyleSheet()
 styles.replaceSync(`

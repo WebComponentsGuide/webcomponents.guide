@@ -3,8 +3,7 @@ layout: main.html
 css: [content.css, tutorials.css]
 ---
 
-{% include 'breadcrumbs.html' %}
-{%- if group %}
+{% include 'breadcrumbs.html' %} {%- if group %}
 <header>
   <h5>{{ group }} - Part {{ order }}</h5>
   <h1>{{ title }}</h1>
