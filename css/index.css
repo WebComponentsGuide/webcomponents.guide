@@ -81,7 +81,9 @@ hero-header > [slot="cta"] {
   background: var(--brand-gradient) 200%;
   border-radius: var(--radius-2);
   padding-block: var(--size-3);
-  color: var(--text-1);
+  color: var(--gray-8);
+  font-weight: var(--font-weight-6);
+  font-size: var(--font-size-2);
 }
 
 hero-header > [slot="cta"]:nth-of-type(1) {
