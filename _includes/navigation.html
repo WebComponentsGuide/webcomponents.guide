@@ -2,22 +2,19 @@
   <div slot="global-nav">{% include 'global-navigation.html' %} {% include 'global-search.html' %}</div>
   {% if groups[section] %}
   <nav>
-    {%- for g in groups[section] %}
-    {% if collections[g] %}
-    <details {% if group == g %}open{% endif %}>
+    {%- for g in groups[section] %} {%- if collections[g] %} {%- capture open %}{% if group == g %}open="open"{% endif
+    %}{% endcapture %}
+    <details {{ open }}>
       <summary>{% icon "arrow-down-right" %} {{g}}</summary>
       <ol>
         {%- for page in collections[g] %}{%- unless page.data.draft %}
         <li>
           <a href="{{ page.url }}">{{ page.data.title }}</a>
         </li>
-        {%- endunless %}{%- else %}
-        Collection empty
-        {%- endfor %}
+        {%- endunless %}{%- else %} Collection empty {%- endfor %}
       </ol>
     </details>
-    {% endif %}
-    {%- endfor %}
+    {% endif %} {%- endfor %}
   </nav>
   {% endif %}
 </nav>
