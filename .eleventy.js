@@ -128,18 +128,16 @@ module.exports = (eleventyConfig) => {
         html.push(line)
       }
     }
-    return dedent`
-    ${content}
-
-    <script type="module" defer>
-      document.addEventListener('readystatechange', () => {
-        ${js.join("\n")}
-      })
-    </script>
-    <h6>Result</h6>
-    <div class="surface">
-    ${html}
-    </div>
+    const out = `${content}
+<script type="module" defer>
+  document.addEventListener('readystatechange', () => {\n${js.join("\n")}\n})
+</script>
+<h6>Result</h6>
+<div class="surface">
+${html}
+</div>
     `
+    console.log(out)
+    return out
   })
 }
