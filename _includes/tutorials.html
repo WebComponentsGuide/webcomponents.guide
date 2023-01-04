@@ -3,10 +3,16 @@ layout: main.html
 css: [content.css, tutorials.css]
 ---
 
-{% include 'breadcrumbs.html' %} {% if group %}
-<h5>{{ group }} - Part {{ order }}</h5>
-{% endif %}
+{% include 'breadcrumbs.html' %}
+{%- if group %}
+<header>
+  <h5>{{ group }} - Part {{ order }}</h5>
+  <h1>{{ title }}</h1>
+  {{ group | prepend: "tutorials " | slugify | picture }}
+</header>
+{%- else %}
 <h1>{{ title }}</h1>
+{%- endif %}
 
 <section class="content">{{ content }}</section>
 

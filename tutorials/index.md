@@ -11,10 +11,10 @@ maintainable components, and best practices for working with Web Components.
 {%- for g in groups.tutorials %}
   {%- assign page = collections[g].first %}
   <li>
-    <h3><a href="{{ page.url }}">{{ g }}</a></h3>
     <a href="{{ page.url }}">
-      <img src="/images/tutorials-{{ g | slugify }}.jpg">
+      {{ g | prepend: "tutorials " | slugify | picture }}
     </a>
+    <h3><a href="{{ page.url }}">{{ g }}</a></h3>
     <p>{{ page.data.excerpt }}</p>
   </li>
 {%- else %}

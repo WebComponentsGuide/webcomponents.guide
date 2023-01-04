@@ -5,13 +5,21 @@ main {
   padding: var(--size-8);
 }
 
-main > h1 {
-  font-weight: normal;
+main > header {
   border-bottom: var(--border-size-2) solid var(--brand-color-dark);
-  padding-block-end: var(--size-2);
-  margin-block-end: var(--size-8);
-  display: block;
+  padding-block-end: var(--size-4);
+  margin-block-end: var(--size-4);
   max-inline-size: 100%;
+}
+
+main > header > h1 {
+  font-weight: normal;
+  display: block;
+  margin-block-end: var(--size-4);
+}
+
+main > header > h5 {
+  color: var(--gray-6);
 }
 
 .tutorials-listing {
@@ -22,8 +30,8 @@ main > h1 {
 }
 
 .tutorials-listing li {
-  margin: 0;
   padding: 0;
+  margin-block-end: var(--size-8);
 }
 
 .tutorials-listing h3 {
@@ -32,4 +40,8 @@ main > h1 {
 
 .tutorials-listing a {
   display: block;
+}
+
+.tutorials-listing picture {
+  margin-block-end: var(--size-4);
 }

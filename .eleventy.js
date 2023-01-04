@@ -79,8 +79,17 @@ module.exports = (eleventyConfig) => {
     menu: icon("menu"),
   }
   const menu = (first, ...rest) => [menumap[first] || `<strong>${first}</strong>`, ...rest].join(icon("chevron-right"))
+  const picture = (name) => `
+      <picture>
+        <source srcset="/images/${name}.avif" type="image/avif">
+        <source srcset="/images/${name}.webp" type="image/webp">
+        <img src="/images/${name}.jpg">
+      </picture>
+  `
 
   eleventyConfig.addShortcode("icon", icon)
+  eleventyConfig.addShortcode("picture", picture)
+  eleventyConfig.addFilter("picture", picture)
   eleventyConfig.addShortcode("shortcut", shortcut)
   eleventyConfig.addShortcode("menu", menu)
   eleventyConfig.addShortcode("stub", function () {
