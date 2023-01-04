@@ -50,7 +50,7 @@ class StopWatchElement extends HTMLElement {
   connectedCallback() {
     // Add the shared styles
     this.attachShadow({ mode: "open" }).adoptedStyleSheets = [styles]
-    
+
     // Start the timer
     this.#tick()
   }
@@ -61,7 +61,7 @@ class StopWatchElement extends HTMLElement {
     const seconds = String(Math.floor((milliseconds / 1000) % 60)).padStart(2, "0")
     const hundredths = String(Math.floor((milliseconds % 1000) / 10)).padStart(2, "0")
     this.shadowRoot.innerHTML = `${minutes}:${seconds}:${hundredths}`
-    
+
     // Schedule next update
     requestAnimationFrame(() => this.#tick())
   }
