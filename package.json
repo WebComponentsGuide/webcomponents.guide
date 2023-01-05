@@ -38,7 +38,7 @@
     "@11ty/eleventy-plugin-rss": "^1.2.0",
     "@11ty/eleventy-plugin-syntaxhighlight": "^4.2.0",
     "@github/relative-time-element": "^4.1.5",
-    "@jamshop/eleventy-plugin-esbuild": "^1.0.2",
+    "@jamshop/eleventy-plugin-esbuild": "WebComponentsGuide/eleventy-plugin-esbuild",
     "@oddbird/popover-polyfill": "^0.0.4",
     "@ungap/custom-elements": "^1.1.1",
     "autoprefixer": "10.4.13",
