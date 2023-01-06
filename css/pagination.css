@@ -18,6 +18,20 @@
   text-transform: uppercase;
 }
 
+.pagination :where([slot="next"], [slot="prev"]) svg {
+  margin-block-start: -3px;
+  margin-inline: var(--size-2);
+}
+
 .pagination [slot="next"] {
   text-align: right;
 }
+
+.pagination [slot="prev"] svg {
+  margin-inline-start: 0;
+}
+
+.pagination [slot="next"] svg {
+  margin-inline-end: 0;
+}
+

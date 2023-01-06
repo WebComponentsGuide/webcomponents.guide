@@ -3,23 +3,23 @@
   {% assign previousPost = collections[group] | getPreviousCollectionItem: page %} {% assign nextPost =
   collections[group] | getNextCollectionItem: page %} {% if previousPost %}
   <a slot="prev" href="{{ previousPost.url }}">
-    <span>Previous</span>
-    {% icon "arrow-left-circle" %} {{ previousPost.data.title }}
+    <span>{% icon "arrow-left-circle" %} Previous</span>
+     {{ previousPost.data.title }}
   </a>
   {% elsif prevGroup %} {% assign previousPost = collections[prevGroup] | first %}
   <a slot="prev" href="{{ previousPost.url }}">
-    <span>Previous Section</span>
-    {% icon "arrow-left-circle" %} {{ prevGroup }}
+    <span>{% icon "arrow-left-circle" %} Previous Section</span>
+    {{ prevGroup }}
   </a>
   {% endif %} {% if nextPost %}
   <a slot="next" href="{{ nextPost.url }}">
-    <span>Next</span>
-    {{ nextPost.data.title }} {% icon "arrow-right-circle" %}
+    <span>Next {% icon "arrow-right-circle" %}</span>
+    {{ nextPost.data.title }} 
   </a>
   {% elsif nextGroup %} {% assign nextPost = collections[nextGroup] | first %}
   <a slot="next" href="{{ nextPost.url }}">
-    <span>Next Section</span>
-    {{ nextGroup }} {% icon "arrow-right-circle" %}
+    <span>Next Section {% icon "arrow-right-circle" %}</span>
+    {{ nextGroup }} 
   </a>
   {% endif %}
 </nav>
