@@ -44,6 +44,10 @@ class TootEmbedElement extends HTMLElement {
   static define(tagName = "toot-embed") {
     customElements.define(tagName, this)
   }
+
+  connectedCallback() {
+    this.textContent = "Hello World!"
+  }
 }
 
 TootEmbedElement.define()
@@ -62,18 +66,25 @@ any CSS styles that you want to apply to your element. For example:
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>&lt;toot-embed&gt; demo</title>
+    <meta charset="utf-8" />
+    <title>toot-embed demo</title>
     <script defer src="/src/toot-embed-element.js"></script>
   </head>
   <body>
     <p>Here's a example toot:</p>
     <p>
-      <toot-embed src="https://fosstodon.org/@koddsson/109462441325942229"></toot-embed>
+      <toot-embed></toot-embed>
     </p>
   </body>
 </html>
 ```
 
-With these steps, we now have the basics of our element to display posts from the Mastodon social network on any website
-or application. The Web Component doesn't do anything yet. We need to implement the actual functionality and render the
-contents on the page.
+With these steps, we now have the basics of our element. Test everything works by running the following command:
+
+```sh
+$ npx @web/dev-server --open
+```
+
+![A screenshot of a browser running the code that we've written so far. It reads: "Here's an example toot: Hello World!"](/images/tutorials/mastodon-toot-embed/fig1.png)
+
+The Web Component doesn't do anything yet. We need to implement the actual functionality and render the contents on the page.
