@@ -5,6 +5,16 @@ main {
   padding: var(--size-8);
 }
 
+main > h1 {
+  font-weight: normal;
+  border-bottom: var(--border-size-2) solid var(--brand-color-dark);
+  padding-block-end: var(--size-2);
+  margin-block-end: var(--size-8);
+  display: block;
+  max-inline-size: 100vw;
+  max-inline-size: 100lvw;
+}
+
 main > header {
   border-bottom: var(--border-size-2) solid var(--brand-color-dark);
   padding-block-end: var(--size-4);
