@@ -12,7 +12,7 @@ browser will call this method for you.
 ## `constructor()`
 
 The [constructor][constructor] is a native part of the JavaScript language. It exists for any class, and a Custom
-Element is no different! Because Custom Elements must always extend from `HTMLElement` (or another tags constructor, for
+Element is no different. Because Custom Elements must always extend from `HTMLElement` (or another tags constructor, for
 example `HTMLDialogElement`), it always has a "super class", and so the first thing it must do is call `super()`:
 
 ```js
@@ -126,7 +126,7 @@ class MyElement extends HTMLElement {
 
 When a document is parsed all of the attributes which are observed will result in a call to
 `attributeChangedCallback()`. This can happen _before_ the element is connected and `connectedCallback` has been called,
-so avoid relying on the element being connected during this time!
+so avoid relying on the element being connected during this time.
 
 The `attributeChangedCallback()` will fire whenever `setAttribute`, `removeAttribute`, `toggleAttribute` are called if
 they are changing an observed attribute.

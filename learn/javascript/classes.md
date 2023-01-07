@@ -103,7 +103,7 @@ const mypoint = new Point(0, 0)
 
 console.assert(mypoint.isEmpty)
 
-// This will throw an Error!
+// This will throw an Error
 mypoint.isEmpty = false
 ```
 

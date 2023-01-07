@@ -16,7 +16,7 @@ everything covered in the [previous section][events] before reading on.
 #### Adding multiple listeners
 
 The [previous section][events] showed how you can add an _Event listener_ with `.addEventListener()`, but you can add
-more than one! In fact, you can use a single function to listen to multiple different event types, if they each have
+more than one. In fact, you can use a single function to listen to multiple different event types, if they each have
 different names.
 
 Listeners are given the `Event` object, so the listener function can use that to determine which event type the listener
@@ -101,13 +101,13 @@ target.addEventListener("start", (event) => {
   console.log(event)
 })
 
-// this wont do anything because this is a new function!
+// this wont do anything because this is a new function
 target.removeEventListener("start", (event) => {
   console.log(event)
 })
 ```
 
-This is also true of functions that _copy functions_, like `.bind()`! If you see code like `myfunction.bind()` this
+This is also true of functions that _copy functions_, like `.bind()`. If you see code like `myfunction.bind()` this
 creates a _new copy_ of the function each time, and so this won't work either:
 
 ```js
@@ -119,7 +119,7 @@ const logger = {
 
 target.addEventListener('start', logger.log.bind(logger))
 
-// this wont do anything because `.bind` copies the function!
+// this wont do anything because `.bind` copies the function
 target.removeEventListener('start', logger.log.bind(logger))
 ```
 
@@ -190,7 +190,7 @@ target.addEventListener("start", logger.log)
 
 target.dispatchEvent(new Event("start"))
 
-// Oh no! An Error!
+// An Error will be raised
 ```
 
 The above code causes an error because `logger.log` is passed by _value_ and consequently it loses its `this` _context_.
@@ -222,7 +222,7 @@ const logger = new Logger()
 
 const target = new EventTarget()
 
-// Pass in the entire object!
+// Pass in the entire object
 target.addEventListener("start", logger)
 
 target.dispatchEvent(new Event("start"))
@@ -245,7 +245,7 @@ _dispatching_ code to not execute the _default behaviour_.
 Looking at our Timer class again, let's say it has an alarm functionality that gets triggered every 60 seconds. We want
 something to happen without having to write any extra code, so by default we can `alert` with a message. That will be
 the _default behavior_. A listener can call `preventDefault()` and stop the default behaviour from executing, and
-customise the behavior by doing something different!
+customise the behavior by doing something different.
 
 ```js
 class Timer extends EventTarget {

@@ -94,7 +94,7 @@ example a `<button is="fancy-button">` will only allow nested _[phrasing content
 
 _Autonomous Custom Elements_ allow any nested tag by default. This can be customised with _ShadowDOM_, but the default
 behaviour is to allow any nested element. An element like `<fancy-button>` could include any _[flow
-content][flow-content]_ tags. It might be weird to see a `<fancy-button>` with an `<iframe>` nested inside!
+content][flow-content]_ tags. It might be weird to see a `<fancy-button>` with an `<iframe>` nested inside.
 
 [content-categories]: https://developer.mozilla.org/en-US/docs/Web/HTML/Content_categories
 [phrasing-content]: https://developer.mozilla.org/en-US/docs/Web/HTML/Content_categories#phrasing_content

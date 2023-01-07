@@ -7,8 +7,8 @@ title: Introduction
 ## What are Web Components?
 
 _Web Components_ are a native way for web developers to build user interfaces. They're built right into your browser so
-you don't have to download any framework to get started! _Web Components_ fit right into your existing HTML today. If
-you've got a server that can render HTML, then you can render Web Components!
+you don't have to download any framework to get started. _Web Components_ fit right into your existing HTML today. If
+you've got a server that can render HTML, then you can render Web Components.
 
 _Web Components_ allow you to extend the vocabulary of your HTML. You can define new behaviors that go beyond the built
 in tags. New features such as `<slide-out-menu>` or `<stop-watch>` are at your finger tips. JavaScript can drive these
@@ -23,7 +23,7 @@ apart from native (_built-in_) elements. New _built-ins_ will never have a dash,
 
 Here's an example of a web component that renders a timer. It defines its own [styles][styles], it renders into a
 [_ShadowDOM_][shadowdom], and has its own [_private state_][private-state]. It makes use of the [_lifecycle
-callbacks_][lifecycle] to know when to start counting. These are all built in web platform features!
+callbacks_][lifecycle] to know when to start counting. These are all built in web platform features.
 
 [styles]: /learn/components/styling
 [shadowdom]: /learn/components/shadowdom
