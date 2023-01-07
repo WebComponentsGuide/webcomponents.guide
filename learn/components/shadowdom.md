@@ -1,6 +1,6 @@
 ---
-title: ShadowDOM
-order: 4
+title: Slots
+order: 5
 ---
 
 {% stub %}
