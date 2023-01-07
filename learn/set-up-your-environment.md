@@ -9,28 +9,14 @@ title: Setting Up Your Environment
 _Web Components_ are a native web technology, so the most important tool will be your web browser. Pick a browser you're
 comfortable using, but it's a good idea to make sure you pick one with a good set of developer tools built in. A good
 set of devtools makes it much easier to debug your application. A lot of developers use [Google's Chrome
-browser][chrome], which has powerful built in devtools. [Mozilla Firefox][firefox] is another great option with equally
-good devtools. There's also Mozilla [Firefox Developer edition][firefox-dev] which has extra features, like an
-Integrated Development Environment. [Microsoft Edge][edge] is another great browser, built on the same technologies as
-Google Chrome. If you're on [macOS][macos] then [Safari][safari] can be a good choice, but it's not quite as capable as
-the other browsers. Safari's devtools aren't quite as capable as the others, and it lacks support for some Web Component
-features.
+browser][chrome]. [Mozilla Firefox][firefox] is another great option. There's also Mozilla [Firefox Developer
+edition][firefox-dev] which has extra features, like an Integrated Development Environment. [Microsoft Edge][edge] is
+another great browser, built on the same technologies as Google Chrome. If you're on [macOS][macos] then
+[Safari][safari] can be a good choice.
 
 To test your applications, it can be useful to install all four browsers. Running your application in a variety of
 browsers can uncover cross browser bugs, or missing features. Getting comfortable with using the devtools in each is a
 good idea.
-
-It's a great idea to keep your browsers up to date as often as possible. Browsers tend to update automatically, unless
-your computer has a policy disabling updates. If you can't easily keep your browser up to date then try using an
-extended support release (for example [Firefox ESR][firefox-esr] or [Chrome's Extended Stable][chrome-esr]). If you're
-using Safari then your Safari version is tied to your operating system version. Try to keep up to date with the latest
-versions of macOS and iOS to keep your Safari version up to date.
-
-If you're using an older browser - such as Microsoft Edge 18 or below, or Internet Explorer - then it's an excellent
-time to upgrade! New browsers like [Microsoft Edge latest][edge] are way more capable and much faster than these older
-browsers! Older browsers like Internet Explorer, or forked versions of Firefox like [SeaMonkey][seamonkey] don't have
-support for Web Components. If you want to use or support them you'll need to add ["polyfills"][polyfills] to get them
-to work. See the [support and polyfills][polyfills] section for more on that.
 
 [chrome]: https://www.google.com/chrome/
 [firefox]: https://www.mozilla.org/en-GB/firefox/new/
@@ -40,8 +26,6 @@ to work. See the [support and polyfills][polyfills] section for more on that.
 [safari]: https://www.apple.com/uk/safari/
 [firefox-esr]: https://www.mozilla.org/en-GB/firefox/enterprise/
 [chrome-esr]: https://support.google.com/chrome/a/answer/9027636?hl=en
-[seamonkey]: https://www.seamonkey-project.org/
-[polyfills]: /learn/support-and-polyfills
 
 ### Web Browser Devtools
 
