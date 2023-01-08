@@ -234,18 +234,18 @@ preferable to use `AbortController` instead, which works around the issues of _a
 
 ### Default behaviors
 
-A good pattern for utilising event listeners is to have your code behave a certain way by default, but give other code
-the option of "opting out" of the _default behavior_. This is really useful for applications that want to customise what
+A good pattern for utilizing event listeners is to have your code behave a certain way by default, but give other code
+the option of "opting out" of the _default behavior_. This is really useful for applications that want to customize what
 happens after a certain event has been triggered.
 
 The `Event` class has an option to to declare an event is `cancelable`, which implies it has a _default behavior_ that
 can be stopped. An event listener can _prevent the default behavior_ by calling `.preventDefault()`, which tells the
-_dispatching_ code to not execute the _default behaviour_.
+_dispatching_ code to not execute the _default behavior_.
 
 Looking at our Timer class again, let's say it has an alarm functionality that gets triggered every 60 seconds. We want
 something to happen without having to write any extra code, so by default we can `alert` with a message. That will be
-the _default behavior_. A listener can call `preventDefault()` and stop the default behaviour from executing, and
-customise the behavior by doing something different.
+the _default behavior_. A listener can call `preventDefault()` and stop the default behavior from executing, and
+customize the behavior by doing something different.
 
 ```js
 class Timer extends EventTarget {
@@ -285,7 +285,7 @@ mytimer.addEventListener("alarm", (event) => {
 })
 ```
 
-If you have listeners that customise how a cancelable event behaves, a listener can check if a previous listener has
+If you have listeners that customize how a cancelable event behaves, a listener can check if a previous listener has
 called `preventDefault()`. By checking the `defaultPrevented` property, listeners can avoid doing their own work which
 might duplicate the work of another event listener:
 

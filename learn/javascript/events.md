@@ -23,7 +23,7 @@ great pages on MDN that cover Events:
 
 Events are a way to allow two different pieces of code to communicate with each other, without having to import or
 otherwise know about their APIs - instead they just need to know about the Event APIs. Using events, your code can
-notify other parts of your applicaton when a change has happened.
+notify other parts of your application when a change has happened.
 
 A really nice feature of events is that they're _loosely coupled_. Code that _dispatches_ events doesn't need to worry
 about whether or not there are any listeners, it can just dispatch an event, and if there are no listeners then nothing
@@ -57,7 +57,7 @@ class EventTarget {
 }
 ```
 
-#### Subclassing Event Target
+#### Sub classing Event Target
 
 Everything that extends from `EventTarget` gets these methods, and can use them. `HTMLElement` extends from
 `EventTarget` which means all _Built-in elements_ and any Web Components you create will also extend from it too. Lots
@@ -87,7 +87,7 @@ arguments, with an optional third argument. The first argument is `type`, which 
 example `'click'`. The second is the callback `listener` function, this is a function that gets called whenever the
 event is _dispatched_. The _listener_ function might never be called, it might be called once, twice, or even hundreds
 of times, it all depends on how often the event is dispatched. Lastly you can pass in `options`, which allows advanced
-customisation of event listeners. For now let's focus on the first two arguments. Here's an example of adding an event
+customization of event listeners. For now let's focus on the first two arguments. Here's an example of adding an event
 listener:
 
 ```js

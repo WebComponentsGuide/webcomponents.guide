@@ -3,7 +3,7 @@ title: Rendering
 order: 5
 ---
 
-When a Web Component is initialised, it can start interacting with the document and make changes to it. While a
+When a Web Component is initialized, it can start interacting with the document and make changes to it. While a
 component **could** make changes to the DOM the element is within, there's a better way. Each component can have its own
 DOM, that is _encapsulated_ from the rest of the page. This is called the _ShadowDOM_. A component can create and attach
 a _ShadowDOM_ to itself by using `attachShadow({ mode: 'open' })`:

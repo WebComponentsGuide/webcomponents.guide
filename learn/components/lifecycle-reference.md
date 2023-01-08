@@ -64,7 +64,7 @@ When the browser attaches an element to the DOM tree, if it has a `connectedCall
 that means:
 
 - When an element created in JavaScript is appended to the document, e.g. via a call like `container.append(myElement)`.
-- When the HTML parser enounters the closing tag of an element, and can connect it to the tree, e.g. `</my-element>`.
+- When the HTML parser encounters the closing tag of an element, and can connect it to the tree, e.g. `</my-element>`.
   - This could mean HTML content from a server response.
   - It could also mean content coming from `.innerHTML = '...'`
   - It could also mean content coming `new DOMParser()`
@@ -149,8 +149,8 @@ consider adding a check to ensure `oldValue !== newValue` before performing oper
 ## `adoptedCallback()`
 
 The `adoptedCallback()` is another well known method gets called when your element moves from one `document` to another
-(such as an iframe). It's rare that this happens, andd so for the most part you can skip implementing this, but it can
-be useful especially if you have event listeners on the `document` or `window`, which will change when the
+(such as an iframe). It's rare that this happens, and so for the most part you can skip implementing this, but it can be
+useful especially if you have event listeners on the `document` or `window`, which will change when the
 `adoptedCallback()` is called.
 
 ## Summary

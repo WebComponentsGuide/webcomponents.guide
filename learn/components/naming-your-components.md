@@ -73,7 +73,7 @@ example `tooltip-popover` or `overlay-dialog`.
 
 If your _Autonomous Custom Element_ borrows concepts from other _built-ins_ then you could make up a similar name. For
 example `fancy-button` for an element like `<button>`, `color-input` for an element like `<input>`, or `radial-meter`
-for an element like `<meter>`. You might want to avoid doing this for all except _Customised Built-ins_. If your element
+for an element like `<meter>`. You might want to avoid doing this for all except _Customized Built-ins_. If your element
 doesn't share anything in common with an existing _built-in_, then it's best to avoid having a similar name, as it might
 cause confusion.
 
@@ -81,13 +81,13 @@ cause confusion.
 
 A lot of _built-ins_ use shortened names like `<img>`, `<abbr>`, `<ol>`. It might be tempting to use contracted names in
 your element but it should be carefully considered. These shortened names can be confusing for newcomers and it can be
-unclear what they do until you familiarise yourself with them. Good components have names which make their intent really
+unclear what they do until you familiarize yourself with them. Good components have names which make their intent really
 clear.
 
 Conversely using difficult to spell words can cause errors and typos more often. It's best to avoid difficult to spell
 element names like `<abbreviated-text>` or `<widget-accessory>`. Words longer than 10 characters tend to be difficult to
 spell, so try to avoid those. Words with double letters (abbreviated, occasion, accommodate) can be tricky too. Words
-using different letters with the same sound (necessary, accessory) often get misspelled. Words with "silent" consanants
+using different letters with the same sound (necessary, accessory) often get misspelled. Words with "silent" consonants
 (knack, assign, doubt) are difficult, especially people whom English is not their first language. In these cases it
 might be better to replace a hard to spell word with a simpler word, e.g. `<abbreviated-text>` could be come
 `<short-text>`, `<approximate-date>` could be `<rounded-date>`. Alternatively you could replace one hard to spell word
@@ -122,7 +122,7 @@ Many verbs can be converted to nouns, for example `<file-dropper>`, `<number-gue
 
 If you are defining the class with a name so you can use it in code, it's a good idea to match the element name to the
 class. JavaScript's convention is to use [camel case][camelcase] for variable names, with class names additionally
-capitalising the first letter (sometimes called "Pascal Case"). Taking your element name and converting it to this
+capitalizing the first letter (sometimes called "Pascal Case"). Taking your element name and converting it to this
 casing is a good way to name the class, so `<text-format>` would be `class TextFormat`.
 
 It's also a good idea to add a suffix or prefix to your element class name. One reason for this is it helps to figure

@@ -9,9 +9,9 @@ _Custom Elements Registry_ to attach your class so the browser knows to use it.
 
 Without the _Custom Element Registry_ the browser won't know what JavaScript to associate to what elements. By default,
 whenever the browser encounters a tag it does not know, it will use the `HTMLUnknownElement` class to give it a default
-behaviour. You can tell the browser to use a different class by _defining_ the tag name in the _Custom Element
-Registry_. With your own class _defined_, any time the browser sees the defined tag, it will set it up using the
-_associated class_.
+behavior. You can tell the browser to use a different class by _defining_ the tag name in the _Custom Element Registry_.
+With your own class _defined_, any time the browser sees the defined tag, it will set it up using the _associated
+class_.
 
 To define a _Custom Element_, you can use the global `customElements` API. You won't need to include any JavaScript
 libraries to use `customElements`, it's a global that already exists, like `console` or `localStorage`. There are two
@@ -49,9 +49,9 @@ message like `autonomous custom elements must extend HTMLElement`.
 ## Customized Built-in Elements
 
 _Customized Built-in_ elements are extensions to the browsers existing _built-in_ elements. For example if you wanted to
-make a button extends the normal behaviours, you can customise it with a _Customized Built-in_. Instead of making up
-your own tag name, you'll use the same tag as the _built-in_ you're targeting. Your class will also have to extend from
-the existing _built-in's_ class. For example extending the `<button>` element means your class will need to
+make a button extends the normal behaviors, you can customize it with a _Customized Built-in_. Instead of making up your
+own tag name, you'll use the same tag as the _built-in_ you're targeting. Your class will also have to extend from the
+existing _built-in's_ class. For example extending the `<button>` element means your class will need to
 `extends HTMLButtonElement`. When you call `customElements.define` you will need to tell it that you're extending a
 _built-in_ tag:
 
@@ -88,76 +88,76 @@ with a message like `localName does not match the HTML element interface`.
     For a full list of the browsers _built-in_ elements and the classes you have to extend from, see here:
   </summary>
 
-| Element      | Tag Name       | Class to extend from                                                                                |
-| :----------- | :------------- | :-------------------------------------------------------------------------------------------------- |
-| Anchor       | `<a>`          | [HTMLAnchorElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLAnchorElement)             |
-| Area         | `<area>`       | [HTMLAreaElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLAreaElement)                 |
-| Audio        | `<audio>`      | [HTMLAudioElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLAudioElement)               |
-| Base         | `<base>`       | [HTMLBaseElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLBaseElement)                 |
-| BlockQuote   | `<blockquote>` | [HTMLQuoteElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLQuoteElement)               |
-| Body         | `<body>`       | [HTMLBodyElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLBodyElement)                 |
-| BR           | `<br>`         | [HTMLBRElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLBRElement)                     |
-| Button       | `<button>`     | [HTMLButtonElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLButtonElement)             |
-| Canvas       | `<canvas>`     | [HTMLCanvasElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement)             |
-| Data         | `<data>`       | [HTMLDataElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDataElement)                 |
-| DataList     | `<datalist>`   | [HTMLDataListElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDataListElement)         |
-| Del          | `<del>`        | [HTMLModElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLModElement)                   |
-| Details      | `<details>`    | [HTMLDetailsElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDetailsElement)           |
-| Dialog       | `<dialog>`     | [HTMLDialogElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement)             |
-| Div          | `<div>`        | [HTMLDivElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDivElement)                   |
-| DList        | `<dl>`         | [HTMLDListElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDListElement)               |
-| Embed        | `<embed>`      | [HTMLEmbedElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLEmbedElement)               |
-| FieldSet     | `<fieldset>`   | [HTMLFieldSetElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLFieldSetElement)         |
-| Form         | `<form>`       | [HTMLFormElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement)                 |
-| H1           | `<h1>`         | [HTMLHeadingElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLHeadingElement)           |
-| H2           | `<h2>`         | [HTMLHeadingElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLHeadingElement)           |
-| H3           | `<h3>`         | [HTMLHeadingElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLHeadingElement)           |
-| H4           | `<h4>`         | [HTMLHeadingElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLHeadingElement)           |
-| H5           | `<h5>`         | [HTMLHeadingElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLHeadingElement)           |
-| H6           | `<h6>`         | [HTMLHeadingElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLHeadingElement)           |
-| HR           | `<hr>`         | [HTMLHRElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLHRElement)                     |
-| Head         | `<head>`       | [HTMLHeadElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLHeadElement)                 |
-| Html         | `<html>`       | [HTMLHtmlElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLHtmlElement)                 |
-| IFrame       | `<iframe>`     | [HTMLIFrameElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLIFrameElement)             |
-| Image        | `<img>`        | [HTMLImageElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement)               |
-| Ins          | `<ins>`        | [HTMLModElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLModElement)                   |
-| Input        | `<input>`      | [HTMLInputElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement)               |
-| Label        | `<label>`      | [HTMLLabelElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLLabelElement)               |
-| Legend       | `<legend>`     | [HTMLLegendElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLLegendElement)             |
-| LI           | `<li>`         | [HTMLLIElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLLIElement)                     |
-| Link         | `<link>`       | [HTMLLinkElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLLinkElement)                 |
-| Map          | `<map>`        | [HTMLMapElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMapElement)                   |
-| Menu         | `<menu>`       | [HTMLMenuElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMenuElement)                 |
-| Meta         | `<meta>`       | [HTMLMetaElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMetaElement)                 |
-| Meter        | `<meter>`      | [HTMLMeterElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMeterElement)               |
-| Object       | `<object>`     | [HTMLObjectElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLObjectElement)             |
-| OList        | `<ol>`         | [HTMLOListElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLOListElement)               |
-| OptGroup     | `<optgroup>`   | [HTMLOptGroupElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLOptGroupElement)         |
-| Option       | `<option>`     | [HTMLOptionElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLOptionElement)             |
-| Output       | `<output>`     | [HTMLOutputElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLOutputElement)             |
-| Paragraph    | `<p>`          | [HTMLParagraphElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLParagraphElement)       |
-| Picture      | `<picture>`    | [HTMLPictureElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLPictureElement)           |
-| Pre          | `<pre>`        | [HTMLPreElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLPreElement)                   |
-| Progress     | `<progress>`   | [HTMLProgressElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLProgressElement)         |
-| Quote        | `<q>`          | [HTMLQuoteElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLQuoteElement)               |
-| Script       | `<script>`     | [HTMLScriptElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLScriptElement)             |
-| Select       | `<select>`     | [HTMLSelectElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLSelectElement)             |
-| Slot         | `<slot>`       | [HTMLSlotElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLSlotElement)                 |
-| Source       | `<source>`     | [HTMLSourceElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLSourceElement)             |
-| Span         | `<span>`       | [HTMLSpanElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLSpanElement)                 |
-| Style        | `<style>`      | [HTMLStyleElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLStyleElement)               |
-| TableCaption | `<caption>`    | [HTMLTableCaptionElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableCaptionElement) |
-| TableCell    | `<td>`         | [HTMLTableCellElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableCellElement)       |
-| Table        | `<table>`      | [HTMLTableElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement)               |
-| TableRow     | `<tr>`         | [HTMLTableRowElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableRowElement)         |
-| TBody        | `<tbody>`      | [HTMLTableSectionElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableSectionElement) |
-| Template     | `<template>`   | [HTMLTemplateElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLTemplateElement)         |
-| TextArea     | `<textarea>`   | [HTMLTextAreaElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLTextAreaElement)         |
-| Time         | `<time>`       | [HTMLTimeElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLTimeElement)                 |
-| Title        | `<title>`      | [HTMLTitleElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLTitleElement)               |
-| Track        | `<track>`      | [HTMLTrackElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLTrackElement)               |
-| UList        | `<ul>`         | [HTMLUListElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLUListElement)               |
-| Video        | `<video>`      | [HTMLVideoElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLVideoElement)               |
+| Element         | Tag Name       | Class to extend from                                                                                |
+| :-------------- | :------------- | :-------------------------------------------------------------------------------------------------- |
+| Anchor          | `<a>`          | [HTMLAnchorElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLAnchorElement)             |
+| Area            | `<area>`       | [HTMLAreaElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLAreaElement)                 |
+| Audio           | `<audio>`      | [HTMLAudioElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLAudioElement)               |
+| Base            | `<base>`       | [HTMLBaseElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLBaseElement)                 |
+| Block Quote     | `<blockquote>` | [HTMLQuoteElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLQuoteElement)               |
+| Body            | `<body>`       | [HTMLBodyElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLBodyElement)                 |
+| BR              | `<br>`         | [HTMLBRElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLBRElement)                     |
+| Button          | `<button>`     | [HTMLButtonElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLButtonElement)             |
+| Canvas          | `<canvas>`     | [HTMLCanvasElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement)             |
+| Data            | `<data>`       | [HTMLDataElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDataElement)                 |
+| Data List       | `<datalist>`   | [HTMLDataListElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDataListElement)         |
+| Del             | `<del>`        | [HTMLModElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLModElement)                   |
+| Details         | `<details>`    | [HTMLDetailsElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDetailsElement)           |
+| Dialog          | `<dialog>`     | [HTMLDialogElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement)             |
+| Div             | `<div>`        | [HTMLDivElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDivElement)                   |
+| Definition List | `<dl>`         | [HTMLDListElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDListElement)               |
+| Embed           | `<embed>`      | [HTMLEmbedElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLEmbedElement)               |
+| Field Set       | `<fieldset>`   | [HTMLFieldSetElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLFieldSetElement)         |
+| Form            | `<form>`       | [HTMLFormElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement)                 |
+| H1              | `<h1>`         | [HTMLHeadingElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLHeadingElement)           |
+| H2              | `<h2>`         | [HTMLHeadingElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLHeadingElement)           |
+| H3              | `<h3>`         | [HTMLHeadingElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLHeadingElement)           |
+| H4              | `<h4>`         | [HTMLHeadingElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLHeadingElement)           |
+| H5              | `<h5>`         | [HTMLHeadingElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLHeadingElement)           |
+| H6              | `<h6>`         | [HTMLHeadingElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLHeadingElement)           |
+| HR              | `<hr>`         | [HTMLHRElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLHRElement)                     |
+| Head            | `<head>`       | [HTMLHeadElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLHeadElement)                 |
+| HTML            | `<html>`       | [HTMLHtmlElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLHtmlElement)                 |
+| IFrame          | `<iframe>`     | [HTMLIFrameElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLIFrameElement)             |
+| Image           | `<img>`        | [HTMLImageElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement)               |
+| Ins             | `<ins>`        | [HTMLModElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLModElement)                   |
+| Input           | `<input>`      | [HTMLInputElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement)               |
+| Label           | `<label>`      | [HTMLLabelElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLLabelElement)               |
+| Legend          | `<legend>`     | [HTMLLegendElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLLegendElement)             |
+| LI              | `<li>`         | [HTMLLIElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLLIElement)                     |
+| Link            | `<link>`       | [HTMLLinkElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLLinkElement)                 |
+| Map             | `<map>`        | [HTMLMapElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMapElement)                   |
+| Menu            | `<menu>`       | [HTMLMenuElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMenuElement)                 |
+| Meta            | `<meta>`       | [HTMLMetaElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMetaElement)                 |
+| Meter           | `<meter>`      | [HTMLMeterElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMeterElement)               |
+| Object          | `<object>`     | [HTMLObjectElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLObjectElement)             |
+| OList           | `<ol>`         | [HTMLOListElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLOListElement)               |
+| OptGroup        | `<optgroup>`   | [HTMLOptGroupElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLOptGroupElement)         |
+| Option          | `<option>`     | [HTMLOptionElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLOptionElement)             |
+| Output          | `<output>`     | [HTMLOutputElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLOutputElement)             |
+| Paragraph       | `<p>`          | [HTMLParagraphElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLParagraphElement)       |
+| Picture         | `<picture>`    | [HTMLPictureElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLPictureElement)           |
+| Pre             | `<pre>`        | [HTMLPreElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLPreElement)                   |
+| Progress        | `<progress>`   | [HTMLProgressElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLProgressElement)         |
+| Quote           | `<q>`          | [HTMLQuoteElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLQuoteElement)               |
+| Script          | `<script>`     | [HTMLScriptElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLScriptElement)             |
+| Select          | `<select>`     | [HTMLSelectElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLSelectElement)             |
+| Slot            | `<slot>`       | [HTMLSlotElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLSlotElement)                 |
+| Source          | `<source>`     | [HTMLSourceElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLSourceElement)             |
+| Span            | `<span>`       | [HTMLSpanElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLSpanElement)                 |
+| Style           | `<style>`      | [HTMLStyleElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLStyleElement)               |
+| TableCaption    | `<caption>`    | [HTMLTableCaptionElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableCaptionElement) |
+| TableCell       | `<td>`         | [HTMLTableCellElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableCellElement)       |
+| Table           | `<table>`      | [HTMLTableElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement)               |
+| TableRow        | `<tr>`         | [HTMLTableRowElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableRowElement)         |
+| TBody           | `<tbody>`      | [HTMLTableSectionElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableSectionElement) |
+| Template        | `<template>`   | [HTMLTemplateElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLTemplateElement)         |
+| TextArea        | `<textarea>`   | [HTMLTextAreaElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLTextAreaElement)         |
+| Time            | `<time>`       | [HTMLTimeElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLTimeElement)                 |
+| Title           | `<title>`      | [HTMLTitleElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLTitleElement)               |
+| Track           | `<track>`      | [HTMLTrackElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLTrackElement)               |
+| UList           | `<ul>`         | [HTMLUListElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLUListElement)               |
+| Video           | `<video>`      | [HTMLVideoElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLVideoElement)               |
 
 </details>
 
@@ -190,7 +190,7 @@ class MyElement extends HTMLElement {
 ```
 
 This way users of your component can call `MyElement.define()` in a place in their code where all components get
-registered. To make your component even more flexible, you can make the tag name customizable:
+registered. To make your component even more flexible, you can make it so the tag name can be customized:
 
 ```js
 class MyElement extends HTMLElement {

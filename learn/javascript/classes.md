@@ -116,7 +116,7 @@ changes is important, then you might want to read on to see how to combine _priv
 
 Classes can also use `get <name>()` or `set <name>()` to _derive_ new state, using meta properties. These methods act
 like properties but you can add custom logic to them, defining new properties that use existing class data to generate a
-value. If you define a `get <name>` without a `set <name>`, then the property will be **readonly**.
+value. If you define a `get <name>` without a `set <name>`, then the property will be **read only**.
 
 ```js
 class Point {
