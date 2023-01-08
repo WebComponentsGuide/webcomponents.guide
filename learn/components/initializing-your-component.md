@@ -104,7 +104,7 @@ they could still be active, which will result in errors when those events get tr
 
 {% endtip %}
 
-### Advanced tip: use an AbortController in your `disconnectedCallback()`
+### Advanced: use an AbortController in your `disconnectedCallback()`
 
 Instead of setting up things in `connectedCallback()` and tearing those down in the `disconnectedCallback()`, you
 can make use of an `AbortController` to group the setup and tear down logic close to each other. You can set up
