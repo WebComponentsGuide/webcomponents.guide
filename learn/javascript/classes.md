@@ -78,6 +78,43 @@ console.assert(mypoint.equals(new Point(6, 6)))
 console.assert(String(mypoint) === "(6, 6)")
 ```
 
+Public fields are _initialized_ every time the class is. If you're familiar with JavaScript classes but haven't used
+Class Fields before, then you can imagine them as lines of code that would execute in the class `constructor`. The
+following two classes are functionally equivalent:
+
+```js
+class PublicFields {
+  x = 0
+  y = 0
+}
+
+class ConstructorFields {
+
+  constructor() {
+    this.x = 0
+    this.y = 0
+  }
+
+}
+```
+
+This is important because these fields don't just have to have primitive values in them. You could call a function, or
+even refer to `this` within a public field, and it will be executed whenever the class is constructed:
+
+```js
+class RandomField {
+  x = Math.random()
+}
+const first = new RandomField()
+const second = new RandomField()
+
+console.assert( first.x !== second.x )
+```
+
+One final thing to think about _public fields_: a class will not know when they change. If knowing when a public field
+changes is important, then you might want to read on to see how to combine _private fields_ with _derived state_.
+
+
 ### Defining _derived_ state
 
 Classes can also use `get <name>()` or `set <name>()` to _derive_ new state, using meta properties. These methods act
@@ -112,31 +149,107 @@ mypoint.isEmpty = false
 Classes can also have "Private" state and private methods, which cannot be called outside of the class.
 
 ```js
-class Upper {
+class CaseChange {
   #original = ""
   constructor(original) {
     this.#original = original
   }
 
-  #uppercase() {
+  upper() {
     return this.#original.toUpperCase()
   }
-
-  get value() {
-    return this.#uppercase()
+  
+  lower() {
+    return this.#original.toLowerCase()
   }
 }
 
-const myupper = new Upper("Hello World")
+const myupper = new CaseChange("Hello World")
 
-console.assert(myupper.value === "HELLO WORLD")
+console.assert(myupper.upper() === "HELLO WORLD")
+console.assert(myupper.lower() === "hello world")
 
-// This will throw an error:
+// This will throw an error
+// private fields can't be used outside a class
+console.log(myupper.#original)
+
+// This will also throw an error
 myupper.#original = "Hello"
-
-// This will throw an error too:
-myupper.#uppercase()
 ```
+
+Private fields work like public fields with regards to evaluation. They get evaluated with the class _instantiation_, so
+`this` will refer to the class instance, and function calls will be called each time the class is constructed.
+
+### Using private fields with public APIs to make changeable, _read only state_
+
+_Private fields_ are useful to have a value that the internals of a class can change, but that outside code cannot.
+However it's also often useful to allow private code to _read_ a classes _private state_, but not change it. To do this
+you can combine _private state_ with _public getters_:
+
+```js
+class Sentence {
+  #original = ""
+  constructor(original) {
+    this.#original = original
+  }
+  
+  get sentence() {
+    return this.#original
+  }
+
+  get firstWord() {
+    return this.#original.split(' ').at(0)
+  }
+}
+
+const mysentence = new Setence("Hello World.")
+
+console.assert(mysentence.sentence === "Hello World.")
+console.assert(mysentence.firstWord === "Hello")
+
+// This will throw an error, accessors that only define
+// a get method cannot be set.
+myupper.sentence = "Hello Universe"
+
+// This will also throw an error
+myupper.firstWord = "Hola"
+```
+
+### Using private fields with public APIs to make reactive fields
+
+A _public field_ can be changed on a class instance, and the class will not know when that happens. To make a class react
+to a change in its public fields, you can combine a private field with `get` and `set` functions, like so:
+
+```js
+class Timer {
+
+  #startTime = Date.now()
+  
+  get startTime() {
+    return this.#startTime
+  }
+  
+  set startTime(newTime) {
+    this.#startTime = newTime
+    this.resetTimer()
+  }
+  
+  resetTimer() {
+    console.log('Timer has been reset')
+  }
+
+}
+
+const mytimer = new Timer()
+
+console.assert( mytimer.startTime === Date.now() )
+
+mytimer.startTime = 0
+
+// Will log "Timer has been reset"
+```
+
+This pattern can also be useful for validating values when they are being set.
 
 ### Extending a class
 
