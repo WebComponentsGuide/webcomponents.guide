@@ -87,4 +87,5 @@ $ npx @web/dev-server --open
 
 ![A screenshot of a browser running the code that we've written so far. It reads: "Here's an example toot: Hello World!"](/images/tutorials/mastodon-toot-embed/fig1.png)
 
-The Web Component doesn't do anything yet. We need to implement the actual functionality and render the contents on the page.
+The Web Component doesn't do anything yet. We need to implement the actual functionality and render the contents on the
+page.
