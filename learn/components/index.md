@@ -49,9 +49,9 @@ message like `autonomous custom elements must extend HTMLElement`.
 ## Customized Built-in Elements
 
 _Customized Built-in_ elements are extensions to the browsers existing _built-in_ elements. For example if you wanted to
-make a button extends the normal behaviors, you can customize it with a _Customized Built-in_. Instead of making up your
-own tag name, you'll use the same tag as the _built-in_ you're targeting. Your class will also have to extend from the
-existing _built-in's_ class. For example extending the `<button>` element means your class will need to
+make a button that extends the normal behaviors, you can customize it with a _Customized Built-in_. Instead of making up
+your own tag name, you'll use the same tag as the _built-in_ you're targeting. Your class will also have to extend from
+the existing _built-in's_ class. For example extending the `<button>` element means your class will need to
 `extends HTMLButtonElement`. When you call `customElements.define` you will need to tell it that you're extending a
 _built-in_ tag:
 
