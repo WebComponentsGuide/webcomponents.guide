@@ -58,7 +58,7 @@ Here's a handy guide on how to quickly access the developer tools, depending on 
 
 ## Development Environment
 
-To get starting writing web components you'll need a development environment. While you can use any text editor to
+To get started writing web components you'll need a development environment. While you can use any text editor to
 develop, using an Integrated Development Environment (IDE) will give you lots of features that can make for a much
 better developer experience. One of the most popular IDEs today is [VS Code][vscode], and with good reason. It comes
 with excellent support for writing HTML, JavaScript and CSS out of the box as well as some great plugins that you can
