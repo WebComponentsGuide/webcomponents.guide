@@ -138,3 +138,5 @@ class StopWatchElement extends HTMLElement {
   }
 }
 ```
+
+[lifecycle]: /learn/components/lifecycle-reference/
