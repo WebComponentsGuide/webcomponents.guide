@@ -107,7 +107,9 @@ make use of an `AbortController` to group the setup and tear down logic close to
 makes use of the signal will get cleaned up when the signal aborts.
 
 Lots of APIs make use of _signals_, including `addEventListener`. Take a look at the following two classes which are
-have equivalent functionality, but one uses the `AbortController`:
+have equivalent functionality, but one uses the `AbortController`. For relatively few items set up in
+`connectedCallback()`, the extra set up of the `AbortController` might result in more lines of code, but as you start
+adding more events and actions, it can start to pay dividends:
 
 ```js
 class StopWatchElement extends HTMLElement {
@@ -135,6 +137,25 @@ class StopWatchElement extends HTMLElement {
   disconnectedCallback() {
     // All cleanup happens with this one line
     this.#abortController?.abort()
+  }
+}
+```
+```js
+class StopWatchElement extends HTMLElement {
+  static define(tag = "stop-watch") {
+    customElements.define(tag, this)
+  }
+
+  connectedCallback() {
+    this.ownerDocument.addEventListener("keypress", this, { signal })
+    
+    this.start()
+  }
+
+  disconnectedCallback() {
+    this.ownerDocument.addEventListener("keypress", this)
+    
+    this.stop()
   }
 }
 ```
