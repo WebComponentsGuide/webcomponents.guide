@@ -4,7 +4,7 @@
   collections[group] | getNextCollectionItem: page %} {% if previousPost %}
   <a slot="prev" href="{{ previousPost.url }}">
     <span>{% icon "arrow-left-circle" %} Previous</span>
-     {{ previousPost.data.title }}
+    {{ previousPost.data.title }}
   </a>
   {% elsif prevGroup %} {% assign previousPost = collections[prevGroup] | first %}
   <a slot="prev" href="{{ previousPost.url }}">
@@ -14,12 +14,12 @@
   {% endif %} {% if nextPost %}
   <a slot="next" href="{{ nextPost.url }}">
     <span>Next {% icon "arrow-right-circle" %}</span>
-    {{ nextPost.data.title }} 
+    {{ nextPost.data.title }}
   </a>
   {% elsif nextGroup %} {% assign nextPost = collections[nextGroup] | first %}
   <a slot="next" href="{{ nextPost.url }}">
     <span>Next Section {% icon "arrow-right-circle" %}</span>
-    {{ nextGroup }} 
+    {{ nextGroup }}
   </a>
   {% endif %}
 </nav>

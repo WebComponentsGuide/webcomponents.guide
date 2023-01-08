@@ -89,12 +89,10 @@ class PublicFields {
 }
 
 class ConstructorFields {
-
   constructor() {
     this.x = 0
     this.y = 0
   }
-
 }
 ```
 
@@ -108,12 +106,11 @@ class RandomField {
 const first = new RandomField()
 const second = new RandomField()
 
-console.assert( first.x !== second.x )
+console.assert(first.x !== second.x)
 ```
 
 One final thing to think about _public fields_: a class will not know when they change. If knowing when a public field
 changes is important, then you might want to read on to see how to combine _private fields_ with _derived state_.
-
 
 ### Defining _derived_ state
 
@@ -158,7 +155,7 @@ class CaseChange {
   upper() {
     return this.#original.toUpperCase()
   }
-  
+
   lower() {
     return this.#original.toLowerCase()
   }
@@ -192,13 +189,13 @@ class Sentence {
   constructor(original) {
     this.#original = original
   }
-  
+
   get sentence() {
     return this.#original
   }
 
   get firstWord() {
-    return this.#original.split(' ').at(0)
+    return this.#original.split(" ").at(0)
   }
 }
 
@@ -217,32 +214,30 @@ myupper.firstWord = "Hola"
 
 ### Using private fields with public APIs to make reactive fields
 
-A _public field_ can be changed on a class instance, and the class will not know when that happens. To make a class react
-to a change in its public fields, you can combine a private field with `get` and `set` functions, like so:
+A _public field_ can be changed on a class instance, and the class will not know when that happens. To make a class
+react to a change in its public fields, you can combine a private field with `get` and `set` functions, like so:
 
 ```js
 class Timer {
-
   #startTime = Date.now()
-  
+
   get startTime() {
     return this.#startTime
   }
-  
+
   set startTime(newTime) {
     this.#startTime = newTime
     this.resetTimer()
   }
-  
-  resetTimer() {
-    console.log('Timer has been reset')
-  }
 
+  resetTimer() {
+    console.log("Timer has been reset")
+  }
 }
 
 const mytimer = new Timer()
 
-console.assert( mytimer.startTime === Date.now() )
+console.assert(mytimer.startTime === Date.now())
 
 mytimer.startTime = 0
 
