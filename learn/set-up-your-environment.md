@@ -56,6 +56,14 @@ Here's a handy guide on how to quickly access the developer tools, depending on 
 | macOS         | {% icon "firefox" %} Firefox | {% shortcut "Cmd Shift I" %}  | {% menu "menu" "More Tools" "Web Developer Tools" %} |
 | macOS         | {% icon "safari" %} Safari   | {% shortcut "Cmd Shift I" %}  | {% menu "Develop" "Show Web Inspector" %}            |
 
+While the built-in web developer tools offer excellent features that make it easy to work with Web Components, to add
+some extra functionality you can make use of some excellent browser extensions which add even more tools to help develop
+Web Components:
+
+- [Web Component DevTools by Matsuuu][matsuu]
+
+[matsuu]: https://matsuuu.github.io/web-component-devtools/
+
 ## Development Environment
 
 To get started writing web components you'll need a development environment. While you can use any text editor to
@@ -63,7 +71,7 @@ develop, using an Integrated Development Environment (IDE) will give you lots of
 better developer experience. One of the most popular IDEs today is [VS Code][vscode], and with good reason. It comes
 with excellent support for writing HTML, JavaScript and CSS out of the box as well as some great plugins that you can
 install. It can hook directly into web browsers like Chrome or Firefox using the allowing you to debug your applications
-without leaving your editor. All of these features makes it ideal for writing Web Components and websites that use them.
+without leaving your editor. All of these features make it ideal for writing Web Components and websites that use them.
 
 Some recommended extensions for developing components within VS Code are:
 
