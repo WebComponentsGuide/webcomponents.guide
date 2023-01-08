@@ -36,7 +36,7 @@ Classes can use the `constructor()` method to perform extra logic during instant
 the `constructor()`, but it's not necessarily the best way to initialize a component. If you can, use private or public
 fields to set up state without having to use the `constructor()` - it'll be easier to read. If your component has
 additional set up logic, like adding event listeners, then the `constructor()` isn't the best place for that - as the
-Web Component isn't inserted into (or _connected_ ) to a DOM tree, and so it won't have a `parent`. For that, you'll
+Web Component isn't inserted into (or _connected_) to a DOM tree, and so it won't have a `parent`. For that, you'll
 need a _lifecycle callback_...
 
 ### Adding logic when an element is inserted into the DOM
@@ -82,12 +82,12 @@ class StopWatchElement extends HTMLElement {
 
   connectedCallback() {
     // Add event listeners when connected
-    this.ownerDocument.addEventListener("keyboard", this)
+    this.ownerDocument.addEventListener("keypress", this)
   }
 
   disconnectedCallback() {
     // Remove the registered event listeners when disconnected
-    this.ownerDocument.removeEventListener("keyboard", this)
+    this.ownerDocument.removeEventListener("keypress", this)
   }
 }
 ```
@@ -125,7 +125,7 @@ class StopWatchElement extends HTMLElement {
     const { signal } = this.#abortContoller
 
     // Pass the signal to addEventListener
-    this.ownerDocument.addEventListener("keyboard", this, { signal })
+    this.ownerDocument.addEventListener("keypress", this, { signal })
 
     // Use a signal "abort" event to stop the timer
     signal.addEventListener("abort", () => this.stop(), { once: true })
