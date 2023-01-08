@@ -39,7 +39,7 @@ will apply. This means if you have some existing CSS that applies to _built-ins_
 built-ins_. This also includes the default _user agent CSS_.
 
 All _built-ins_ have some _user-agent CSS_ supplied already, for example `div` elements have `display: block;`,
-`<button>` elements are styled to look like your operating systems buttons. _Customized Built-ins_ will also get these
+`<button>` elements are styled to look like your operating system's buttons. _Customized Built-ins_ will also get these
 styles, so `<button is="fancy-button">` will look the same as `<button>` until you customize it further.
 
 If you want to customize a _built-in_ by applying only new styles and not adding any new logic, it might be best to use
@@ -75,7 +75,7 @@ the rest of the page, and so it can be a really useful place to add styles to yo
 you might find using an _Autonomous Custom Element_ to be a better choice than the limited set of built-ins which can
 use _ShadowDOM_.
 
-_ShadowDOM_ also provides elements with the ability to chose how nested elements render. An ability that many
+_ShadowDOM_ also provides elements with the ability to choose how nested elements render. An ability that many
 _built-ins_ already have...
 
 [shadowdom]: /learn/components/shadowdom
