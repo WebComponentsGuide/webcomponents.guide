@@ -5,8 +5,8 @@ title: Your First Web Component
 ---
 
 The term _Web Components_ encompasses a lot of individual APIs, some that have existed for a very long time in the web,
-and some that are much newer. If you've written JavaScript before then you might be familiar with [Classes][classes], If
-you've written JavaScript for the web before, you might already be familiar with some of those APIs too, for example
+and some that are much newer. If you've written JavaScript before then you might be familiar with [Classes][classes]. If
+you've developed on the web before, you might already be familiar with some of those APIs too, for example
 [Events][events] and the [DOM APIs][dom-apis] like `querySelector`. Many Web Components will make use of those existing
 APIs.
 
