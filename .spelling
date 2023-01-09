@@ -13,6 +13,7 @@ polyfills
 CSS
 APIs
 ShadowDOM
+ShadowRoots
 socio-economic
 sexualized
 1.4
@@ -119,3 +120,5 @@ EventTarget
 HTMLElement
 npm
 package.json
+Matsuuu
+templating
