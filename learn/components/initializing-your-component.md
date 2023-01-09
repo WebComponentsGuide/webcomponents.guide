@@ -36,8 +36,8 @@ Classes can use the `constructor()` method to perform extra logic during instant
 the `constructor()`, but it's not necessarily the best way to initialize a component. If you can, use private or public
 fields to set up state without having to use the `constructor()` - it'll be easier to read. If your component has
 additional set up logic, like adding event listeners, then the `constructor()` isn't the best place for that - as the
-Web Component isn't inserted into (or _connected_) to a DOM tree, and so it won't have a `parent`. For that, you'll
-need a _lifecycle callback_...
+Web Component isn't inserted into (or _connected_) to a DOM tree, and so it won't have a `parent`. For that, you'll need
+a _lifecycle callback_...
 
 ### Adding logic when an element is inserted into the DOM
 
@@ -140,6 +140,7 @@ class StopWatchElement extends HTMLElement {
   }
 }
 ```
+
 ```js
 class StopWatchElement extends HTMLElement {
   static define(tag = "stop-watch") {
@@ -148,13 +149,13 @@ class StopWatchElement extends HTMLElement {
 
   connectedCallback() {
     this.ownerDocument.addEventListener("keypress", this, { signal })
-    
+
     this.start()
   }
 
   disconnectedCallback() {
     this.ownerDocument.addEventListener("keypress", this)
-    
+
     this.stop()
   }
 }
