@@ -57,7 +57,7 @@ Now, when the element is connected to the DOM and the load() method is called, t
 
 You should now see the Mastodon toot data displayed in a more structured and presentable format:
 
-![A browser screenshot showing the toot-embed component at it's current stage. The example page reads: "Here's an example toot: " followed by a display of the Mastodon toot data including the avatar image, display name, and toot content.](fig3.png)
+![A browser screenshot showing the toot-embed component at it's current stage. The example page reads: "Here's an example toot: " followed by a display of the Mastodon toot data including the avatar image, display name, and toot content.](/images/tutorials/mastodon-toot-embed/fig3.png)
 
 It's still not very good to look at! The image is way to big and the whole layout is a bit off. Let's add some rudamentary styles to the component in a `<style>` tag to make it a bit better.
 
@@ -125,6 +125,6 @@ class TootEmbedElement extends HTMLElement {
 TootEmbedElement.define()
 ```
 
-![A browser screenshot showing the toot-embed component at it's current stage. The example page reads: "Here's an example toot: " followed by a display of the Mastodon toot data including the avatar image, display name, and toot content. The component has been given some rudamentary layouting.](fig4.png)
+![A browser screenshot showing the toot-embed component at it's current stage. The example page reads: "Here's an example toot: " followed by a display of the Mastodon toot data including the avatar image, display name, and toot content. The component has been given some rudamentary layouting.](/images/tutorials/mastodon-toot-embed/fig4.png)
 
 In the next chapter, we will add styling to the component to make it look even better.
