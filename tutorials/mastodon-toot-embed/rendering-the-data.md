@@ -5,7 +5,9 @@ title: Rendering the data
 
 {% stub %}
 
-Now that we have successfully fetched the data from the Mastodon servers, it's time to render it in a more presentable format. Instead of simply outputting the raw JSON data as we did in the previous chapter, we can use the attachShadow() method to attach a shadow DOM to our element and insert the data into a template.
+Now that we have successfully fetched the data from the Mastodon servers, it's time to render it in a more presentable
+format. Instead of simply outputting the raw JSON data as we did in the previous chapter, we can use the attachShadow()
+method to attach a shadow DOM to our element and insert the data into a template.
 
 First, let's modify our TootEmbedElement class to use the attachShadow() method and insert the data into a template:
 
@@ -53,13 +55,15 @@ class TootEmbedElement extends HTMLElement {
 TootEmbedElement.define()
 ```
 
-Now, when the element is connected to the DOM and the load() method is called, the data is inserted into the template and displayed in the element.
+Now, when the element is connected to the DOM and the load() method is called, the data is inserted into the template
+and displayed in the element.
 
 You should now see the Mastodon toot data displayed in a more structured and presentable format:
 
 ![A browser screenshot showing the toot-embed component at it's current stage. The example page reads: "Here's an example toot: " followed by a display of the Mastodon toot data including the avatar image, display name, and toot content.](/images/tutorials/mastodon-toot-embed/fig3.png)
 
-It's still not very good to look at! The image is way to big and the whole layout is a bit off. Let's add some rudamentary styles to the component in a `<style>` tag to make it a bit better.
+It's still not very good to look at! The image is way to big and the whole layout is a bit off. Let's add some
+rudamentary styles to the component in a `<style>` tag to make it a bit better.
 
 ```js
 class TootEmbedElement extends HTMLElement {
