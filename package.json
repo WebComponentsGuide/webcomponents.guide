@@ -17,13 +17,24 @@
     "build": "eleventy",
     "start": "eleventy --serve",
     "test": "npm run check",
-    "check": "prettier --check . && npm run spell",
+    "remark": "remark . --quiet --frail",
+    "check": "prettier --check . && npm run spell && npm run remark",
     "spell": "mdspell --en-us --report --ignore-acronyms --ignore-numbers $(git ls-files '*.md')",
     "spellfix": "mdspell --en-us --ignore-acronyms --ignore-numbers $(git ls-files '*.md')",
     "format": "prettier --write ."
   },
   "stylelint": {
     "extends": "stylelint-config-standard"
+  },
+  "remarkConfig": {
+    "plugins": [
+      "remark-preset-lint-consistent",
+      "remark-preset-lint-recommended",
+      [
+        "remark-lint-heading-style",
+        false
+      ]
+    ]
   },
   "prettier": {
     "printWidth": 120,
@@ -61,6 +72,9 @@
     "postcss-jit-props": "1.0.9",
     "postcss-preset-env": "7.8.3",
     "prettier": "^2.8.1",
+    "remark-cli": "^11.0.0",
+    "remark-preset-lint-consistent": "^5.1.1",
+    "remark-preset-lint-recommended": "^6.1.2",
     "stylelint": "^14.16.0",
     "stylelint-config-standard": "^29.0.0"
   }
