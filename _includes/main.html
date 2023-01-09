@@ -17,8 +17,7 @@
     <meta property="og:image" content="/images/{{ imageslug }}.jpg" />
     {% else %}
     <meta property="og:image" content="/images/android-chrome-512x512.png" />
-    {% endif %}
-    {% if excerpt %}
+    {% endif %}{%- if excerpt %}
     <meta name="description" content="{{ excerpt }}" />
     <meta property="og:description" content="{{ excerpt }}" />
     {% else %}
