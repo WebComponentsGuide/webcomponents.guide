@@ -6,12 +6,22 @@ title: Rendering the data
 {% stub %}
 
 Now that we have successfully fetched the data from the Mastodon servers, it's time to render it in a more presentable
-format. Instead of simply outputting the raw JSON data as we did in the previous chapter, we can use the attachShadow()
-method to attach a shadow DOM to our element and insert the data into a template.
+format. Instead of outputting the raw JSON data as we did in the previous chapter, we can attach a _ShadowDOM_ to our
+element and insert the data into a template.
 
 First, let's modify our TootEmbedElement class to use the attachShadow() method and insert the data into a template:
 
 ```js
+const template = document.createElement("template")
+template.innerHTML = `
+  <div part="header">
+    <img part="avatar" src="">
+    <h3 part="handle"></h3>
+  </div>
+  <div part="content">
+  </div>
+`
+
 class TootEmbedElement extends HTMLElement {
   // ...
   static define(tagName = "toot-embed") {
@@ -19,7 +29,10 @@ class TootEmbedElement extends HTMLElement {
   }
   // ...
 
+  shadowRoot = this.attachShadow({ mode: "open" })
+
   connectedCallback() {
+    this.shadowRoot.replaceChildren(template.content.cloneNode(true))
     this.load()
   }
 
@@ -38,17 +51,11 @@ class TootEmbedElement extends HTMLElement {
 
   async load() {
     const response = await fetch(this.src)
-    const tootData = await response.json()
+    const { account, content } = await response.json()
 
-    this.attachShadow({ mode: "open" }).innerHTML = `
-      <div class="toot-header">
-        <img src="${tootData.account.avatar}">
-        <h3>${tootData.account.display_name}</h3>
-      </div>
-      <div class="toot-content">
-        ${tootData.content}
-      </div>
-    `
+    this.shadowRoot.querySelector("[part=avatar]").src = account.avatar
+    this.shadowRoot.querySelector("[part=handle]").textContent = account.display_name
+    this.shadowRoot.querySelector("[part=content]").innerHTML = content
   }
 }
 
@@ -66,6 +73,40 @@ It's still not very good to look at! The image is way to big and the whole layou
 rudimentary styles to the component in a `<style>` tag to make it a bit better.
 
 ```js
+const styles = new CSSStyleSheet()
+styles.replaceSync(`
+  [part="header"] {
+    display: flex;
+    align-items: center;
+    margin-block-end: 1rem;
+  }
+
+  [part="avatar"] {
+    inline-size: 2rem;
+    border-radius: 100%;
+    margin-inline-end: 0.5rem;
+  }
+
+  [part="handle"] {
+    margin: 0;
+    font-size: 1rem;
+  }
+  
+  [part="content"] {
+    max-inline-size: 70ch;
+  }
+`)
+
+const template = document.createElement("template")
+template.innerHTML = `
+  <div part="header">
+    <img part="avatar" src="">
+    <h3 part="handle"></h3>
+  </div>
+  <div part="content">
+  </div>
+`
+
 class TootEmbedElement extends HTMLElement {
   // ...
   static define(tagName = "toot-embed") {
@@ -73,11 +114,15 @@ class TootEmbedElement extends HTMLElement {
   }
   // ...
 
+  shadowRoot = this.attachShadow({ mode: "open" })
+
+  // ...
   connectedCallback() {
+    this.shadowRoot.adoptedStyleSheets = [styles]
+    this.shadowRoot.replaceChildren(template.content.cloneNode(true))
     this.load()
   }
 
-  // ...
   get src() {
     const src = this.getAttribute("src")
     if (!src) return ""
@@ -92,37 +137,11 @@ class TootEmbedElement extends HTMLElement {
 
   async load() {
     const response = await fetch(this.src)
-    const tootData = await response.json()
+    const { account, content } = await response.json()
 
-    this.attachShadow({ mode: "open" }).innerHTML = `
-      <style>
-        .toot-header {
-          display: flex;
-          align-items: center;
-          margin-bottom: 16px;
-        }
-
-        .toot-header img {
-          width: 32px;
-          height: 32px;
-          border-radius: 50%;
-          margin-right: 8px;
-        }
-
-        .toot-header h3 {
-          margin: 0;
-          font-size: 16px;
-          font-weight: 600;
-        }
-      </style>
-      <div class="toot-header">
-        <img src="${tootData.account.avatar}">
-        <h3>${tootData.account.display_name}</h3>
-      </div>
-      <div class="toot-content">
-        ${tootData.content}
-      </div>
-    `
+    this.shadowRoot.querySelector("[part=avatar]").src = account.avatar
+    this.shadowRoot.querySelector("[part=handle]").textContent = account.display_name
+    this.shadowRoot.querySelector("[part=content]").innerHTML = content
   }
 }
 
