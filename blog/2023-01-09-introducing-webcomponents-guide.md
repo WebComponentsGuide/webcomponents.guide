@@ -2,6 +2,7 @@
 title: Introducing Web Components Guide
 authors: [Keith Cirkel]
 draft: false
+imageslug: blog-introducing-web-components-guide
 excerpt: >
   Hello, world! Announcing the launch of a new way to learn how to create Web Components.
 ---

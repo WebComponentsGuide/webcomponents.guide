@@ -9,7 +9,7 @@ script: [relative-time.js]
 {%- else %}
 <header>
   <h1>{{ title }}</h1>
-  {{ title | prepend: "blog " | slugify | picture }}
+  {{ imageslug | picture }}
   <aside class="excerpt">{{ excerpt }}</aside>
   <div class="author-block">
     {%- for author in authors %}
