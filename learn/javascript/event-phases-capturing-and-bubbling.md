@@ -14,4 +14,3 @@ tracks events through the entire DOM tree.
 {% stub %}
 
 [events-basics]: /learn/javascript/events
-[events-detail]: /learn/javascript/events-in-more-detail
