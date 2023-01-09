@@ -36,17 +36,17 @@ class TootEmbedElement extends HTMLElement {
 
   async load() {
     const response = await fetch(this.src)
-      const tootData = await response.json()
+    const tootData = await response.json()
 
-      this.attachShadow({ mode: "open" }).innerHTML = `
+    this.attachShadow({ mode: "open" }).innerHTML = `
       <div class="toot-header">
-      <img src="${tootData.account.avatar}">
-      <h3>${tootData.account.display_name}</h3>
+        <img src="${tootData.account.avatar}">
+        <h3>${tootData.account.display_name}</h3>
       </div>
       <div class="toot-content">
-      ${tootData.content}
-    </div>
-      `
+        ${tootData.content}
+      </div>
+    `
   }
 }
 
