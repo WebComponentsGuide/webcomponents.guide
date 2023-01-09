@@ -30,10 +30,8 @@
     "plugins": [
       "remark-preset-lint-consistent",
       "remark-preset-lint-recommended",
-      [
-        "remark-lint-heading-style",
-        false
-      ]
+      ["remark-lint-heading-style", false],
+      ["remark-lint-list-item-indent", false]
     ]
   },
   "prettier": {
