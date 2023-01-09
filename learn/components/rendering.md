@@ -52,8 +52,8 @@ template from your logic, which will keep code cleaner as your component grows i
 
 ```js
 // The template can be defined up front
-const stopWatchTemplate = document.createElement("template")
-stopWatchTemplate.innerHTML = `<p>Hello World!</p>`
+const template = document.createElement("template")
+template.innerHTML = `<p>Hello World!</p>`
 
 class StopWatchElement extends HTMLElement {
   static define(tag = "stop-watch") {
@@ -64,7 +64,7 @@ class StopWatchElement extends HTMLElement {
 
   connectedCallback() {
     // The template can be cloned and then added to the ShadowDOM
-    this.shadowRoot.replaceChildren(stopWatchTemplate.cloneNode(true))
+    this.shadowRoot.replaceChildren(template.content.cloneNode(true))
   }
 }
 ```
@@ -114,8 +114,8 @@ JavaScript instead. You can do this by checking if `.shadowRoot` is not null bef
 `attachShadow({ mode: 'open' })`.
 
 ```js
-const stopWatchTemplate = document.createElement("template")
-stopWatchTemplate.innerHTML = `<p>Hello World!</p>`
+const template = document.createElement("template")
+template.innerHTML = `<p>Hello World!</p>`
 
 class StopWatchElement extends HTMLElement {
   static define(tag = "stop-watch") {
@@ -126,7 +126,7 @@ class StopWatchElement extends HTMLElement {
     super()
     if (!this.shadowRoot) {
       this.attachShadow({ mode: "open" })
-      this.shadowRoot.replaceChildren(stopWatchTemplate.cloneNode(true))
+      this.shadowRoot.replaceChildren(template.content.cloneNode(true))
     }
   }
 }
