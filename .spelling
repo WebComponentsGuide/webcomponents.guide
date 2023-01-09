@@ -12,6 +12,7 @@ SeaMonkey
 polyfills
 CSS
 APIs
+attachShadow
 ShadowDOM
 ShadowRoots
 socio-economic
@@ -122,3 +123,4 @@ npm
 package.json
 Matsuuu
 templating
+TootEmbedElement
