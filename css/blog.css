@@ -11,8 +11,16 @@ main > h1 {
   max-inline-size: 100%;
 }
 
-hr {
-  margin-block: var(--size-2);
+main > header {
+  border-bottom: var(--border-size-2) solid var(--brand-color-dark);
+  margin-block-end: var(--size-4);
+  max-inline-size: 100%;
+}
+
+main > header > h1 {
+  font-weight: normal;
+  display: block;
+  margin-block-end: var(--size-4);
 }
 
 .excerpt {
@@ -20,23 +28,27 @@ hr {
   color: var(--text-4);
 }
 
-.blog-roll {
+.blog-listing {
   list-style: none;
   padding: 0;
 }
 
-.blog-roll li {
+.blog-listing li {
   display: block;
-  margin-block-end: var(--size-8);
+  margin-block: var(--size-8);
 }
 
-.blog-roll .excerpt {
+.blog-listing .excerpt {
   margin-block: var(--size-2) var(--size-4);
+}
+
+.blog-listing picture {
+  margin-block-end: var(--size-4);
 }
 
 .author-block {
   clear: both;
-  margin-block-end: var(--size-8);
+  margin-block-end: var(--size-4);
 }
 
 .author-block .avatar {

@@ -4,29 +4,31 @@ css: [content.css, blog.css]
 script: [relative-time.js]
 ---
 
+{% if title == "Blog" %}
 <h1>{{ title }}</h1>
-
-<aside class="excerpt">{{ excerpt }}</aside>
-
-{% unless title == "Blog" %}
-<div class="author-block">
-  {%- for author in authors %}
-  <a href="/blog/by-author/{{ author | slugify }}" class="avatar">
-    <img
-      src="/images/{{ author | slugify }}-avatar.jpg"
-      alt="{{ author }} Avatar"
-      loading="lazy"
-      decoding="async"
-      width="50"
-      height="50"
-    />
-  </a>
-  {%- endfor %} {%- for author in authors %}
-  <a href="/blog/by-author/{{ author | slugify }}"> {{ author }}{% unless forloop.last %}, {% endunless %} </a>
-  {%- endfor %}<br />
-  <relative-time format="datetime" datetime="{{ page.date | iso8601 }}"> {{ page.date | iso8601 }} </relative-time>
-</div>
-<hr />
-{% endunless %}
+{%- else %}
+<header>
+  <h1>{{ title }}</h1>
+  {{ title | prepend: "blog " | slugify | picture }}
+  <aside class="excerpt">{{ excerpt }}</aside>
+  <div class="author-block">
+    {%- for author in authors %}
+    <a href="/blog/by-author/{{ author | slugify }}" class="avatar">
+      <img
+        src="/images/{{ author | slugify }}-avatar.jpg"
+        alt="{{ author }} Avatar"
+        loading="lazy"
+        decoding="async"
+        width="50"
+        height="50"
+      />
+    </a>
+    {%- endfor %} {%- for author in authors %}
+    <a href="/blog/by-author/{{ author | slugify }}"> {{ author }}{% unless forloop.last %}, {% endunless %} </a>
+    {%- endfor %}<br />
+    <relative-time format="datetime" datetime="{{ page.date | iso8601 }}"> {{ page.date | iso8601 }} </relative-time>
+  </div>
+</header>
+{%- endif %}
 
 <section class="content">{{ content }}</section>
