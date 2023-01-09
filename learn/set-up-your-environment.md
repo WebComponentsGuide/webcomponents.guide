@@ -24,8 +24,6 @@ good idea.
 [edge]: https://www.microsoft.com/en-us/edge?form=MA13FJ
 [macos]: https://support.apple.com/en-gb/macos
 [safari]: https://www.apple.com/uk/safari/
-[firefox-esr]: https://www.mozilla.org/en-GB/firefox/enterprise/
-[chrome-esr]: https://support.google.com/chrome/a/answer/9027636?hl=en
 
 ### Web Browser Devtools
 
