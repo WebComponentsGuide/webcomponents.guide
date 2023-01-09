@@ -14,9 +14,9 @@
     <meta name="theme-color" content="#ffffff" />
     <meta property="og:title" content="{{ pagetitle }}" />
     {% if imageslug %}
-    <meta property="og:image" content="/images/{{ imageslug }}.jpg" />
+    <meta property="og:image" content="{{ baseurl }}/images/{{ imageslug }}.jpg" />
     {% else %}
-    <meta property="og:image" content="/images/android-chrome-512x512.png" />
+    <meta property="og:image" content="{{ baseurl }}/images/android-chrome-512x512.png" />
     {% endif %}{%- if excerpt %}
     <meta name="description" content="{{ excerpt }}" />
     <meta property="og:description" content="{{ excerpt }}" />
@@ -24,10 +24,9 @@
     <meta name="description" content="The Guide to Web Components" />
     <meta property="og:description" content="{{ excerpt }}" />
     {% endif %}
-    <meta property="og:url" content="{{ page.url }}" />
+    <meta property="og:url" content="{{ baseurl }}{{ page.url }}" />
     <meta property="og:type" content="article" />
 
-    <meta property="og:url" content="/images/{{ imageslug }}.jpg" />
     <link rel="stylesheet" href="/css/global.css" />
     {% for file in css %}
     <link rel="stylesheet" href="/css/{{file}}" />
