@@ -13,7 +13,7 @@ Our aim will be to create a `<toot-embed>` element will allow users to share and
 "toots") from the Mastodon social network, and will include features such as the ability to show or hide the user handle
 and avatar image, as well as the option to customize the appearance of the toot.
 
-Here's a example of a Mastodon toot embed. We'll be making something similar.
+Here's an example of a Mastodon toot embed. We'll be making something similar.
 
 <iframe src="https://fosstodon.org/@webcomponentsguide/109660552894549193/embed" class="mastodon-embed" style="max-width: 100%; border: 0" width="400" allowfullscreen="allowfullscreen"></iframe><script src="https://fosstodon.org/embed.js" async="async"></script>
 

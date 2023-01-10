@@ -57,7 +57,7 @@ class TootEmbedElement extends HTMLElement {
 TootEmbedElement.define()
 ```
 
-And we can persist the value to a attribute using `setAttribute`:
+And we can persist the value to an attribute using `setAttribute`:
 
 ```js
 class TootEmbedElement extends HTMLElement {
