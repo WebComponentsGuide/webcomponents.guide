@@ -12,7 +12,9 @@ maintainable components, and best practices for working with Web Components.
   {%- assign page = collections[g].first %}
   <li>
     <a href="{{ page.url }}">
-      {{ g | prepend: "tutorials " | slugify | picture }}
+      {%- if page.data.imageslug %}
+      {{ page.data.imageslug | picture }}
+      {%- endif %}
     </a>
     <h3><a href="{{ page.url }}">{{ g }}</a></h3>
     <p>{{ page.data.excerpt }}</p>
