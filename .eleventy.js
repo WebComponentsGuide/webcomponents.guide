@@ -20,6 +20,7 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addFilter("iso8601", rss.dateToRfc3339)
   eleventyConfig.addFilter("date_to_rfc3339", rss.dateToRfc3339)
   eleventyConfig.addFilter("date_to_rfc822", rss.dateToRfc822)
+  eleventyConfig.addFilter("html_to_absolute_urls", rss.convertHtmlToAbsoluteUrls)
 
   eleventyConfig.setLibrary(
     "md",
