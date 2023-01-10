@@ -107,7 +107,7 @@ supports _partials_ or some other system to avoid manually repeating this each t
 
 {% endtip %}
 
-### Advanced: Adding _declarative ShadowDOM_ fallbacks
+### Advanced: Adding _declarative ShadowDOM_ fallback
 
 Given that a _declarative ShadowDOM_ might not always be available, it can be a good idea to fall back to defining it in
 JavaScript instead. You can do this by checking if `.shadowRoot` is not null before calling

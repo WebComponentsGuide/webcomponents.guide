@@ -18,13 +18,13 @@ To test your applications, it can be useful to install all four browsers. Runnin
 browsers can uncover cross browser bugs, or missing features. Getting comfortable with using the devtools in each is a
 good idea.
 
-### Web Browser Devtools
+### Web Browser devtools
 
 A good set of browser developer tools which will enable you to inspect your web applications under the hood and see how
 it all operates. They can be quite intimidating at first, but there are some great resources out there to learn how to
 make the most of them.
 
-If you're using Google Chrome, check out the [Chrome Developers documentation on the Chrome Devtools][chrome-devtools].
+If you're using Google Chrome, check out the [Chrome Developers documentation on the Chrome devtools][chrome-devtools].
 It's a great resource for learning exactly how the developer tools inside Google Chrome work. Mozilla has a similar
 [guide on Firefox Developer Tools][firefox-devtools]. Microsoft have a smaller but still useful [guide on the Edge
 developer tools][edge-devtools]. Apple's Safari has a useful [five minute walk through of their Web
@@ -46,7 +46,7 @@ While the built-in web developer tools offer excellent features that make it eas
 some extra functionality you can make use of some excellent browser extensions which add even more tools to help develop
 Web Components:
 
-- [Web Component DevTools by Matsuuu][matsuu]
+- [Web Component devtools by Matsuuu][matsuu]
 
 ## Development Environment
 

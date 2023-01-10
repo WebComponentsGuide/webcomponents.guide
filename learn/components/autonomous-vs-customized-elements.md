@@ -115,7 +115,7 @@ into issues with code that isn't expecting to see the newly added logic.
 
 _Customized Built-ins_ have very good accessibility information built right into them. Most have an _implicit role_
 which means that assistive technologies know how to interpret them. For example using a _screen reader_, it is possible
-to navigate through all of the headings in a webpage, and the purpose of form controls is explained as each one is
+to navigate through all of the headings in a web page, and the purpose of form controls is explained as each one is
 focused (e.g. buttons are read out not only by their label but also referred to as "buttons").
 
 _Autonomous Custom Elements_, on the other hand, do not have any accessibility information built into them. Assistive

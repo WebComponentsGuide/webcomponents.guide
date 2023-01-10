@@ -48,6 +48,7 @@
     "construct-style-sheets-polyfill": "^3.1.0",
     "cssnano": "5.1.14",
     "dedent": "^0.7.0",
+    "dictionary-en": "^3.2.0",
     "eleventy-postcss-extension": "1.0.0",
     "eslint-plugin-custom-elements": "^0.0.7",
     "glob": "^8.0.3",
@@ -76,6 +77,7 @@
     "retext-english": "^4.1.0",
     "retext-indefinite-article": "^4.2.0",
     "retext-readability": "^7.2.0",
+    "retext-spell": "^5.3.0",
     "stylelint": "^14.16.0",
     "stylelint-config-standard": "^29.0.0"
   }

@@ -148,6 +148,6 @@ class TootEmbedElement extends HTMLElement {
 TootEmbedElement.define()
 ```
 
-![A browser screenshot showing the toot-embed component at it's current stage. The example page reads: "Here's an example toot: " followed by a display of the Mastodon toot data including the avatar image, display name, and toot content. The component has been given some rudamentary layouting.](/images/tutorials/mastodon-toot-embed/fig4.png)
+![A browser screenshot showing the toot-embed component at it's current stage. The example page reads: "Here's an example toot: " followed by a display of the Mastodon toot data including the avatar image, display name, and toot content. The component has been given a rudimentary layout.](/images/tutorials/mastodon-toot-embed/fig4.png)
 
 In the next chapter, we will add styling to the component to make it look even better.
