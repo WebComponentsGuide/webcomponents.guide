@@ -73,11 +73,12 @@ any CSS styles that you want to apply to your element. For example:
   <body>
     <p>Here's a example toot:</p>
     <p>
-      <toot-embed></toot-embed>
+      <toot-embed src="https://fosstodon.org/api/v1/statuses/109660552894549193"></toot-embed>
     </p>
   </body>
 </html>
 ```
+The `src` attribute of our element has a API link to a mastodon instance referencing a toot by the `WebComponentsGuide` account. You can change this to some other mastodon API link but it might be best to leave it as-is so that the data returned matches what we'll do in this tutorial.
 
 With these steps, we now have the basics of our element. Test everything works by running the following command:
 
