@@ -36,7 +36,7 @@ console.assert(mypoint instanceof Point)
 
 ### Defining a public API
 
-Classes can be given public properties, and methods to give them features which other code can use. They can also have
+Classes can have public properties, and methods to give them features which other code can use. They can also have
 special well known methods that get automatically called during certain events:
 
 ```js

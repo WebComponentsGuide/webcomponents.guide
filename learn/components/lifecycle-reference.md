@@ -70,7 +70,7 @@ that means:
 ### What is `connectedCallback` good for?
 
 The `connectedCallback` is called _as soon as_ the element is attached to a `document`, and so the elements
-`.ownerDocument` property will be set (usually that will point to the global `document` object).
+`.ownerDocument` property will be available (usually that will point to the global `document` object).
 
 This _may_ occur _before_ an element has any children appended to it, so you should be careful not expect an element to
 have children during a `connectedCallback` call. This means you might want to avoid using APIs like `querySelector`.

@@ -8,8 +8,8 @@ components might keep a memory of things - often called _state_. All of these th
 different techniques. You will likely use a combination of these techniques when building a component.
 
 It can be very useful to create things during _instantiation_, that is when the component is first created. Most likely
-any _state_ will want to be instantiated with each new component instance created. This can be done with _class fields_
-or as logic during the _constructor_.
+any _state_ will want to be instantiated with each new component instance created. This can be accomplished with _class
+fields_ or as logic during the _constructor_.
 
 ### Class Fields
 

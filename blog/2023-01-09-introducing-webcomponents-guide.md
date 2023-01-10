@@ -44,7 +44,7 @@ _The journey_ is a hallmark of every great framework. The plethora of front-end 
 From [Lit][lit] to [Vue][vue] to [Svelte][svelte] to [React][react] to [Remix][remix], every one starts out with the
 basics, and eventually leads you to [drawing the rest of the owl][owl]. The story of Web Components lacks this. MDN
 provides you with all the resources to know about the building blocks, but doesn't tell you how to put them together. On
-how to draw the rest of the owl is left to you.
+how to draw the rest of the owl is down to you.
 
 And building good owls - I mean UI - is _hard_. Building a component that's durable to the variety of situations it gets
 placed in. Capable of accepting the wide inputs it needs, accessible for sighted users, users of screen readers,
@@ -61,7 +61,7 @@ rooms. Not all the furnishings are here yet. We're working on it. But we wanted 
 feedback and improve. We've shared early versions of the content we have so far with newcomers and seasoned experts
 alike. Everyone has said they've learned something new. We couldn't wait any longer.
 
-The content we have is split into three sections for now:
+The content we have is divided into three sections for now:
 
 - **[Learn][learn]**: This will take you through _the journey_. Learn the basic building blocks and learn how to connect
   them to make useful user experiences.

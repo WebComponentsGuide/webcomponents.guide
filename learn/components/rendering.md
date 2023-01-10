@@ -176,9 +176,9 @@ class StopWatchElement extends HTMLElement {
 
 If you're using a _declarative ShadowDOM_ then you'll need to use a special API called _Element Internals_. To get to a
 Web Components _Element Internals_, `.attachInternals()` can be called. It can only be called once though - subsequent
-calls will throw an error. Internals should be kept private to a Web Component class as it contains a variety of
-internal APIs for a Web Component. The Element Internals API **also** has a `.shadowRoot` property, but this one can
-also get the _closed ShadowRoot_:
+calls will throw an error. Internals should remain private to a Web Component class as it contains a variety of internal
+APIs for a Web Component. The Element Internals API **also** has a `.shadowRoot` property, but this one can also get the
+_closed ShadowRoot_:
 
 ```html
 <stop-watch>

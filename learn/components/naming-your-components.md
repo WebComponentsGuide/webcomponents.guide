@@ -89,7 +89,7 @@ element names like `<abbreviated-text>` or `<widget-accessory>`. Words longer th
 spell, so try to avoid those. Words with double letters (abbreviated, occasion, accommodate) can be tricky too. Words
 using different letters with the same sound (necessary, accessory) often get misspelled. Words with "silent" consonants
 (knack, assign, doubt) are difficult, especially people for whom English is not their first language. In these cases it
-might be better to replace a hard to spell word with a simpler word, e.g. `<abbreviated-text>` could be come
+might be better to replace a hard to spell word with a simpler word, e.g. `<abbreviated-text>` could become
 `<short-text>`, `<approximate-date>` could be `<rounded-date>`. Alternatively you could replace one hard to spell word
 with two easier to spell words that mean the same thing, for example `<establish-account>` could be `<set-up-account>`.
 

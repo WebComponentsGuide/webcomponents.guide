@@ -17,7 +17,7 @@ The [previous section][events] showed how you can add an _Event listener_ with `
 more than one. In fact, you can use a single function to listen to multiple different event types, if they each have
 different names.
 
-Listeners are given the `Event` object, so the listener function can use that to determine which event type the listener
+Listeners are passed the `Event` object, so the listener function can use that to determine which event type the listener
 was called on, using `.type`:
 
 ```js

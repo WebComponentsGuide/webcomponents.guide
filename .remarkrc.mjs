@@ -22,6 +22,7 @@ export default {
     [retext, Parser],
     "retext-indefinite-article",
     "retext-diacritics",
+    ["retext-passive", { ignore: ["read", "set"] }],
     ["retext-readability", { threshold: 6 / 7 }],
     [
       "retext-spell",

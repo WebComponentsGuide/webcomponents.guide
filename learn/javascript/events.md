@@ -141,7 +141,7 @@ mytimer.stop()
 
 ### What does the `Event` class do?
 
-The `Event` class represents an Event that all listeners will be given as the Event propagates through the system. The
+The `Event` class represents an Event that all listeners will be passed as the Event propagates through the system. The
 reason it's an object, rather than a `string` is that it contains lots of information about the event, and it can be
 extended to add more info. The `Event` class requires a `type` argument that will set the `.type` of the event object.
 This is the most important piece of information as it determines which listeners get called. The `Event` class also
