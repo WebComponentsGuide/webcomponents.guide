@@ -18,13 +18,6 @@ To test your applications, it can be useful to install all four browsers. Runnin
 browsers can uncover cross browser bugs, or missing features. Getting comfortable with using the devtools in each is a
 good idea.
 
-[chrome]: https://www.google.com/chrome/
-[firefox]: https://www.mozilla.org/en-GB/firefox/new/
-[firefox-dev]: https://www.mozilla.org/en-GB/firefox/developer/
-[edge]: https://www.microsoft.com/en-us/edge?form=MA13FJ
-[macos]: https://support.apple.com/en-gb/macos
-[safari]: https://www.apple.com/uk/safari/
-
 ### Web Browser Devtools
 
 A good set of browser developer tools which will enable you to inspect your web applications under the hood and see how
@@ -38,11 +31,6 @@ developer tools][edge-devtools]. Apple's Safari has a useful [five minute walk t
 Inspector][safari-devtools].
 
 Here's a handy guide on how to quickly access the developer tools, depending on your browser and OS:
-
-[chrome-devtools]: https://developer.chrome.com/docs/devtools/
-[firefox-devtools]: https://firefox-dev.tools/
-[edge-devtools]: https://learn.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/overview
-[safari-devtools]: https://developer.apple.com/videos/play/tech-talks/401/
 
 | OS            | Browser                      | Keyboard shortcut             | Menu                                                 |
 | :------------ | :--------------------------- | :---------------------------- | :--------------------------------------------------- |
@@ -60,8 +48,6 @@ Web Components:
 
 - [Web Component DevTools by Matsuuu][matsuu]
 
-[matsuu]: https://matsuuu.github.io/web-component-devtools/
-
 ## Development Environment
 
 To get started writing web components you'll need a development environment. While you can use any text editor to
@@ -71,10 +57,17 @@ with excellent support for writing HTML, JavaScript and CSS out of the box as we
 install. It can hook directly into web browsers like Chrome or Firefox using the allowing you to debug your applications
 without leaving your editor. All of these features make it ideal for writing Web Components and websites that use them.
 
-Some recommended extensions for developing components within VS Code are:
-
--
-
-[vscode]: https://code.visualstudio.com/.
-
 {% stub %}
+
+[chrome]: https://www.google.com/chrome/
+[firefox]: https://www.mozilla.org/en-GB/firefox/new/
+[firefox-dev]: https://www.mozilla.org/en-GB/firefox/developer/
+[edge]: https://www.microsoft.com/en-us/edge?form=MA13FJ
+[macos]: https://support.apple.com/en-gb/macos
+[safari]: https://www.apple.com/uk/safari/
+[chrome-devtools]: https://developer.chrome.com/docs/devtools/
+[firefox-devtools]: https://firefox-dev.tools/
+[edge-devtools]: https://learn.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/overview
+[safari-devtools]: https://developer.apple.com/videos/play/tech-talks/401/
+[matsuu]: https://matsuuu.github.io/web-component-devtools/
+[vscode]: https://code.visualstudio.com/.

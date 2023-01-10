@@ -23,7 +23,7 @@ $ npm install
 $ npm start
 ```
 
-Once this is done you can visit http://localhost:8080/ to see the local copy of the website. As you edit files the
+Once this is done you can visit <http://localhost:8080/> to see the local copy of the website. As you edit files the
 website will automatically rebuild, and you can see the changes reflected in your browser.
 
 ### Running checks/tests

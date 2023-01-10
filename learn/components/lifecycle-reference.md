@@ -53,8 +53,6 @@ so instead of inheriting from your class, the element will fall back to being an
 
 {% endtip %}
 
-[constructor]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/constructor
-
 ## `connectedCallback()`
 
 The `connectedCallback()` is a "well known" method. It doesn't exist as part of native JavaScript classes, instead it's
@@ -79,9 +77,6 @@ have children during a `connectedCallback` call. This means you might want to av
 
 Instead use this function to initialize itself, render any [ShadowDOM][shadowdom] and add [global event
 listeners][events].
-
-[shadowdom]: /learn/components/shadowdom
-[events]: /learn/components/events
 
 If your element depends heavily on its children existing, consider adding a
 [`MutationObserver`](https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver) in the `connectedCallback` to
@@ -144,8 +139,6 @@ in some cases this is very helpful; but sometimes this can bite, especially if y
 `attributeChangedCallback`. Try to make sure operations inside `attributeChangedCallback` are idempotent, or perhaps
 consider adding a check to ensure `oldValue !== newValue` before performing operations which may be sensitive to this.
 
-[createattribute]: https://developer.mozilla.org/en-US/docs/Web/API/Document/createAttribute
-
 ## `adoptedCallback()`
 
 The `adoptedCallback()` is another well known method gets called when your element moves from one `document` to another
@@ -192,3 +185,8 @@ document.body.querySelector("iframe").contentWindow.document.body.append(el)
 // browser calls `adoptedCallback()`
 // browser calls `connectedCallback()`
 ```
+
+[constructor]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/constructor
+[shadowdom]: /learn/components/shadowdom
+[events]: /learn/components/events
+[createattribute]: https://developer.mozilla.org/en-US/docs/Web/API/Document/createAttribute

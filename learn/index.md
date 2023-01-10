@@ -25,11 +25,6 @@ Here's an example of a web component that renders a timer. It defines its own [s
 [_ShadowDOM_][shadowdom], and has its own [_private state_][private-state]. It makes use of the [_lifecycle
 callbacks_][lifecycle] to know when to start counting. These are all built in web platform features.
 
-[styles]: /learn/components/styling
-[shadowdom]: /learn/components/shadowdom
-[private-state]: /learn/components/private-state
-[lifecycle]: /learn/components/lifecycle-reference
-
 {% demo %}
 
 ```js
@@ -82,3 +77,8 @@ StopWatchElement.define()
 {% enddemo %}
 
 Let's find out more about how to build this component...
+
+[styles]: /learn/components/styling
+[shadowdom]: /learn/components/shadowdom
+[private-state]: /learn/components/private-state
+[lifecycle]: /learn/components/lifecycle-reference

@@ -11,8 +11,6 @@ In this section we'll learn about these features in more detail, covering some m
 potential pitfalls you'll need to watch out for. It's a good idea to make sure you've got a good understanding of
 everything covered in the [previous section][events] before reading on.
 
-[events]: /learn/javascript/events
-
 #### Adding multiple listeners
 
 The [previous section][events] showed how you can add an _Event listener_ with `.addEventListener()`, but you can add
@@ -324,3 +322,5 @@ mytimer.addEventListener("start", (event) => {
   console.log("never called, as propagation was stopped")
 })
 ```
+
+[events]: /learn/javascript/events

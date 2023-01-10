@@ -11,7 +11,7 @@ If you're new to JavaScript or haven't used JavaScript for a long time, it's wor
 to JavaScript][mdn-intro] and [MDN's JavaScript Language Overview][mdn-overview]. It'll cover concepts that this guide
 won't go into.
 
+{% stub %}
+
 [mdn-overview]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Language_Overview
 [mdn-intro]: https://developer.mozilla.org/en-US/docs/Web/javascript
-
-{% stub %}

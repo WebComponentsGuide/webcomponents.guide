@@ -103,9 +103,6 @@ _Web Components_ are prefixed `<sp-`, [Shoelace Components][shoelace] are prefix
 can easily tell apart a component from a design system to a generic off-the-shelf component. On the other hand, this
 makes every component name longer.
 
-[spectrum]: https://opensource.adobe.com/spectrum-web-components/
-[shoelace]: https://shoelace.style/
-
 ### If in doubt, use the `noun-noun` pattern
 
 As a general rule you can think about answering to the following question: What **action** does your element to do the
@@ -138,4 +135,6 @@ prefixing your element tag names, using the prefix in the class name is a good i
 system with `<fcy-button>` and `<fcy-accordion>` then naming classes like `FancyButtonElement` and
 `FancyAccordionElement` is a good pattern.
 
+[spectrum]: https://opensource.adobe.com/spectrum-web-components/
+[shoelace]: https://shoelace.style/
 [camelcase]: https://en.wikipedia.org/wiki/Camel_case

@@ -57,8 +57,6 @@ This boilerplate code defines a basic custom element class that extends the HTML
 static method which will add the element to the Custom Elements Registry. Take a look at the [Defining a
 Component][defining] guide for more on this.
 
-[defining]: /learn/components/
-
 In your `index.html` file, include a script tag to import your `toot-embed-element.js` file, and a link tag to import
 any CSS styles that you want to apply to your element. For example:
 
@@ -93,3 +91,5 @@ $ npx @web/dev-server --open
 
 The Web Component doesn't do anything yet. We need to implement the actual functionality and render the contents on the
 page.
+
+[defining]: /learn/components/

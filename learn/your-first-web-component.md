@@ -14,10 +14,10 @@ _Web Components_ go further to add a powerful set of additional APIs. One of tho
 Elements_][defining-a-component] which allows you to define your own HTML Elements. _Web Components_ can also make use
 of [_ShadowDOM_][shadowdom] which is a powerful API that allows you to manage how an element is rendered.
 
+{% stub %}
+
 [classes]: /learn/javascript/classes
 [events]: /learn/javascript/events
 [dom-apis]: /learn/javascript/dom-apis
 [defining-a-component]: /learn/components/
 [shadowdom]: /learn/components/shadowdom
-
-{% stub %}

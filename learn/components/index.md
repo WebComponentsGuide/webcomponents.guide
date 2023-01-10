@@ -44,8 +44,6 @@ message like `autonomous custom elements must extend HTMLElement`.
 
 {% endtip %}
 
-[lifecycle]: /learn/components/lifecycle-reference
-
 ## Customized Built-in Elements
 
 _Customized Built-in_ elements are extensions to the browsers existing _built-in_ elements. For example if you wanted to
@@ -201,3 +199,4 @@ class MyElement extends HTMLElement {
   }
 }
 ```
+[lifecycle]: /learn/components/lifecycle-reference

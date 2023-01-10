@@ -102,5 +102,4 @@ the [Learn][learn] section then your input would be invaluable to countless deve
 [learn]: /learn/
 [tutorials]: /tutorials/
 [blog]: /blog/
-
-[issue]: {{ repository }}/issues/new
+[issue]: https://github.com/WebComponentsGuide/webcomponents.guide/issues/new

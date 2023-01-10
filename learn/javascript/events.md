@@ -16,9 +16,6 @@ great pages on MDN that cover Events:
 - [The Event API](https://developer.mozilla.org/en-US/docs/Web/API/Event)
 - [Web Browser Event Reference](https://developer.mozilla.org/en-US/docs/Web/Events)
 
-[node]: https://nodejs.org/en/
-[deno]: https://deno.land/
-
 ### What are events?
 
 Events are a way to allow two different pieces of code to communicate with each other, without having to import or
@@ -151,8 +148,6 @@ This is the most important piece of information as it determines which listeners
 takes an optional second argument which is the _event options_. Let's just focus on the `.type` for now. You can read
 more about the second options argument in the next section [Events in detail][events-in-detail].
 
-[events-in-detail]: /learn/javascript/events-in-detail
-
 It's common to subclass `Event` for different types that have more specific properties. For example the built-in
 `KeyboardEvent` is used for events like `'keypress'`, `'keydown'`, and `'keyup'` and has additional properties such as
 `.key` which describes the keyboard key related to the event. Another example, the built-in `MouseEvent`, has a
@@ -199,3 +194,7 @@ mytimer.addEventListener("tick", (event) => {
 
 mytimer.start()
 ```
+
+[node]: https://nodejs.org/en/
+[deno]: https://deno.land/
+[events-in-detail]: /learn/javascript/events-in-detail

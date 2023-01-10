@@ -7,8 +7,6 @@ In the [previous section][defining-a-component] we learned about _Autonomous Cus
 Elements_. The most popular way to make elements is to use the _Autonomous Custom Element_ style, by making up your own
 tag and extending `HTMLElement`. However, each style comes with different trade-offs.
 
-[defining-a-component]: /learn/components/
-
 Choosing a type of component to build will depend on a lot of factors. _Autonomous Custom Elements_ give you a blank
 canvas to work with. _Customized Built-ins_ **extend** the element you're customizing. Here are some considerations to
 think about:
@@ -78,8 +76,6 @@ use _ShadowDOM_.
 _ShadowDOM_ also provides elements with the ability to choose how nested elements render. An ability that many
 _built-ins_ already have...
 
-[shadowdom]: /learn/components/shadowdom
-
 ### Nesting & Semantics
 
 Many _built-in_ elements will only allow certain tags to nest inside ([you can read more about _Content Categories_ on
@@ -95,10 +91,6 @@ example a `<button is="fancy-button">` will only allow nested _[phrasing content
 _Autonomous Custom Elements_ allow any nested tag by default. This can be customized with _ShadowDOM_, but the default
 behavior is to allow any nested element. An element like `<fancy-button>` could include any _[flow
 content][flow-content]_ tags. It might be weird to see a `<fancy-button>` with an `<iframe>` nested inside.
-
-[content-categories]: https://developer.mozilla.org/en-US/docs/Web/HTML/Content_categories
-[phrasing-content]: https://developer.mozilla.org/en-US/docs/Web/HTML/Content_categories#phrasing_content
-[flow-content]: https://developer.mozilla.org/en-US/docs/Web/HTML/Content_categories#flow_content
 
 ### Behavior & API
 
@@ -136,8 +128,6 @@ universal and consistent. It's always worth getting comfortable with these tools
 using a variety of them. A lot of work has gone into making the _built-ins_ as accessible as possible by default, and so
 it can be a good idea to rely on those defaults.
 
-[aria]: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA
-
 ### Summary
 
 This has all been a lot to go over. The truth is there's good reasons to pick customizing a _built-in_, but it should be
@@ -145,3 +135,10 @@ carefully considered. If your element is substantially different from any existi
 Custom Element_ is a good choice. To help drive your decision, here's a table summarizing the above information:
 
 {% stub %}
+
+[defining-a-component]: /learn/components/
+[shadowdom]: /learn/components/shadowdom
+[content-categories]: https://developer.mozilla.org/en-US/docs/Web/HTML/Content_categories
+[phrasing-content]: https://developer.mozilla.org/en-US/docs/Web/HTML/Content_categories#phrasing_content
+[flow-content]: https://developer.mozilla.org/en-US/docs/Web/HTML/Content_categories#flow_content
+[aria]: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA

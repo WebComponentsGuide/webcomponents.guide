@@ -16,8 +16,6 @@ or as logic during the _constructor_.
 Components might have some _state_, much of which can be assigned using [class fields][class-fields]. These could be
 public, private, or a combination of the two:
 
-[class-fields]: /learn/javascript/classes
-
 ```js
 class StopWatchElement extends HTMLElement {
   static define(tag = "stop-watch") {
@@ -161,4 +159,5 @@ class StopWatchElement extends HTMLElement {
 }
 ```
 
+[class-fields]: /learn/javascript/classes
 [lifecycle]: /learn/components/lifecycle-reference/
