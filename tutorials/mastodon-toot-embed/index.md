@@ -15,7 +15,7 @@ and avatar image, as well as the option to customize the appearance of the toot.
 
 Here's a example of a Mastodon toot embed. We'll be making something similar.
 
-<iframe src="https://fosstodon.org/@koddsson/109535622423696807/embed" class="mastodon-embed" style="max-width: 100%; border: 0" width="400" allowfullscreen="allowfullscreen"></iframe><script src="https://fosstodon.org/embed.js" async="async"></script>
+<iframe src="https://fosstodon.org/@webcomponentsguide/109660552894549193/embed" class="mastodon-embed" style="max-width: 100%; border: 0" width="400" allowfullscreen="allowfullscreen"></iframe><script src="https://fosstodon.org/embed.js" async="async"></script>
 
 We will start by setting up the project files and dependencies, and then move on to defining the Mastodon toot embed
 element class, extending the HTMLElement class, and registering the element with the browser. We will also cover adding
