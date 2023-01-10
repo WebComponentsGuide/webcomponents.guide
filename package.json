@@ -18,9 +18,7 @@
     "start": "eleventy --serve",
     "test": "npm run check",
     "remark": "remark . --quiet --frail",
-    "check": "prettier --check . && npm run spell && npm run remark",
-    "spell": "mdspell --en-us --report --ignore-acronyms --ignore-numbers $(git ls-files '*.md')",
-    "spellfix": "mdspell --en-us --ignore-acronyms --ignore-numbers $(git ls-files '*.md')",
+    "check": "prettier --check . && npm run remark",
     "format": "prettier --write ."
   },
   "stylelint": {
@@ -54,7 +52,6 @@
     "glob": "^8.0.3",
     "markdown-it": "^13.0.1",
     "markdown-it-github-headings": "^2.0.1",
-    "markdown-spellcheck": "^1.3.1",
     "markdownlint-cli": "^0.33.0",
     "open-props": "1.5.3",
     "postcss": "^8.4.20",
