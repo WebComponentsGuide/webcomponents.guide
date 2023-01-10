@@ -199,4 +199,5 @@ class MyElement extends HTMLElement {
   }
 }
 ```
+
 [lifecycle]: /learn/components/lifecycle-reference

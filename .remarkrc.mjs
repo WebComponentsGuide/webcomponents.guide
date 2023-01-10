@@ -1,7 +1,7 @@
 import retext from "remark-retext"
 import { Parser } from "retext-english"
 import dictionary from "dictionary-en"
-import {readFileSync} from 'node:fs'
+import { readFileSync } from "node:fs"
 export default {
   plugins: [
     "remark-lint",
@@ -22,9 +22,14 @@ export default {
     [retext, Parser],
     "retext-indefinite-article",
     ["retext-readability", { threshold: 6 / 7 }],
-    ["retext-spell", {
-      dictionary,
-      ignore: readFileSync('.spelling', 'utf-8').split('\n').filter(l => !l.startsWith('#'))
-    }],
+    [
+      "retext-spell",
+      {
+        dictionary,
+        ignore: readFileSync(".spelling", "utf-8")
+          .split("\n")
+          .filter((l) => !l.startsWith("#")),
+      },
+    ],
   ],
 }
