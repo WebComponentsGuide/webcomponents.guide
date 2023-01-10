@@ -7,9 +7,7 @@ css: [content.css, tutorials.css]
 <header>
   <h5>{{ group }} - Part {{ order }}</h5>
   <h1>{{ title }}</h1>
-  {%- if imageslug %}
-  {{ imageslug | picture }}
-  {%- endif %}
+  {%- if imageslug %}{{ imageslug | picture }}{%- endif %}
 </header>
 {%- else %}
 <h1>{{ title }}</h1>
