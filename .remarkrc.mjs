@@ -21,6 +21,7 @@ export default {
     ["remark-lint-maximum-heading-length", 73],
     [retext, Parser],
     "retext-indefinite-article",
+    "retext-diacritics",
     ["retext-readability", { threshold: 6 / 7 }],
     [
       "retext-spell",

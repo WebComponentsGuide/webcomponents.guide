@@ -71,6 +71,7 @@
     "remark-preset-prettier": "^2.0.1",
     "remark-retext": "^5.0.1",
     "remark-validate-links": "^12.1.0",
+    "retext-diacritics": "^4.2.0",
     "retext-english": "^4.1.0",
     "retext-indefinite-article": "^4.2.0",
     "retext-readability": "^7.2.0",
