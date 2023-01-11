@@ -4,8 +4,8 @@ order: 5
 ---
 
 Components can have many things that make them useful, for example styles, templates, or other information. Some
-components might keep a memory of things - often called _state_. All of these things need to be initialized using
-different techniques. You will likely use a combination of these techniques when building a component.
+components might keep a memory of things - often called _state_. All these things need to be initialized using different
+techniques. You will likely use a combination of these techniques when building a component.
 
 It can be very useful to create things during _instantiation_, that is when the component is first created. Most likely
 any _state_ will want to be instantiated with each new component instance created. This can be accomplished with _class
@@ -40,7 +40,7 @@ a _lifecycle callback_...
 ### Adding logic when an element is inserted into the DOM
 
 Perhaps more valuable than knowing when an element is created, is to know when it gets _inserted_ into the DOM. At this
-point an element can look at its _parent elements_ to know where it is in the tree, and can do useful logic like adding
+point an element can look at its _parent elements_ to know where it's in the tree, and can do useful logic like adding
 _event listeners_, and start rendering or animating.
 
 If a _custom element_ has a `connectedCallback()` function, then the browser will automatically call this whenever the

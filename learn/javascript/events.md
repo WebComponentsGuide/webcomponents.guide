@@ -5,11 +5,11 @@ order: 3
 
 Web browsers (and server side engines like [NodeJS][node] and [Deno][deno]) include an Event API which has become a
 foundational concept in JavaScript, and is particularly important when we talk about Web Components. The two classes
-that drive all of these events are the `Event` class, and the `EventTarget` class.
+that drive all these events are the `Event` class, and the `EventTarget` class.
 
 This section will go over the concepts of Events, the basics of the `EventTarget` and `Event` classes, and the next
-section will touch on some more advanced topics but - as always - if you're interested in learning more there are many
-great pages on MDN that cover Events:
+section will touch on some more advanced topics but - as always - if you're interested in learning more MDN has many
+resources that cover Events:
 
 - [Introduction to Events](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events)
 - [The EventTarget API](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget)
@@ -23,9 +23,9 @@ otherwise know about their APIs - instead they just need to know about the Event
 notify other parts of your application when a change has happened.
 
 A really nice feature of events is that they're _loosely coupled_. Code that _dispatches_ events doesn't need to worry
-about whether or not there are any listeners, it can just dispatch an event, and if there are no listeners then nothing
-will happen. An event can have lots of listeners too, and when an event gets _dispatched_ it will call each listener in
-the order that they were added.
+if no listeners exist, it can just dispatch an event, and if no listeners have been added then nothing will happen. An
+event can have lots of listeners too, and when an event gets _dispatched_ it will call each listener in the order that
+they were added.
 
 A single class can have as many _different_ events as it wants, and call them in any order or at any time. All events
 are keyed by `type`, so for example a Timer class could have a `'start'` event for whenever the timer starts, a `'stop'`
@@ -39,8 +39,8 @@ event". The code responsible for starting the timer can then _dispatch_ the star
 
 ### What does the `EventTarget` target class do?
 
-`EventTarget` is a special class that exists in the browser, and is responsible for the API to _dispatch_ Events, and to
-attach _listeners_ for Events. Here's what the definition for the `EventTarget` class looks like:
+`EventTarget` is a class that exists in the browser, and has the API to _dispatch_ Events, and to attach _listeners_ for
+Events. Here's what the definition for the `EventTarget` class looks like:
 
 ```js
 class EventTarget {
@@ -61,7 +61,7 @@ Everything that extends from `EventTarget` gets these methods, and can use them.
 of _built-in objects_ extend it too - it's not just for elements. Global like `window` and `document` also extend from
 `EventTarget`. A single browser session can send hundreds of events during a typical web page session. For example
 almost all elements will dispatch events for mouse movement and clicks, key presses, touch events (if your device has a
-touch screen) and more. These events provide a safe, scalable, and uniform way for developers to write interactive apps.
+touch screen) and more. These make for a safe, scalable, and uniform way for developers to write interactive apps.
 
 To make a subclass of `EventTarget` you'll need to make your class `extends EventTarget` (or it can `extends` another
 class that itself extends `EventTarget`). Here's an example of a timer class that extends `EventTarget`:
@@ -141,12 +141,12 @@ mytimer.stop()
 
 ### What does the `Event` class do?
 
-The `Event` class represents an Event that all listeners will be passed as the Event propagates through the system. The
-reason it's an object, rather than a `string` is that it contains lots of information about the event, and it can be
-extended to add more info. The `Event` class requires a `type` argument that will set the `.type` of the event object.
-This is the most important piece of information as it determines which listeners get called. The `Event` class also
-takes an optional second argument which is the _event options_. Let's just focus on the `.type` for now. You can read
-more about the second options argument in the next section [Events in detail][events-in-detail].
+The `Event` class represents an Event that all listeners will be passed as the Event propagates through the system. It's
+an object that has lots of information about the event, and it can be extended to add more info. The `Event` class
+requires a `type` argument that will set the `.type` of the event object. This is the most important piece of
+information as it determines which listeners get called. The `Event` class also takes an optional second argument which
+is the _event options_. Let's just focus on the `.type` for now. You can read more about the second options argument in
+the next section [Events in detail][events-in-detail].
 
 It's common to subclass `Event` for different types that have more specific properties. For example the built-in
 `KeyboardEvent` is used for events like `'keypress'`, `'keydown'`, and `'keyup'` and has additional properties such as

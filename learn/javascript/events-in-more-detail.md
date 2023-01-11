@@ -17,7 +17,7 @@ The [previous section][events] showed how you can add an _Event listener_ with `
 more than one. In fact, you can use a single function to listen to multiple different event types, if they each have
 different names.
 
-Listeners are passed the `Event` object, so the listener function can use that to determine which event type the listener
+Listeners are passed the `Event` object, so the listener function can use that to decide which event type the listener
 was called on, using `.type`:
 
 ```js
@@ -166,12 +166,12 @@ controller.abort()
 
 ### Event Listener Objects
 
-So far we've covered how to add event listener functions, but it is also possible to pass an _object_ to
+So far we've covered how to add event listener functions, but it's also possible to pass an _object_ to
 `addEventListener`. The passed _object_ should have a `handleEvent()` function, and whenever `dispatchEvent()` is called
 the object's `handleEvent()` function will be called instead.
 
-This might not sound super useful, but one big benefit of doing this is that it keeps the `this` _context_, which might
-otherwise get lost. Consider the following code:
+Using an object like this allow the event system to keep the `this` _context_, which might otherwise get lost. Consider
+the following code:
 
 ```js
 class Logger {
@@ -194,8 +194,8 @@ target.dispatchEvent(new Event("start"))
 The above code causes an error because `logger.log` is passed by _value_ and consequently it loses its `this` _context_.
 This is an unfortunate caveat with functions in JavaScript. Before JavaScript got _arrow functions_, a lot of code used
 to call `.bind` to get around this. Newer code might use an arrow function instead. Both of these patterns have their
-own problems though, mostly to do with losing the _function reference_, which makes them harder to clean up (see above
-about removing event listeners):
+own problems though, mostly to do with losing the _function reference_, which makes them more difficult to clean up (see
+above about removing event listeners):
 
 ```js
 target.addEventListener("start", logger.log.bind(logger))
@@ -236,8 +236,8 @@ A good pattern for utilizing event listeners is to have your code behave a certa
 the option of "opting out" of the _default behavior_. This is really useful for applications that want to customize what
 happens after a certain event has been triggered.
 
-The `Event` class has an option to to declare an event is `cancelable`, which implies it has a _default behavior_ that
-can be stopped. An event listener can _prevent the default behavior_ by calling `.preventDefault()`, which tells the
+The `Event` class has an option to declare an event is `cancelable`, which implies it has a _default behavior_ that can
+be stopped. An event listener can _prevent the default behavior_ by calling `.preventDefault()`, which tells the
 _dispatching_ code to not execute the _default behavior_.
 
 Looking at our Timer class again, let's say it has an alarm functionality that gets triggered every 60 seconds. We want

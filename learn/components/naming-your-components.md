@@ -7,12 +7,12 @@ script: ["tag-name-input.js"]
 _Custom Element tag names_ must have at least one dash (`-`) in them. As such you probably want to name your element
 with two distinct words like `theme-picker`. You can use as many dashes as you want, you're not limited to one.
 
-There are some specific rules that you must adhere to to make a valid tag name:
+Some specific rules to follow in order to make a valid tag name:
 
 - It **must start** with a lowercase character of the alphabet (a-z).
 - It **must contain** at least one dash (`-`).
-- It **must not be** a previously reserved tag name (see below).
-- It **must not contain** special characters, like `=`, `@`, `$`.
+- It **must not be** an already reserved tag name (see below).
+- It **must not contain** symbols, like `=`, `@`, `$`.
 - It **can contain** underscores, and numbers.
 - It **can contain** characters from different alphabets, such as `é`, `ð`, `ö`, `爱`.
 
@@ -90,18 +90,18 @@ spell, so try to avoid those. Words with double letters (abbreviated, occasion, 
 using different letters with the same sound (necessary, accessory) often get misspelled. Words with "silent" consonants
 (knack, assign, doubt) are difficult, especially people for whom English is not their first language. In these cases it
 might be better to replace a hard to spell word with a simpler word, e.g. `<abbreviated-text>` could become
-`<short-text>`, `<approximate-date>` could be `<rounded-date>`. Alternatively you could replace one hard to spell word
-with two easier to spell words that mean the same thing, for example `<establish-account>` could be `<set-up-account>`.
+`<short-text>`, `<approximate-date>` could be `<rounded-date>`. You could replace one hard to spell word with two easier
+to spell words that mean the same thing, for example `<establish-account>` could be `<set-up-account>`.
 
 Tag names don't have to use a single dash. Names like `<auto-complete-input>` or `<ajax-form-provider>` are valid, and
-can sometimes be clearer. However just like long methods or class names they can be overly verbose which makes them
-tiresome to read and type. It's good to avoid generic "filler" words that don't add to the meaning, like `wrapper`,
-`provider`, `effect`, or `element`.
+can sometimes be clearer. Just like long methods or class names they can be overly verbose which makes them tiresome to
+read and type. It's good to avoid generic "filler" words that don't add to the meaning, like `wrapper`, `provider`,
+`effect`, or `element`.
 
-Some design systems will prefix their _Web Components_ with a branding. For example all of [Adobe Spectrum's][spectrum]
+Some design systems will prefix their _Web Components_ with a branding. For example all [Adobe Spectrum's][spectrum]
 _Web Components_ are prefixed `<sp-`, [Shoelace Components][shoelace] are prefixed `<sl-`. This can be useful, as you
-can easily tell apart a component from a design system to a generic off-the-shelf component. On the other hand, this
-makes every component name longer.
+can easily tell apart a component from a design system to a generic off-the-shelf component. But this makes every
+component name longer.
 
 ### If in doubt, use the `noun-noun` pattern
 
@@ -126,14 +126,13 @@ It's also a good idea to add a suffix or prefix to your element class name. One 
 out what the class does within the greater context of your JavaScript code. Adding `-element` to a tag name is redundant
 because all tags are elements, but adding `Element` to a class is not because not all classes are elements. Another
 reason for this is that it avoids conflicts with other class constructors, for example if you had a `<number-format>`
-element, `class NumberFormat` would be very similar to the already existing `Intl.NumberFormat` class. Instead naming
-your element class `class NumberFormatElement` avoids the conflict.
+element, `class NumberFormat` would be very similar to the existing `Intl.NumberFormat` class. Instead naming your
+element class `class NumberFormatElement` avoids the conflict.
 
-All of the _built-ins_ use `HTML` as a prefix and `Element` as a suffix. For example `<span>`'s class is
-`HTMLSpanElement`. Adding a prefix or suffix means you're in good company. If you have a design system where you're
-prefixing your element tag names, using the prefix in the class name is a good idea, so if you had a "Fancy" design
-system with `<fcy-button>` and `<fcy-accordion>` then naming classes like `FancyButtonElement` and
-`FancyAccordionElement` is a good pattern.
+All the _built-ins_ use `HTML` as a prefix and `Element` as a suffix. For example `<span>`'s class is `HTMLSpanElement`.
+Adding a prefix or suffix means you're in good company. If you have a design system where you're prefixing your element
+tag names, using the prefix in the class name is a good idea, so if you had a "Fancy" design system with `<fcy-button>`
+and `<fcy-accordion>` then naming classes like `FancyButtonElement` and `FancyAccordionElement` is a good pattern.
 
 [spectrum]: https://opensource.adobe.com/spectrum-web-components/
 [shoelace]: https://shoelace.style/

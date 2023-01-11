@@ -119,12 +119,12 @@ class MyElement extends HTMLElement {
 }
 ```
 
-When a document is parsed all of the attributes which are observed will result in a call to
-`attributeChangedCallback()`. This can happen _before_ the element is connected and `connectedCallback` has been called,
-so avoid relying on the element being connected during this time.
+When a document is parsed all the attributes which are observed will result in a call to `attributeChangedCallback()`.
+This can happen _before_ the element is connected and `connectedCallback` has been called, so avoid relying on the
+element being connected during this time.
 
-The `attributeChangedCallback()` will fire whenever `setAttribute`, `removeAttribute`, `toggleAttribute` are called if
-they are changing an observed attribute.
+The `attributeChangedCallback()` will be called whenever `setAttribute`, `removeAttribute`, `toggleAttribute` are called
+if they are changing an observed attribute.
 
 Attributes are also nodes that can be constructed with [`document.createAttribute()`][createattribute], which returns an
 `Attr` object. This `Attr` object can then be applied to the element via `.setAttributeNode()`. This will also result in
@@ -132,12 +132,13 @@ the `attributeChangedCallback()` being called if it's an observed attribute. An 
 property; changing that will _also_ call `attributeChangedCallback()`.
 
 It's worth noting that even if the _new_ value is the same as the _old_ value, calling `setAttribute` or changing the
-`.value` on an `Attr` will result in the `attributeChangedCallback()` being called. In other words, it is possible for
+`.value` on an `Attr` will result in the `attributeChangedCallback()` being called. In other words, it's possible for
 `attributeChangedCallback` to be called when `oldValue === newValue`. In most cases this really won't matter much, and
 in some cases this is very helpful; but sometimes this can bite, especially if you have
 [non-idempotent](https://en.wikipedia.org/wiki/Idempotence#Computer_science_examples) code inside your
 `attributeChangedCallback`. Try to make sure operations inside `attributeChangedCallback` are idempotent, or perhaps
-consider adding a check to ensure `oldValue !== newValue` before performing operations which may be sensitive to this.
+consider adding a check to make sure `oldValue !== newValue` before performing operations which may be sensitive to
+this.
 
 ## `adoptedCallback()`
 

@@ -36,8 +36,8 @@ console.assert(mypoint instanceof Point)
 
 ### Defining a public API
 
-Classes can have public properties, and methods to give them features which other code can use. They can also have
-special well known methods that get automatically called during certain events:
+Classes can have public properties, and methods to give them features which other code can use. They can also have well
+known methods that get automatically called during certain events:
 
 ```js
 class Point {
@@ -179,9 +179,9 @@ Private fields work like public fields with regards to evaluation. They get eval
 
 ### Using private fields with public APIs to make changeable, _read only state_
 
-_Private fields_ are useful to have a value that the internals of a class can change, but that outside code cannot.
-However it's also often useful to allow private code to _read_ a classes _private state_, but not change it. To do this
-you can combine _private state_ with _public getters_:
+_Private fields_ are useful to have a value that the internals of a class can change, but that outside code cannot. It's
+also often useful to allow outside code to _read_ a classes _private state_, but not change it. To do this you can
+combine _private state_ with _public getters_:
 
 ```js
 class Sentence {
@@ -248,7 +248,7 @@ This pattern can also be useful for validating values when they are being set.
 
 ### Extending a class
 
-Classes can extend from other classes. The extended class will receive all of the parent classes methods and properties,
+Classes can extend from other classes. The extended class will receive all the parent classes methods and properties,
 and it can define new methods and properties. The extended class cannot access private state or private methods from the
 parent class. If an extended class overrides the class constructor, it must call the original constructor by using
 `super()`. If the extended class overrides a method that exists on the parent class, it can optionally call

@@ -4,8 +4,8 @@ order: 1
 ---
 
 Most components you write will need some kind of JavaScript. While it's not **strictly** necessary, more often than not
-you'll want to add JavaScript to provide logic. To do this you'll need to create a JavaScript `class`, and use the
-_Custom Elements Registry_ to attach your class so the browser knows to use it.
+you'll want to add JavaScript to drive logic. To do this you'll need to create a JavaScript `class`, and use the _Custom
+Elements Registry_ to attach your class so the browser knows to use it.
 
 Without the _Custom Element Registry_ the browser won't know what JavaScript to associate to what elements. By default,
 whenever the browser encounters a tag it does not know, it will use the `HTMLUnknownElement` class to give it a default
@@ -14,8 +14,8 @@ With your own class _defined_, any time the browser sees the defined tag, it wil
 class_.
 
 To define a _Custom Element_, you can use the global `customElements` API. You won't need to include any JavaScript
-libraries to use `customElements`, it's a global that already exists, like `console` or `localStorage`. There are two
-types of elements you can define:
+libraries to use `customElements`, it's a global that already exists, like `console` or `localStorage`. You can define
+two types of element:
 
 ## Autonomous Custom Elements
 

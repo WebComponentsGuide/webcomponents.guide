@@ -147,10 +147,10 @@ some other minor edge cases:
 - Elements inside of a Closed ShadowRoot will not appear in an Event's `.composedPath()`.
 - Elements assigned to a [Slot][slots] within a closed ShadowRoot won't be reflected in the `.assignedSlot` property.
 
-If those two points don't make sense, then don't worry! They're seldom used APIs. The point is it is harder for outside
-code to find its way to your ShadowRoot. It's important to note that _private_ doesn't mean _secure_. There are still
-ways to get a closed ShadowRoot, such as overriding the `HTMLElement.prototype.attachShadow` function itself. Don't rely
-on _closed ShadowRoots_ for security.
+If those two points don't make sense, then don't worry! They're seldom used APIs. The point being, it's more difficult
+for outside code to find its way to your ShadowRoot. It's important to note that _private_ doesn't mean _secure_. It's
+still possible to get a closed ShadowRoot, such as overriding the `HTMLElement.prototype.attachShadow` function itself.
+Don't rely on _closed ShadowRoots_ for security.
 
 Using a _closed ShadowRoot_ does mean there's a bit more work involved within your component to access the ShadowRoot.
 If you're calling `attachShadow` in JavaScript, you will want to set it to a private field:
@@ -174,11 +174,11 @@ class StopWatchElement extends HTMLElement {
 }
 ```
 
-If you're using a _declarative ShadowDOM_ then you'll need to use a special API called _Element Internals_. To get to a
-Web Components _Element Internals_, `.attachInternals()` can be called. It can only be called once though - subsequent
-calls will throw an error. Internals should remain private to a Web Component class as it contains a variety of internal
-APIs for a Web Component. The Element Internals API **also** has a `.shadowRoot` property, but this one can also get the
-_closed ShadowRoot_:
+If you're using a _declarative ShadowDOM_ then you'll need to use an API called _Element Internals_. To get to a Web
+Components _Element Internals_, `.attachInternals()` can be called. It can only be called once though - subsequent calls
+will throw an error. Internals should be private in a Web Component class as - like the name suggests - they contain a
+variety of internal APIs for a Web Component. The Element Internals API **also** has a `.shadowRoot` property, but this
+one can also get the _closed ShadowRoot_:
 
 ```html
 <stop-watch>

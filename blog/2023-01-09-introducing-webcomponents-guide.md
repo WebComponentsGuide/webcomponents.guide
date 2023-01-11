@@ -7,9 +7,9 @@ excerpt: >
   Hello, world! Announcing the launch of a new way to learn how to create Web Components.
 ---
 
-The Web is a special place. It's a giant ecosystem that organically grows day by day. Rather than being designed behind
+The Web is an amazing place. It's a giant ecosystem that organically grows day by day. Rather than being designed behind
 closed doors by a single corporation, the web is designed in the open by developers who _use_ the platform. It's one of
-the very few areas in which we see many competing corporations work together to ensure a productive, interoperable set
+the very few areas in which we see many competing corporations work together to create a productive, interoperable set
 of APIs that millions of other companies can leverage. No other platform comes close.
 
 When I first picked up Microsoft Front Page '98 and started trying to build my own site, I was immediately hooked. Over
@@ -21,13 +21,13 @@ HTML 5 and thinking "wouldn't it be great to define our own tags?". Luckily I wa
 decade of innovation on the web saw exactly that. Today Web Components allow engineers to define their own tags with
 unique functionality.
 
-Web Components started out as a collection of specs from Google. The initial release of the "Custom Elements API" in
-2014 (referred to as "Custom Elements V0"). It predated modern JavaScript idioms like ES6 Classes. Google Chrome was the
-only browser to ship the V0 spec, despite many experiments like Mozilla's [x-tag][x-tag] and Google's
-[polymer][polymer]. By 2016 browser vendors agreed on and shipped a new specification (Custom Elements V1). This new
-spec coincided with powerful new technologies such as ShadowDOM and HTML Templates. Luckily today this is a footnote in
-the history of the web platform and Web Components. Web Components a proven set of technologies used by companies the
-world over. There is one sticking point remaining though.
+Web Components started out as a collection of specs from Google. The first release of the "Custom Elements API" in 2014
+(referred to as "Custom Elements V0"). It predated modern JavaScript idioms like ES6 Classes. Google Chrome was the only
+browser to ship the V0 spec, despite many experiments like Mozilla's [x-tag][x-tag] and Google's [polymer][polymer]. By
+2016 browser vendors agreed on and shipped a new specification (Custom Elements V1). This new spec coincided with
+powerful new technologies such as ShadowDOM and HTML Templates. Luckily today this is a footnote in the history of the
+web platform and Web Components. Web Components a proven set of technologies used by companies the world over. One
+sticking point remaining though.
 
 One of the best things about the web is the sheer number of learning materials available. Corporations like Mozilla,
 Google and Microsoft collaborate on excellent resources like [MDN][mdn], or [web.dev][web-dev]. There exists an army of
@@ -38,7 +38,7 @@ As great as these learning resources are, they cast a wide net. When speaking to
 Components, one question I am often asked is "how can I find out more?". "The documentation is all there", I say, "just
 look it up on MDN". While MDN provides a great reference, it doesn't give you _the journey_. It can't give you _the
 journey_, because it's job is to be a reference. [MDN still documents Custom Elements V0 APIs][mdn-ce-v0]. Despite the
-various sign posts telling you not to use this, it remains, because MDN's job is to be a reference.
+various sign posts telling you not to use this, it's still documented, because MDN's job is to be a reference.
 
 _The journey_ is a hallmark of every great framework. The plethora of front-end frameworks today have _the journey_.
 From [Lit][lit] to [Vue][vue] to [Svelte][svelte] to [React][react] to [Remix][remix], every one starts out with the
@@ -65,7 +65,7 @@ The content we have is divided into three sections for now:
 
 - **[Learn][learn]**: This will take you through _the journey_. Learn the basic building blocks and learn how to connect
   them to make useful user experiences.
-- **[Tutorials][tutorials]**: This section will give you more substantial end-to-end guides on how to build one specific
+- **[Tutorials][tutorials]**: This section will give you larger end-to-end guides on how to build one specific
   component, end to end. Each tutorial might not cover all topics. They will cover extended platform features or
   third-party libraries. They might make design decisions that aren't applicable to all web components. But we hope some
   will be exactly the kind of technique you're looking for. We hope this is an area where you can learn how experienced

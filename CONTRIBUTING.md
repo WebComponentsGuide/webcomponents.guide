@@ -9,7 +9,7 @@ Contributions are always welcome! Before contributing, please read the
 - If you're looking for issues to resolve, a good place to start is the
   [help wanted label](https://github.com/WebComponentsGuide/webcomponents.guide/labels/help%20wanted) and/or
   [good first issue label](https://github.com/WebComponentsGuide/webcomponents.guide/labels/good%20first%20issue).
-- If you have to contribute to bigger pieces, like an idea or new section, tutorial, or blog post, then please raise an
+- If you're contributing to larger pieces, like an idea or new section, tutorial, or blog post, then please raise an
   issue first! This way we can discuss an action plan and figure out a high level overview of what we should write.
 
 ### Setup
@@ -28,5 +28,5 @@ automatically rebuild, and you can see the changes reflected in your browser.
 
 ### Running checks/tests
 
-When making contributions, please make sure to run `npm run check`, to ensure your contributions are correctly formatted
-and spelled. You can also run `npm run format` to automatically format all files.
+When making contributions, please make sure to run `npm run check`, to make sure your contributions are correctly
+formatted and spelled. You can also run `npm run format` to automatically format all files.
