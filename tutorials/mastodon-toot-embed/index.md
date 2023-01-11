@@ -6,12 +6,15 @@ excerpt: Build out an embeddable Mastodon post using just the url
 
 {% stub %}
 
-In this tutorial, we will walk through the process of creating a Web Component that can be used to display
-Mastodon posts on any website or application.
+In this tutorial, we will walk through the process of creating a Web Component that can be used to display Mastodon
+posts on any website or application.
 
-Mastodon is a decentralized and open-source social network that allows users to share short posts, called "toots", and interact with other users on the network. It is similar to Twitter, but with a focus on privacy, freedom of speech, and community building.
+Mastodon is a decentralized and open-source social network that allows users to share short posts, called "toots", and
+interact with other users on the network. It is similar to Twitter, but with a focus on privacy, freedom of speech, and
+community building.
 
-Our aim will be to create a <toot-embed> element that will allow users to share and display Mastodon posts on other websites or applications.
+Our aim will be to create a <toot-embed> element that will allow users to share and display Mastodon posts on other
+websites or applications.
 
 Here's an example of a Mastodon toot embed. We'll be making something similar.
 

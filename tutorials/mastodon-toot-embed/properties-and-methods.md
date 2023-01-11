@@ -90,6 +90,8 @@ TootEmbedElement.define()
 
 Now you should be getting data! You should be seeing something like this in your browser:
 
-A browser screenshot showing the toot-embed component at it's current stage. The example page reads: "Here's an example toot: " followed by a dump of JSON data for a random Mastodon toot.
+A browser screenshot showing the toot-embed component at it's current stage. The example page reads: "Here's an example
+toot: " followed by a dump of JSON data for a random Mastodon toot.
 
-Yuk! Just a bunch of data spilled all over. We're gonna have to make this look prettier. In the next section, we'll go over how to template this data into a better looking component.
+Yuk! Just a bunch of data spilled all over. We're gonna have to make this look prettier. In the next section, we'll go
+over how to template this data into a better looking component.

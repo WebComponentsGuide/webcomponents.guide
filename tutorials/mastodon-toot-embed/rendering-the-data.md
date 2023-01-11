@@ -74,7 +74,8 @@ rudimentary styles to the component to make it a bit better.
 
 {% tip %}
 
-To support all modern browser make sure to provide a fallback approach for those browser which does not support the `CSSStyleSheet` API.
+To support all modern browser make sure to provide a fallback approach for those browser which does not support the
+`CSSStyleSheet` API.
 
 {% endtip %}
 
