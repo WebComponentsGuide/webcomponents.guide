@@ -70,7 +70,13 @@ You should now see the Mastodon toot data displayed in a more structured and pre
 ![A browser screenshot showing the toot-embed component at it's current stage. The example page reads: "Here's an example toot: " followed by a display of the Mastodon toot data including the avatar image, display name, and toot content.](/images/tutorials/mastodon-toot-embed/fig3.png)
 
 It's still not very good to look at! The image is way to big and the whole layout is a bit off. Let's add some
-rudimentary styles to the component in a `<style>` tag to make it a bit better.
+rudimentary styles to the component to make it a bit better.
+
+{% tip %}
+
+To support all modern browser make sure to provide a fallback approach for those browser which does not support the `CSSStyleSheet` API.
+
+{% endtip %}
 
 ```js
 const styles = new CSSStyleSheet()
