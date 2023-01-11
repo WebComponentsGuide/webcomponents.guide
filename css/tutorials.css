@@ -19,7 +19,7 @@ main > header {
   border-bottom: var(--border-size-2) solid var(--brand-color-dark);
   padding-block-end: var(--size-4);
   margin-block-end: var(--size-4);
-  max-inline-size: 100%;
+  max-inline-size: 100ch;
 }
 
 main > header > h1 {
