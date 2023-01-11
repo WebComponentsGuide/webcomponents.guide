@@ -36,7 +36,7 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addPassthroughCopy("browserconfig.xml")
   eleventyConfig.addPassthroughCopy("site.webmanifest")
 
-  eleventyConfig.addGlobalData("discord", "https://discord.gg/9BmuCcK6")
+  eleventyConfig.addGlobalData("discord", "https://discord.gg/CqhDNXepDV")
   eleventyConfig.addGlobalData("baseurl", "https://webcomponents.guide")
   eleventyConfig.addGlobalData("repository", "https://github.com/WebComponentsGuide/webcomponents.guide")
 
