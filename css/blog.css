@@ -14,7 +14,7 @@ main > h1 {
 main > header {
   border-bottom: var(--border-size-2) solid var(--brand-color-dark);
   margin-block-end: var(--size-4);
-  max-inline-size: 100%;
+  max-inline-size: 100ch;
 }
 
 main > header > h1 {
@@ -43,7 +43,8 @@ main > header > h1 {
 }
 
 .blog-listing picture {
-  margin-block-end: var(--size-4);
+  display: block;
+  margin-block-end: var(--size-3);
 }
 
 .author-block {
