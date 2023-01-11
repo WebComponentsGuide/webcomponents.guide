@@ -39,12 +39,19 @@ styles.replaceSync(`
 
 // Define the StopWatch element Class
 class StopWatchElement extends HTMLElement {
-  // Private state
+  static define(tag = "stop-watch") {
+    customElements.define(tag, this)
+  }
+
+  // Give this element its own encapsulated DOM
+  shadowRoot = this.attachShadow({ mode: "open" })
+
+  // Initialize private state
   #start = Date.now()
 
   connectedCallback() {
     // Add the shared styles
-    this.attachShadow({ mode: "open" }).adoptedStyleSheets = [styles]
+    this.shadowRoot.adoptedStyleSheets = [styles]
 
     // Start the timer
     this.#tick()
@@ -55,14 +62,11 @@ class StopWatchElement extends HTMLElement {
     const minutes = String(Math.floor(milliseconds / (1000 * 60))).padStart(2, "0")
     const seconds = String(Math.floor((milliseconds / 1000) % 60)).padStart(2, "0")
     const hundredths = String(Math.floor((milliseconds % 1000) / 10)).padStart(2, "0")
-    this.shadowRoot.innerHTML = `${minutes}:${seconds}:${hundredths}`
+
+    this.shadowRoot.replaceChildren(`${minutes}:${seconds}:${hundredths}`)
 
     // Schedule next update
     requestAnimationFrame(() => this.#tick())
-  }
-
-  static define(tag = "stop-watch") {
-    customElements.define(tag, this)
   }
 }
 
