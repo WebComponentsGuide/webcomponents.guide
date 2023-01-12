@@ -67,12 +67,12 @@ as the shadow host).
 
 The `<article-meta>` custom element inherits its `color` from the `<article>` element where it is set to `deeppink`. The
 `<span>` element within the shadow tree inherits its `color` from the `<article-meta>` custom element which means the
-value will be `deeppink`.
+value will also be `deeppink`.
 
 ## Styling elements outside of a shadow tree
 
-In order to be portable, Web Components can provide default styles for a couple types of elements which exist outside of
-its shadow tree: the custom element itself (also known as the shadow host) and slotted elements.
+In order to be portable, Web Components can provide default styles for the element itself (also known as the shadow host).
+They can also style slotted elements with some default styles.
 
 ### Writing default styles for the shadow host with `:host` and `:host()`
 
@@ -92,8 +92,9 @@ action:
 </fancy-p>
 ```
 
-The second will select the shadow host if it matches a selector. For example, given the following default styles for the
-`<fancy-p>` component, only the second element in the subsequent code example will have the styles applied.
+The `:host()` selector will select the shadow host if it matches a given selector. For example, it can be  used to
+select for hosts that have a given attribute. While `:host` may apply to `<fancy-p>` component, `:host([extra])` would
+apply only to `<fancy-p extra>` elements:
 
 ```css
 :host([extra]) {
@@ -126,12 +127,11 @@ it will select elements within the shadow tree.
 </fancy-p>
 ```
 
-You can `::slotted()` to style light DOM descendants of a shadow host.
 
 ### Writing default styles for slotted elements with `::slotted()`
 
-The `::slotted()` pseudo-element selector allows you to write default styles for different kinds of elements which are
-slotted.
+The `::slotted()` pseudo-element selector allows you to write default styles for slotted elements that match the given
+selector. Specifying a selector can be useful for styling specific elements in particular ways.
 
 ```html
 <fancy-elements>
