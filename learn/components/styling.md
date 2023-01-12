@@ -37,10 +37,11 @@ The `<p>` element within the shadow tree is not effected by the styles declared 
 
 ## Inheritance
 
-Custom elements abide by the same rules of inheritance as other HTML elements. Properties such as `font-size`,
-`font-family`, and `color` are inherited from a parent element by default. So are [CSS custom properties][]. Top-level
-elements within a shadow tree inherit their inheritable properties from the custom element itself (also known as the
-shadow host). Here’s a demonstration of this at play:
+Custom elements abide by the same rules of inheritance as other HTML elements. CSS properties whose default value is
+`inherit` will inherit from their parent element, for example `font-size`, `font-family`, and `color`. This `inherit`
+property crosses the Shadow DOM boundary. [CSS custom properties][] default to `inherit`, so they'll cross Shadow DOM
+boundaries too. Top-level elements within a shadow tree inherit properties from the custom element itself (also known
+as the shadow host).
 
 ```html
 <style>
