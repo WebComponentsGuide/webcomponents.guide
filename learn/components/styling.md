@@ -3,191 +3,333 @@ title: Styling
 order: 5
 ---
 
-## (Introduction)
+Web Components have powerful styling capabilities which make them
+portable and extensible. Styles declared within the Shadow DOM serve as
+a Web Component’s default styling. It’s similar to writing a user-agent
+stylesheet for your custom element and it works quite similarily as
+well.
 
-- Web Components have powerful styling capabilities.
-  - _Let’s start off positive, even if it’s going to get a little
-    hairy._
-- Shadow DOM encapsulation makes Web Component styles generally easier
-  to author.
-  - Elements within a shadow tree cannot be directly selected by styles
-    declared outside of it. Conversely, elements outside of a shadow
-    tree cannot be directly selected by styles declared within it.
-  - Web Component authors need not worry about naming conflicts for CSS
-    classes outside of a shadow tree.
-  - Web Component authors can use less specific selectors without much
-    worry as there are generally less elements used within a shadow
-    tree.
-- Encapsulation is not isolation. Styles set outside of a shadow tree
-  can indirectly influence styles within a shadow tree.
-  - _Use this to transition to the next section..._
+## Shadow Encapsulation: Scoped Styles
 
-## Shadow Hosts and CSS Inheritance
-
-It is very important to understand the role of a **shadow host**.
-
-### What is a Shadow Host
-
-- A **shadow host** is an element with a **shadow tree** and it is not
-  the **shadow root**. If your Web Component uses the Shadow DOM, the
-  element itself is a shadow host.
-  - The **shadow root** is a non-element node that cannot be selected
-    or styled since it’s featureless.
-- A **shadow host** is not a part of a **shadow tree**. It exists
-  _outside_ of a shadow tree and therefore cannot be selected directly
-  by styles declared within its shadow tree (i.e. referencing the tag
-  name with a type selector will not select the host — only nested
-  elements of that type). We can select it with the `:host`
-  pseudo-class and its functional counterpart `:host()` — more on that
-  later.
-  - `:host` when combined with relative selectors will be based on the
-    shadow root within the shadow tree and not in the light tree.
-- Being a part of the DOM outside of a shadow tree, the host element
-  can be subject to styles declared in that context.
-
-### CSS Inheritance
-
-- **A shadow host’s styles become the point of inheritance for all
-  top-level elements within a shadow tree.**
-  - For example, setting `font-family: sans-serif` for the `html`
-    element in a document-level stylesheet can affect our Web
-    Component since `font-family` is generally an inherited property
-    for most elements, including an autonomous custom element by default.
-  - Inheritance is one way that styles from an oustide DOM can enter
-    into a shadow tree.
-
-#### Custom Properties
-
-- CSS Custom Properties inherit by default.
-  - _Could be a subheading_
-  - There is an upcoming feature to CSS which allows CSS authors to
-    configure whether a custom property will inherit by default (see
-    `@property`).
-
-## The Order of Precedence
-
-### Kinda like user-agent stylesheets...
-
-  - Styles set inside of a shadow tree work similar to a user-agent
-    stylesheet.
-    - For example, inside a shadow tree you can set your custom
-      element’s default styles using the `:host` pseudo-class. If there
-      are styles declared for the element outside of the shadow tree,
-      those will win. It might seem counter intuitive at first,
-      especially when you compare the strength of the specificity.
-  - **Specificity does not matter between DOM trees.**
-    - `:host` technically has a specificity value of 0,1,0.
-    - `fancy-button` has a specificity score of 0,0,1,
-    - The latter wins even if you wrap it with `:where()` which
-      decreases it to 0,0,0.
-
-### Using `!important` to prevent outside styling
-
-The only way to completely prevent shadow tree styles from being
-overriden is to use `!important`.
+Styles declared outside of a shadow tree cannot directly select elements
+within a shadow tree. Conversely, styles declared inside a shadow tree
+cannot directly select elements outside of a shadow tree. For both of
+these points, there are special pseudo-selectors which allow styles to
+cross the boundary of the Shadow DOM boundary — and we will cover them
+later on — but first we’ll focus on shadow encapsulation and its effect
+on styling. Here’s a basic demonstration:
 
 ```html
 <style>
-  fancy-button {
-    font-size: 2rem; /* Wins */
-    color: deeppink; /* Loses */
-    font-family: serif !important; /* Loses */
+  p {
+    color: deeppink;
   }
 </style>
-<fancy-button>
+
+<p>This text is deeppink and not teal because it is outside of the shadow root.</p>
+
+<fancy-p>
+  <template shadowroot="open">
+    <style>
+      p {
+        color: teal;
+      }
+    </style>
+    <p>This text is teal and not deeppink because it is inside of the shadow root.</p>
+  </template>
+</fancy-p>
+```
+
+The `<p>` element within the shadow tree is not effected by the styles
+declared outside of the shadow tree.
+
+## Inheritance
+
+Custom elements abide by the same rules of inheritance as other HTML
+elements. Properties such as `font-size`, `font-family`, and `color` are
+inherited from a parent element by default. So are [CSS custom
+properties]. Top-level elements within a shadow tree inherit their
+inheritable properties from the custom element itself (also known as the
+shadow host). Here’s a demonstration of this at play:
+
+[CSS custom properties]: https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties
+
+```html
+<style>
+  article {
+    color: deeppink;
+  }
+</style>
+
+<article>
+  <h1>This text is deeppink.</h1>
+  <article-meta>
+    <template shadowroot="open">
+      <style>
+        span {
+          font-style: italic;
+        }
+      </style>
+      <span>By Some Person</span>
+    </template>
+  </article-meta>
+</article>
+```
+
+The `<article-meta>` custom element inherits its `color` from the
+`<article>` element where it is set to `deeppink`. The `<span>` element
+within the shadow tree inherits its `color` from the `<article-meta>`
+custom element which means the value will be `deeppink`.
+
+## Styling elements outside of a shadow tree
+
+In order to be portable, Web Components can provide default styles for a
+couple types of elements which exist outside of its shadow tree: the
+custom element itself (also known as the shadow host) and slotted
+elements.
+
+### Writing default styles for the shadow host with `:host` and `:host()`
+
+There are two selectors which can be used to style the shadow host from
+within the shadow tree. They are the `:host` pseudo-class and the
+`:host()` pseudo-class function. The first will always select the shadow
+host. Here’s `:host` in action:
+
+```html
+<fancy-p>
   <template shadowroot="open">
     <style>
       :host {
-        font-size: 1rem; /* Loses */
-        color: dodgerblue !important; /* Wins */
-        font-family: sans-serif !important; /* Wins */
+        display: inline-block;
       }
     </style>
-    <slot></slot>
-    Shadow text
   </template>
-  Slotted Text
-</fancy-button>
+</fancy-p>
 ```
 
-## Slots
-
-When an element becomes a shadow host, it renders its shadow tree
-instead of its light tree. Slots can be used in a shadow tree to render
-elements from the light tree. We can further style these elements using
-the `::slotted()` pseudo-element function.
-
-- The order of precedence applies the same to slotted elements.
-- Only the slotted element is exposed for styling. You cannot use
-  combinators to select relative elements.
-- Pseudo-classes like `:first-child`, `:nth-of-type()` work, however,
-  the order of the elements is based on the light tree and not where
-  they’ve been slotted in the shadow tree.
-
-## Parts
-
-The CSS Shadow Parts API is a way to expose elements within a shadow
-tree to be styled by outside CSS.
-
-```html
-<fancy-button>
-  <template shadowroot="open">
-    <button part="the-actual-button">
-      <slot name="icon"></slot>
-      <slot></slot>
-    </button>
-  </template>
-  Fancy
-</fancy-button>
-```
-
-The inner button element can be referenced by styles declared outside of
-the shadow tree using the `::part()` pseudo-element function. The `part`
-attribute is set the same way classes are set on an element. An element
-can be multiple parts.
+The second will select the shadow host if it matches a selector. For
+example, given the following default styles for the `<fancy-p>`
+component, only the second element in the subsequent code example will
+have the styles applied.
 
 ```css
-fancy-button::part(the-actual-button) {
-  color: wheat;
+:host([extra]) {
+  font-style: italic;
+  font-weight: bold;
 }
 ```
 
-- Parts follow the order of precedence as well.
-- Similar to slots, relative combinators cannot be used to select
-  unexposed elements.
-- Descedents of parts are still subject to inheritance. So parts
-  effectively become more windows of influence for a shadow tree’s
-  styles.
+```html
+<fancy-p>I not am extra</fancy-p>
+<fancy-p extra>I am extra</fancy-p>
+```
 
-### Using `exportparts` to expose parts from a nested custom element
+#### Chaining selectors after `:host`
 
-Use the `exportparts` attribute on the nested custom element to expose
-its parts from the current shadow host for styling. The attribute takes
-a comma separated list of part names. Names can be reassigned to prevent
-conflict using a colon.
+While the `:host` selector refers to the shadow host element which is
+outside of the shadow tree, if you chain selectors it will select
+elements within the shadow tree.
 
-## How to declare styles in the Shadow DOM
+```html
+<fancy-p>
+  <template shadowroot="open">
+    <style>
+      :host > p {
+        color: deeppink;
+      }
+    </style>
+    <p>I am deeppink.</p>
+  </template>
+  <p>I am not deeppink.</p>
+</fancy-p>
+```
 
-### `<style>`
+You can `::slotted()` to style light DOM descendants of a shadow host.
 
-### `<link rel="stylesheet">`
+### Writing default styles for slotted elements with `::slotted()`
 
-- Maybe note that `<link rel="preload" href="/path-to-stylesheet"
-  as="style">` can be used to avoid FOUC and to parallelize the network
-  waterfall. You’d only want to use this if the component is used in the
-  initial render.
+The `::slotted()` pseudo-element selector allows you to write default
+styles for different kinds of elements which are slotted.
 
-### Constructed stylesheets
+```html
+<fancy-elements>
+  <template shadowroot="open">
+    <style>
+      ::slotted(button) {
+        color: deeppink;
+      }
 
-- Note that Safari does not support these.
+      ::slotted(p) {
+        color: teal;
+      }
+    </style>
+    <slot></slot>
+  </template>
+  <button>I am a slotted button</button>
+  <p>I am a slotted paragraph.</p>
+</fancy-elements>
+```
 
-## (Stuff about at-rules)
+If you want to target elements in specific slots you can pass an
+attribute selector which matches the slot:
 
-- `@keyframes`
-  - Can a `::slotted()` element (technically in the light tree) use a
-    keyframe declared in the a shadow tree?
-    - iirc the results are mixed.
-- `@font-face`
+```html
+<fancy-article>
+  <template shadowroot="open">
+    <style>
+      ::slotted([slot="title"]) {
+        font-size: 2rem;
+      }
+      ::slotted([slot="subtitle"]) {
+        font-size: 1.25rem;
+      }
+      /* The following will target elements going into the unnamed slot */
+      ::slotted(:not([slot])) {
+        color: deeppink;
+      }
+    </style>
+    <article>
+      <hgroup>
+        <slot name="title"></slot>
+        <slot name="subtitle"></slot>
+      </hgroup>
+      <slot></slot>
+    </article>
+  </template>
+  <h1 slot="title">I am the title</h1>
+  <p slot="subtitle">I am the subtitle</p>
+  <p>I am content.</p>
+</fancy-article>
+```
 
+You cannot chain selectors with `::slotted()`, so the following will not
+work:
 
-## (Putting it all together and best practices)
+```css
+::slotted(h1) span {
+  color: deeppink;
+}
+```
+
+## Parts: styling a shadow tree from the outside
+
+The CSS Shadow Part API allows elements within a shadow tree to be
+styled from outside of it. This allows Web Components to be very extensible.
+
+```css
+fancy-article::part(header) {
+  display: grid;
+  gap: 0.25rem;
+  padding: 0.5rem;
+  border-block-end: 0.125rem solid deeppink;
+}
+
+fancy-article::part(content) {
+  display: grid;
+  justify-content: start;
+  gap: 0.5rem;
+}
+```
+
+```html
+<fancy-article>
+  <template shadowroot="open">
+    <article part="article">
+      <hgroup part="header">
+        <slot name="title"></slot>
+        <slot name="subtitle"></slot>
+      </hgroup>
+      <div part="content">
+        <slot name="content"></slot>
+      </div>
+    </article>
+  </template>
+  <h1 slot="title">Hello, World!</h1>
+  <p slot="subtitle">I am a subtitle...</p>
+  <p>I am content</p>
+</fancy-article>
+```
+
+Similar to `::slotted()`, you cannot chain selectors after `::part()` to
+select children or siblings. The following will not work:
+
+```css
+fancy-article::part(header) slot {
+  display: block;
+}
+```
+
+## How to include default styles for a Web Component
+
+There are a variety of methods to include styles for a Web Component.
+Some will be familiar, but others are newer.
+
+### Using `<style>`
+
+The `<style>` tag is the most simple way to write styles for a Web
+Component. Just include it in your shadow tree:
+
+```html
+<style>
+  :host {
+    color: deeppink;
+  }
+</style>
+```
+
+### Using `<link rel="stylesheet">`
+
+Using a `<link rel="stylesheet">` element in the shadow tree will allow
+you to write styles in an external stylesheet.
+
+```html
+<link rel="stylesheet" href="/fancy-article-element.css">
+```
+
+If you do this, the stylesheet will be loaded after the script is
+loaded. This will likely cause a “flash of unstyled content” (FOUC). To
+circumvent this, you can preload the stylesheet like this:
+
+```html
+<link rel="preload" href="/fancy-article-element.css" as="style">
+```
+
+### Using Constructable Stylesheets
+
+Constructable Stylesheets are stylesheets which are programmatically
+created in JavaScript. You can create a new stylesheet using the
+`CSSStyleSheet` constructor and set styles with the `.replaceSync()`
+method:
+
+```js
+const stylesheet = new CSSStyleSheet()
+
+stylesheet.replaceSync(`
+  :host {
+    color: deeppink;
+  }
+`)
+
+class FancyArticleElement extends HTMLElement {
+  connectedCallback() {
+    this.attachShadow({mode: 'open'}).adoptedStyleSheets = [stylesheet]
+  }
+}
+```
+
+### Using CSS Module scripts
+
+CSS Module scripts allow developers to import stylesheets as if they
+were a module script. To do so, use an import assertion where the `type`
+is `css` and then you can add the imported stylesheet to the
+`adoptedStyleSheets` array for the element’s shadow root.
+
+```js
+import stylesheet from './fancy-article-element.css' assert { type: 'css' }
+
+class FancyArticleElement extends HTMLElement {
+  connectedCallback() {
+    this.attachShadow({mode: 'open'}).adoptedStyleSheets = [stylesheet]
+  }
+}
+```
