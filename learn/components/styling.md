@@ -3,21 +3,16 @@ title: Styling
 order: 5
 ---
 
-Web Components have powerful styling capabilities which make them
-portable and extensible. Styles declared within the Shadow DOM serve as
-a Web Component’s default styling. It’s similar to writing a user-agent
-stylesheet for your custom element and it works quite similarily as
-well.
+Web Components have powerful styling capabilities which make them portable and extensible. Styles declared within the
+Shadow DOM serve as a Web Component’s default styling. It’s similar to writing a user-agent stylesheet for your custom
+element and it works quite similarily as well.
 
 ## Shadow Encapsulation: Scoped Styles
 
-Styles declared outside of a shadow tree cannot directly select elements
-within a shadow tree. Conversely, styles declared inside a shadow tree
-cannot directly select elements outside of a shadow tree. For both of
-these points, there are special pseudo-selectors which allow styles to
-cross the boundary of the Shadow DOM boundary — and we will cover them
-later on — but first we’ll focus on shadow encapsulation and its effect
-on styling. Here’s a basic demonstration:
+Styles declared outside of a shadow tree cannot directly select elements within a shadow tree. Conversely, styles
+declared inside a shadow tree cannot directly select elements outside of a shadow tree. For both of these points, there
+are special pseudo-selectors which allow styles to cross the boundary of the Shadow DOM boundary — and we will cover
+them later on — but first we’ll focus on shadow encapsulation and its effect on styling. Here’s a basic demonstration:
 
 ```html
 <style>
@@ -40,19 +35,14 @@ on styling. Here’s a basic demonstration:
 </fancy-p>
 ```
 
-The `<p>` element within the shadow tree is not effected by the styles
-declared outside of the shadow tree.
+The `<p>` element within the shadow tree is not effected by the styles declared outside of the shadow tree.
 
 ## Inheritance
 
-Custom elements abide by the same rules of inheritance as other HTML
-elements. Properties such as `font-size`, `font-family`, and `color` are
-inherited from a parent element by default. So are [CSS custom
-properties]. Top-level elements within a shadow tree inherit their
-inheritable properties from the custom element itself (also known as the
+Custom elements abide by the same rules of inheritance as other HTML elements. Properties such as `font-size`,
+`font-family`, and `color` are inherited from a parent element by default. So are [CSS custom properties][]. Top-level
+elements within a shadow tree inherit their inheritable properties from the custom element itself (also known as the
 shadow host). Here’s a demonstration of this at play:
-
-[CSS custom properties]: https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties
 
 ```html
 <style>
@@ -76,24 +66,20 @@ shadow host). Here’s a demonstration of this at play:
 </article>
 ```
 
-The `<article-meta>` custom element inherits its `color` from the
-`<article>` element where it is set to `deeppink`. The `<span>` element
-within the shadow tree inherits its `color` from the `<article-meta>`
-custom element which means the value will be `deeppink`.
+The `<article-meta>` custom element inherits its `color` from the `<article>` element where it is set to `deeppink`. The
+`<span>` element within the shadow tree inherits its `color` from the `<article-meta>` custom element which means the
+value will be `deeppink`.
 
 ## Styling elements outside of a shadow tree
 
-In order to be portable, Web Components can provide default styles for a
-couple types of elements which exist outside of its shadow tree: the
-custom element itself (also known as the shadow host) and slotted
-elements.
+In order to be portable, Web Components can provide default styles for a couple types of elements which exist outside of
+its shadow tree: the custom element itself (also known as the shadow host) and slotted elements.
 
 ### Writing default styles for the shadow host with `:host` and `:host()`
 
-There are two selectors which can be used to style the shadow host from
-within the shadow tree. They are the `:host` pseudo-class and the
-`:host()` pseudo-class function. The first will always select the shadow
-host. Here’s `:host` in action:
+There are two selectors which can be used to style the shadow host from within the shadow tree. They are the `:host`
+pseudo-class and the `:host()` pseudo-class function. The first will always select the shadow host. Here’s `:host` in
+action:
 
 ```html
 <fancy-p>
@@ -107,10 +93,8 @@ host. Here’s `:host` in action:
 </fancy-p>
 ```
 
-The second will select the shadow host if it matches a selector. For
-example, given the following default styles for the `<fancy-p>`
-component, only the second element in the subsequent code example will
-have the styles applied.
+The second will select the shadow host if it matches a selector. For example, given the following default styles for the
+`<fancy-p>` component, only the second element in the subsequent code example will have the styles applied.
 
 ```css
 :host([extra]) {
@@ -126,9 +110,8 @@ have the styles applied.
 
 #### Chaining selectors after `:host`
 
-While the `:host` selector refers to the shadow host element which is
-outside of the shadow tree, if you chain selectors it will select
-elements within the shadow tree.
+While the `:host` selector refers to the shadow host element which is outside of the shadow tree, if you chain selectors
+it will select elements within the shadow tree.
 
 ```html
 <fancy-p>
@@ -148,8 +131,8 @@ You can `::slotted()` to style light DOM descendants of a shadow host.
 
 ### Writing default styles for slotted elements with `::slotted()`
 
-The `::slotted()` pseudo-element selector allows you to write default
-styles for different kinds of elements which are slotted.
+The `::slotted()` pseudo-element selector allows you to write default styles for different kinds of elements which are
+slotted.
 
 ```html
 <fancy-elements>
@@ -170,8 +153,7 @@ styles for different kinds of elements which are slotted.
 </fancy-elements>
 ```
 
-If you want to target elements in specific slots you can pass an
-attribute selector which matches the slot:
+If you want to target elements in specific slots you can pass an attribute selector which matches the slot:
 
 ```html
 <fancy-article>
@@ -202,8 +184,7 @@ attribute selector which matches the slot:
 </fancy-article>
 ```
 
-You cannot chain selectors with `::slotted()`, so the following will not
-work:
+You cannot chain selectors with `::slotted()`, so the following will not work:
 
 ```css
 ::slotted(h1) span {
@@ -213,8 +194,8 @@ work:
 
 ## Parts: styling a shadow tree from the outside
 
-The CSS Shadow Part API allows elements within a shadow tree to be
-styled from outside of it. This allows Web Components to be very extensible.
+The CSS Shadow Part API allows elements within a shadow tree to be styled from outside of it. This allows Web Components
+to be very extensible.
 
 ```css
 fancy-article::part(header) {
@@ -250,8 +231,8 @@ fancy-article::part(content) {
 </fancy-article>
 ```
 
-Similar to `::slotted()`, you cannot chain selectors after `::part()` to
-select children or siblings. The following will not work:
+Similar to `::slotted()`, you cannot chain selectors after `::part()` to select children or siblings. The following will
+not work:
 
 ```css
 fancy-article::part(header) slot {
@@ -261,13 +242,11 @@ fancy-article::part(header) slot {
 
 ## How to include default styles for a Web Component
 
-There are a variety of methods to include styles for a Web Component.
-Some will be familiar, but others are newer.
+There are a variety of methods to include styles for a Web Component. Some will be familiar, but others are newer.
 
 ### Using `<style>`
 
-The `<style>` tag is the most simple way to write styles for a Web
-Component. Just include it in your shadow tree:
+The `<style>` tag is the most simple way to write styles for a Web Component. Just include it in your shadow tree:
 
 ```html
 <style>
@@ -279,16 +258,14 @@ Component. Just include it in your shadow tree:
 
 ### Using `<link rel="stylesheet">`
 
-Using a `<link rel="stylesheet">` element in the shadow tree will allow
-you to write styles in an external stylesheet.
+Using a `<link rel="stylesheet">` element in the shadow tree will allow you to write styles in an external stylesheet.
 
 ```html
 <link rel="stylesheet" href="/fancy-article-element.css">
 ```
 
-If you do this, the stylesheet will be loaded after the script is
-loaded. This will likely cause a “flash of unstyled content” (FOUC). To
-circumvent this, you can preload the stylesheet like this:
+If you do this, the stylesheet will be loaded after the script is loaded. This will likely cause a “flash of unstyled
+content” (FOUC). To circumvent this, you can preload the stylesheet like this:
 
 ```html
 <link rel="preload" href="/fancy-article-element.css" as="style">
@@ -296,10 +273,8 @@ circumvent this, you can preload the stylesheet like this:
 
 ### Using Constructable Stylesheets
 
-Constructable Stylesheets are stylesheets which are programmatically
-created in JavaScript. You can create a new stylesheet using the
-`CSSStyleSheet` constructor and set styles with the `.replaceSync()`
-method:
+Constructable Stylesheets are stylesheets which are programmatically created in JavaScript. You can create a new
+stylesheet using the `CSSStyleSheet` constructor and set styles with the `.replaceSync()` method:
 
 ```js
 const stylesheet = new CSSStyleSheet()
@@ -319,10 +294,9 @@ class FancyArticleElement extends HTMLElement {
 
 ### Using CSS Module scripts
 
-CSS Module scripts allow developers to import stylesheets as if they
-were a module script. To do so, use an import assertion where the `type`
-is `css` and then you can add the imported stylesheet to the
-`adoptedStyleSheets` array for the element’s shadow root.
+CSS Module scripts allow developers to import stylesheets as if they were a module script. To do so, use an import
+assertion where the `type` is `css` and then you can add the imported stylesheet to the `adoptedStyleSheets` array for
+the element’s shadow root.
 
 ```js
 import stylesheet from './fancy-article-element.css' assert { type: 'css' }
@@ -333,3 +307,5 @@ class FancyArticleElement extends HTMLElement {
   }
 }
 ```
+
+[CSS custom properties]: https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties
