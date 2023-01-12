@@ -9,10 +9,8 @@ element and it works quite similarily as well.
 
 ## Shadow Encapsulation: Scoped Styles
 
-Styles declared outside of a shadow tree cannot directly select elements within a shadow tree. Conversely, styles
-declared inside a shadow tree cannot directly select elements outside of a shadow tree. For both of these points, there
-are special pseudo-selectors which allow styles to cross the boundary of the Shadow DOM boundary — and we will cover
-them later on — but first we’ll focus on shadow encapsulation and its effect on styling. Here’s a basic demonstration:
+Shadow DOM offers a boundary line between styles outside the tree, and styles inside the tree. Styles cannot cross
+this boundary unintentionally. This is different to regular CSS where a selector can effect every element on a page.
 
 ```html
 <style>
