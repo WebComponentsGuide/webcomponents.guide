@@ -9,8 +9,8 @@ element and it works quite similarily as well.
 
 ## Shadow Encapsulation: Scoped Styles
 
-Shadow DOM offers a boundary line between styles outside the tree, and styles inside the tree. Styles cannot cross
-this boundary unintentionally. This is different to regular CSS where a selector can effect every element on a page.
+Shadow DOM offers a boundary line between styles outside the tree, and styles inside the tree. Styles cannot cross this
+boundary unintentionally. This is different to regular CSS where a selector can effect every element on a page.
 
 ```html
 <style>
@@ -39,9 +39,9 @@ The `<p>` element within the shadow tree is not effected by the styles declared 
 
 Custom elements abide by the same rules of inheritance as other HTML elements. CSS properties whose default value is
 `inherit` will inherit from their parent element, for example `font-size`, `font-family`, and `color`. This `inherit`
-property crosses the Shadow DOM boundary. [CSS custom properties][] default to `inherit`, so they'll cross Shadow DOM
-boundaries too. Top-level elements within a shadow tree inherit properties from the custom element itself (also known
-as the shadow host).
+property crosses the Shadow DOM boundary. [CSS custom properties][css-custom-properties] default to `inherit`, so
+they'll cross Shadow DOM boundaries too. Top-level elements within a shadow tree inherit properties from the custom
+element itself (also known as the shadow host).
 
 ```html
 <style>
@@ -71,8 +71,8 @@ value will also be `deeppink`.
 
 ## Styling elements outside of a shadow tree
 
-In order to be portable, Web Components can provide default styles for the element itself (also known as the shadow host).
-They can also style slotted elements with some default styles.
+In order to be portable, Web Components can provide default styles for the element itself (also known as the shadow
+host). They can also style slotted elements with some default styles.
 
 ### Writing default styles for the shadow host with `:host` and `:host()`
 
@@ -92,9 +92,9 @@ action:
 </fancy-p>
 ```
 
-The `:host()` selector will select the shadow host if it matches a given selector. For example, it can be  used to
-select for hosts that have a given attribute. While `:host` may apply to `<fancy-p>` component, `:host([extra])` would
-apply only to `<fancy-p extra>` elements:
+The `:host()` selector will select the shadow host if it matches a given selector. For example, it can be used to select
+for hosts that have a given attribute. While `:host` may apply to `<fancy-p>` component, `:host([extra])` would apply
+only to `<fancy-p extra>` elements:
 
 ```css
 :host([extra]) {
@@ -104,8 +104,7 @@ apply only to `<fancy-p extra>` elements:
 ```
 
 ```html
-<fancy-p>I not am extra</fancy-p>
-<fancy-p extra>I am extra</fancy-p>
+<fancy-p>I not am extra</fancy-p> <fancy-p extra>I am extra</fancy-p>
 ```
 
 #### Chaining selectors after `:host`
@@ -126,7 +125,6 @@ it will select elements within the shadow tree.
   <p>I am not deeppink.</p>
 </fancy-p>
 ```
-
 
 ### Writing default styles for slotted elements with `::slotted()`
 
@@ -260,14 +258,14 @@ The `<style>` tag is the most simple way to write styles for a Web Component. Ju
 Using a `<link rel="stylesheet">` element in the shadow tree will allow you to write styles in an external stylesheet.
 
 ```html
-<link rel="stylesheet" href="/fancy-article-element.css">
+<link rel="stylesheet" href="/fancy-article-element.css" />
 ```
 
 If you do this, the stylesheet will be loaded after the script is loaded. This will likely cause a “flash of unstyled
 content” (FOUC). To circumvent this, you can preload the stylesheet like this:
 
 ```html
-<link rel="preload" href="/fancy-article-element.css" as="style">
+<link rel="preload" href="/fancy-article-element.css" as="style" />
 ```
 
 ### Using Constructable Stylesheets
@@ -286,7 +284,7 @@ stylesheet.replaceSync(`
 
 class FancyArticleElement extends HTMLElement {
   connectedCallback() {
-    this.attachShadow({mode: 'open'}).adoptedStyleSheets = [stylesheet]
+    this.attachShadow({ mode: "open" }).adoptedStyleSheets = [stylesheet]
   }
 }
 ```
@@ -298,13 +296,13 @@ assertion where the `type` is `css` and then you can add the imported stylesheet
 the element’s shadow root.
 
 ```js
-import stylesheet from './fancy-article-element.css' assert { type: 'css' }
+import stylesheet from "./fancy-article-element.css" assert { type: "css" }
 
 class FancyArticleElement extends HTMLElement {
   connectedCallback() {
-    this.attachShadow({mode: 'open'}).adoptedStyleSheets = [stylesheet]
+    this.attachShadow({ mode: "open" }).adoptedStyleSheets = [stylesheet]
   }
 }
 ```
 
-[CSS custom properties]: https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties
+[css-custom-properties]: https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties
