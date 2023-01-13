@@ -401,6 +401,63 @@ pre[class^="language-"] {
   color: var(--gray-6);
 }
 
-.language-html .tag {
-  color: var(--indigo-6);
+/* Light syntax highlighting */
+.language-css,
+.language-html {
+  --token-punctuation: var(--gray-6);
+}
+.language-html {
+  --token-tag: var(--indigo-6);
+  --token-attr-name: var(--pink-6);
+  --token-attr-equals: var(--gray-6);
+  --token-attr-value: var(--cyan-7);
+}
+.language-css {
+  color: var(--cyan-7);
+  --token-selector: var(--indigo-6);
+  --token-property: var(--pink-6);
+}
+
+/* Dark syntax highlighting */
+@media (prefers-color-scheme: dark) {
+  .language-css,
+  .language-html {
+    --token-punctuation: var(--indigo-2);
+  }
+  .language-html {
+    --token-tag: var(--indigo-4);
+    --token-attr-name: var(--pink-6);
+    --token-attr-equals: var(--indigo-2);
+    --token-attr-value: var(--cyan-6);
+  }
+  .language-css {
+    color: var(--cyan-6);
+    --token-selector: var(--indigo-4);
+    --token-property: var(--pink-6);
+  }
+}
+
+/* Shared tokens */
+.token.punctuation {
+  color: var(--token-punctuation);
+}
+/* CSS tokens */
+.token.selector {
+  color: var(--token-selector);
+}
+.token.property {
+  color: var(--token-property);
+}
+/* HTML tokens */
+.token.tag {
+  color: var(--token-tag);
+}
+.token.attr-name {
+  color: var(--token-attr-name);
+}
+.token.attr-value {
+  color: var(--token-attr-value);
+}
+.token.attr-equals {
+  color: var(--token-attr-equals);
 }
