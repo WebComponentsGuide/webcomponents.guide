@@ -1,6 +1,7 @@
 ---
 order: 4
 title: Rendering the data
+script: [codemirror.js]
 ---
 
 {% stub %}
