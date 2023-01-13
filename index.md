@@ -4,7 +4,7 @@ css: [index.css]
 ---
 
 <hero-header>
-  <img slot="logo" src="/images/logo.svg" />
+  <img slot="logo" src="/images/logo.svg" width="100" height="100">
   <h1 slot="title">Web Components</h1>
   <h2 slot="subtitle">The native way to build powerful user interfaces</h2>
   <a slot="cta" href="/learn">Learn</a>
