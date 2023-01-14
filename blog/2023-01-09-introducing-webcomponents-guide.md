@@ -1,5 +1,5 @@
 ---
-title: Introducing Web Components Guide
+title: Hello World!
 authors: [Keith Cirkel]
 draft: false
 imageslug: blog-introducing-web-components-guide
