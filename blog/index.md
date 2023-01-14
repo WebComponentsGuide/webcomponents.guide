@@ -7,7 +7,7 @@ title: Blog
 <ol class="blog-listing">
 {% for post in collections.blog | reverse %}{%- unless post.data.draft %}
   <li>
-    {{ post.data.title | prepend: "blog " | slugify | picture }}
+    {{ post.data.imageslug | picture }}
     <h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
     <p class="excerpt">{{ post.data.excerpt }}</p>
     <div class="author-block">
