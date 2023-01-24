@@ -5,7 +5,7 @@ body > footer {
 }
 
 .sidebar-nav {
-  display: none;
+  display: none !important;
 }
 
 main {

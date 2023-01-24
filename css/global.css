@@ -234,12 +234,8 @@ page-search svg {
 
 .sidebar-nav {
   border: 0;
-  left: unset;
-  top: unset;
-  inset-block: var(--size-8) 0;
-  inset-inline-end: 0;
+  inset: var(--size-8) 0 0 auto;
   block-size: auto;
-  margin: 0 auto;
   background: var(--surface-1);
   box-shadow: var(--shadow-4);
   inline-size: var(--size-14);
@@ -340,8 +336,7 @@ page-search svg {
 
 @media (--lg-n-above) {
   .sidebar-nav {
-    display: block;
-    inset-block-start: 0;
+    display: block !important;
     padding-block: var(--size-9) 1rem;
   }
 
