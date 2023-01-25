@@ -66,7 +66,7 @@ class CodeInteractiveElement extends HTMLElement {
     extensions: [setup, javascript()],
     parent: this.shadowRoot,
     root: this.shadowRoot,
-    doc: this.textContent
+    doc: this.textContent,
   })
 
   connectedCallback() {

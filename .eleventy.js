@@ -7,34 +7,34 @@ const path = require("node:path")
 const fs = require("node:fs/promises")
 const rss = require("@11ty/eleventy-plugin-rss")
 const dedent = require("dedent")
-const { build } = require("esbuild");
+const { build } = require("esbuild")
 
 const buildJS = (config = {}) => {
   return build({
     minify: process.NODE_ENV === "development" ? false : true,
     bundle: true,
     write: true,
-    outdir: '_site/script',
+    outdir: "_site/script",
     ...config,
-  });
+  })
 }
 
 module.exports = (eleventyConfig) => {
   eleventyConfig.addPlugin(rss)
   eleventyConfig.addPlugin(css)
-  
+
   const entryPoints = glob.sync("script/*.[tj]s")
   eleventyConfig.addWatchTarget("script/*.[tj]s")
 
-  buildJS({entryPoints})
-  
+  buildJS({ entryPoints })
+
   eleventyConfig.on("beforeWatch", (changedFiles) => {
     // Run me before --watch or --serve re-runs
-    if(entryPoints.some(watchPath => changedFiles.includes(watchPath))) {
-      buildJS({entryPoints})
+    if (entryPoints.some((watchPath) => changedFiles.includes(watchPath))) {
+      buildJS({ entryPoints })
     }
-  });
-  
+  })
+
   // eleventyConfig.addPlugin(js, {
   //   entryPoints: glob.sync("script/*.[tj]s"),
   //   outDir: "_site/script",
