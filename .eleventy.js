@@ -15,6 +15,25 @@ const buildJS = (config = {}) => {
     bundle: true,
     write: true,
     outdir: "_site/script",
+    plugins: [
+      {
+        name: "css",
+        setup: (plugin) => {
+          console.log('==================>')
+          plugin.onResolve({filter: /^.*\.css$/}, ({path, importer, resolveDir, kind}) => {
+            return {path, namespace: 'css', pluginData: {importer, resolveDir, kind}}
+          })
+          plugin.onLoad({filter: /^.*\.css$/, namespace: 'css'}, async (ctx) => {
+            const {default: stringToTemplateLiteral} = await import('string-to-template-literal')
+            let contents = await fs.readFile(path.resolve(ctx.pluginData.resolveDir, ctx.path), 'utf8')
+
+            contents = `const c = new CSSStyleSheet(); c.replaceSync(${stringToTemplateLiteral(contents)}); export default c;`
+
+            return {contents, resolveDir: ctx.pluginData.resolveDir}
+          })
+        }
+      }
+    ],
     ...config,
   })
 }
@@ -25,39 +44,15 @@ module.exports = (eleventyConfig) => {
 
   const entryPoints = glob.sync("script/*.[tj]s")
   eleventyConfig.addWatchTarget("script/*.[tj]s")
-
+  
   buildJS({ entryPoints })
 
   eleventyConfig.on("beforeWatch", (changedFiles) => {
     // Run me before --watch or --serve re-runs
-    if (entryPoints.some((watchPath) => changedFiles.includes(watchPath))) {
+    if (changedFiles.some((watchPath) => watchPath.endsWith('.css') || entryPoints.includes(watchPath))) {
       buildJS({ entryPoints })
     }
   })
-
-  // eleventyConfig.addPlugin(js, {
-  //   entryPoints: glob.sync("script/*.[tj]s"),
-  //   outDir: "_site/script",
-  //   esbuild: {
-  //     plugins: [
-  //       {
-  //         name: "css",
-  //         setup: (plugin) => {
-  //           console.log('==================>')
-  //           plugin.onResolve({filter: /^.*\.css$/}, (ctx) => Object.assign(ctx, {namespace: 'css'}))
-  //           plugin.onLoad({filter: /^.*\.css$/, namespace: 'css'}, async (ctx) => {
-  //             let contents = await fs.readFileSync(path.resolve(ctx.resolveDir, ctx.filePath), 'utf8')
-
-  //             contents = `const c = new CSSStyleSheet(); c.replaceSync("${contents}"); export default c;`
-
-  //             return {contents, resolveDir: ctx.resolveDir}
-  //           })
-  //         }
-  //       }
-  //     ],
-  //     minify: false
-  //   }
-  // })
 
   eleventyConfig.addFilter("iso8601", rss.dateToRfc3339)
   eleventyConfig.addFilter("date_to_rfc3339", rss.dateToRfc3339)
