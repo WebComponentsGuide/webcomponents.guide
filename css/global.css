@@ -337,7 +337,6 @@ page-search svg {
 @media (--lg-n-above) {
   .sidebar-nav {
     display: block !important;
-    padding-block: var(--size-9) 1rem;
   }
 
   main,
