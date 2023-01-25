@@ -2,9 +2,6 @@
   background-color: var(--surface-2);
   display: block;
   border-radius: var(--radius-2);
-  max-inline-size: 100ch;
-  padding: var(--size-3);
-  margin-block: var(--size-5);
   overflow-x: auto;
   color: var(--text-2);
 
@@ -20,6 +17,7 @@
   --token-number: var(--green-6);
   --token-comment: var(--teal-6);
   --token-function: var(--pink-6);
+  --token-variable: var(--text-2);
   --token-string: var(--cyan-6);
   --token-template-string: var(--cyan-6);
   --token-interpolation: var(--gray-6);
@@ -29,6 +27,7 @@
 @media (prefers-color-scheme: dark) {
   :host {
     color: var(--cyan-6);
+
     --token-punctuation: var(--indigo-2);
     --token-tag: var(--indigo-4);
     --token-attr-name: var(--pink-6);
@@ -39,35 +38,42 @@
   }
 }
 
+/* stylelint-disable selector-class-pattern */
 .ͼ1 .cm-scroller {
   font-family: var(--font-mono);
+  padding: var(--size-3);
+}
+
+.ͼb {
+  color: var(--token-keyword);
+}
+
+.ͼd {
+  color: var(--token-number);
+}
+
+.ͼe {
+  color: var(--token-string);
 }
 
 .ͼf {
   color: var(--token-template-string);
 }
 
-/* Shared tokens */
-.token.punctuation {
-  color: var(--token-punctuation);
+.ͼg {
+  color: var(--token-variable);
 }
-/* CSS tokens */
-.token.selector {
-  color: var(--token-selector);
+
+.ͼj {
+  color: var(--token-class-name);
 }
-.token.property {
-  color: var(--token-property);
+
+.ͼl {
+  color: var(--token-function);
 }
-/* HTML tokens */
-.token.tag {
-  color: var(--token-tag);
+
+.ͼm {
+  color: var(--token-comment);
 }
-.token.attr-name {
-  color: var(--token-attr-name);
-}
-.token.attr-value {
-  color: var(--token-attr-value);
-}
-.token.attr-equals {
-  color: var(--token-attr-equals);
-}
+
+/* stylelint-enable selector-class-pattern */

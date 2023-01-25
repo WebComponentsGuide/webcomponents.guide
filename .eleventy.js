@@ -72,7 +72,9 @@ module.exports = (eleventyConfig) => {
     html: true,
     linkify: true,
     highlight: (str, lang) => {
-      return `<pre><code-interactive lang="${lang}">${md.utils.escapeHtml(str)}</code-interactive></pre>`
+      return `<pre class="code-interactive"><code-interactive lang="${lang}">${md.utils.escapeHtml(
+        str
+      )}</code-interactive></pre>`
     },
   })
     .use(headers, { prefixHeadingIds: false })

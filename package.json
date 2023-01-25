@@ -74,6 +74,8 @@
     "@11ty/eleventy-fetch": "^3.0.0",
     "@11ty/eleventy-plugin-rss": "^1.2.0",
     "@11ty/eleventy-plugin-syntaxhighlight": "^4.2.0",
+    "@codemirror/lang-css": "^6.0.1",
+    "@codemirror/lang-html": "^6.4.1",
     "@github/relative-time-element": "^4.1.5",
     "@jamshop/eleventy-plugin-esbuild": "WebComponentsGuide/eleventy-plugin-esbuild",
     "@oddbird/popover-polyfill": "^0.0.8",

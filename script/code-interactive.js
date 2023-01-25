@@ -2,37 +2,33 @@ import styles from "../css/code-interactive.css"
 
 import { EditorView } from "codemirror"
 import { javascript } from "@codemirror/lang-javascript"
+import { html } from "@codemirror/lang-html"
+import { css } from "@codemirror/lang-css"
 import {
-  keymap,
-  highlightSpecialChars,
-  drawSelection,
-  highlightActiveLine,
-  dropCursor,
-  rectangularSelection,
   crosshairCursor,
-  lineNumbers,
-  highlightActiveLineGutter,
+  drawSelection,
+  dropCursor,
+  highlightActiveLine,
+  highlightSpecialChars,
+  keymap,
+  rectangularSelection,
 } from "@codemirror/view"
-import { EditorState, Transaction } from "@codemirror/state"
+import { EditorState } from "@codemirror/state"
 import {
-  defaultHighlightStyle,
-  syntaxHighlighting,
-  indentOnInput,
   bracketMatching,
-  foldGutter,
+  defaultHighlightStyle,
   foldKeymap,
+  indentOnInput,
+  syntaxHighlighting,
 } from "@codemirror/language"
 import { defaultKeymap, history, historyKeymap } from "@codemirror/commands"
-import { searchKeymap, highlightSelectionMatches } from "@codemirror/search"
-import { autocompletion, completionKeymap, closeBrackets, closeBracketsKeymap } from "@codemirror/autocomplete"
+import { highlightSelectionMatches, searchKeymap } from "@codemirror/search"
+import { autocompletion, closeBrackets, closeBracketsKeymap, completionKeymap } from "@codemirror/autocomplete"
 import { lintKeymap } from "@codemirror/lint"
 
 const setup = (() => [
-  //lineNumbers(),
-  //highlightActiveLineGutter(),
   highlightSpecialChars(),
   history(),
-  //foldGutter(),
   drawSelection(),
   dropCursor(),
   EditorState.allowMultipleSelections.of(true),
@@ -56,14 +52,14 @@ const setup = (() => [
   ]),
 ])()
 
-class CodeInteractiveElement extends HTMLElement {
+export default class CodeInteractiveElement extends HTMLElement {
   static define(tagName = "code-interactive") {
     customElements.define(tagName, this)
   }
 
   shadowRoot = this.attachShadow({ mode: "open" })
   #editor = new EditorView({
-    extensions: [setup, javascript()],
+    extensions: [setup, javascript(), html(), css()],
     parent: this.shadowRoot,
     root: this.shadowRoot,
     doc: this.textContent,
@@ -73,5 +69,3 @@ class CodeInteractiveElement extends HTMLElement {
     this.shadowRoot.adoptedStyleSheets.push(styles)
   }
 }
-
-CodeInteractiveElement.define()

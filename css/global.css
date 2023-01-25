@@ -354,6 +354,7 @@ page-search {
   margin-block: var(--size-5);
 }
 
+<<<<<<< HEAD
 .language-js .keyword {
   color: var(--orange-6);
 }
@@ -457,4 +458,9 @@ page-search {
 
 .token.attr-equals {
   color: var(--token-attr-equals);
+}
+
+.code-interactive {
+  max-inline-size: 100ch;
+  margin-block: var(--size-5);
 }
