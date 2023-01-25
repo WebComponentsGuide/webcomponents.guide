@@ -70,7 +70,7 @@ class CodeInteractiveElement extends HTMLElement {
   })
 
   connectedCallback() {
-    this.shadowRoot.adoptedStyleSheets = [styles]
+    this.shadowRoot.adoptedStyleSheets.push(styles)
   }
 }
 

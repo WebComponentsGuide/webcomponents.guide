@@ -1,3 +1,73 @@
 :host {
-  background-color: hotpink;
+  background-color: var(--surface-2);
+  display: block;
+  border-radius: var(--radius-2);
+  max-inline-size: 100ch;
+  padding: var(--size-3);
+  margin-block: var(--size-5);
+  overflow-x: auto;
+  color: var(--text-2);
+
+  --token-tag: var(--indigo-6);
+  --token-attr-name: var(--pink-6);
+  --token-attr-equals: var(--gray-6);
+  --token-attr-value: var(--cyan-7);
+  --token-selector: var(--indigo-6);
+  --token-property: var(--pink-6);
+  --token-punctuation: var(--gray-6);
+  --token-keyword: var(--orange-6);
+  --token-class-name: var(--indigo-6);
+  --token-number: var(--green-6);
+  --token-comment: var(--teal-6);
+  --token-function: var(--pink-6);
+  --token-string: var(--cyan-6);
+  --token-template-string: var(--cyan-6);
+  --token-interpolation: var(--gray-6);
+}
+
+/* Dark syntax highlighting */
+@media (prefers-color-scheme: dark) {
+  :host {
+    color: var(--cyan-6);
+    --token-punctuation: var(--indigo-2);
+    --token-tag: var(--indigo-4);
+    --token-attr-name: var(--pink-6);
+    --token-attr-equals: var(--indigo-2);
+    --token-attr-value: var(--cyan-6);
+    --token-selector: var(--indigo-4);
+    --token-property: var(--pink-6);
+  }
+}
+
+.ͼ1 .cm-scroller {
+  font-family: var(--font-mono);
+}
+
+.ͼf {
+  color: var(--token-template-string);
+}
+
+/* Shared tokens */
+.token.punctuation {
+  color: var(--token-punctuation);
+}
+/* CSS tokens */
+.token.selector {
+  color: var(--token-selector);
+}
+.token.property {
+  color: var(--token-property);
+}
+/* HTML tokens */
+.token.tag {
+  color: var(--token-tag);
+}
+.token.attr-name {
+  color: var(--token-attr-name);
+}
+.token.attr-value {
+  color: var(--token-attr-value);
+}
+.token.attr-equals {
+  color: var(--token-attr-equals);
 }
