@@ -37,6 +37,7 @@
     <link href="/feed.xml" rel="alternate" type="application/atom+xml" title="Web Components Guide Blog" />
 
     <script type="module" defer src="/script/polyfills.js"></script>
+    <script type="module" defer src="/script/custom-element-loader.js"></script>
     {% for file in script %}
     <script type="module" defer src="/script/{{ file }}"></script>
     {% endfor %}

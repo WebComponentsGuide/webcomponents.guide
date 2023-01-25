@@ -1,7 +1,6 @@
 ---
 title: Naming your components
 order: 3
-script: ["tag-name-input.js"]
 ---
 
 _Custom Element tag names_ must have at least one dash (`-`) in them. As such you probably want to name your element

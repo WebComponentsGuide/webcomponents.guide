@@ -13,26 +13,34 @@ const buildJS = (config = {}) => {
   return build({
     minify: process.NODE_ENV === "development" ? false : true,
     bundle: true,
+    splitting: true,
     write: true,
+    format: "esm",
+    metafile: true,
     outdir: "_site/script",
     plugins: [
       {
         name: "css",
         setup: (plugin) => {
-          console.log('==================>')
-          plugin.onResolve({filter: /^.*\.css$/}, ({path, importer, resolveDir, kind}) => {
-            return {path, namespace: 'css', pluginData: {importer, resolveDir, kind}}
+          plugin.onResolve({ filter: /^.*\.css$/ }, ({ path, importer, resolveDir, kind }) => {
+            return {
+              path,
+              namespace: "css",
+              pluginData: { importer, resolveDir, kind },
+            }
           })
-          plugin.onLoad({filter: /^.*\.css$/, namespace: 'css'}, async (ctx) => {
-            const {default: stringToTemplateLiteral} = await import('string-to-template-literal')
-            let contents = await fs.readFile(path.resolve(ctx.pluginData.resolveDir, ctx.path), 'utf8')
+          plugin.onLoad({ filter: /^.*\.css$/, namespace: "css" }, async (ctx) => {
+            const { default: stringToTemplateLiteral } = await import("string-to-template-literal")
+            let contents = await fs.readFile(path.resolve(ctx.pluginData.resolveDir, ctx.path), "utf8")
 
-            contents = `const c = new CSSStyleSheet(); c.replaceSync(${stringToTemplateLiteral(contents)}); export default c;`
+            contents = `const c = new CSSStyleSheet(); c.replaceSync(${stringToTemplateLiteral(
+              contents
+            )}); export default c;`
 
-            return {contents, resolveDir: ctx.pluginData.resolveDir}
+            return { contents, resolveDir: ctx.pluginData.resolveDir }
           })
-        }
-      }
+        },
+      },
     ],
     ...config,
   })
@@ -44,12 +52,12 @@ module.exports = (eleventyConfig) => {
 
   const entryPoints = glob.sync("script/*.[tj]s")
   eleventyConfig.addWatchTarget("script/*.[tj]s")
-  
+
   buildJS({ entryPoints })
 
   eleventyConfig.on("beforeWatch", (changedFiles) => {
     // Run me before --watch or --serve re-runs
-    if (changedFiles.some((watchPath) => watchPath.endsWith('.css') || entryPoints.includes(watchPath))) {
+    if (changedFiles.some((watchPath) => watchPath.endsWith(".css") || entryPoints.includes(watchPath))) {
       buildJS({ entryPoints })
     }
   })
