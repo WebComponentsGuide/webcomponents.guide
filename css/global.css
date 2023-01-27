@@ -41,7 +41,6 @@
 
 :where(:focus-visible) {
   outline-style: solid;
-  outline-width: var(--border-1);
 }
 
 :where(:not(pre) > code) {

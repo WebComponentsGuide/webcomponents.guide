@@ -25,7 +25,6 @@ main > header > h1 {
 
 .excerpt {
   margin-block: var(--size-4);
-  color: var(--text-4);
 }
 
 .blog-listing {

@@ -26,7 +26,8 @@
     "extends": "stylelint-config-standard",
     "plugins": [
       "stylelint-use-logical",
-      "stylelint-media-use-custom-media"
+      "stylelint-media-use-custom-media",
+      "stylelint-value-no-unknown-custom-properties"
     ],
     "rules": {
       "csstools/use-logical": "always",
@@ -34,6 +35,16 @@
         "always",
         {
           "importFrom": "./node_modules/open-props/media.min.css"
+        }
+      ],
+      "csstools/value-no-unknown-custom-properties": [
+        true,
+        {
+          "importFrom": [
+            "./css/global.css",
+            "./node_modules/open-props/open-props.min.css",
+            "./node_modules/open-props/normalize.min.css"
+          ]
         }
       ]
     }
@@ -103,6 +114,7 @@
     "stylelint": "^14.16.0",
     "stylelint-config-standard": "^29.0.0",
     "stylelint-media-use-custom-media": "^2.0.1",
-    "stylelint-use-logical": "^2.0.0"
+    "stylelint-use-logical": "^2.0.0",
+    "stylelint-value-no-unknown-custom-properties": "^4.0.0"
   }
 }
