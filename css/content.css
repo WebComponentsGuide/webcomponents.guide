@@ -1,3 +1,5 @@
+@import url("open-props/media.min.css");
+
 .content {
   max-inline-size: 80ch;
   font-size: var(--font-size-2);

@@ -1,3 +1,5 @@
+@import url("open-props/media.min.css");
+
 main,
 body > footer {
   inline-size: 100vw;

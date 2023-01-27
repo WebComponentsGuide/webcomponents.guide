@@ -23,7 +23,6 @@ module.exports = {
         "color-functional-notation": false,
         "custom-media-queries": {
           preserve: false,
-          importFrom: ["node_modules/open-props/media.min.css"],
         },
       },
     }),
