@@ -155,7 +155,7 @@ page-search svg {
   inline-size: var(--size-4);
 
   /* XXX: alignment tweak */
-  margin-top: -2px;
+  margin-block-start: -2px;
 }
 
 .page-head {
@@ -165,7 +165,7 @@ page-search svg {
   block-size: var(--header-block-size);
   padding-inline: var(--size-2);
   background: var(--surface-1);
-  border-bottom: 1px solid var(--surface-3);
+  border-block-end: 1px solid var(--surface-3);
   grid-area: nav;
   display: flex;
   place-items: center;

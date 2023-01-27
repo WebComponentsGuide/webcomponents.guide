@@ -5,14 +5,14 @@ main {
 main > h1 {
   font-weight: normal;
   font-size: var(--font-size-7);
-  border-bottom: var(--border-size-2) solid var(--brand-color-dark);
+  border-block-end: var(--border-size-2) solid var(--brand-color-dark);
   padding-block-end: var(--size-2);
   display: block;
   max-inline-size: 100%;
 }
 
 main > header {
-  border-bottom: var(--border-size-2) solid var(--brand-color-dark);
+  border-block-end: var(--border-size-2) solid var(--brand-color-dark);
   margin-block-end: var(--size-4);
   max-inline-size: 100ch;
 }
@@ -53,7 +53,7 @@ main > header > h1 {
 }
 
 .author-block .avatar {
-  float: left;
+  float: inline-start;
   margin-inline-end: var(--size-3);
 }
 

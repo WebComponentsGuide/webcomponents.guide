@@ -7,7 +7,7 @@ main {
 
 main > h1 {
   font-weight: normal;
-  border-bottom: var(--border-size-2) solid var(--brand-color-dark);
+  border-block-end: var(--border-size-2) solid var(--brand-color-dark);
   padding-block-end: var(--size-2);
   margin-block-end: var(--size-8);
   display: block;

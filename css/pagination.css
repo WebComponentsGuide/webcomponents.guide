@@ -6,7 +6,7 @@
 .pagination :where([slot="next"], [slot="prev"]) {
   flex: 1;
   display: block;
-  border-bottom: var(--border-size-2) solid var(--brand);
+  border-block-end: var(--border-size-2) solid var(--brand);
   padding: var(--size-3);
 }
 
@@ -24,7 +24,7 @@
 }
 
 .pagination [slot="next"] {
-  text-align: right;
+  text-align: end;
 }
 
 .pagination [slot="prev"] svg {

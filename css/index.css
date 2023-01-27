@@ -59,7 +59,6 @@ hero-header > [slot="title"] {
   place-self: center;
   background: var(--brand-gradient) 200%;
   background-clip: text;
-  background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: var(--font-size-fluid-3) !important;
 }
@@ -123,7 +122,6 @@ advantage-item h2 {
   font-weight: var(--font-weight-6);
   margin-block-end: var(--size-3);
   background: linear-gradient(to bottom right, var(--brand-color-medium), var(--brand-color-dark)) 200%;
-  background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
