@@ -4,10 +4,6 @@ body > footer {
   inline-size: 100lvi;
 }
 
-.sidebar-nav {
-  display: none !important;
-}
-
 main {
   display: grid;
   grid-column-gap: 0;
@@ -163,6 +159,10 @@ section {
 }
 
 @media (--lg-n-above) {
+  .sidebar-nav[popover] {
+    display: none;
+  }
+
   section {
     grid-template:
       "code title" 2em

@@ -335,8 +335,8 @@ page-search svg {
 }
 
 @media (--lg-n-above) {
-  .sidebar-nav {
-    display: block !important;
+  .sidebar-nav[popover] {
+    display: block;
   }
 
   main,
