@@ -25,10 +25,17 @@
   "stylelint": {
     "extends": "stylelint-config-standard",
     "plugins": [
-      "stylelint-use-logical"
+      "stylelint-use-logical",
+      "stylelint-media-use-custom-media"
     ],
     "rules": {
-      "csstools/use-logical": "always"
+      "csstools/use-logical": "always",
+      "csstools/media-use-custom-media": [
+        "always",
+        {
+          "importFrom": "./node_modules/open-props/media.min.css"
+        }
+      ]
     }
   },
   "prettier": {
@@ -95,6 +102,7 @@
     "retext-spell": "^5.3.0",
     "stylelint": "^14.16.0",
     "stylelint-config-standard": "^29.0.0",
+    "stylelint-media-use-custom-media": "^2.0.1",
     "stylelint-use-logical": "^2.0.0"
   }
 }

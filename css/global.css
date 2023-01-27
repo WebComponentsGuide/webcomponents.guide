@@ -416,7 +416,7 @@ pre[class^="language-"] {
 }
 
 /* Dark syntax highlighting */
-@media (prefers-color-scheme: dark) {
+@media (--OSdark) {
   .language-css,
   .language-html {
     --token-punctuation: var(--indigo-2);
