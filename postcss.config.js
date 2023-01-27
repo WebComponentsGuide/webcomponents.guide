@@ -10,7 +10,7 @@ module.exports = {
     postcssImport(),
     postcssPresetEnv({
       stage: 0,
-      autoprefixer: false,
+      autoprefixer: true,
       features: {
         "logical-properties-and-values": false,
         "prefers-color-scheme-query": false,
