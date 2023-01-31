@@ -35,6 +35,7 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addPassthroughCopy("images")
   eleventyConfig.addPassthroughCopy("browserconfig.xml")
   eleventyConfig.addPassthroughCopy("site.webmanifest")
+  eleventyConfig.addPassthroughCopy("key.gpg")
 
   eleventyConfig.addGlobalData("discord", "https://discord.gg/CqhDNXepDV")
   eleventyConfig.addGlobalData("baseurl", "https://webcomponents.guide")
