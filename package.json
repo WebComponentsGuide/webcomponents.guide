@@ -62,6 +62,7 @@
   },
   "devDependencies": {
     "@11ty/eleventy": "1.0.2",
+    "@11ty/eleventy-fetch": "^3.0.0",
     "@11ty/eleventy-plugin-rss": "^1.2.0",
     "@11ty/eleventy-plugin-syntaxhighlight": "^4.2.0",
     "@github/relative-time-element": "^4.1.5",
@@ -80,6 +81,7 @@
     "markdown-it": "^13.0.1",
     "markdown-it-github-headings": "^2.0.1",
     "markdownlint-cli": "^0.33.0",
+    "node-fetch": "^3.3.0",
     "open-props": "^1.5.5",
     "postcss": "^8.4.20",
     "postcss-combine-duplicated-selectors": "10.0.3",

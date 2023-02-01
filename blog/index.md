@@ -1,5 +1,6 @@
 ---
 permalink: /blog/
+layout: blog-index.html
 override:tags:
 title: Blog
 ---
@@ -30,6 +31,14 @@ title: Blog
         {{ post.date | iso8601 }}
       </relative-time>
     </div>
+  <aside class="mentions">
+    <a href="{{ post.data.announcePost }}" class="reposts" aria-label="{{ post.data.reposts | size }} Boosts">
+      {% icon "repeat" %}{{ post.data.reposts | size }}
+    </a>
+    <a href="{{ post.data.announcePost }}" class="likes" aria-label="{{ post.data.likes | size }} Likes">
+      {% icon "heart" %}{{ post.data.likes | size }}
+    </a>
+  </aside>
   </li>
 {% endunless %}{% endfor %}
 </ol>

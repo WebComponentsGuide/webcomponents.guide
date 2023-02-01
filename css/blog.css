@@ -29,6 +29,92 @@
   }
 }
 
+.mentions {
+  border-block-start: var(--border-size-2) solid var(--brand-color-dark);
+  max-width: 100ch;
+
+  & :where(.reposts, .likes, .replies) {
+    display: flex;
+    align-items: center;
+    margin: var(--size-4) 0;
+
+    & .type {
+      display: inline-block;
+      inline-size: 130px;
+    }
+
+    & svg {
+      margin-inline-end: var(--size-2);
+    }
+
+    & a {
+      display: inline-block;
+      margin-inline-start: calc(var(--size-4) * -1);
+
+      &:first-of-type {
+        margin-inline-start: var(--size-1);
+      }
+    }
+
+    & .avatar img {
+      border-radius: var(--radius-round);
+      border: var(--border-size-1) solid var(--surface-2);
+      background: var(--surface-1);
+      box-shadow: var(--shadow-3);
+    }
+  }
+
+  & .reposts {
+    color: var(--blue-6);
+  }
+
+  & .likes {
+    color: var(--red-6);
+  }
+
+  & .replies {
+    align-items: start;
+    flex-direction: column;
+
+    & .reply {
+      margin-block: var(--size-3);
+      display: grid;
+      gap: var(--size-2);
+      align-items: center;
+      grid-template:
+        "icon avatar name aside" auto
+        "post post   post post" auto
+        / auto 50px auto 1fr;
+
+      & a {
+        margin: 0;
+        padding: 0;
+      }
+
+      & svg {
+        grid-area: icon;
+      }
+
+      & .avatar {
+        grid-area: avatar;
+        padding-inline-start: var(--size-1);
+      }
+
+      & .name {
+        grid-area: name;
+      }
+
+      & section {
+        grid-area: post;
+      }
+
+      & aside {
+        grid-area: aside;
+      }
+    }
+  }
+}
+
 main {
   padding: var(--size-8);
 
@@ -51,7 +137,7 @@ main {
       "title    title" auto
       "picture  picture" auto
       "excerpt  excerpt" auto
-      "author   author" auto
+      "author   mentions" auto
       / 1fr 1fr;
 
     & > h1 {
@@ -70,6 +156,18 @@ main {
     & > .author-block {
       grid-area: author;
       margin: 0;
+    }
+
+    & > .mentions {
+      border: 0;
+      padding: 0;
+      grid-area: mentions;
+      display: flex;
+      justify-content: flex-end;
+
+      & :where(.reposts, .likes) {
+        margin: 0 var(--size-2);
+      }
     }
   }
 }
@@ -109,6 +207,13 @@ main {
     margin: 0;
   }
 
+  & .mentions {
+    grid-area: mentions;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0;
+    border: 0;
+  }
 }
 
 @media (--lg-n-above) {

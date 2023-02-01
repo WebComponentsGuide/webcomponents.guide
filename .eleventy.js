@@ -21,6 +21,7 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addFilter("date_to_rfc3339", rss.dateToRfc3339)
   eleventyConfig.addFilter("date_to_rfc822", rss.dateToRfc822)
   eleventyConfig.addFilter("html_to_absolute_urls", rss.convertHtmlToAbsoluteUrls)
+  eleventyConfig.addFilter("domain", (str) => new URL(str).hostname)
 
   eleventyConfig.setLibrary(
     "md",
@@ -40,12 +41,12 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addGlobalData("discord", "https://discord.gg/CqhDNXepDV")
   eleventyConfig.addGlobalData("baseurl", "https://webcomponents.guide")
   eleventyConfig.addGlobalData("repository", "https://github.com/WebComponentsGuide/webcomponents.guide")
+  eleventyConfig.addGlobalData("mastodon", "https://fosstodon.org/@webcomponentsguide")
 
   const customGroups = require("./_data/groups.json")
 
   for (const [type, groups] of Object.entries(customGroups)) {
     for (const group of groups) {
-      console.log(`adding ${type} ${group}`)
       eleventyConfig.addCollection(group, (api) => {
         return api
           .getFilteredByGlob(`${type}/**/*.md`)
@@ -61,7 +62,8 @@ module.exports = (eleventyConfig) => {
 
   const icon = (icon) =>
     `<svg width="24" height="24" class="icon icon-${icon}"><use xlink:href="/images/icons.svg#${icon}"></use></svg>`
-  const callout = (content, style = "info") => dedent`
+  const callout = (content, style = "info") =>
+    dedent`
     <div class="callout ${style}">
     ${content}
     ${icon(style)}
@@ -82,12 +84,12 @@ module.exports = (eleventyConfig) => {
     menu: icon("menu"),
   }
   const menu = (first, ...rest) => [menumap[first] || `<strong>${first}</strong>`, ...rest].join(icon("chevron-right"))
-  const picture = (name) => `
-      <picture>
-        <source srcset="/images/${name}.avif" type="image/avif">
-        <source srcset="/images/${name}.webp" type="image/webp">
-        <img src="/images/${name}.jpg">
-      </picture>
+  const picture = (name) =>
+    `<picture>
+      <source srcset="/images/${name}.avif" type="image/avif">
+      <source srcset="/images/${name}.webp" type="image/webp">
+      <img src="/images/${name}.jpg">
+    </picture>
   `
 
   eleventyConfig.addShortcode("icon", icon)
@@ -140,7 +142,6 @@ module.exports = (eleventyConfig) => {
 ${html}
 </div>
     `
-    console.log(out)
     return out
   })
 }

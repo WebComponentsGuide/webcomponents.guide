@@ -4,14 +4,11 @@ css: [content.css, blog.css]
 script: [relative-time.js]
 ---
 
-{% if title == "Blog" %}
-<h1>{{ title }}</h1>
-{%- else %}
 <header>
   <h1>{{ title }}</h1>
   {{ imageslug | picture }}
   <aside class="excerpt">{{ excerpt }}</aside>
-  <div class="author-block">
+  <aside class="author-block">
     {%- for author in authors %}
     <a href="/blog/by-author/{{ author | slugify }}" class="avatar">
       <img
@@ -27,8 +24,32 @@ script: [relative-time.js]
     <a href="/blog/by-author/{{ author | slugify }}"> {{ author }}{% unless forloop.last %}, {% endunless %} </a>
     {%- endfor %}<br />
     <relative-time format="datetime" datetime="{{ page.date | iso8601 }}"> {{ page.date | iso8601 }} </relative-time>
-  </div>
+  </aside>
+  <aside class="mentions">
+    <a href="{{ announcePost }}" class="reposts" aria-label="{{ reposts | size }} Boosts">
+      {% icon "repeat" %}{{ reposts | size }}
+    </a>
+    <a href="{{ announcePost }}" class="likes" aria-label="{{ likes | size }} Likes">
+      {% icon "heart" %}{{ likes | size }}
+    </a>
+  </aside>
 </header>
-{%- endif %}
 
 <section class="content">{{ content }}</section>
+
+<section class="mentions">
+  <div class="reposts">
+    <span class="type"> {% icon "repeat" %} {{ reposts | size }} reposts: {% for repost in reposts %} </span>
+    <a href="{{ repost.author.url }}" class="avatar">
+      <img src="{{ repost.author.photo }}" loading="lazy" decoding="async " width="50" height="50" />
+    </a>
+    {% endfor %}
+  </div>
+  <div class="likes">
+    <span class="type"> {% icon "heart" %} {{ likes | size }} likes: {% for like in likes %} </span>
+    <a href="{{ like.author.url }}" class="avatar">
+      <img src="{{ like.author.photo }}" loading="lazy" decoding="async " width="50" height="50" />
+    </a>
+    {% endfor %}
+  </div>
+</section>
