@@ -6,7 +6,9 @@ const postcssJitProps = require("postcss-jit-props")
 const OpenProps = require("open-props")
 module.exports = {
   plugins: [
-    postcssJitProps(OpenProps),
+    // postcssJitProps({
+    //   files: ["./node_modules/open-props/open-props.min.css", "./node_modules/open-props/media.min.css"],
+    // }),
     postcssImport(),
     postcssPresetEnv({
       stage: 0,
