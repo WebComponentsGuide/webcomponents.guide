@@ -81,10 +81,10 @@ h3 {
 
 a {
   color: currentcolor;
-}
 
-a:hover {
-  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 :target {
@@ -117,13 +117,13 @@ nav > details > :where(ol, ul) > li {
   place-self: center start;
   margin-inline: var(--size-2);
   color: var(--red-4);
-}
 
-.early-badge div {
-  display: block;
-  border: var(--border-size-1) solid currentcolor;
-  border-radius: var(--radius-3);
-  padding-inline: var(--size-2);
+  & div {
+    display: block;
+    border: var(--border-size-1) solid currentcolor;
+    border-radius: var(--radius-3);
+    padding-inline: var(--size-2);
+  }
 }
 
 page-search {
@@ -134,27 +134,27 @@ page-search {
   margin-inline: var(--size-2);
   padding-block: var(--size-2);
   padding-inline-start: calc(var(--icon-offset) + var(--size-2));
-}
 
-page-search form,
-page-search input {
-  margin-inline-start: calc(var(--icon-offset) * -1);
-}
+  & form,
+  & input {
+    margin-inline-start: calc(var(--icon-offset) * -1);
+  }
 
-page-search input {
-  inline-size: var(--size-13);
-  outline-offset: 0;
-  position: relative;
-  padding-inline-start: var(--icon-offset);
-}
+  & input {
+    inline-size: var(--size-13);
+    outline-offset: 0;
+    position: relative;
+    padding-inline-start: var(--icon-offset);
+  }
 
-page-search svg {
-  position: relative;
-  z-index: 2;
-  inline-size: var(--size-4);
+  & svg {
+    position: relative;
+    z-index: 2;
+    inline-size: var(--size-4);
 
-  /* XXX: alignment tweak */
-  margin-block-start: -2px;
+    /* XXX: alignment tweak */
+    margin-block-start: -2px;
+  }
 }
 
 .page-head {
@@ -170,40 +170,40 @@ page-search svg {
   place-items: center;
   box-shadow: var(--shadow-2);
   z-index: 100;
-}
 
-.page-head > [slot="logo"] {
-  outline-offset: 0;
-  inline-size: var(--size-7);
-  background: var(--brand-color-border);
-  border-radius: var(--radius-round);
-  aspect-ratio: 1;
-  margin-inline: var(--size-1);
-}
+  & > [slot="logo"] {
+    outline-offset: 0;
+    inline-size: var(--size-7);
+    background: var(--brand-color-border);
+    border-radius: var(--radius-round);
+    aspect-ratio: 1;
+    margin-inline: var(--size-1);
+  }
 
-.page-head page-search {
-  flex: 1;
-}
+  & page-search {
+    flex: 1;
+  }
 
-.page-head > [slot="nav"] {
-  place-self: center right;
-}
+  & > [slot="nav"] {
+    place-self: center right;
 
-.page-head > [slot="nav"] ol {
-  display: flex;
-  flex-direction: row;
-}
+    & ol {
+      display: flex;
+      flex-direction: row;
+    }
+  }
 
-.page-head a {
-  color: var(--text-1);
-}
+  & a {
+    color: var(--text-1);
 
-.page-head a:where(:hover, :focus-visible) {
-  color: var(--brand-color);
-}
+    &:where(:hover, :focus-visible) {
+      color: var(--brand-color);
+    }
+  }
 
-.page-head [slot="opener"] {
-  display: none;
+  & [slot="opener"] {
+    display: none;
+  }
 }
 
 .page-foot {
@@ -213,22 +213,22 @@ page-search svg {
   display: flex;
   place-content: space-between;
   place-items: center;
-}
 
-.page-foot p {
-  flex: 1;
-}
+  & p {
+    flex: 1;
+  }
 
-.page-foot a:where(:visited) {
-  color: currentcolor;
-}
+  & a:where(:visited) {
+    color: currentcolor;
+  }
 
-.page-foot a:where(:hover, :focus-visible) {
-  color: var(--brand-color);
-}
+  & a:where(:hover, :focus-visible) {
+    color: var(--brand-color);
+  }
 
-.page-foot :where(nav ol) {
-  display: flex;
+  & :where(nav ol) {
+    display: flex;
+  }
 }
 
 .sidebar-nav {
@@ -240,65 +240,65 @@ page-search svg {
   inline-size: var(--size-14);
   padding: 1rem;
   color: inherit;
-}
 
-.sidebar-nav [slot="global-nav"] {
-  background: var(--surface-2);
-  padding: var(--size-2) var(--size-4);
-  margin: calc(var(--size-3) * -1);
-  margin-block-end: var(--size-5);
-}
+  & [slot="global-nav"] {
+    background: var(--surface-2);
+    padding: var(--size-2) var(--size-4);
+    margin: calc(var(--size-3) * -1);
+    margin-block-end: var(--size-5);
 
-.sidebar-nav [slot="global-nav"] ol {
-  padding-inline-start: 0;
-}
+    & ol {
+      padding-inline-start: 0;
+    }
+  }
 
-.sidebar-nav details {
-  margin-block-end: var(--size-5);
-}
+  & details {
+    margin-block-end: var(--size-5);
+  }
 
-.sidebar-nav summary {
-  color: var(--text-2);
-  font-size: var(--font-size-2);
-  font-weight: normal;
-}
+  & summary {
+    color: var(--text-2);
+    font-size: var(--font-size-2);
+    font-weight: normal;
+  }
 
-.sidebar-nav :where(ol, li) {
-  padding-inline-start: var(--size-3);
-}
+  & :where(ol, li) {
+    padding-inline-start: var(--size-3);
+  }
 
-.sidebar-nav details .marker {
-  transition: transform 100ms;
-}
+  & details .marker {
+    transition: transform 100ms;
+  }
 
-.sidebar-nav details:not([open]) .marker {
-  transform: rotate(-180deg);
-}
+  & details:not([open]) .marker {
+    transform: rotate(-180deg);
+  }
 
-.sidebar-nav summary::marker {
-  content: "";
-  display: none;
-}
+  & summary::marker {
+    content: "";
+    display: none;
+  }
 
-.sidebar-nav a:where(:visited) {
-  color: currentcolor;
-}
+  & a:where(:visited) {
+    color: currentcolor;
+  }
 
-.sidebar-nav a:where(:hover, :focus-visible) {
-  text-decoration: underline;
-}
+  & a:where(:hover, :focus-visible) {
+    text-decoration: underline;
+  }
 
-.sidebar-nav details,
-.sidebar-nav summary {
-  background: none;
-}
+  & details,
+  & summary {
+    background: none;
+  }
 
-.sidebar-nav page-search input {
-  border: var(--border-size-2) solid var(--brand-color-border-2);
-}
+  & page-search input {
+    border: var(--border-size-2) solid var(--brand-color-border-2);
+  }
 
-.sidebar-nav > [slot="global-nav"] {
-  display: none;
+  & > [slot="global-nav"] {
+    display: none;
+  }
 }
 
 @media (--lg-n-below) {

@@ -3,33 +3,33 @@
 
 main {
   padding: var(--size-8);
-}
 
-main > h1 {
-  font-weight: normal;
-  border-block-end: var(--border-size-2) solid var(--brand-color-dark);
-  padding-block-end: var(--size-2);
-  margin-block-end: var(--size-8);
-  display: block;
-  max-inline-size: 100vw;
-  max-inline-size: 100lvw;
-}
+  & > h1 {
+    font-weight: normal;
+    border-block-end: var(--border-size-2) solid var(--brand-color-dark);
+    padding-block-end: var(--size-2);
+    margin-block-end: var(--size-8);
+    display: block;
+    max-inline-size: 100vw;
+    max-inline-size: 100lvw;
+  }
 
-main > header {
-  border-block-end: var(--border-size-2) solid var(--brand-color-dark);
-  padding-block-end: var(--size-4);
-  margin-block-end: var(--size-4);
-  max-inline-size: 100ch;
-}
+  & > header {
+    border-block-end: var(--border-size-2) solid var(--brand-color-dark);
+    padding-block-end: var(--size-4);
+    margin-block-end: var(--size-4);
+    max-inline-size: 100ch;
 
-main > header > h1 {
-  font-weight: normal;
-  display: block;
-  margin-block-end: var(--size-4);
-}
+    & > h1 {
+      font-weight: normal;
+      display: block;
+      margin-block-end: var(--size-4);
+    }
 
-main > header > h5 {
-  color: var(--gray-6);
+    & > h5 {
+      color: var(--gray-6);
+    }
+  }
 }
 
 .tutorials-listing {
@@ -37,21 +37,21 @@ main > header > h5 {
   margin: 0;
   padding: 0;
   margin-block-start: var(--size-4);
-}
 
-.tutorials-listing li {
-  padding: 0;
-  margin-block-end: var(--size-8);
-}
+  & li {
+    padding: 0;
+    margin-block-end: var(--size-8);
+  }
 
-.tutorials-listing h3 {
-  margin-block-end: var(--size-2);
-}
+  & h3 {
+    margin-block-end: var(--size-2);
+  }
 
-.tutorials-listing a {
-  display: block;
-}
+  & a {
+    display: block;
+  }
 
-.tutorials-listing picture {
-  margin-block-end: var(--size-4);
+  & picture {
+    margin-block-end: var(--size-4);
+  }
 }

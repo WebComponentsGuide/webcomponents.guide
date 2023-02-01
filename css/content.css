@@ -4,81 +4,81 @@
   max-inline-size: 80ch;
   font-size: var(--font-size-2);
   margin-block-end: var(--size-8);
-}
 
-.content > :where(p, h2, h3, h4, h5) {
-  padding-block: var(--size-3);
-}
+  & > :where(p, h2, h3, h4, h5) {
+    padding-block: var(--size-3);
+  }
 
-.content a {
-  color: var(--brand-color);
-}
+  & a {
+    color: var(--brand-color);
 
-.content a:hover {
-  color: var(--brand-color-very-dark);
-  text-decoration: underline;
-}
+    &:hover {
+      color: var(--brand-color-very-dark);
+      text-decoration: underline;
+    }
+  }
 
-.content h2 {
-  font-size: var(--font-size-5);
-}
+  & h2 {
+    font-size: var(--font-size-5);
+  }
 
-.content h3 {
-  font-size: var(--font-size-4);
-}
+  & h3 {
+    font-size: var(--font-size-4);
+  }
 
-.content h4 {
-  font-size: var(--font-size-3);
-}
+  & h4 {
+    font-size: var(--font-size-3);
+  }
 
-.content h5 {
-  font-size: var(--font-size-2);
-}
+  & h5 {
+    font-size: var(--font-size-2);
+  }
 
-.content :where(th, td) {
-  border-style: solid;
-  border-color: var(--gray-4);
-  border-width: var(--border-size-1) 0 0 var(--border-size-1);
-  padding-inline: var(--size-2);
-  padding-block: var(--size-2);
-}
+  & :where(th, td) {
+    border-style: solid;
+    border-color: var(--gray-4);
+    border-width: var(--border-size-1) 0 0 var(--border-size-1);
+    padding-inline: var(--size-2);
+    padding-block: var(--size-2);
+  }
 
-.content table {
-  border-spacing: 0;
-  inline-size: 100%;
-  margin-block-end: var(--size-5);
-}
+  & table {
+    border-spacing: 0;
+    inline-size: 100%;
+    margin-block-end: var(--size-5);
+  }
 
-.content th {
-  background: var(--gray-2);
-}
+  & th {
+    background: var(--gray-2);
+  }
 
-.content tr:first-child th:first-child {
-  border-start-start-radius: var(--radius-2);
-}
+  & tr:first-child th:first-child {
+    border-start-start-radius: var(--radius-2);
+  }
 
-.content tr:first-child th:last-child {
-  border-start-end-radius: var(--radius-2);
-}
+  & tr:first-child th:last-child {
+    border-start-end-radius: var(--radius-2);
+  }
 
-.content tr:where(:nth-child(even)) td {
-  background: var(--gray-1);
-}
+  & tr:where(:nth-child(even)) td {
+    background: var(--gray-1);
+  }
 
-.content :where(td, th):last-child {
-  border-inline-end-width: var(--border-size-1);
-}
+  & :where(td, th):last-child {
+    border-inline-end-width: var(--border-size-1);
+  }
 
-.content tbody tr:last-child :where(td, th) {
-  border-block-end-width: var(--border-size-1);
-}
+  & tbody tr:last-child :where(td, th) {
+    border-block-end-width: var(--border-size-1);
 
-.content tbody tr:last-child :where(td, th):first-child {
-  border-end-start-radius: var(--radius-2);
-}
+    &:first-child {
+      border-end-start-radius: var(--radius-2);
+    }
+  }
 
-.content tr:last-child td:last-child {
-  border-end-end-radius: var(--radius-2);
+  & tr:last-child td:last-child {
+    border-end-end-radius: var(--radius-2);
+  }
 }
 
 @media (--OSdark) {
@@ -109,46 +109,46 @@
   padding: var(--size-2);
   padding-inline-end: var(--size-4);
   border-radius: var(--radius-2);
-}
 
-.callout p {
-  max-inline-size: 90%;
-}
+  & p {
+    max-inline-size: 90%;
+  }
 
-.callout.info {
-  border: var(--border-size-2) solid var(--blue-3);
-  background: var(--blue-1);
-  color: var(--blue-12);
-}
+  &.info {
+    border: var(--border-size-2) solid var(--blue-3);
+    background: var(--blue-1);
+    color: var(--blue-12);
+  }
 
-.callout.warn {
-  border: var(--border-size-2) solid var(--orange-3);
-  background: var(--orange-1);
-  color: var(--orange-12);
-}
+  &.warn {
+    border: var(--border-size-2) solid var(--orange-3);
+    background: var(--orange-1);
+    color: var(--orange-12);
+  }
 
-.callout.danger {
-  border: var(--border-size-2) solid var(--red-3);
-  background: var(--red-1);
-  color: var(--red-12);
-}
+  &.danger {
+    border: var(--border-size-2) solid var(--red-3);
+    background: var(--red-1);
+    color: var(--red-12);
+  }
 
-.callout.github {
-  border: var(--border-size-2) solid var(--jungle-3);
-  background: var(--jungle-1);
-  color: var(--jungle-12);
-}
+  &.github {
+    border: var(--border-size-2) solid var(--jungle-3);
+    background: var(--jungle-1);
+    color: var(--jungle-12);
+  }
 
-.callout.info svg {
-  color: var(--blue-6);
-}
+  &.info svg {
+    color: var(--blue-6);
+  }
 
-.callout.warn svg {
-  color: var(--orange-6);
-}
+  &.warn svg {
+    color: var(--orange-6);
+  }
 
-.callout.danger svg {
-  color: var(--red-6);
+  &.danger svg {
+    color: var(--red-6);
+  }
 }
 
 @media (--OSdark) {

@@ -1,72 +1,118 @@
-main {
-  padding: var(--size-8);
-}
-
-main > h1 {
-  font-weight: normal;
-  font-size: var(--font-size-7);
-  border-block-end: var(--border-size-2) solid var(--brand-color-dark);
-  padding-block-end: var(--size-2);
-  display: block;
-  max-inline-size: 100%;
-}
-
-main > header {
-  border-block-end: var(--border-size-2) solid var(--brand-color-dark);
-  margin-block-end: var(--size-4);
-  max-inline-size: 100ch;
-}
-
-main > header > h1 {
-  font-weight: normal;
-  display: block;
-  margin-block-end: var(--size-4);
-}
+@import url("open-props/media.min.css");
 
 .excerpt {
   margin-block: var(--size-4);
 }
 
-.blog-listing {
-  list-style: none;
-  padding: 0;
-}
-
-.blog-listing li {
-  display: block;
-  margin-block: var(--size-8);
-}
-
-.blog-listing .excerpt {
-  margin-block: var(--size-2) var(--size-4);
-}
-
-.blog-listing picture {
-  display: block;
-  margin-block-end: var(--size-3);
-}
-
 .author-block {
   clear: both;
   margin-block-end: var(--size-4);
+
+  & .avatar {
+    float: inline-start;
+    margin-inline-end: var(--size-3);
+
+    & + .avatar {
+      margin-inline-start: calc(var(--size-7) * -1);
+    }
+
+    & img {
+      border-radius: var(--radius-round);
+      border: var(--border-size-1) solid var(--surface-2);
+      background: var(--surface-1);
+      box-shadow: var(--shadow-3);
+    }
+  }
+
+  & relative-time {
+    font-size: var(--font-size-0);
+  }
 }
 
-.author-block .avatar {
-  float: inline-start;
-  margin-inline-end: var(--size-3);
+main {
+  padding: var(--size-8);
+
+  & > h1 {
+    font-weight: normal;
+    font-size: var(--font-size-7);
+    border-block-end: var(--border-size-2) solid var(--brand-color-dark);
+    padding-block-end: var(--size-2);
+    display: block;
+    max-inline-size: 100%;
+  }
+
+  & > header {
+    border-block-end: var(--border-size-2) solid var(--brand-color-dark);
+    margin-block-end: var(--size-4);
+    padding-block-end: var(--size-4);
+    max-inline-size: 100ch;
+    display: grid;
+    grid-template:
+      "title    title" auto
+      "picture  picture" auto
+      "excerpt  excerpt" auto
+      "author   author" auto
+      / 1fr 1fr;
+
+    & > h1 {
+      font-weight: normal;
+      grid-area: title;
+    }
+
+    & > picture {
+      grid-area: picture;
+    }
+
+    & > .excerpt {
+      grid-area: excerpt;
+    }
+
+    & > .author-block {
+      grid-area: author;
+      margin: 0;
+    }
+  }
 }
 
-.author-block .avatar + .avatar {
-  margin-inline-start: calc(var(--size-7) * -1);
+.blog-listing {
+  list-style: none;
+  padding: 0;
+
+  & li {
+    display: grid;
+    grid-template:
+      "picture  picture" auto
+      "title    title" auto
+      "excerpt  excerpt" auto
+      "author   mentions" auto
+      / 1fr 1fr;
+    margin-block: var(--size-8);
+  }
+
+  & h3 {
+    grid-area: title;
+  }
+
+  & .excerpt {
+    grid-area: excerpt;
+    margin-block: var(--size-2) var(--size-4);
+  }
+
+  & picture {
+    display: block;
+    margin-block-end: var(--size-3);
+    grid-area: picture;
+  }
+
+  & .author-block {
+    grid-area: author;
+    margin: 0;
+  }
+
 }
 
-.author-block .avatar img {
-  border-radius: var(--radius-round);
-  border: var(--border-size-1) solid var(--surface-2);
-  background: var(--surface-1);
-  box-shadow: var(--shadow-3);
-}
-
-.author-block relative-time {
-  font-size: var(--font-size-0);
+@media (--lg-n-above) {
+  .sidebar-nav[popover] {
+    display: none;
+  }
 }

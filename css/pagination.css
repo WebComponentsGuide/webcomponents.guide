@@ -1,36 +1,36 @@
 .pagination {
   display: flex;
   gap: var(--size-10);
-}
 
-.pagination :where([slot="next"], [slot="prev"]) {
-  flex: 1;
-  display: block;
-  border-block-end: var(--border-size-2) solid var(--brand);
-  padding: var(--size-3);
-}
+  & :where([slot="next"], [slot="prev"]) {
+    flex: 1;
+    display: block;
+    border-block-end: var(--border-size-2) solid var(--brand);
+    padding: var(--size-3);
 
-.pagination :where([slot="next"], [slot="prev"]) span {
-  color: var(--text-2);
-  display: block;
-  font-size: var(--font-size-0);
-  padding-block-end: var(--size-3);
-  text-transform: uppercase;
-}
+    & span {
+      color: var(--text-2);
+      display: block;
+      font-size: var(--font-size-0);
+      padding-block-end: var(--size-3);
+      text-transform: uppercase;
+    }
 
-.pagination :where([slot="next"], [slot="prev"]) svg {
-  margin-block-start: -3px;
-  margin-inline: var(--size-2);
-}
+    & svg {
+      margin-block-start: -3px;
+      margin-inline: var(--size-2);
+    }
+  }
 
-.pagination [slot="next"] {
-  text-align: end;
-}
+  & [slot="next"] {
+    text-align: end;
+  }
 
-.pagination [slot="prev"] svg {
-  margin-inline-start: 0;
-}
+  & [slot="prev"] svg {
+    margin-inline-start: 0;
+  }
 
-.pagination [slot="next"] svg {
-  margin-inline-end: 0;
+  & [slot="next"] svg {
+    margin-inline-end: 0;
+  }
 }

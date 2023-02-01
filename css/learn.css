@@ -3,50 +3,50 @@
 
 main {
   padding: var(--size-8);
-}
 
-main > h1 {
-  font-weight: normal;
-  border-block-end: var(--border-size-2) solid var(--brand-color-dark);
-  padding-block-end: var(--size-2);
-  margin-block-end: var(--size-8);
-  display: block;
-  max-inline-size: 100vw;
-  max-inline-size: 100lvw;
+  & > h1 {
+    font-weight: normal;
+    border-block-end: var(--border-size-2) solid var(--brand-color-dark);
+    padding-block-end: var(--size-2);
+    margin-block-end: var(--size-8);
+    display: block;
+    max-inline-size: 100vw;
+    max-inline-size: 100lvw;
+  }
 }
 
 .interactive-input input {
   margin-inline: var(--size-2);
   margin-block-end: var(--size-2);
-}
 
-.interactive-input input:invalid {
-  border: var(--border-size-2) solid var(--red-3);
-}
+  &:invalid {
+    border: var(--border-size-2) solid var(--red-3);
+  }
 
-.interactive-input input:valid {
-  border: var(--border-size-2) solid var(--green-3);
-}
+  &:valid {
+    border: var(--border-size-2) solid var(--green-3);
+  }
 
-.interactive-input input:placeholder-shown {
-  border: var(--border-size-2) solid var(--gray-3);
-}
+  &:placeholder-shown {
+    border: var(--border-size-2) solid var(--gray-3);
+  }
 
-.interactive-input input ~ :where(.valid, .error, .hint) {
-  display: none;
-}
+  & ~ :where(.valid, .error, .hint) {
+    display: none;
+  }
 
-.interactive-input input:invalid ~ .error {
-  color: var(--red-5);
-  display: block;
-}
+  &:invalid ~ .error {
+    color: var(--red-5);
+    display: block;
+  }
 
-.interactive-input input:not(:placeholder-shown):valid ~ .valid {
-  color: var(--green-5);
-  display: block;
-}
+  &:not(:placeholder-shown):valid ~ .valid {
+    color: var(--green-5);
+    display: block;
+  }
 
-.interactive-input input ~ .hint:has(span:not(:empty)) {
-  color: var(--blue-5);
-  display: block;
+  & ~ .hint:has(span:not(:empty)) {
+    color: var(--blue-5);
+    display: block;
+  }
 }

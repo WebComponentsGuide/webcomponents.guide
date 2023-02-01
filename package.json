@@ -18,7 +18,7 @@
     "start": "eleventy --serve",
     "test": "npm run check",
     "remark": "remark . --quiet --frail",
-    "lint": "stylelint css/*",
+    "lint": "stylelint css/*.css",
     "check": "prettier --check . && npm run remark",
     "format": "prettier --write ."
   },
@@ -27,10 +27,12 @@
     "plugins": [
       "stylelint-use-logical",
       "stylelint-media-use-custom-media",
-      "stylelint-value-no-unknown-custom-properties"
+      "stylelint-value-no-unknown-custom-properties",
+      "stylelint-use-nesting"
     ],
     "rules": {
       "csstools/use-logical": "always",
+      "csstools/use-nesting": "always",
       "csstools/media-use-custom-media": [
         "always",
         {
@@ -115,6 +117,7 @@
     "stylelint-config-standard": "^29.0.0",
     "stylelint-media-use-custom-media": "^2.0.1",
     "stylelint-use-logical": "^2.0.0",
+    "stylelint-use-nesting": "^4.0.0",
     "stylelint-value-no-unknown-custom-properties": "^4.0.0"
   }
 }
