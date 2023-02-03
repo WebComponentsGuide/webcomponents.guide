@@ -3,13 +3,10 @@ title: Autonomous vs Customized Elements
 order: 2
 ---
 
-In the [previous section][defining-a-component] we learned about _Autonomous Custom Elements_ vs _Customized Built-in
-Elements_. The most popular way to make elements is to use the _Autonomous Custom Element_ style, by making up your own
-tag and extending `HTMLElement`. Each style comes with different trade-offs.
-
-Choosing a type of component to build will depend on a lot of factors. _Autonomous Custom Elements_ give you a blank
-canvas to work with. _Customized Built-ins_ **extend** the element you're customizing. Here are some considerations to
-think about:
+The most popular way to make elements is to use the _Autonomous Custom Element_ style, by making up your own tag and
+extending `HTMLElement`. Each style comes with different trade-offs. Choosing a type of component to build will depend
+on a lot of factors. _Autonomous Custom Elements_ give you a blank canvas to work with. _Customized Built-ins_
+**extend** the element you're customizing. Here are some considerations to think about:
 
 ### Tag Name
 
@@ -136,7 +133,6 @@ Custom Element_ is a good choice. To help drive your decision, here's a table su
 
 {% stub %}
 
-[defining-a-component]: /learn/components/
 [shadowdom]: /learn/components/shadowdom
 [content-categories]: https://developer.mozilla.org/en-US/docs/Web/HTML/Content_categories
 [phrasing-content]: https://developer.mozilla.org/en-US/docs/Web/HTML/Content_categories#phrasing_content

@@ -3,10 +3,10 @@ title: Rendering
 order: 5
 ---
 
-When a Web Component is initialized, it can start interacting with the document and make changes to it. While a
-component **could** make changes to the DOM the element is within, there's a better way. Each component can have its own
-DOM, that is _encapsulated_ from the rest of the page. This is called the _ShadowDOM_. A component can create and attach
-a _ShadowDOM_ to itself by using `attachShadow({ mode: 'open' })`:
+When a Web Component initializes, it can start interacting with the document and make changes to it. While a component
+**could** make manipulate other parts of DOM or even it's children, there's a better way. Each component can have its
+own DOM, _encapsulated_ from the rest of the page. This is called the _ShadowDOM_. A component can create and attach a
+_ShadowDOM_ to itself by using `attachShadow({ mode: 'open' })`:
 
 ```js
 class StopWatchElement extends HTMLElement {
@@ -19,14 +19,21 @@ class StopWatchElement extends HTMLElement {
 }
 ```
 
-This DOM tree is exclusive to your Web Component, and the rest of the document can't accidentally influence it. You can
-append new elements into a components _ShadowDOM_ (even stylesheets) and it won't impact other parts of the page. Other
-elements can't accidentally reach in to another elements _ShadowDOM_; DOM APIs like `.querySelector()` won't reach into
-different _ShadowDOMs_. All this means the _ShadowDOM_ is your components safe space to put whatever content it needs to
-render.
+{% tip "info" %}
 
-One way to make use of this _ShadowDOM_ is to set the `.innerHTML` whenever your element gets connected. To do this you
-can use the `connectedCallback()` lifecycle function:
+The `.shadowRoot` property is always present on an element. It will return an elements _open shadow root_ or `null` if
+it doesn't have one. Setting `shadowRoot =` isn't necessary - it's redundant - but it makes the code more readable.
+
+{% endtip %}
+
+This _ShadowDOM_ tree is exclusive to your Web Component. The rest of the document can't accidentally influence it. You
+can add new elements into a _ShadowDOM_ - even stylesheets - and it won't impact the rest of the DOM. Other logic or
+styles won't get access to a components _ShadowDOM_. CSS selectors do not cross the boundary between the main _light
+DOM_ and the _ShadowDOM_. APIs like `.querySelector()`, or `.children` also don't cross this boundary. All this means
+the _ShadowDOM_ is your components safe space to put whatever content it needs to render.
+
+One way to make use of this _ShadowDOM_ is to use the same DOM APIs to construct the contents. For example setting the
+`.innerHTML` whenever your element gets connected. To do this you can use the `connectedCallback()` lifecycle function:
 
 ```js
 class StopWatchElement extends HTMLElement {
@@ -46,12 +53,13 @@ class StopWatchElement extends HTMLElement {
 <my-component></my-component>
 ```
 
-Perhaps a slightly better way to do this is using a `<template>` element, and cloning the contents of it. A key reason
-for this is that cloning from a template requires less computation than setting `innerHTML`. It also separates your
-template from your logic, which will keep code cleaner as your component grows in complexity.
+You can define a `<template>` element up front. Using the `cloneNode()` API efficiently copies the template into the
+_Shadow Root_. This requires less computation than setting `innerHTML` each time, and can be easier to read. It also
+separates your template from your logic. Keeping templates away from logic keeps code cleaner as your component grows in
+complexity.
 
 ```js
-// The template can be defined up front
+// The template can be defined up front and re-used
 const template = document.createElement("template")
 template.innerHTML = `<p>Hello World!</p>`
 

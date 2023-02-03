@@ -252,7 +252,7 @@ Do not try to write prose transitioning to the next page, as not only is this un
 pages around more difficult.
 
 Summaries can be useful for reinforcing complex information throughout the document, but use them sparingly. A summary
-should stand a lone as useful content, and not attempt to clarify unclear content.
+should stand a lone as useful content, and not try to clarify unclear content.
 
 [how-users-read-web]: https://www.nngroup.com/articles/how-users-read-on-the-web/
 [active-voice]: https://en.wikipedia.org/wiki/Active_voice

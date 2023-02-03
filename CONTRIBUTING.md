@@ -11,17 +11,17 @@ Contributions are always welcome! Before contributing, please read the
   [good first issue label](https://github.com/WebComponentsGuide/webcomponents.guide/labels/good%20first%20issue).
 - If you're contributing to larger pieces, like an idea or new section, tutorial, or blog post, then please raise an
   issue first! This way we can discuss an action plan and figure out a high level overview of what we should write.
-- [Reading the styleguide](./STYLEGUIDE.md) will help you write content that fits with our intended style.
+- [Reading the style guide](./STYLEGUIDE.md) will help you write content that fits with our intended style.
 
 ### Setup
 
 You can run the code locally by cloning the repository, and running `npm install` followed by `npm start`:
 
 ```sh
-$ git clone git@github.com:WebComponentsGuide/webcomponents.guide
-$ cd webcomponents.guide
-$ npm install
-$ npm start
+git clone git@github.com:WebComponentsGuide/webcomponents.guide
+cd webcomponents.guide
+npm install
+npm start
 ```
 
 You can now visit <http://localhost:8080/> to see the local copy of the website. As you edit files the website will

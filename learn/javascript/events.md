@@ -5,11 +5,8 @@ order: 3
 
 Web browsers (and server side engines like [NodeJS][node] and [Deno][deno]) include an Event API which has become a
 foundational concept in JavaScript, and is particularly important when we talk about Web Components. The two classes
-that drive all these events are the `Event` class, and the `EventTarget` class.
-
-This section will go over the concepts of Events, the basics of the `EventTarget` and `Event` classes, and the next
-section will touch on some more advanced topics but - as always - if you're interested in learning more MDN has many
-resources that cover Events:
+that drive all these events are the `Event` class, and the `EventTarget` class. MDN has some great in depth guides for
+dealing with Events that go beyond this guide:
 
 - [Introduction to Events](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events)
 - [The EventTarget API](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget)

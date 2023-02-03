@@ -3,14 +3,6 @@ title: Events in more detail
 order: 4
 ---
 
-In the [previous section][events] we learned about `EventTarget` - the class that gives us an event system, with
-`addEventListener` and `dispatchEvent`. We also learned about the `Event` class which `EventTarget` takes and propagates
-to all listeners.
-
-In this section we'll learn about these features in more detail, covering some more advanced topics, techniques, and
-potential pitfalls you'll need to watch out for. It's a good idea to make sure you've got a good understanding of
-everything covered in the [previous section][events] before reading on.
-
 #### Adding multiple listeners
 
 The [previous section][events] showed how you can add an _Event listener_ with `.addEventListener()`, but you can add

@@ -67,7 +67,7 @@ export default {
       {
         noBinary: true,
         // TODO: Reduce this list
-        ignore: ["primitive", "just", "easy", "easily", "straightforward", "invalid", "obvious"],
+        ignore: ["primitive", "just", "easy", "easily", "straightforward", "invalid", "obvious", "host", "hosts"],
       },
     ],
     // TODO: Lower this threshold to 5 / 7

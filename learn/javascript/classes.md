@@ -177,7 +177,7 @@ myupper.#original = "Hello"
 Private fields work like public fields with regards to evaluation. They get evaluated with the class _instantiation_, so
 `this` will refer to the class instance, and function calls will be called each time the class is constructed.
 
-### Using private fields with public APIs to make changeable, _read only state_
+### _Read only fields_ using private state & public APIs
 
 _Private fields_ are useful to have a value that the internals of a class can change, but that outside code cannot. It's
 also often useful to allow outside code to _read_ a classes _private state_, but not change it. To do this you can
@@ -212,7 +212,7 @@ myupper.sentence = "Hello Universe"
 myupper.firstWord = "Hola"
 ```
 
-### Using private fields with public APIs to make reactive fields
+### _Reactive fields_ using private state & public APIs
 
 A _public field_ can be changed on a class instance, and the class will not know when that happens. To make a class
 react to a change in its public fields, you can combine a private field with `get` and `set` functions, like so:
