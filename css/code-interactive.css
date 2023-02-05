@@ -76,4 +76,8 @@
   color: var(--token-comment);
 }
 
+.ͼ2 .cm-activeLine {
+  background-color: unset;
+}
+
 /* stylelint-enable selector-class-pattern */
