@@ -66,6 +66,8 @@
     "@codemirror/search": "^6.2.3",
     "@codemirror/state": "^6.2.0",
     "@codemirror/view": "^6.7.3",
+    "@codemirror/lang-css": "^6.0.1",
+    "@codemirror/lang-html": "^6.4.1",
     "codemirror": "^6.0.1",
     "container-query-polyfill": "^1.0.2"
   },
@@ -74,8 +76,6 @@
     "@11ty/eleventy-fetch": "^3.0.0",
     "@11ty/eleventy-plugin-rss": "^1.2.0",
     "@11ty/eleventy-plugin-syntaxhighlight": "^4.2.0",
-    "@codemirror/lang-css": "^6.0.1",
-    "@codemirror/lang-html": "^6.4.1",
     "@github/relative-time-element": "^4.1.5",
     "@jamshop/eleventy-plugin-esbuild": "WebComponentsGuide/eleventy-plugin-esbuild",
     "@oddbird/popover-polyfill": "^0.0.8",
