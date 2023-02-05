@@ -58,14 +58,30 @@ export default class CodeInteractiveElement extends HTMLElement {
   }
 
   shadowRoot = this.attachShadow({ mode: "open" })
-  #editor = new EditorView({
-    extensions: [setup, javascript(), html(), css()],
-    parent: this.shadowRoot,
-    root: this.shadowRoot,
-    doc: this.textContent,
-  })
+
+  get lang() {
+    return this.getAttribute("lang")
+  }
 
   connectedCallback() {
+    const extensions = [setup]
+
+    if (this.lang === "html") {
+      extensions.push(html())
+    } else if (this.lang === "css") {
+      extensions.push(css())
+    } else {
+      console.warn(`Language ${this.lang} is not supported. Defaulting to JavaScript`)
+      extensions.push(javascript())
+    }
+
+    new EditorView({
+      extensions,
+      parent: this.shadowRoot,
+      root: this.shadowRoot,
+      doc: this.textContent,
+    })
+
     this.shadowRoot.adoptedStyleSheets.push(styles)
   }
 }
