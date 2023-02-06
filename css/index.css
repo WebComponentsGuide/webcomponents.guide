@@ -169,15 +169,15 @@ section {
   }
 }
 
-section .language-js {
+.code-interactive {
   grid-area: code;
   margin: var(--size-4);
   max-inline-size: 100%;
-}
 
-section .language-html {
-  grid-area: code;
-  display: none;
+  &:nth-child(2) {
+    grid-area: code;
+    display: none;
+  }
 }
 
 section h6 {
