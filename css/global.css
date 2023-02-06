@@ -346,15 +346,6 @@ page-search {
   }
 }
 
-pre[class^="language-"] {
-  background: var(--surface-2);
-  border-radius: var(--radius-2);
-  max-inline-size: 100ch;
-  padding: var(--size-3);
-  margin-block: var(--size-5);
-  overflow-x: auto;
-}
-
 .surface {
   box-shadow: var(--shadow-4);
   border-radius: var(--radius-3);
@@ -466,4 +457,9 @@ pre[class^="language-"] {
 
 .token.attr-equals {
   color: var(--token-attr-equals);
+}
+
+.code-interactive {
+  max-inline-size: 100ch;
+  margin-block: var(--size-5);
 }

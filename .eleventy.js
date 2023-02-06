@@ -4,18 +4,63 @@ const headers = require("markdown-it-github-headings")
 const js = require("@jamshop/eleventy-plugin-esbuild")
 const glob = require("glob")
 const path = require("node:path")
-const highlight = require("@11ty/eleventy-plugin-syntaxhighlight")
+const fs = require("node:fs/promises")
 const rss = require("@11ty/eleventy-plugin-rss")
 const dedent = require("dedent")
+const { build } = require("esbuild")
+
+const buildJS = (config = {}) => {
+  return build({
+    minify: process.NODE_ENV === "development" ? false : true,
+    bundle: true,
+    splitting: true,
+    write: true,
+    format: "esm",
+    metafile: true,
+    outdir: "_site/script",
+    plugins: [
+      {
+        name: "css",
+        setup: (plugin) => {
+          plugin.onResolve({ filter: /^.*\.css$/ }, ({ path, importer, resolveDir, kind }) => {
+            return {
+              path,
+              namespace: "css",
+              pluginData: { importer, resolveDir, kind },
+            }
+          })
+          plugin.onLoad({ filter: /^.*\.css$/, namespace: "css" }, async (ctx) => {
+            const { default: stringToTemplateLiteral } = await import("string-to-template-literal")
+            let contents = await fs.readFile(path.resolve(ctx.pluginData.resolveDir, ctx.path), "utf8")
+
+            contents = `const c = new CSSStyleSheet(); c.replaceSync(${stringToTemplateLiteral(
+              contents
+            )}); export default c;`
+
+            return { contents, resolveDir: ctx.pluginData.resolveDir }
+          })
+        },
+      },
+    ],
+    ...config,
+  })
+}
 
 module.exports = (eleventyConfig) => {
   eleventyConfig.addPlugin(rss)
   eleventyConfig.addPlugin(css)
-  eleventyConfig.addPlugin(js, {
-    entryPoints: Object.fromEntries(glob.sync("script/*.[tj]s").map((e) => [path.basename(e, path.extname(e)), e])),
-    output: "_site/script",
+
+  const entryPoints = glob.sync("script/*.[tj]s")
+  eleventyConfig.addWatchTarget("script/*.[tj]s")
+
+  buildJS({ entryPoints })
+
+  eleventyConfig.on("beforeWatch", (changedFiles) => {
+    // Run me before --watch or --serve re-runs
+    if (changedFiles.some((watchPath) => watchPath.endsWith(".css") || entryPoints.includes(watchPath))) {
+      buildJS({ entryPoints })
+    }
   })
-  eleventyConfig.addPlugin(highlight)
 
   eleventyConfig.addFilter("iso8601", rss.dateToRfc3339)
   eleventyConfig.addFilter("date_to_rfc3339", rss.dateToRfc3339)
@@ -23,15 +68,19 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addFilter("html_to_absolute_urls", rss.convertHtmlToAbsoluteUrls)
   eleventyConfig.addFilter("domain", (str) => new URL(str).hostname)
 
-  eleventyConfig.setLibrary(
-    "md",
-    markdown({
-      html: true,
-      linkify: true,
-    })
-      .use(headers, { prefixHeadingIds: false })
-      .disable("code")
-  )
+  const md = markdown({
+    html: true,
+    linkify: true,
+    highlight: (str, lang) => {
+      return `<pre class="code-interactive"><code-interactive lang="${lang}">${md.utils.escapeHtml(
+        str
+      )}</code-interactive></pre>`
+    },
+  })
+    .use(headers, { prefixHeadingIds: false })
+    .disable("code")
+
+  eleventyConfig.setLibrary("md", md)
 
   eleventyConfig.addPassthroughCopy("images")
   eleventyConfig.addPassthroughCopy("browserconfig.xml")

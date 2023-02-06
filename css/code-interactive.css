@@ -1,0 +1,83 @@
+:host {
+  background-color: var(--surface-2);
+  display: block;
+  border-radius: var(--radius-2);
+  overflow-x: auto;
+  color: var(--text-2);
+
+  --token-tag: var(--indigo-6);
+  --token-attr-name: var(--pink-6);
+  --token-attr-equals: var(--gray-6);
+  --token-attr-value: var(--cyan-7);
+  --token-selector: var(--indigo-6);
+  --token-property: var(--pink-6);
+  --token-punctuation: var(--gray-6);
+  --token-keyword: var(--orange-6);
+  --token-class-name: var(--indigo-6);
+  --token-number: var(--green-6);
+  --token-comment: var(--teal-6);
+  --token-function: var(--pink-6);
+  --token-variable: var(--text-2);
+  --token-string: var(--cyan-6);
+  --token-template-string: var(--cyan-6);
+  --token-interpolation: var(--gray-6);
+}
+
+/* Dark syntax highlighting */
+@media (prefers-color-scheme: dark) {
+  :host {
+    color: var(--cyan-6);
+
+    --token-punctuation: var(--indigo-2);
+    --token-tag: var(--indigo-4);
+    --token-attr-name: var(--pink-6);
+    --token-attr-equals: var(--indigo-2);
+    --token-attr-value: var(--cyan-6);
+    --token-selector: var(--indigo-4);
+    --token-property: var(--pink-6);
+  }
+}
+
+/* stylelint-disable selector-class-pattern */
+.ͼ1 .cm-scroller {
+  font-family: var(--font-mono);
+  padding: var(--size-3);
+}
+
+.ͼb {
+  color: var(--token-keyword);
+}
+
+.ͼd {
+  color: var(--token-number);
+}
+
+.ͼe {
+  color: var(--token-string);
+}
+
+.ͼf {
+  color: var(--token-template-string);
+}
+
+.ͼg {
+  color: var(--token-variable);
+}
+
+.ͼj {
+  color: var(--token-class-name);
+}
+
+.ͼl {
+  color: var(--token-function);
+}
+
+.ͼm {
+  color: var(--token-comment);
+}
+
+.ͼ2 .cm-activeLine {
+  background-color: unset;
+}
+
+/* stylelint-enable selector-class-pattern */

@@ -35,6 +35,12 @@
     <link rel="stylesheet" href="/css/{{file}}" />
     {% endfor %}
     <link href="/feed.xml" rel="alternate" type="application/atom+xml" title="Web Components Guide Blog" />
+
+    <script type="module" defer src="/script/polyfills.js"></script>
+    <script type="module" defer src="/script/custom-element-loader.js"></script>
+    {% for file in script %}
+    <script type="module" defer src="/script/{{ file }}"></script>
+    {% endfor %}
   </head>
   <body>
     {% include 'header.html' %} {% include 'navigation.html' %}
@@ -49,10 +55,5 @@
         </ol>
       </nav>
     </footer>
-
-    <script type="module" src="/script/polyfills.js"></script>
-    {% for file in script %}
-    <script type="module" src="/script/{{ file }}"></script>
-    {% endfor %}
   </body>
 </html>
