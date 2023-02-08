@@ -44,7 +44,10 @@ class StopWatchElement extends HTMLElement {
   shadowRoot = this.attachShadow({ mode: "open" })
 
   connectedCallback() {
-    this.shadowRoot.innerHTML = `<p>Hello World!</p>`
+    this.shadowRoot.innerHTML = `
+      <span>00:00:00</span>
+      <button>Start</button>
+    `
   }
 }
 ```
@@ -61,7 +64,10 @@ complexity.
 ```js
 // The template can be defined up front and re-used
 const template = document.createElement("template")
-template.innerHTML = `<p>Hello World!</p>`
+template.innerHTML = `
+  <span>00:00:00</span>
+  <button>Start</button>
+`
 
 class StopWatchElement extends HTMLElement {
   static define(tag = "stop-watch") {
@@ -87,7 +93,8 @@ handle attaching a _shadow root_ and cloning the contents of the template for yo
 ```html
 <stop-watch>
   <template shadowrootmode="open">
-    <p>Hello World</p>
+    <span>00:00:00</span>
+    <button>Start</button>
   </template>
 </stop-watch>
 ```
@@ -101,8 +108,8 @@ class StopWatchElement extends HTMLElement {
   connectedCallback() {
     // The component's ShadowDOM is now available as
     // this.shadowRoot:
-    const pEl = this.shadowRoot.querySelector("p")
-    console.assert(pEl.outerHTML === "<p>Hello world</p>")
+    const el = this.shadowRoot.querySelector("span")
+    console.assert(el.outerHTML === `<span>00:00:00</span>`)
   }
 }
 ```
@@ -123,7 +130,10 @@ JavaScript instead. You can do this by checking if `.shadowRoot` is not null bef
 
 ```js
 const template = document.createElement("template")
-template.innerHTML = `<p>Hello World!</p>`
+template.innerHTML = `
+  <span>00:00:00</span>
+  <button>Start</button>
+`
 
 class StopWatchElement extends HTMLElement {
   static define(tag = "stop-watch") {
@@ -191,7 +201,8 @@ one can also get the _closed ShadowRoot_:
 ```html
 <stop-watch>
   <template shadowrootmode="closed">
-    <p>Hello World</p>
+    <span>00:00:00</span>
+    <button>Start</button>
   </template>
 </stop-watch>
 ```
