@@ -1,5 +1,5 @@
 ---
-title: Private State
+title: Slots
 order: 6
 ---
 

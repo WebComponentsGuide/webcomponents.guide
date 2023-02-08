@@ -1,6 +1,6 @@
 ---
 title: Slots
-order: 5
+order: 6
 ---
 
 {% stub %}

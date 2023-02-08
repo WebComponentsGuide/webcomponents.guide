@@ -1,6 +1,6 @@
 ---
 title: Styling
-order: 6
+order: 7
 ---
 
 Web Components have powerful styling capabilities which make them portable and extensible. Styles declared within the

@@ -1,6 +1,6 @@
 ---
 title: Initializing Your Component
-order: 5
+order: 4
 ---
 
 Components can have many things that make them useful, for example styles, templates, or other information. Some
