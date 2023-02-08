@@ -241,8 +241,8 @@ concepts, for example always use Declarative Shadow DOM. As a general rule, if y
 your prose, then don't use it.
 
 Concepts are useful for capturing a group of APIs, or a technique. For example a Declarative ShadowDOM refers to a
-`template` with a `shadowroot=` _attribute_ inside of HTML. A concept needs to be set up before its use on a page, but
-once it has been explained, you can continue to refer to it without having to recover the APIs it's comprised of.
+`template` with a `shadowrootmode=` _attribute_ inside of HTML. A concept needs to be set up before its use on a page,
+but once it has been explained, you can continue to refer to it without having to recover the APIs it's comprised of.
 
 ## Ending notes, summaries
 

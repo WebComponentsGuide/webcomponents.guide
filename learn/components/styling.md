@@ -21,7 +21,7 @@ boundary unintentionally. This is different to regular CSS where a selector can 
 <p>This text is deeppink and not teal because it is outside of the shadow root.</p>
 
 <fancy-p>
-  <template shadowroot="open">
+  <template shadowrootmode="open">
     <style>
       p {
         color: teal;
@@ -52,7 +52,7 @@ element itself (also known as the shadow host).
 <article>
   <h1>This text is deeppink.</h1>
   <article-meta>
-    <template shadowroot="open">
+    <template shadowrootmode="open">
       <style>
         span {
           font-style: italic;
@@ -80,7 +80,7 @@ styles to the custom element, aka the _shadow host_:
 
 ```html
 <fancy-p>
-  <template shadowroot="open">
+  <template shadowrootmode="open">
     <style>
       :host {
         display: inline-block;
@@ -113,7 +113,7 @@ it will select elements within the shadow tree.
 
 ```html
 <fancy-p>
-  <template shadowroot="open">
+  <template shadowrootmode="open">
     <style>
       :host > p {
         color: deeppink;
@@ -132,7 +132,7 @@ selector. Specifying a selector can be useful for styling specific elements in p
 
 ```html
 <fancy-elements>
-  <template shadowroot="open">
+  <template shadowrootmode="open">
     <style>
       ::slotted(button) {
         color: deeppink;
@@ -153,7 +153,7 @@ If you want to target elements in specific slots you can pass an attribute selec
 
 ```html
 <fancy-article>
-  <template shadowroot="open">
+  <template shadowrootmode="open">
     <style>
       ::slotted([slot="title"]) {
         font-size: 2rem;
@@ -210,7 +210,7 @@ fancy-article::part(content) {
 
 ```html
 <fancy-article>
-  <template shadowroot="open">
+  <template shadowrootmode="open">
     <article part="article">
       <hgroup part="header">
         <slot name="title"></slot>

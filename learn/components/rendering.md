@@ -82,11 +82,11 @@ class StopWatchElement extends HTMLElement {
 If you don't want to define the template within JavaScript, you can instead define it up-front in the HTML of your
 component with a _declarative ShadowDOM template_. When you define a _declarative ShadowDOM template_ the browser will
 handle attaching a _shadow root_ and cloning the contents of the template for you. To do this, you'll need to add a
-`<template>` tag as a child of your element, with a `shadowroot` attribute:
+`<template>` tag as a child of your element, with a `shadowrootmode` attribute:
 
 ```html
 <stop-watch>
-  <template shadowroot="open">
+  <template shadowrootmode="open">
     <p>Hello World</p>
   </template>
 </stop-watch>
@@ -143,10 +143,10 @@ class StopWatchElement extends HTMLElement {
 ### Advanced: Using a closed _ShadowDOM_
 
 You might have noticed that `attachShadow()` has to be passed `mode: 'open'` (and similarly _declarative ShadowDOM_ is
-created using `<template shadowroot="open">`). This tells the ShadowRoot to be in "open" mode, which makes it public.
-Other elements will be able to access an open ShadowRoot via the `.shadowRoot` property - even if you don't set it
-yourself. Generally speaking, open ShadowRoots are the best choice; they still offer good isolation and are easy to work
-with.
+created using `<template shadowrootmode="open">`). This tells the ShadowRoot to be in "open" mode, which makes it
+_public_. Other elements will be able to access an open ShadowRoot via the `.shadowRoot` property - even if you don't
+set it yourself. Generally speaking, open ShadowRoots are the best choice; they still offer good isolation and are easy
+to work with.
 
 Another option, however, is to set it to `mode: 'closed'`. This makes your ShadowRoot private. A _closed ShadowRoot_
 **will not** be accessible via `.shadowRoot` (unless you intentionally assign it to `.shadowRoot`). It will also change
@@ -190,7 +190,7 @@ one can also get the _closed ShadowRoot_:
 
 ```html
 <stop-watch>
-  <template shadowroot="closed">
+  <template shadowrootmode="closed">
     <p>Hello World</p>
   </template>
 </stop-watch>
