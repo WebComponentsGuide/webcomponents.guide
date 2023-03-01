@@ -1,12 +1,12 @@
 ---
-title: Using Signals and Cancellation
+title: Using Cancellation Signals
 order: 2
 ---
 
 Long running tasks, asynchronous tasks, and operations that have a _set up_ and _tear down_ phase, can make use of a
-concept called _cancellation_. If you've used other programming languages you might be familiar with objects like
-`CancellationToken` (or [Go's `context`](https://pkg.go.dev/context)) - JavaScript's equivalent is `AbortSignal` which
-can be operated with an `AbortController`.
+concept called _cancellation signals_. If you've used other programming languages you might be familiar with objects
+like `CancellationToken` (or [Go's `context`](https://pkg.go.dev/context)) - JavaScript's equivalent is `AbortSignal`
+which can be operated with an `AbortController`.
 
 The `AbortController` & `AbortSignal` APIs can help manage operational "life time". Some examples:
 
@@ -14,28 +14,29 @@ The `AbortController` & `AbortSignal` APIs can help manage operational "life tim
 - Overlapping operations, for example cancelling in-flight network fetches to replace them with newer ones
 - Set up and tear down, for example a Web Components `connectedCallback` and `disconnectedCallback`
 
-## Signal Controller Pattern
+## AbortSignal AbortController Pattern
 
-_Signals_ get given to APIs so they know when to abort. Signals are created by _controllers_ (`new AbortSignal()` will
-throw an error). _Controllers_ allow you to make the decision of when a Signal changes. Creating an `AbortController`
-will also create a new _Signal_ accessible via `.signal`. Code that has access to the _controller_ can determine when it
-should be aborted (by calling `.abort()`), while code that has access to the _signal_ can be notified of the abort. To
-make a new `AbortController`, call `new AbortContoller()`. The constructor takes no arguments.
+_Cancellation Signals_ get given to APIs so they know when to abort. An `AbortSignal` is created by a _controller_
+(`new AbortSignal()` will throw an error). _Controllers_ allow you to make the decision of when a _Cancellation Signal_
+changes. Creating an `AbortController` will also create a new `AbortSignal`, accessible via `.signal`. Code that has
+access to the _controller_ can determine when it should be aborted (by calling `.abort()`), while code that has access
+to the _signal_ can be notified of the abort. To make a new `AbortController`, call `new AbortContoller()`. The
+constructor takes no arguments.
 
-A _signals_ `.aborted` property will be `true` if the signal has been aborted - you can periodically check that to stop
-any work that is about to be done. `AbortSignal` is also an `EventTarget` - it emits an `abort` event which you can
+An `AbortSignal`s `.aborted` property will be `true` if the signal has been aborted - you can periodically check that to
+stop any work that is about to be done. `AbortSignal` is also an `EventTarget` - it emits an `abort` event which you can
 listen to and invoke your tear down.
 
 You can also create some basic _controller-free signals_ that follow some common patterns. For example
-`AbortSignal.timeout(1000)` will create a _signal_ that aborts after 1000ms. These _controller-free signals_ cannot be
-manually aborted. However, you can _combine_ controller-free and controllable signals with
+`AbortSignal.timeout(1000)` will create a _cancellation signal_ that aborts after 1000ms. These _controller-free
+signals_ cannot be manually aborted. However, you can _combine_ controller-free and controllable signals with
 `AbortSignal.any([...signals])`.
 
-## Using Signals internally manage your private APIs
+## Using Cancellation Signals internally manage your private APIs
 
-_Signals_ can be used to manage internal state that you might have. You can create an `AbortController` as part of your
-private state, and make use of _signals_ to control behavior. Consumers of your component won't pass these signals to
-you, instead you can use them to track a tasks state internally.
+_Cancellation Signals_ can be used to manage internal state that you might have. You can create an `AbortController` as
+part of your private state, and make use of _signals_ to control behavior. Consumers of your component won't pass these
+signals to you, instead you can use them to track a tasks state internally.
 
 A component with `start()` and `stop()` functions can make the `stop()` function abort the controller, and the `start()`
 function create the controller, while checking if the signal has been aborted during an asynchronous loop like so:
@@ -82,14 +83,15 @@ class StopWatchElement extends HTMLElement {
 }
 ```
 
-## Using Signals in your own public APIs
+## Using Cancellation Signals in your own public APIs
 
 If you can use a signal as part of your internal state, it might be simpler to provide it as part of the public API. If
-you are considering using _signals_ in a public API, it's a good idea to make them an optional part of your API as they
-won't always be _needed_.
+you are considering using _cancellation signals_ in a public API, it's a good idea to make them an optional part of your
+API as they won't always be _needed_.
 
-A component using _signals_ no longer needs separate start & stop methods, instead combining into one and relying on the
-signal to know when to stop. This can often simplify code as there is no need to track state across different methods.
+A component using _cancellation signals_ no longer needs separate start & stop methods, instead combining into one and
+relying on the signal to know when to stop. This can often simplify code as there is no need to track state across
+different methods.
 
 ```js
 class StopWatchElement extends HTMLElement {
@@ -120,14 +122,15 @@ class StopWatchElement extends HTMLElement {
 }
 ```
 
-## Combining multiple Signals
+## Combining multiple Cancellation Signals
 
-It's possible to combine multiple sources of signals - for example combining internal and external signals to allow for
-multiple flavors of API. Two or more signals can be combined into one using `AbortSignal.any()`, which creates a _new
-signal_ that aborts when any of the given _signals_ abort. It's similar to `Promise.any()`, but for Signals.
+It's possible to combine multiple sources of _cancellation signals_ - for example combining internal and external
+_cancellation signals_ to allow for multiple flavors of API. Two or more _cancellation signals_ can be combined into one
+using `AbortSignal.any()`, which creates a _new signal_ that aborts when any of the given _cancellation signals_ abort.
+It's similar to `Promise.any()`, but for `AbortSignal`.
 
-A component can provide the more traditional `start()` and `stop()` APIs, as well allowing signals to be passed via
-`start({ signal })`. Making use of internal and external signals, with `AbortSignal.any()`:
+A component can provide the more traditional `start()` and `stop()` APIs, as well allowing _cancellation signals_ to be
+passed via `start({ signal })`. Making use of internal and external _cancellation signals_, with `AbortSignal.any()`:
 
 ```js
 class StopWatchElement extends HTMLElement {
@@ -172,7 +175,7 @@ class StopWatchElement extends HTMLElement {
 }
 ```
 
-### Using Signals to clean up `disconnectedCallback()`
+### Using Cancellation Signals to clean up `disconnectedCallback()`
 
 _Web Components_ that use the `connectedCallback()` lifecycle hook to set things up typically want to tear down those
 same things in the `disconnectedCallback()`, but this can sometimes get a little unwieldy. Instead of mirroring
@@ -214,12 +217,12 @@ class StopWatchElement extends HTMLElement {
 }
 ```
 
-### Using signals to cancel old requests
+### Using Cancellation Signals to cancel old requests
 
 A common task that components might do is turn a user action into a network fetch. For example a search input might
 query the database every time a character is pressed. If the user types into the input fast enough, old network requests
 might stay _in-flight_, saturating the network and delaying newer requests from coming in, making the component feel
-sluggish. A good way to combat this is to cancel stale requests by using signals:
+sluggish. A good way to combat this is to cancel stale requests by using _cancellation signals_:
 
 ```js
 class SearchInputElement extends HTMLInputElement {
