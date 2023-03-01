@@ -11,7 +11,7 @@ which can be operated with an `AbortController`.
 The `AbortController` & `AbortSignal` APIs can help manage operational "life time". Some examples:
 
 - Long running or asynchronous tasks, for example timers or network fetches
-- Overlapping operations, for example cancelling in-flight network fetches to replace them with newer ones
+- Overlapping operations, for example canceling in-flight network fetches to replace them with newer ones
 - Set up and tear down, for example a Web Components `connectedCallback` and `disconnectedCallback`
 
 ## AbortSignal AbortController Pattern
@@ -19,17 +19,17 @@ The `AbortController` & `AbortSignal` APIs can help manage operational "life tim
 _Cancellation Signals_ get given to APIs so they know when to abort. An `AbortSignal` is created by a _controller_
 (`new AbortSignal()` will throw an error). _Controllers_ allow you to make the decision of when a _Cancellation Signal_
 changes. Creating an `AbortController` will also create a new `AbortSignal`, accessible via `.signal`. Code that has
-access to the _controller_ can determine when it should be aborted (by calling `.abort()`), while code that has access
-to the _signal_ can be notified of the abort. To make a new `AbortController`, call `new AbortContoller()`. The
-constructor takes no arguments.
+access to the _controller_ can decide when it should be aborted (by calling `.abort()`), while code that has access to
+the _signal_ can be notified of the abort. To make a new `AbortController`, call `new AbortContoller()`. The constructor
+takes no arguments.
 
 An `AbortSignal`s `.aborted` property will be `true` if the signal has been aborted - you can periodically check that to
 stop any work that is about to be done. `AbortSignal` is also an `EventTarget` - it emits an `abort` event which you can
 listen to and invoke your tear down.
 
 You can also create some basic _controller-free signals_ that follow some common patterns. For example
-`AbortSignal.timeout(1000)` will create a _cancellation signal_ that aborts after 1000ms. These _controller-free
-signals_ cannot be manually aborted. However, you can _combine_ controller-free and controllable signals with
+`AbortSignal.timeout(1000)` will create a _cancellation signal_ that aborts after 1000 milliseconds. These
+_controller-free signals_ cannot be manually aborted. You can _combine_ controller-free and controllable signals with
 `AbortSignal.any([...signals])`.
 
 ## Using Cancellation Signals internally manage your private APIs
@@ -85,12 +85,12 @@ class StopWatchElement extends HTMLElement {
 
 ## Using Cancellation Signals in your own public APIs
 
-If you can use a signal as part of your internal state, it might be simpler to provide it as part of the public API. If
-you are considering using _cancellation signals_ in a public API, it's a good idea to make them an optional part of your
-API as they won't always be _needed_.
+If you can use a signal as part of your internal state, it might be simpler to add it as part of the public API. If you
+are considering using _cancellation signals_ in a public API, it's a good idea to make them an optional part of your API
+as they won't always be _needed_.
 
 A component using _cancellation signals_ no longer needs separate start & stop methods, instead combining into one and
-relying on the signal to know when to stop. This can often simplify code as there is no need to track state across
+relying on the signal to know when to stop. This can often simplify code as there's no need to track state across
 different methods.
 
 ```js
@@ -125,11 +125,11 @@ class StopWatchElement extends HTMLElement {
 ## Combining multiple Cancellation Signals
 
 It's possible to combine multiple sources of _cancellation signals_ - for example combining internal and external
-_cancellation signals_ to allow for multiple flavors of API. Two or more _cancellation signals_ can be combined into one
+_cancellation signals_ to allow for multiple flavors of API. Two or more _cancellation signals_ can be joined into one
 using `AbortSignal.any()`, which creates a _new signal_ that aborts when any of the given _cancellation signals_ abort.
 It's similar to `Promise.any()`, but for `AbortSignal`.
 
-A component can provide the more traditional `start()` and `stop()` APIs, as well allowing _cancellation signals_ to be
+A component can offer the more traditional `start()` and `stop()` APIs, as well allowing _cancellation signals_ to be
 passed via `start({ signal })`. Making use of internal and external _cancellation signals_, with `AbortSignal.any()`:
 
 ```js
