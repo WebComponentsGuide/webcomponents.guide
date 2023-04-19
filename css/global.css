@@ -336,7 +336,7 @@ page-search {
 
 @media (--lg-n-above) {
   .sidebar-nav[popover] {
-    display: block;
+    display: block !important;
   }
 
   main,
