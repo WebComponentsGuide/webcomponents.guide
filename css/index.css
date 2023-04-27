@@ -158,7 +158,7 @@ section {
 
 @media (--lg-n-above) {
   .sidebar-nav[popover] {
-    display: none;
+    display: none !important;
   }
 
   section {
