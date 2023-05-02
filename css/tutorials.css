@@ -54,4 +54,26 @@ main {
   & picture {
     margin-block-end: var(--size-4);
   }
+
+  .author-block {
+    clear: both;
+    margin-block: var(--size-3) var(--size-4);
+
+    & .avatar {
+      float: inline-start;
+      margin-inline-end: var(--size-3);
+
+      & + .avatar {
+        margin-inline-start: calc(var(--size-7) * -1);
+      }
+
+      & img {
+        border-radius: var(--radius-round);
+        border: var(--border-size-1) solid var(--surface-2);
+        background: var(--surface-1);
+        box-shadow: var(--shadow-3);
+      }
+    }
+  }
+
 }

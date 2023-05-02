@@ -13,7 +13,7 @@ title: Blog
     <p class="excerpt">{{ post.data.excerpt }}</p>
     <div class="author-block">
       {%- for author in post.data.authors %}
-      <a href="/blog/by-author/{{ author | slugify }}" class="avatar">
+      <a href="/tutorials/by-author/{{ author | slugify }}" class="avatar">
           <img src="/images/{{ author | slugify }}-avatar.jpg"
               alt="{{ author }} Avatar"
               loading="lazy"
