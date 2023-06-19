@@ -88,7 +88,7 @@
     "dictionary-en": "^3.2.0",
     "eleventy-postcss-extension": "1.0.0",
     "eslint-plugin-custom-elements": "^0.0.8",
-    "glob": "^8.0.3",
+    "glob": "^10.2.7",
     "markdown-it": "^13.0.1",
     "markdown-it-github-headings": "^2.0.1",
     "markdownlint-cli": "^0.35.0",
