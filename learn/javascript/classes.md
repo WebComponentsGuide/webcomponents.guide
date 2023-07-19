@@ -252,7 +252,7 @@ Classes can extend from other classes. The extended class will receive all the p
 and it can define new methods and properties. The extended class cannot access private state or private methods from the
 parent class. If an extended class overrides the class constructor, it must call the original constructor by using
 `super()`. If the extended class overrides a method that exists on the parent class, it can optionally call
-`super<method>()`.
+`super.<method>()`.
 
 ```js
 class Point {
