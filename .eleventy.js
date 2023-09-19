@@ -87,7 +87,7 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addPassthroughCopy("site.webmanifest")
   eleventyConfig.addPassthroughCopy("key.gpg")
 
-  eleventyConfig.addGlobalData("discord", "https://discord.gg/CqhDNXepDV")
+  eleventyConfig.addGlobalData("discord", "https://discord.gg/fZVH6b69hQ")
   eleventyConfig.addGlobalData("baseurl", "https://webcomponents.guide")
   eleventyConfig.addGlobalData("repository", "https://github.com/WebComponentsGuide/webcomponents.guide")
   eleventyConfig.addGlobalData("mastodon", "https://fosstodon.org/@webcomponentsguide")
