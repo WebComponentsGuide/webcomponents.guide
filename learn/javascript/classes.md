@@ -199,7 +199,7 @@ class Sentence {
   }
 }
 
-const mysentence = new Setence("Hello World.")
+const mysentence = new Sentence("Hello World.")
 
 console.assert(mysentence.sentence === "Hello World.")
 console.assert(mysentence.firstWord === "Hello")
