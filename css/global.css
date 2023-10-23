@@ -322,13 +322,13 @@ page-search {
     display: none;
   }
 
-  .sidebar-nav > [slot="global-nav"] {
+  .sidebar-nav[popover] > [slot="global-nav"] {
     display: block;
   }
 }
 
 @media (--md-n-below) {
-  .sidebar-nav {
+  .sidebar-nav[popover] {
     inline-size: 100%;
   }
 }
