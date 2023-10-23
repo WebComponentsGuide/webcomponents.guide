@@ -231,7 +231,7 @@ page-search {
   }
 }
 
-.sidebar-nav {
+.sidebar-nav[popover] {
   border: 0;
   inset: var(--size-8) 0 0 auto;
   block-size: auto;
