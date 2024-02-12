@@ -78,7 +78,7 @@
     "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
     "@github/relative-time-element": "^4.1.5",
     "@jamshop/eleventy-plugin-esbuild": "WebComponentsGuide/eleventy-plugin-esbuild",
-    "@oddbird/popover-polyfill": "^0.3.0",
+    "@oddbird/popover-polyfill": "^0.4.0",
     "@ungap/custom-elements": "^1.1.1",
     "autoprefixer": "10.4.17",
     "cheerio": "1.0.0-rc.12",
