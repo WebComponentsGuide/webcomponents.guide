@@ -292,17 +292,23 @@ class FancyArticleElement extends HTMLElement {
 ### Using CSS Module scripts
 
 CSS Module scripts allow developers to import stylesheets as if they were a module script. To do so, use an import
-assertion where the `type` is `css` and then you can add the imported stylesheet to the `adoptedStyleSheets` array for
+attribute where the `type` is `css` and then you can add the imported stylesheet to the `adoptedStyleSheets` array for
 the element's shadow root.
 
 ```js
-import stylesheet from "./fancy-article-element.css" assert { type: "css" }
+import stylesheet from "./fancy-article-element.css" with { type: "css" }
 
 class FancyArticleElement extends HTMLElement {
   connectedCallback() {
     this.attachShadow({ mode: "open" }).adoptedStyleSheets = [stylesheet]
   }
 }
+```
+
+Note that import assertion (the old name for import attributes) has been deprecated. The following will not work in :
+
+```js
+import stylesheet from "./fancy-article-element.css" assert { type: "css" }
 ```
 
 [css-custom-properties]: https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties
