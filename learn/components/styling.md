@@ -305,7 +305,7 @@ class FancyArticleElement extends HTMLElement {
 }
 ```
 
-Note that import assertion (the old name for import attributes) has been deprecated. The following will not work in :
+Note that import assertion (the old name for import attributes) has been deprecated. The following will not work:
 
 ```js
 import stylesheet from "./fancy-article-element.css" assert { type: "css" }
