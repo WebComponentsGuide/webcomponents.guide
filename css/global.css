@@ -45,6 +45,7 @@
 
 :where(:not(pre) > code) {
   color: var(--text-2);
+  padding: 0 var(--size-2);
 }
 
 html:focus-within {
