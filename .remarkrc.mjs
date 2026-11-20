@@ -1,5 +1,5 @@
 import retext from "remark-retext"
-import { Parser } from "retext-english"
+import { ParseEnglish } from "parse-english"
 import dictionary from "dictionary-en"
 import { readFileSync } from "node:fs"
 export default {
@@ -19,7 +19,7 @@ export default {
     ["remark-lint-no-undefined-references", false],
     ["remark-lint-no-shell-dollars", false],
     ["remark-lint-maximum-heading-length", 73],
-    [retext, Parser],
+    [retext, ParseEnglish],
     "retext-diacritics",
     "retext-indefinite-article",
     "retext-redundant-acronyms",

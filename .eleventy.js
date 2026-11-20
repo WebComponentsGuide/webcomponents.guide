@@ -1,7 +1,7 @@
-const css = require("eleventy-postcss-extension")
+const postcss = require("postcss")
+const postcssConfig = require("./postcss.config.js")
 const markdown = require("markdown-it")
 const headers = require("markdown-it-github-headings")
-const js = require("@jamshop/eleventy-plugin-esbuild")
 const glob = require("glob")
 const path = require("node:path")
 const fs = require("node:fs/promises")
@@ -34,7 +34,7 @@ const buildJS = (config = {}) => {
             let contents = await fs.readFile(path.resolve(ctx.pluginData.resolveDir, ctx.path), "utf8")
 
             contents = `const c = new CSSStyleSheet(); c.replaceSync(${stringToTemplateLiteral(
-              contents
+              contents,
             )}); export default c;`
 
             return { contents, resolveDir: ctx.pluginData.resolveDir }
@@ -47,8 +47,17 @@ const buildJS = (config = {}) => {
 }
 
 module.exports = (eleventyConfig) => {
-  eleventyConfig.addPlugin(rss)
-  eleventyConfig.addPlugin(css)
+  eleventyConfig.addPlugin(rss.rssPlugin)
+  eleventyConfig.ignores.add("AGENTS.md")
+  eleventyConfig.addTemplateFormats("css")
+  eleventyConfig.addExtension("css", {
+    outputFileExtension: "css",
+    compile: (input, inputPath) => {
+      if (path.parse(inputPath).name.startsWith("_")) return
+      return async ({ page }) =>
+        (await postcss(postcssConfig.plugins).process(input, { from: inputPath, to: page.outputPath })).css
+    },
+  })
 
   const entryPoints = glob.sync("script/*.[tj]s")
   eleventyConfig.addWatchTarget("script/*.[tj]s")
@@ -73,7 +82,7 @@ module.exports = (eleventyConfig) => {
     linkify: true,
     highlight: (str, lang) => {
       return `<pre class="code-interactive"><code-interactive lang="${lang}">${md.utils.escapeHtml(
-        str
+        str,
       )}</code-interactive></pre>`
     },
   })
@@ -156,7 +165,7 @@ module.exports = (eleventyConfig) => {
         contributing documentation here
         </a>!</p>
       `,
-      "github"
+      "github",
     )
   })
 

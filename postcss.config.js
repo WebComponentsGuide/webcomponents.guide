@@ -1,7 +1,7 @@
 const postcssPresetEnv = require("postcss-preset-env")
 const postcssImport = require("postcss-import")
 const cssnano = require("cssnano")
-const combineSelectors = require("postcss-combine-duplicated-selectors")
+const combineSelectors = require("postcss-combine-duplicated-selectors").default
 const postcssJitProps = require("postcss-jit-props")
 const OpenProps = require("open-props")
 module.exports = {

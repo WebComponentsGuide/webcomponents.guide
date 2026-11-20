@@ -8,7 +8,7 @@ body > footer {
 
 main {
   display: grid;
-  grid-column-gap: 0;
+  column-gap: 0;
   grid-template:
     "hero    hero     hero" 0.1fr
     "adv1    adv2     adv3" 0.1fr
@@ -30,9 +30,11 @@ hero-header {
   grid-area: hero;
   display: grid;
   grid-template-columns: repeat(auto-fit, 25%);
-  grid-row-gap: var(--size-3);
+  row-gap: var(--size-3);
   padding: var(--size-6) var(--size-2);
-  background: linear-gradient(to bottom, #0000 75%, var(--surface-1)) repeat-x, url("../images/bkg.svg") repeat;
+  background:
+    linear-gradient(to bottom, #0000 75%, var(--surface-1)) repeat-x,
+    url("../images/bkg.svg") repeat;
   background-size: 100%, 100px;
   padding-block-end: var(--size-11);
   text-align: center;
@@ -148,7 +150,7 @@ advantage-item {
 section {
   grid-area: content;
   display: grid;
-  grid-column-gap: var(--size-3);
+  column-gap: var(--size-3);
   grid-template:
     "code" auto
     "title" 2em

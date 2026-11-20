@@ -156,7 +156,7 @@ customElements.define(
   "my-element",
   class extends HTMLElement {
     static observedAttributes = ["some-attr"]
-  }
+  },
 )
 
 const el = document.createElement("my-element")

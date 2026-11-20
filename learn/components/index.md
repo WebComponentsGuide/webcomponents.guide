@@ -30,7 +30,7 @@ The class has to extend from `HTMLElement`. Here's an example:
 ```js
 customElements.define(
   "my-element", // The tag name
-  class extends HTMLElement {} // The class definition
+  class extends HTMLElement {}, // The class definition
 )
 ```
 
@@ -57,7 +57,7 @@ _built-in_ tag:
 customElements.define(
   "fancy-button", // The name
   class extends HTMLButtonElement {}, // The class definition
-  { extends: "button" } // Only extend "button" elements
+  { extends: "button" }, // Only extend "button" elements
 )
 ```
 

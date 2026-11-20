@@ -38,7 +38,7 @@ function scan(node) {
         dynamicElements.delete(tagName)
         timers.delete(node)
       }
-    })
+    }),
   )
 }
 
